@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://0boqn85t7bks"]
+
+[ext_resource type="PackedScene" uid="uid://ciy2atqwdq2t5" path="res://ScenesAndScripts/room.tscn" id="1_6umu5"]
+[ext_resource type="Script" uid="uid://clk66xyu6y41d" path="res://ScenesAndScripts/world.gd" id="1_badxg"]
+[ext_resource type="PackedScene" uid="uid://8mwywa4awn30" path="res://ScenesAndScripts/ball.tscn" id="2_sc030"]
+[ext_resource type="PackedScene" uid="uid://cskx3gpeuxh5b" path="res://ScenesAndScripts/target.tscn" id="3_arfx4"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_badxg")
+
+[node name="Room" parent="." instance=ExtResource("1_6umu5")]
+
+[node name="Ball" parent="." instance=ExtResource("2_sc030")]
+position = Vector2(544, 328)
+
+[node name="Target" parent="." instance=ExtResource("3_arfx4")]
+position = Vector2(672, 200)
+
+[node name="Target2" parent="." instance=ExtResource("3_arfx4")]
+position = Vector2(744, 136)
+
+[node name="Target3" parent="." instance=ExtResource("3_arfx4")]
+position = Vector2(1048, 304)

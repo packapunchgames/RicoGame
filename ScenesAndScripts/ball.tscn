@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://8mwywa4awn30"]
+
+[ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="1_fr7ir"]
+[ext_resource type="Script" uid="uid://b41bbnfex73u3" path="res://ScenesAndScripts/ball.gd" id="1_u80ob"]
+[ext_resource type="Script" uid="uid://0448pcmbuw30" path="res://ScenesAndScripts/preview_vector.gd" id="3_0vprl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pd41g"]
+radius = 65.9697
+
+[node name="Ball" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_u80ob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pd41g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fr7ir")
+
+[node name="PreviewVector" type="ProgressBar" parent="."]
+offset_left = 100.0
+offset_right = 192.0
+offset_bottom = 27.0
+rotation = -6.28319
+pivot_offset = Vector2(-100, 0)
+script = ExtResource("3_0vprl")
