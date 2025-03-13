@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://8mwywa4awn30"]
+[gd_scene load_steps=6 format=3 uid="uid://8mwywa4awn30"]
 
 [ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="1_fr7ir"]
 [ext_resource type="Script" uid="uid://b41bbnfex73u3" path="res://ScenesAndScripts/ball.gd" id="1_u80ob"]
 [ext_resource type="Script" uid="uid://0448pcmbuw30" path="res://ScenesAndScripts/preview_vector.gd" id="3_0vprl"]
+[ext_resource type="Script" uid="uid://cbjdrsxrovtya" path="res://ScenesAndScripts/preview.gd" id="4_4u0h2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pd41g"]
 radius = 65.9697
@@ -24,3 +25,14 @@ offset_bottom = 27.0
 rotation = -6.28319
 pivot_offset = Vector2(-100, 0)
 script = ExtResource("3_0vprl")
+metadata/_edit_use_anchors_ = true
+
+[node name="Preview" type="Node2D" parent="."]
+script = ExtResource("4_4u0h2")
+ray_length = 1000
+
+[node name="Line2D" type="Line2D" parent="Preview"]
+points = PackedVector2Array(0, 0, 1000, 0, 1000, 0, 1000, 0, 1000, 0, 1000, 0)
+default_color = Color(0.75, 0, 0, 1)
+
+[node name="LaserPreviewStart" type="Marker2D" parent="."]
