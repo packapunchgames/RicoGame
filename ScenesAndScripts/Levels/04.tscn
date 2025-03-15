@@ -12,7 +12,7 @@ script = ExtResource("1_8a861")
 
 [node name="Room" parent="." instance=ExtResource("2_vuxsv")]
 
-[node name="Targets" type="Node" parent="."]
+[node name="Targets" type="Node2D" parent="."]
 
 [node name="Target" parent="Targets" instance=ExtResource("3_iuypd")]
 position = Vector2(680, 880)
@@ -20,7 +20,7 @@ position = Vector2(680, 880)
 [node name="Target2" parent="Targets" instance=ExtResource("3_iuypd")]
 position = Vector2(1480, 520)
 
-[node name="Obstacles" type="Node" parent="."]
+[node name="Obstacles" type="Node2D" parent="."]
 
 [node name="SolidObstacle" parent="Obstacles" instance=ExtResource("4_qgoau")]
 position = Vector2(480, 240)

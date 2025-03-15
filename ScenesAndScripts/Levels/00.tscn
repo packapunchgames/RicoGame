@@ -11,7 +11,7 @@ script = ExtResource("1_su33q")
 
 [node name="Room" parent="." instance=ExtResource("2_6fhgs")]
 
-[node name="Targets" type="Node" parent="."]
+[node name="Targets" type="Node2D" parent="."]
 
 [node name="Target" parent="Targets" instance=ExtResource("3_ijrf3")]
 position = Vector2(720, 920)
@@ -24,6 +24,8 @@ position = Vector2(1200, 760)
 
 [node name="Target4" parent="Targets" instance=ExtResource("3_ijrf3")]
 position = Vector2(1320, 680)
+
+[node name="Obstacles" type="Node2D" parent="."]
 
 [node name="Ball" parent="." instance=ExtResource("4_aovss")]
 position = Vector2(440, 760)

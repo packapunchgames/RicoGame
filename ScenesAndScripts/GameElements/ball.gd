@@ -12,6 +12,8 @@ var heading : float
 var force : float
 var hasStarted : bool = false
 
+func _ready() -> void:
+	Global.player = self
 
 func _input(_event: InputEvent) -> void:
 	var mousePos := get_global_mouse_position()
@@ -22,6 +24,7 @@ func _input(_event: InputEvent) -> void:
 		pressVector = mousePos
 		heading = pressVector.angle_to_point(initPos)
 		force = pressVector.distance_to(initPos)
+		force = clamp(force, 0, topSpeed)
 	elif Input.is_action_just_released("press") and hasStarted:
 		hasStarted = false
 		force = clamp(force, 0, topSpeed)

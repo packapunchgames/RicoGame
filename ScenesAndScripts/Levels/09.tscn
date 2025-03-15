@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://0frufl1mmx4e"]
+[gd_scene load_steps=7 format=3 uid="uid://b4o73yauyfhdx"]
 
 [ext_resource type="Script" uid="uid://clk66xyu6y41d" path="res://ScenesAndScripts/world.gd" id="1_owr34"]
 [ext_resource type="PackedScene" uid="uid://ciy2atqwdq2t5" path="res://ScenesAndScripts/GameElements/room.tscn" id="2_t8e7p"]
@@ -15,35 +15,102 @@ script = ExtResource("1_owr34")
 [node name="Targets" type="Node2D" parent="."]
 
 [node name="Target" parent="Targets" instance=ExtResource("3_f4tj5")]
-position = Vector2(1280, 840)
+position = Vector2(160, 480)
 
 [node name="Target2" parent="Targets" instance=ExtResource("3_f4tj5")]
-position = Vector2(1760, 600)
+position = Vector2(160, 360)
 
 [node name="Target3" parent="Targets" instance=ExtResource("3_f4tj5")]
-position = Vector2(1360, 120)
+position = Vector2(160, 240)
 
 [node name="Target4" parent="Targets" instance=ExtResource("3_f4tj5")]
-position = Vector2(480, 960)
+position = Vector2(280, 160)
+
+[node name="Target5" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(440, 160)
+
+[node name="Target6" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(600, 160)
+
+[node name="Target8" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(760, 160)
+
+[node name="Target7" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(920, 160)
+
+[node name="Target9" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(1080, 160)
+
+[node name="Target10" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(1240, 160)
+
+[node name="Target11" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(1400, 160)
+
+[node name="Target12" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(1560, 160)
+
+[node name="Target13" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(1720, 160)
+
+[node name="Target20" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(240, 960)
+
+[node name="Target21" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(400, 960)
+
+[node name="Target22" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(560, 960)
+
+[node name="Target23" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(720, 960)
+
+[node name="Target24" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(880, 960)
+
+[node name="Target25" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(1040, 960)
+
+[node name="Target26" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(1200, 960)
+
+[node name="Target27" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(1360, 960)
+
+[node name="Target28" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(1520, 960)
+
+[node name="Target29" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(1680, 960)
+
+[node name="Target14" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(1760, 280)
+
+[node name="Target15" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(1760, 400)
+
+[node name="Target16" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(1760, 520)
+
+[node name="Target17" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(1760, 640)
+
+[node name="Target18" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(1760, 760)
+
+[node name="Target19" parent="Targets" instance=ExtResource("3_f4tj5")]
+position = Vector2(1760, 880)
 
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="SolidObstacle" parent="Obstacles" instance=ExtResource("4_f0w6x")]
 position = Vector2(240, -240)
-polygon = PackedVector2Array(320, 280, 720, 600, 1000, 280)
-
-[node name="SolidObstacle3" parent="Obstacles" instance=ExtResource("4_f0w6x")]
-position = Vector2(640, 80)
-polygon = PackedVector2Array(-600, 480, 40, -40, -40, -40, -600, -40)
-
-[node name="SolidObstacle4" parent="Obstacles" instance=ExtResource("4_f0w6x")]
-position = Vector2(640, 80)
-polygon = PackedVector2Array(-80, 960, 320, 560, 760, 960)
+polygon = PackedVector2Array(0, 480, 0, 760, 120, 760, 120, 600, 1320, 600, 1320, 1000, -200, 1000, -200, 1120, 1440, 1120, 1440, 480)
 
 [node name="Ball" parent="." instance=ExtResource("5_ohvqb")]
-position = Vector2(960, 520)
+position = Vector2(240, 680)
 
 [node name="Preview" parent="Ball" instance=ExtResource("6_0k86i")]
 points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-angle = 45.0
+angle = 123.06
 max_points = 770
