@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://qp1bbto0we3b"]
+
+[ext_resource type="Script" uid="uid://clk66xyu6y41d" path="res://ScenesAndScripts/world.gd" id="1_wbgri"]
+[ext_resource type="PackedScene" uid="uid://ciy2atqwdq2t5" path="res://ScenesAndScripts/GameElements/room.tscn" id="2_hdvcw"]
+[ext_resource type="PackedScene" uid="uid://cskx3gpeuxh5b" path="res://ScenesAndScripts/GameElements/target.tscn" id="3_hklbg"]
+[ext_resource type="PackedScene" uid="uid://cf1mmahnemqfo" path="res://ScenesAndScripts/GameElements/solid_obstacle.tscn" id="4_hut4f"]
+[ext_resource type="PackedScene" uid="uid://8mwywa4awn30" path="res://ScenesAndScripts/GameElements/ball.tscn" id="5_e4p26"]
+[ext_resource type="PackedScene" uid="uid://b15nqvra1cslp" path="res://ScenesAndScripts/Components/preview.tscn" id="6_0cnsr"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_wbgri")
+
+[node name="Room" parent="." instance=ExtResource("2_hdvcw")]
+
+[node name="Targets" type="Node" parent="."]
+
+[node name="Target" parent="Targets" instance=ExtResource("3_hklbg")]
+position = Vector2(520, 720)
+
+[node name="Target2" parent="Targets" instance=ExtResource("3_hklbg")]
+position = Vector2(680, 600)
+
+[node name="Target3" parent="Targets" instance=ExtResource("3_hklbg")]
+position = Vector2(520, 480)
+
+[node name="Target4" parent="Targets" instance=ExtResource("3_hklbg")]
+position = Vector2(1040, 160)
+
+[node name="Target5" parent="Targets" instance=ExtResource("3_hklbg")]
+position = Vector2(1400, 360)
+
+[node name="Target6" parent="Targets" instance=ExtResource("3_hklbg")]
+position = Vector2(1240, 480)
+
+[node name="Target7" parent="Targets" instance=ExtResource("3_hklbg")]
+position = Vector2(1400, 600)
+
+[node name="Target8" parent="Targets" instance=ExtResource("3_hklbg")]
+position = Vector2(1240, 720)
+
+[node name="Target9" parent="Targets" instance=ExtResource("3_hklbg")]
+position = Vector2(1400, 880)
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="SolidObstacle" parent="Obstacles" instance=ExtResource("4_hut4f")]
+position = Vector2(360, 360)
+polygon = PackedVector2Array(0, -120, 80, -200, 80, 560, 0, 480)
+
+[node name="SolidObstacle4" parent="Obstacles" instance=ExtResource("4_hut4f")]
+position = Vector2(1480, 360)
+polygon = PackedVector2Array(0, -200, 80, -120, 80, 480, 0, 560)
+
+[node name="SolidObstacle2" parent="Obstacles" instance=ExtResource("4_hut4f")]
+position = Vector2(760, 360)
+polygon = PackedVector2Array(0, 80, 80, 0, 80, 480, 0, 560)
+
+[node name="SolidObstacle3" parent="Obstacles" instance=ExtResource("4_hut4f")]
+position = Vector2(1080, 360)
+polygon = PackedVector2Array(0, 0, 80, 80, 80, 560, 0, 480)
+
+[node name="Ball" parent="." instance=ExtResource("5_e4p26")]
+position = Vector2(640, 840)
+
+[node name="Preview" parent="Ball" instance=ExtResource("6_0cnsr")]
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+angle = 215.1
+max_points = 320

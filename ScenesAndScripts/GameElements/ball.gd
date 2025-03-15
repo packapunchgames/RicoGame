@@ -13,7 +13,6 @@ var force : float
 var hasStarted : bool = false
 
 
-
 func _input(_event: InputEvent) -> void:
 	var mousePos := get_global_mouse_position()
 	if Input.is_action_just_pressed("press"):

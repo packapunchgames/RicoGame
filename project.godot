@@ -30,6 +30,10 @@ window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+Targets="Group that contains all the targets required to complete the level"
+
 [input]
 
 press={

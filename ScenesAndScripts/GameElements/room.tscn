@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://ciy2atqwdq2t5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i52uo"]
-size = Vector2(32, 1080)
+size = Vector2(40, 1080)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b18af"]
-size = Vector2(32, 1856)
+size = Vector2(40.0029, 1840)
 
 [node name="Room" type="Node2D"]
 
@@ -13,20 +13,20 @@ collision_layer = 9
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(16, 540)
+position = Vector2(20, 540)
 shape = SubResource("RectangleShape2D_i52uo")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1904.05, 540)
+position = Vector2(1900, 540)
 shape = SubResource("RectangleShape2D_i52uo")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(960, 15.9971)
+position = Vector2(960, 19.9986)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_b18af")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(960, 1064)
+position = Vector2(960, 1060)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_b18af")
 

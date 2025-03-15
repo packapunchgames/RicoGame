@@ -2,7 +2,7 @@
 extends Line2D
 class_name Preview
 
-@export var angle : int = 0:
+@export_range(0, 360) var angle : float = 0:
 	set(x):
 		angle = x
 		update_trajectory()
