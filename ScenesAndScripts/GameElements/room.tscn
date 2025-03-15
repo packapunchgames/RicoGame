@@ -9,6 +9,7 @@ size = Vector2(32, 1856)
 [node name="Room" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 9
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -30,6 +31,7 @@ rotation = 1.57079
 shape = SubResource("RectangleShape2D_b18af")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = 32.0
 offset_top = 32.0
 offset_right = 1888.0

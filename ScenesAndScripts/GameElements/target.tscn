@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cskx3gpeuxh5b"]
 
 [ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="1_4o3wq"]
-[ext_resource type="Script" uid="uid://c1clsx06p28py" path="res://ScenesAndScripts/target.gd" id="1_l7iip"]
+[ext_resource type="Script" uid="uid://c1clsx06p28py" path="res://ScenesAndScripts/GameElements/target.gd" id="1_l7iip"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7iip"]
 radius = 32.0
