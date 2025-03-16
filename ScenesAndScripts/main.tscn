@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://2efpx57nitbd"]
 
-[ext_resource type="PackedScene" uid="uid://0boqn85t7bks" path="res://ScenesAndScripts/world.tscn" id="1_4a1tu"]
+[ext_resource type="PackedScene" uid="uid://pm7uochd0j1x" path="res://ScenesAndScripts/Levels/00.tscn" id="1_4a1tu"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -19,4 +19,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.37, 0.37, 1)
 
-[node name="World" parent="." instance=ExtResource("1_4a1tu")]
+[node name="LevelContainer" type="Node" parent="."]
+
+[node name="World" parent="LevelContainer" instance=ExtResource("1_4a1tu")]

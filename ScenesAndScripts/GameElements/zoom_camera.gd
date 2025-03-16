@@ -1,6 +1,7 @@
 extends Camera2D
 
 @export var parent : Ball
+@export var aim_zoom := 4
 
 func _ready() -> void:
 	get_tree().get_root().size_changed.connect(update_camera_limits)
@@ -23,7 +24,7 @@ func update_camera_limits():
 
 func _process(delta: float) -> void:
 	if parent.hasStarted:
-		var increase = parent.force / 40000
+		var increase = parent.force / (aim_zoom * 10000)
 		zoom.x = 1 + increase
 		zoom.y = 1 + increase
 	else:

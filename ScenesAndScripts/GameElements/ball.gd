@@ -27,6 +27,7 @@ func _input(_event: InputEvent) -> void:
 		force = clamp(force, 0, topSpeed)
 	elif Input.is_action_just_released("press") and hasStarted:
 		hasStarted = false
+		Global.hit_stop(0.25)
 		force = clamp(force, 0, topSpeed)
 		speed = force / 100
 		
