@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://utmtkgltfdyi"]
+
+[ext_resource type="Script" uid="uid://c65eqn1v636wg" path="res://ScenesAndScripts/Components/overlay.gd" id="1_b7lxt"]
+[ext_resource type="Shader" uid="uid://0o10isgahkpx" path="res://ScenesAndScripts/Shaders/vignette.gdshader" id="1_vrc3o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ctx1"]
+shader = ExtResource("1_vrc3o")
+shader_parameter/vignette_intensity = 0.0
+shader_parameter/vignette_opacity = 0.5
+shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_bxc2c"]
+script/source = "extends ColorRect
+"
+
+[node name="Overlay" type="Node"]
+process_mode = 3
+script = ExtResource("1_b7lxt")
+
+[node name="Vignette" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_6ctx1")
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = SubResource("GDScript_bxc2c")
+
+[node name="Flash" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.0980392)

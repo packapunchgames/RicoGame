@@ -15,7 +15,6 @@ func _ready() -> void:
 	initial_player_pos = Global.player.position
 	save_initial_children_data(targets, initial_targets_data)
 	save_initial_children_data(obstacles, initial_obstacles_data)
-	print(initial_obstacles_data)
 
 func save_initial_children_data(parent_node : Node2D, data_array : Array) -> void:
 	for child: Node in parent_node.get_children():

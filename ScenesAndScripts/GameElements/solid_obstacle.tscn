@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cf1mmahnemqfo"]
 
-[ext_resource type="Shader" uid="uid://du3qd5nf52x5l" path="res://ScenesAndScripts/GameElements/scrolling_texture.gdshader" id="1_bn378"]
+[ext_resource type="Shader" uid="uid://du3qd5nf52x5l" path="res://ScenesAndScripts/Shaders/scrolling_texture.gdshader" id="1_bn378"]
 [ext_resource type="Script" uid="uid://dbkrmaviv64b4" path="res://ScenesAndScripts/GameElements/solid_obstacle.gd" id="1_fx737"]
 [ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="2_edc11"]
 

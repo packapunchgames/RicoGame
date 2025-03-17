@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://qp1bbto0we3b"]
+[gd_scene load_steps=8 format=3 uid="uid://qp1bbto0we3b"]
 
 [ext_resource type="Script" uid="uid://clk66xyu6y41d" path="res://ScenesAndScripts/world.gd" id="1_wbgri"]
 [ext_resource type="PackedScene" uid="uid://ciy2atqwdq2t5" path="res://ScenesAndScripts/GameElements/room.tscn" id="2_hdvcw"]
@@ -6,14 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cf1mmahnemqfo" path="res://ScenesAndScripts/GameElements/solid_obstacle.tscn" id="4_hut4f"]
 [ext_resource type="PackedScene" uid="uid://8mwywa4awn30" path="res://ScenesAndScripts/GameElements/ball.tscn" id="5_e4p26"]
 [ext_resource type="PackedScene" uid="uid://b15nqvra1cslp" path="res://ScenesAndScripts/Components/preview.tscn" id="6_0cnsr"]
-[ext_resource type="Shader" uid="uid://0o10isgahkpx" path="res://ScenesAndScripts/Levels/vignette.gdshader" id="7_hklbg"]
-[ext_resource type="Script" uid="uid://cqbtb6a553m8b" path="res://ScenesAndScripts/Levels/vignette.gd" id="8_hut4f"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e4p26"]
-shader = ExtResource("7_hklbg")
-shader_parameter/vignette_intensity = 0.0
-shader_parameter/vignette_opacity = 0.5
-shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
+[ext_resource type="PackedScene" uid="uid://utmtkgltfdyi" path="res://ScenesAndScripts/Components/Overlay.tscn" id="7_hdvcw"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_wbgri")
@@ -75,15 +68,4 @@ points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 angle = 215.1
 max_points = 320
 
-[node name="Vignette" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_e4p26")
-custom_minimum_size = Vector2(1920, 1080)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("8_hut4f")
+[node name="Overlay" parent="." instance=ExtResource("7_hdvcw")]

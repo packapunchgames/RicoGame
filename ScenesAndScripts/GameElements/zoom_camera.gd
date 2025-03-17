@@ -17,8 +17,8 @@ func update_camera_limits() -> void:
 		var target_width : float = window_size.y * target_aspect_ratio
 		offset_x = (window_size.x - target_width)
 	
-	limit_left = world_position.x + offset_x - 1.0
-	limit_right = world_position.x + offset_x + 1920.0 + 1.0
+	limit_left = world_position.x + offset_x
+	limit_right = world_position.x + offset_x + 1920.0
 	limit_top = world_position.y
 	limit_bottom = world_position.y + 1080.0
 

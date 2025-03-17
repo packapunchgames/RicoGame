@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="RicoGame"
-run/main_scene="uid://b4o73yauyfhdx"
+run/main_scene="uid://2efpx57nitbd"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
