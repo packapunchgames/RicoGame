@@ -10,24 +10,24 @@ class_name Preview
 	set(x):
 		speed = x
 		update_trajectory()
-@export var max_points = 200:
+@export var max_points : int = 200:
 	set(x):
 		max_points = x
 		update_trajectory()
 		
 @onready var test_collision: CharacterBody2D = $TestCollision
 
-func update_trajectory():
+func update_trajectory() -> void:
 	if Engine.is_editor_hint():
 		clear_points()
-		var current_pos = Vector2.ZERO
-		var dir = Vector2.RIGHT.rotated(deg_to_rad(angle)) * speed
+		var current_pos := Vector2.ZERO
+		var dir : Vector2 = Vector2.RIGHT.rotated(deg_to_rad(angle)) * speed
 		add_point(current_pos)
 		for i in max_points:
 			add_point(current_pos)
 			
 			if test_collision:
-				var collision = test_collision.move_and_collide(dir * get_physics_process_delta_time(), false, true, true)
+				var collision : KinematicCollision2D = test_collision.move_and_collide(dir * get_physics_process_delta_time(), false, true, true)
 				if collision:
 					dir = dir.bounce(collision.get_normal())
 			

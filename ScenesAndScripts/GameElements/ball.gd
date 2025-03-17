@@ -11,30 +11,39 @@ var pressVector : Vector2
 var heading : float
 var force : float
 var hasStarted : bool = false
+var hasShot : bool = false
+
+signal restart
 
 func _ready() -> void:
 	Global.player = self
 
 func _input(_event: InputEvent) -> void:
-	var mousePos := get_global_mouse_position()
-	if Input.is_action_just_pressed("press"):
-		hasStarted = true
-		initPos = mousePos
-	if Input.is_action_pressed("press") and hasStarted:
-		pressVector = mousePos
-		heading = pressVector.angle_to_point(initPos)
-		force = pressVector.distance_to(initPos)
-		force = clamp(force, 0, topSpeed)
-	elif Input.is_action_just_released("press") and hasStarted:
-		hasStarted = false
-		Global.hit_stop(0.25)
-		force = clamp(force, 0, topSpeed)
-		speed = force / 100
-		
-		velocity = Vector2(cos(heading), sin(heading)) * force
+	if !hasShot:
+		var mousePos := get_global_mouse_position()
+		if Input.is_action_just_pressed("press"):
+			hasStarted = true
+			initPos = mousePos
+		if Input.is_action_pressed("press") and hasStarted:
+			pressVector = mousePos
+			heading = pressVector.angle_to_point(initPos)
+			
+			force = pressVector.distance_to(initPos)
+			force = clamp(force, 0, topSpeed)
+		elif Input.is_action_just_released("press") and hasStarted:
+			hasShot = true
+			hasStarted = false
+			
+			Global.hit_stop(0.25)
+			force = clamp(force, 0, topSpeed)
+			speed = force / 100
+			
+			velocity = Vector2(cos(heading), sin(heading)) * force
+	elif Input.is_action_just_pressed("press"):
+		restart.emit()
 
-func _process(delta):
-	var collision = move_and_collide(velocity * delta * speed)
+func _process(delta : float) -> void:
+	var collision : KinematicCollision2D = move_and_collide(velocity * delta * speed)
 	
 	speed *= deceleration
 	if speed < 0.1:

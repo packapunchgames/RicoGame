@@ -3,11 +3,11 @@ extends Polygon2D
 
 @onready var collision_polygon: CollisionPolygon2D = $StaticBody2D/CollisionPolygon2D
 
-func _ready():
+func _ready() -> void:
 	if not Engine.is_editor_hint():
 		update_collision_shape()
 
-func update_collision_shape():
+func update_collision_shape() -> void:
 	if collision_polygon:
 		collision_polygon.polygon = polygon
 
