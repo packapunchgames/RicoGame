@@ -14,6 +14,7 @@ var hasStarted : bool = false
 var hasShot : bool = false
 
 signal restart
+signal shot
 
 func _ready() -> void:
 	Global.player = self
@@ -33,6 +34,7 @@ func _input(_event: InputEvent) -> void:
 		elif Input.is_action_just_released("press") and hasStarted:
 			hasShot = true
 			hasStarted = false
+			shot.emit()
 			
 			Global.hit_stop(0.25)
 			force = clamp(force, 0, topSpeed)

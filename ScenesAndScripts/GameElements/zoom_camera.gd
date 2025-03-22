@@ -1,7 +1,7 @@
 extends Camera2D
 
 @export var parent : Ball
-@export var aim_zoom := 4
+@export var aim_zoom : float
 
 func _ready() -> void:
 	get_tree().get_root().size_changed.connect(update_camera_limits)

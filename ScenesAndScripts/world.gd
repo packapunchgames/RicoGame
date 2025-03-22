@@ -7,6 +7,9 @@ var initial_player_pos : Vector2
 @onready var targets : Node2D = $Targets
 @onready var obstacles : Node2D = $Obstacles
 
+@onready var preview: Preview = $Ball/Preview
+var has_used_hint : bool = false
+
 func _ready() -> void:
 	get_tree().get_root().size_changed.connect(resize)
 	resize()
@@ -37,8 +40,6 @@ func reset_and_reinstance_children(parent_node : Node2D, initial_data : Array) -
 			if data.has("polygon") and instance is Polygon2D:
 				instance.polygon = data["polygon"]
 			parent_node.add_child(instance)
-			if instance.has_method("restart"):
-				instance.restart()
 
 func restart() -> void:
 	Global.player.position = initial_player_pos
@@ -50,7 +51,9 @@ func restart() -> void:
 	reset_and_reinstance_children(obstacles, initial_obstacles_data)
 	
 	Global.player.set_deferred("hasShot", false)
-
+	
+	if has_used_hint:
+		preview.show()
 
 func resize() -> void:
 	var window_size : Vector2 = get_viewport().get_visible_rect().size
@@ -63,3 +66,13 @@ func resize() -> void:
 	else:
 		var pos := Vector2(0, (window_size.y - target_height) / 2 )
 		position = pos
+
+func hint() -> void:
+	preview.highlight_trajectory()
+
+func _input(event: InputEvent) -> void:
+	if Input.is_key_pressed(KEY_H):
+		if Global.hints > 0:
+			has_used_hint = true
+			Global.hints -= 1
+			hint()

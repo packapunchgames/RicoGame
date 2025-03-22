@@ -1,13 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://b15nqvra1cslp"]
+[gd_scene load_steps=4 format=3 uid="uid://b15nqvra1cslp"]
 
 [ext_resource type="Script" uid="uid://cbjdrsxrovtya" path="res://ScenesAndScripts/Components/preview.gd" id="1_ciees"]
+
+[sub_resource type="Curve" id="Curve_su6iy"]
+_limits = [0.0, 2.0, 0.0, 1.14286]
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1.14286, 0.440933), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pd41g"]
 radius = 65.9697
 
 [node name="Preview" type="Line2D"]
+show_behind_parent = true
 points = PackedVector2Array(0, 0, 0, 0)
+width_curve = SubResource("Curve_su6iy")
+joint_mode = 2
 script = ExtResource("1_ciees")
+speed = 500
+min_points = null
 
 [node name="TestCollision" type="CharacterBody2D" parent="."]
 position = Vector2(1666.67, 0)

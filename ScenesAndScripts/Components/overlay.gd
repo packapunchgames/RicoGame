@@ -18,5 +18,5 @@ func _process(delta: float) -> void:
 
 func hit_flash(duration : float) -> void:
 	var tween :Tween = create_tween()
-	tween.tween_property(flash, "self_modulate",Color(1.0, 1.0, 1.0), duration / 2).set_ease(Tween.EASE_OUT)
+	flash.self_modulate = Color(1.0, 1.0, 1.0)
 	tween.tween_property(flash, "self_modulate", Color(1.0, 1.0, 1.0, 0.0), duration / 2).set_ease(Tween.EASE_IN)

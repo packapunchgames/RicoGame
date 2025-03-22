@@ -3,6 +3,9 @@ extends Node
 var player : Ball = null
 var overlay : Overlay = null
 
+var hints : int = 1
+
+
 func hit_stop(duration : float) -> void:
 	var initial_speed := player.speed
 	var final_speed := initial_speed
