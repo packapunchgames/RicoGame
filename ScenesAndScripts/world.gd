@@ -27,6 +27,12 @@ func save_initial_children_data(parent_node : Node2D, data_array : Array) -> voi
 		}
 		if child is Polygon2D:
 			child_data["polygon"] = child.polygon
+		if child is MovingTarget:
+			child_data["speed"] = child.speed
+			child_data["start_position"] = child.start_position
+			child_data["end_position"] = child.end_position
+			child_data["progress"] = child.progress
+			child_data["dir"] = child.dir
 		data_array.append(child_data)
 
 func reset_and_reinstance_children(parent_node : Node2D, initial_data : Array) -> void:
@@ -37,8 +43,14 @@ func reset_and_reinstance_children(parent_node : Node2D, initial_data : Array) -
 		if resource is PackedScene:
 			var instance : Node2D = resource.instantiate()
 			instance.position = data["initial_position"]
-			if data.has("polygon") and instance is Polygon2D:
+			if instance is Polygon2D:
 				instance.polygon = data["polygon"]
+			if instance is MovingTarget:
+				instance.speed = data["speed"]
+				instance.start_position = data["start_position"]
+				instance.end_position = data["end_position"]
+				instance.progress = data["progress"]
+				instance.dir = data["dir"]
 			parent_node.add_child(instance)
 
 func restart() -> void:

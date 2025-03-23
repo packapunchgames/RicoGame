@@ -9,6 +9,9 @@ radius = 32.0
 [node name="MovingTarget" type="CharacterBody2D" groups=["Targets"]]
 collision_layer = 4
 script = ExtResource("1_17sxh")
+speed = 1
+end_position = Vector2(500, 500)
+dir = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l7iip")
