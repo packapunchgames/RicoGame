@@ -7,6 +7,7 @@ size = Vector2(40, 1080)
 size = Vector2(40.0029, 1840)
 
 [node name="Room" type="Node2D"]
+z_index = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 9

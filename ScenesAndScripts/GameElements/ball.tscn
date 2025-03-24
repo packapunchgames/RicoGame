@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="1_fr7ir"]
 [ext_resource type="Script" uid="uid://b41bbnfex73u3" path="res://ScenesAndScripts/GameElements/ball.gd" id="1_u80ob"]
-[ext_resource type="Script" uid="uid://0448pcmbuw30" path="res://ScenesAndScripts/GameElements/preview_vector.gd" id="3_0vprl"]
-[ext_resource type="Script" uid="uid://b6l1qhqewf32a" path="res://ScenesAndScripts/GameElements/zoom_camera.gd" id="4_1e20t"]
+[ext_resource type="Script" uid="uid://0448pcmbuw30" path="res://ScenesAndScripts/Components/preview_vector.gd" id="3_0vprl"]
+[ext_resource type="Script" uid="uid://b6l1qhqewf32a" path="res://ScenesAndScripts/Components/zoom_camera.gd" id="4_1e20t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pd41g"]
 radius = 65.9697

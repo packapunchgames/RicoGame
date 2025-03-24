@@ -18,5 +18,6 @@ material = SubResource("ShaderMaterial_0224l")
 script = ExtResource("1_fx737")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]

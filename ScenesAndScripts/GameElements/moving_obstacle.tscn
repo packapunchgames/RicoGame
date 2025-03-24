@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://o4cduiyx02ln"]
+
+[ext_resource type="Shader" uid="uid://du3qd5nf52x5l" path="res://ScenesAndScripts/Shaders/scrolling_texture.gdshader" id="1_22vmx"]
+[ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="2_w1q6x"]
+[ext_resource type="Script" uid="uid://br4q7itmiuvrk" path="res://ScenesAndScripts/GameElements/moving_obstacle.gd" id="3_22vmx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0224l"]
+shader = ExtResource("1_22vmx")
+shader_parameter/scroll_speed = 0.001
+shader_parameter/angle_degrees = 0.0
+shader_parameter/repeat_x = 20.0
+shader_parameter/repeat_y = 12.0
+shader_parameter/row_offset = 1.0
+shader_parameter/texture_to_scroll = ExtResource("2_w1q6x")
+
+[node name="MovingObstacle" type="Polygon2D"]
+material = SubResource("ShaderMaterial_0224l")
+script = ExtResource("3_22vmx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]

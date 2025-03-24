@@ -27,7 +27,7 @@ func save_initial_children_data(parent_node : Node2D, data_array : Array) -> voi
 		}
 		if child is Polygon2D:
 			child_data["polygon"] = child.polygon
-		if child is MovingTarget:
+		if child.has_method("update_position"):
 			child_data["speed"] = child.speed
 			child_data["start_position"] = child.start_position
 			child_data["end_position"] = child.end_position
@@ -45,7 +45,7 @@ func reset_and_reinstance_children(parent_node : Node2D, initial_data : Array) -
 			instance.position = data["initial_position"]
 			if instance is Polygon2D:
 				instance.polygon = data["polygon"]
-			if instance is MovingTarget:
+			if data.has("speed"):
 				instance.speed = data["speed"]
 				instance.start_position = data["start_position"]
 				instance.end_position = data["end_position"]
