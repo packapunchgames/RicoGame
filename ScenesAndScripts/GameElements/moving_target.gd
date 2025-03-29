@@ -5,9 +5,11 @@ extends CharacterBody2D
 @export var start_position : Vector2:
 	set(a):
 		start_position = a
+		update_position()
 @export var end_position : Vector2:
 	set(b):
 		end_position = b
+		update_position()
 @export_range(0.0, 1.0) var progress : float = 0.0:
 	set(x):
 		progress = clampf(x, 0.0, 1.0)

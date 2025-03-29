@@ -39,8 +39,8 @@ func update_trajectory(single_bounce : bool) -> void:
 
 
 func highlight_trajectory() -> void:
-	show()
 	update_trajectory(true)
+	show()
 	var tween := create_tween()
 	tween.tween_property(self, "modulate", Color(1.0,1.0,1.0,0.5), 1).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(self, "modulate", Color(1.0,1.0,1.0,1.0), 1).set_ease(Tween.EASE_IN_OUT)
@@ -53,3 +53,4 @@ func _ready() -> void:
 		get_parent().connect("shot", hide)
 	if !Engine.is_editor_hint():
 		hide()
+		

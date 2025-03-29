@@ -16,12 +16,12 @@ script = ExtResource("1_h22v5")
 [node name="Targets" type="Node2D" parent="."]
 
 [node name="MovingTarget" parent="Targets" instance=ExtResource("3_ul3os")]
-position = Vector2(800, 200)
+position = Vector2(800, 880)
 start_position = Vector2(800, 200)
 end_position = Vector2(800, 880)
 
 [node name="MovingTarget2" parent="Targets" instance=ExtResource("3_ul3os")]
-position = Vector2(1200, 200)
+position = Vector2(1200, 880)
 speed = 2.5
 start_position = Vector2(1200, 200)
 end_position = Vector2(1200, 880)

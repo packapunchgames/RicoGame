@@ -12,6 +12,7 @@ var heading : float
 var force : float
 var hasStarted : bool = false
 var hasShot : bool = false
+var collision : KinematicCollision2D
 
 signal restart
 signal shot
@@ -19,37 +20,13 @@ signal shot
 func _ready() -> void:
 	Global.player = self
 
-func _input(_event: InputEvent) -> void:
-	if !hasShot:
-		var mousePos := get_global_mouse_position()
-		if Input.is_action_just_pressed("press"):
-			hasStarted = true
-			initPos = mousePos
-		if Input.is_action_pressed("press") and hasStarted:
-			pressVector = mousePos
-			heading = pressVector.angle_to_point(initPos)
-			
-			force = pressVector.distance_to(initPos)
-			force = clamp(force, 0, topSpeed)
-		elif Input.is_action_just_released("press") and hasStarted:
-			hasShot = true
-			hasStarted = false
-			shot.emit()
-			
-			Global.hit_stop(0.25)
-			force = clamp(force, 0, topSpeed)
-			speed = force / 100
-			
-			velocity = Vector2(cos(heading), sin(heading)) * force
-	elif Input.is_action_just_pressed("press"):
-		restart.emit()
 
 func _process(delta : float) -> void:
-	var collision : KinematicCollision2D = move_and_collide(velocity * delta * speed)
-	
 	speed *= deceleration
 	if speed < 0.1:
 		speed = 0
+	
+	collision  = move_and_collide(velocity * delta * speed)
 	
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())

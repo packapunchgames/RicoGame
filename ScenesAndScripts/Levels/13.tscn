@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://3dsds1hdm1dn"]
+
+[ext_resource type="Script" uid="uid://clk66xyu6y41d" path="res://ScenesAndScripts/world.gd" id="1_aliok"]
+[ext_resource type="PackedScene" uid="uid://ciy2atqwdq2t5" path="res://ScenesAndScripts/GameElements/room.tscn" id="2_rhhkv"]
+[ext_resource type="PackedScene" uid="uid://6re7s37iloqa" path="res://ScenesAndScripts/GameElements/moving_target.tscn" id="3_alep5"]
+[ext_resource type="PackedScene" uid="uid://o4cduiyx02ln" path="res://ScenesAndScripts/GameElements/moving_obstacle.tscn" id="5_aliok"]
+[ext_resource type="PackedScene" uid="uid://cf1mmahnemqfo" path="res://ScenesAndScripts/GameElements/solid_obstacle.tscn" id="5_jq4jf"]
+[ext_resource type="PackedScene" uid="uid://8mwywa4awn30" path="res://ScenesAndScripts/GameElements/ball.tscn" id="6_2f7j2"]
+[ext_resource type="PackedScene" uid="uid://b15nqvra1cslp" path="res://ScenesAndScripts/Components/preview.tscn" id="7_jyh7y"]
+[ext_resource type="PackedScene" uid="uid://utmtkgltfdyi" path="res://ScenesAndScripts/Components/Overlay.tscn" id="8_bfitf"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_aliok")
+
+[node name="Room" parent="." instance=ExtResource("2_rhhkv")]
+
+[node name="Targets" type="Node2D" parent="."]
+
+[node name="MovingTarget" parent="Targets" instance=ExtResource("3_alep5")]
+position = Vector2(1500, 250)
+speed = 1.5
+start_position = Vector2(1500, 250)
+end_position = Vector2(1500, 830)
+progress = 0.0
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="SolidObstacle" parent="Obstacles" instance=ExtResource("5_jq4jf")]
+position = Vector2(1040, 600)
+polygon = PackedVector2Array(0, 440, 0, 0, 200, 0, 200, 440)
+
+[node name="MovingObstacle" parent="Obstacles" instance=ExtResource("5_aliok")]
+position = Vector2(1040, -60)
+polygon = PackedVector2Array(0, 0, 200, 0, 200, 440, 0, 440)
+speed = 3.0
+start_position = Vector2(1040, -200)
+end_position = Vector2(1040, -60)
+progress = 1.0
+
+[node name="Ball" parent="." instance=ExtResource("6_2f7j2")]
+position = Vector2(640, 640)
+
+[node name="Preview" parent="Ball" instance=ExtResource("7_jyh7y")]
+points = PackedVector2Array(0, 0, 7.68529, -3.22192, 15.3706, -6.44384, 23.0559, -9.66577, 30.7412, -12.8877, 38.4264, -16.1096, 46.1117, -19.3315, 53.797, -22.5535, 61.4823, -25.7754, 69.1676, -28.9973, 76.8529, -32.2192, 84.5382, -35.4411, 92.2235, -38.6631, 99.9087, -41.885, 107.594, -45.1069, 115.279, -48.3288, 122.965, -51.5508, 130.65, -54.7727, 138.335, -57.9946, 146.02, -61.2165, 153.706, -64.4385, 161.391, -67.6604, 169.076, -70.8823, 176.762, -74.1042, 184.447, -77.3262, 192.132, -80.5481, 199.817, -83.77, 207.503, -86.9919, 215.188, -90.2139, 222.873, -93.4358, 230.559, -96.6577, 238.244, -99.8796, 245.929, -103.102, 253.615, -106.323, 261.3, -109.545, 268.985, -112.767, 276.67, -115.989, 284.356, -119.211, 292.041, -122.433, 299.726, -125.655, 307.412, -128.877, 315.097, -132.099, 322.782, -135.321, 330.468, -138.543, 338.153, -141.765, 345.838, -144.987, 353.523, -148.208, 361.209, -151.43, 368.894, -154.652, 376.579, -157.874, 384.265, -161.096, 391.95, -164.318, 399.635, -167.54, 407.321, -170.762, 415.006, -173.984, 422.691, -177.206, 430.376, -180.428, 438.062, -183.65, 445.747, -186.872, 453.432, -190.093, 461.118, -193.315, 468.803, -196.537, 476.488, -199.759, 484.174, -202.981, 491.859, -206.203, 499.544, -209.425, 507.229, -212.647, 514.915, -215.869, 522.6, -219.091, 530.285, -222.313, 537.971, -225.535, 545.656, -228.757, 553.341, -231.979, 561.027, -235.2, 568.712, -238.422, 576.397, -241.644, 584.083, -244.866, 591.768, -248.088, 599.453, -251.31, 607.138, -254.532, 614.824, -257.754, 622.509, -260.976, 630.194, -264.198, 637.88, -267.42, 645.565, -270.642, 653.25, -273.863, 660.936, -277.085, 668.621, -280.307, 676.306, -283.529, 683.991, -286.751, 691.677, -289.973, 699.362, -293.195, 707.047, -296.417, 714.733, -299.639, 722.418, -302.861, 730.103, -306.083, 737.789, -309.305, 745.474, -312.527, 753.159, -315.749, 760.844, -318.97, 768.53, -322.192, 776.215, -325.414, 783.9, -328.636, 791.586, -331.858, 799.271, -335.08, 806.956, -338.302, 814.642, -341.524, 822.327, -344.746, 830.012, -347.968, 837.698, -351.19, 845.383, -354.412, 853.068, -357.634, 860.753, -360.855, 868.439, -364.077, 876.124, -367.299, 883.809, -370.521, 891.495, -373.743, 899.18, -376.965, 906.865, -380.187, 914.551, -383.409, 922.236, -386.631, 929.921, -389.853, 937.606, -393.075, 945.292, -396.297, 952.977, -399.519, 960.662, -402.74, 968.348, -405.962, 976.033, -409.184, 983.718, -412.406, 991.404, -415.628, 999.089, -418.85, 1006.77, -422.072, 1014.46, -425.294, 1022.14, -428.516, 1029.83, -431.738, 1037.52, -434.96, 1045.2, -438.182, 1052.89, -441.404, 1060.57, -444.625, 1068.26, -447.847, 1075.94, -451.069, 1083.63, -454.291, 1091.31, -457.513, 1099, -460.735, 1106.68, -463.957, 1114.37, -467.179, 1122.05, -470.401, 1129.74, -473.623, 1137.42, -476.845, 1145.11, -480.067, 1152.79, -483.289, 1160.48, -486.51, 1168.17, -489.732, 1160.48, -492.953, 1152.79, -496.173)
+antialiased = true
+angle = 337.255
+max_points = 155
+
+[node name="Overlay" parent="." instance=ExtResource("8_bfitf")]

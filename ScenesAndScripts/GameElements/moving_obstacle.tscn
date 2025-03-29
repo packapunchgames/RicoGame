@@ -6,18 +6,19 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0224l"]
 shader = ExtResource("1_22vmx")
-shader_parameter/scroll_speed = 0.001
+shader_parameter/scroll_speed = 0.25
 shader_parameter/angle_degrees = 0.0
-shader_parameter/repeat_x = 20.0
-shader_parameter/repeat_y = 12.0
+shader_parameter/repeat_x = 1.0
+shader_parameter/repeat_y = 1.0
 shader_parameter/row_offset = 1.0
 shader_parameter/texture_to_scroll = ExtResource("2_w1q6x")
 
 [node name="MovingObstacle" type="Polygon2D"]
 material = SubResource("ShaderMaterial_0224l")
+texture = ExtResource("2_w1q6x")
 script = ExtResource("3_22vmx")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_mask = 2
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]

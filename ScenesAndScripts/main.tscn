@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://2efpx57nitbd"]
+[gd_scene load_steps=3 format=3 uid="uid://2efpx57nitbd"]
 
-[ext_resource type="PackedScene" uid="uid://pm7uochd0j1x" path="res://ScenesAndScripts/Levels/00.tscn" id="1_4a1tu"]
+[ext_resource type="PackedScene" uid="uid://bwc0u4g0ffrba" path="res://ScenesAndScripts/Levels/19.tscn" id="1_glhd3"]
+[ext_resource type="Script" uid="uid://bgrnqnjkldx53" path="res://ScenesAndScripts/Components/InputHandler.gd" id="2_glhd3"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -38,4 +39,9 @@ handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="World" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_4a1tu")]
+[node name="World" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_glhd3")]
+
+[node name="InputHandler" type="Node" parent="." node_paths=PackedStringArray("sub_viewport_container")]
+script = ExtResource("2_glhd3")
+sub_viewport_container = NodePath("../SubViewportContainer")
+metadata/_custom_type_script = "uid://bgrnqnjkldx53"

@@ -29,9 +29,15 @@ func update_collision_shape() -> void:
 		collision_polygon.polygon = polygon
 
 func update_position() -> void:
-	position = start_position.lerp(end_position, progress)
 	if Engine.is_editor_hint():
 		queue_redraw()
+		position = start_position.lerp(end_position, progress)
+	else:
+		if Global.player:
+			if Global.player.collision:
+				await get_tree().process_frame
+			else:
+				position = start_position.lerp(end_position, progress)
 
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
