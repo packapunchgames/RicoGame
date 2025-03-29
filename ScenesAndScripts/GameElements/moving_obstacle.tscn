@@ -10,7 +10,7 @@ shader_parameter/scroll_speed = 0.25
 shader_parameter/angle_degrees = 0.0
 shader_parameter/repeat_x = 1.0
 shader_parameter/repeat_y = 1.0
-shader_parameter/row_offset = 1.0
+shader_parameter/row_offset = 0.0
 shader_parameter/texture_to_scroll = ExtResource("2_w1q6x")
 
 [node name="MovingObstacle" type="Polygon2D"]

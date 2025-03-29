@@ -10,6 +10,10 @@ var initial_player_pos : Vector2
 @onready var preview: Preview = $Ball/Preview
 var has_used_hint : bool = false
 
+signal game_finished
+var enemies_count : int
+var did_game_finish : bool = false
+
 func _ready() -> void:
 	get_tree().get_root().size_changed.connect(resize)
 	resize()
@@ -54,6 +58,7 @@ func reset_and_reinstance_children(parent_node : Node2D, initial_data : Array) -
 			parent_node.add_child(instance)
 
 func restart() -> void:
+	Global.player.trail_line.hide()
 	Global.player.position = initial_player_pos
 	Global.player.speed = 0
 	Global.player.velocity = Vector2.ZERO
@@ -66,6 +71,9 @@ func restart() -> void:
 	
 	if has_used_hint:
 		preview.show()
+	
+	await get_tree().create_timer(0.25).timeout
+	Global.player.trail_line.show()
 
 func resize() -> void:
 	var window_size : Vector2 = get_viewport().get_visible_rect().size
@@ -88,3 +96,10 @@ func _input(event: InputEvent) -> void:
 			has_used_hint = true
 			Global.hints -= 1
 			hint()
+
+func _process(delta: float) -> void:
+	enemies_count = get_tree().get_node_count_in_group("Targets")
+	if  enemies_count == 0:
+		if !did_game_finish:
+			did_game_finish = true
+			game_finished.emit()

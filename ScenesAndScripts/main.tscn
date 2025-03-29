@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://2efpx57nitbd"]
 
-[ext_resource type="PackedScene" uid="uid://bwc0u4g0ffrba" path="res://ScenesAndScripts/Levels/19.tscn" id="1_glhd3"]
+[ext_resource type="PackedScene" uid="uid://b4o73yauyfhdx" path="res://ScenesAndScripts/Levels/09.tscn" id="1_glhd3"]
 [ext_resource type="Script" uid="uid://bgrnqnjkldx53" path="res://ScenesAndScripts/Components/InputHandler.gd" id="2_glhd3"]
 
 [node name="Main" type="Control"]

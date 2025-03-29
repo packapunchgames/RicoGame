@@ -18,14 +18,12 @@ func _input(_event: InputEvent) -> void:
 			ball.heading = ball.pressVector.angle_to_point(ball.initPos)
 			
 			ball.force = ball.pressVector.distance_to(ball.initPos)
-			ball.force = clamp(ball.force, 0, ball.topSpeed)
 		elif Input.is_action_just_released("press") and ball.hasStarted:
 			ball.hasShot = true
 			ball.hasStarted = false
 			ball.emit_signal("shot")
 			
 			Global.hit_stop(0.25)
-			ball.force = clamp(ball.force, 0, ball.topSpeed)
 			ball.speed = ball.force / 100
 			
 			ball.velocity = Vector2(cos(ball.heading), sin(ball.heading)) * ball.force

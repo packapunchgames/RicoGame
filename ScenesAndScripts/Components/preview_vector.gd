@@ -6,7 +6,7 @@ extends ProgressBar
 func _ready() -> void:
 	position.x = offSet
 	pivot_offset.x = -offSet
-	max_value = parent.topSpeed
+	max_value = parent.topForce
 
 func _process(delta: float) -> void:
 	if parent.hasStarted:
