@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://2efpx57nitbd"]
+[gd_scene load_steps=4 format=3 uid="uid://2efpx57nitbd"]
 
-[ext_resource type="PackedScene" uid="uid://b4o73yauyfhdx" path="res://ScenesAndScripts/Levels/09.tscn" id="1_glhd3"]
+[ext_resource type="PackedScene" uid="uid://l4olkjwsd2ln" path="res://ScenesAndScripts/Levels/06.tscn" id="1_glhd3"]
 [ext_resource type="Script" uid="uid://bgrnqnjkldx53" path="res://ScenesAndScripts/Components/InputHandler.gd" id="2_glhd3"]
+[ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="3_f6nm2"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -44,4 +45,18 @@ render_target_update_mode = 4
 [node name="InputHandler" type="Node" parent="." node_paths=PackedStringArray("sub_viewport_container")]
 script = ExtResource("2_glhd3")
 sub_viewport_container = NodePath("../SubViewportContainer")
-metadata/_custom_type_script = "uid://bgrnqnjkldx53"
+offset_divisor = 5
+scale_divisor = 10000
+follower_smooth_speed = 1
+
+[node name="StartPos" type="Marker2D" parent="InputHandler"]
+position = Vector2(500, 600)
+
+[node name="Stayer" type="Sprite2D" parent="InputHandler/StartPos"]
+visible = false
+texture = ExtResource("3_f6nm2")
+
+[node name="Follower" type="Sprite2D" parent="InputHandler"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_f6nm2")

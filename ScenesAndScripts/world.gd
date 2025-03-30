@@ -58,10 +58,11 @@ func reset_and_reinstance_children(parent_node : Node2D, initial_data : Array) -
 			parent_node.add_child(instance)
 
 func restart() -> void:
+	Global.player.speed = 0
 	Global.player.trail_line.hide()
 	Global.player.position = initial_player_pos
-	Global.player.speed = 0
 	Global.player.velocity = Vector2.ZERO
+	Global.player.trail_line.clear_points()
 	
 	await get_tree().create_timer(0.1).timeout
 	reset_and_reinstance_children(targets, initial_targets_data)

@@ -19,13 +19,19 @@ script = ExtResource("1_ch0ii")
 position = Vector2(1360, 880)
 
 [node name="Target2" parent="Targets" instance=ExtResource("3_qt6mp")]
-position = Vector2(1120, 880)
+position = Vector2(1200, 880)
 
 [node name="Target3" parent="Targets" instance=ExtResource("3_qt6mp")]
-position = Vector2(840, 880)
+position = Vector2(1040, 880)
 
 [node name="Target4" parent="Targets" instance=ExtResource("3_qt6mp")]
-position = Vector2(600, 880)
+position = Vector2(880, 880)
+
+[node name="Target11" parent="Targets" instance=ExtResource("3_qt6mp")]
+position = Vector2(720, 880)
+
+[node name="Target12" parent="Targets" instance=ExtResource("3_qt6mp")]
+position = Vector2(560, 880)
 
 [node name="Target5" parent="Targets" instance=ExtResource("3_qt6mp")]
 position = Vector2(200, 640)

@@ -24,7 +24,7 @@ var force : float:
 	set(x):
 		force = clamp(x, 0, topForce)
 		if abs(round(force - last_force_check)) >= difference:
-			Input.vibrate_handheld(5)
+			Settings.vibrate(5, 10)
 			last_force_check = snapped(x, difference)
 
 @onready var trail_line: Line2D = $TrailLine
