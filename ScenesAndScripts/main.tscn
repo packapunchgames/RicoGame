@@ -46,8 +46,9 @@ render_target_update_mode = 4
 script = ExtResource("2_glhd3")
 sub_viewport_container = NodePath("../SubViewportContainer")
 cancel_range = 200.0
-offset_divisor = 5
-stiffness = 20
+offset_divisor = 2.5
+follower_offset_divisor = 1.0
+stiffness = 15
 scale_divisor = 10000
 
 [node name="StartPos" type="Marker2D" parent="InputHandler"]

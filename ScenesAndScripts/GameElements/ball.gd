@@ -1,15 +1,21 @@
 extends CharacterBody2D
 class_name Ball
 
+@export var deceleration : float = 0.99
+@export var topForce : int = 500
+@export var boost : float = 0.5
+@export var maxSpeed : float = 5.0
+
+var speed_reserve : float = 0.0
 var speed : float = 0:
 	get:
 		if speed < 0.1:
 			speed = 0
+		if speed > maxSpeed:
+			speed_reserve += speed - maxSpeed
+			speed -= speed - maxSpeed
 		return speed
-		
-@export var deceleration : float = 0.99
-@export var topForce : int = 500
-@export var boost : float = 0.5
+
 
 var initPos : Vector2
 var pressVector : Vector2
@@ -37,8 +43,10 @@ signal shot
 func _ready() -> void:
 	Global.player = self
 
-
 func _process(delta : float) -> void:
+	if speed_reserve > 0.0:
+		speed += speed_reserve
+		speed_reserve = 0
 	speed *= deceleration
 	
 	collision  = move_and_collide(velocity * delta * speed)

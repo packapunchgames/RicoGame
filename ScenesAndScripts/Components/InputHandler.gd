@@ -5,8 +5,8 @@ var ball : Ball
 @export var sub_viewport_container : SubViewportContainer
 @export var cancel_range : float = 100.0
 @export var cancel_zoom : float = 1.5
-@export var offset_divisor : int = 10
-@export var follower_offset_divisor : int = 2
+@export var offset_divisor : float = 5
+@export var follower_offset_divisor : float = 2
 @export var stiffness : int = 2
 @export var scale_divisor : int = 2500
 
