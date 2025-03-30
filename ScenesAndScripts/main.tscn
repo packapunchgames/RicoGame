@@ -45,18 +45,17 @@ render_target_update_mode = 4
 [node name="InputHandler" type="Node" parent="." node_paths=PackedStringArray("sub_viewport_container")]
 script = ExtResource("2_glhd3")
 sub_viewport_container = NodePath("../SubViewportContainer")
+cancel_range = 200.0
 offset_divisor = 5
+stiffness = 20
 scale_divisor = 10000
-follower_smooth_speed = 1
 
 [node name="StartPos" type="Marker2D" parent="InputHandler"]
-position = Vector2(500, 600)
+visible = false
 
 [node name="Stayer" type="Sprite2D" parent="InputHandler/StartPos"]
-visible = false
 texture = ExtResource("3_f6nm2")
 
-[node name="Follower" type="Sprite2D" parent="InputHandler"]
-visible = false
+[node name="Follower" type="Sprite2D" parent="InputHandler/StartPos/Stayer"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_f6nm2")

@@ -6,12 +6,13 @@ var ball : Ball
 @export var cancel_range : float = 100.0
 @export var cancel_zoom : float = 1.5
 @export var offset_divisor : int = 10
+@export var follower_offset_divisor : int = 2
+@export var stiffness : int = 2
 @export var scale_divisor : int = 2500
-@export var follower_smooth_speed : int = 10
 
 @onready var start_pos: Marker2D = $StartPos
 @onready var stayer: Sprite2D = $StartPos/Stayer
-@onready var follower: Sprite2D = $Follower
+@onready var follower: Sprite2D = $StartPos/Stayer/Follower
 
 var distance : float
 
@@ -20,7 +21,7 @@ func _ready() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if !ball.hasShot:
-		var mousePos := sub_viewport_container.get_local_mouse_position()
+		var mousePos := sub_viewport_container.get_global_mouse_position()
 		if Input.is_action_just_pressed("press"):
 			ball.hasStarted = true
 			ball.initPos = mousePos
@@ -35,9 +36,9 @@ func _input(_event: InputEvent) -> void:
 			
 			handle_joystick(mousePos)
 		elif Input.is_action_just_released("press") and ball.hasStarted:
-			stayer.hide()
-			follower.hide()
+			start_pos.hide()
 			ball.hasStarted = false
+			ball.last_force_check = 0
 			
 			if distance > cancel_range:
 				ball.hasShot = true
@@ -52,16 +53,14 @@ func _input(_event: InputEvent) -> void:
 
 
 func handle_joystick(mousePos : Vector2) -> void:
-	follower.position = follower.position.lerp(mousePos, follower_smooth_speed * get_physics_process_delta_time())
-	
 	stayer.look_at(mousePos)
-	stayer.offset.x = distance / offset_divisor
-	follower.position = mousePos
-	if distance < cancel_range:
+	stayer.offset.x = sqrt(distance) * stiffness / offset_divisor
+	follower.offset.x = sqrt(distance) * stiffness / follower_offset_divisor
+	
+	if ball.force < cancel_range:
 		stayer.scale = Vector2.ONE * cancel_zoom
 	else:
 		var size : Vector2 = Vector2(1 - distance / scale_divisor, 1 - distance / scale_divisor)
 		size = clamp(size, Vector2.ONE * 0.5, Vector2.ONE)
 		stayer.scale = size
-	stayer.show()
-	follower.show()
+	start_pos.show()
