@@ -59,7 +59,7 @@ start_position = Vector2(1520, 880)
 end_position = Vector2(1480, 840)
 
 [node name="SolidObstacle" parent="Obstacles" instance=ExtResource("4_iburc")]
-polygon = PackedVector2Array(800, 1040, 1080, 520, 1360, 520, 1440, 600, 1240, 600, 1000, 1040)
+polygon = PackedVector2Array(800, 1040, 1080, 520, 1160, 520, 1240, 600, 1000, 1040)
 
 [node name="Ball" parent="." instance=ExtResource("5_tnky5")]
 position = Vector2(440, 960)

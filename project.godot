@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://ScenesAndScripts/Autoloads/Global.gd"
 Settings="*res://ScenesAndScripts/Autoloads/Settings.gd"
+LevelSucceder="*res://ScenesAndScripts/Autoloads/LevelSucceder.gd"
 
 [debug]
 

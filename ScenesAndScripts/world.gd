@@ -10,7 +10,6 @@ var initial_player_pos : Vector2
 @onready var preview: Preview = $Ball/Preview
 var has_used_hint : bool = false
 
-signal game_finished
 var enemies_count : int
 var did_game_finish : bool = false
 
@@ -103,4 +102,4 @@ func _process(delta: float) -> void:
 	if  enemies_count == 0:
 		if !did_game_finish:
 			did_game_finish = true
-			game_finished.emit()
+			Global.emit_signal("level_succeded")

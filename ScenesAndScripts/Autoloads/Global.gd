@@ -5,6 +5,7 @@ var overlay : Overlay = null
 
 var hints : int = 1
 
+signal level_succeded
 
 func hit_stop(duration : float) -> void:
 	var initial_speed := player.speed

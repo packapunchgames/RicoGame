@@ -32,7 +32,7 @@ polygon = PackedVector2Array(0, 440, 0, 0, 200, 0, 200, 440)
 [node name="MovingObstacle" parent="Obstacles" instance=ExtResource("5_aliok")]
 position = Vector2(1040, -60)
 polygon = PackedVector2Array(0, 0, 200, 0, 200, 440, 0, 440)
-speed = 3.0
+speed = 2.0
 start_position = Vector2(1040, -200)
 end_position = Vector2(1040, -60)
 progress = 1.0

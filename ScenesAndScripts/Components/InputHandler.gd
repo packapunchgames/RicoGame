@@ -1,8 +1,6 @@
 extends Node
 class_name InputHandler
 
-var ball : Ball
-@export var sub_viewport_container : SubViewportContainer
 @export var cancel_range : float = 100.0
 @export var cancel_zoom : float = 1.5
 @export var offset_divisor : float = 5
@@ -16,40 +14,39 @@ var ball : Ball
 
 var distance : float
 
-func _ready() -> void:
-	ball = Global.player
 
 func _input(_event: InputEvent) -> void:
-	if !ball.hasShot:
-		var mousePos := sub_viewport_container.get_global_mouse_position()
-		if Input.is_action_just_pressed("press"):
-			ball.hasStarted = true
-			ball.initPos = mousePos
-			start_pos.position = ball.initPos
-		if Input.is_action_pressed("press") and ball.hasStarted:
-			ball.pressVector = mousePos
-			ball.heading = ball.pressVector.angle_to_point(ball.initPos)
-			
-			distance = ball.pressVector.distance_to(ball.initPos)
-			
-			ball.force = distance / Settings.sensitivity
-			
-			handle_joystick(mousePos)
-		elif Input.is_action_just_released("press") and ball.hasStarted:
-			start_pos.hide()
-			ball.hasStarted = false
-			ball.last_force_check = 0
-			
-			if distance > cancel_range:
-				ball.hasShot = true
-				ball.emit_signal("shot")
+	if Global.player:
+		if !Global.player.hasShot:
+			var mousePos := Global.player.get_global_mouse_position()
+			if Input.is_action_just_pressed("press"):
+				Global.player.hasStarted = true
+				Global.player.initPos = mousePos
+				start_pos.position = Global.player.initPos
+			if Input.is_action_pressed("press") and Global.player.hasStarted:
+				Global.player.pressVector = mousePos
+				Global.player.heading = Global.player.pressVector.angle_to_point(Global.player.initPos)
 				
-				Global.hit_stop(0.25)
-				ball.speed = ball.force / 100
+				distance = Global.player.pressVector.distance_to(Global.player.initPos)
 				
-				ball.velocity = Vector2(cos(ball.heading), sin(ball.heading)) * ball.force
-	elif Input.is_action_just_pressed("press"):
-		ball.emit_signal("restart")
+				Global.player.force = distance / Settings.sensitivity
+				
+				handle_joystick(mousePos)
+			elif Input.is_action_just_released("press") and Global.player.hasStarted:
+				start_pos.hide()
+				Global.player.hasStarted = false
+				Global.player.last_force_check = 0
+				
+				if distance > cancel_range:
+					Global.player.hasShot = true
+					Global.player.emit_signal("shot")
+					
+					Global.hit_stop(0.25)
+					Global.player.speed = Global.player.force / 100
+					
+					Global.player.velocity = Vector2(cos(Global.player.heading), sin(Global.player.heading)) * Global.player.force
+		elif Input.is_action_just_pressed("press"):
+			Global.player.emit_signal("restart")
 
 
 func handle_joystick(mousePos : Vector2) -> void:
@@ -57,7 +54,7 @@ func handle_joystick(mousePos : Vector2) -> void:
 	stayer.offset.x = sqrt(distance) * stiffness / offset_divisor
 	follower.offset.x = sqrt(distance) * stiffness / follower_offset_divisor
 	
-	if ball.force < cancel_range:
+	if Global.player.force < cancel_range:
 		stayer.scale = Vector2.ONE * cancel_zoom
 	else:
 		var size : Vector2 = Vector2(1 - distance / scale_divisor, 1 - distance / scale_divisor)

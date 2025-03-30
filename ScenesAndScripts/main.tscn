@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://2efpx57nitbd"]
+[gd_scene load_steps=3 format=3 uid="uid://2efpx57nitbd"]
 
-[ext_resource type="PackedScene" uid="uid://l4olkjwsd2ln" path="res://ScenesAndScripts/Levels/06.tscn" id="1_glhd3"]
-[ext_resource type="Script" uid="uid://bgrnqnjkldx53" path="res://ScenesAndScripts/Components/InputHandler.gd" id="2_glhd3"]
-[ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="3_f6nm2"]
+[ext_resource type="Script" uid="uid://b6bmkeo3twdwa" path="res://ScenesAndScripts/main.gd" id="1_f6nm2"]
+[ext_resource type="PackedScene" uid="uid://c73ajpu4fkp27" path="res://ScenesAndScripts/Components/input_handler.tscn" id="2_glhd3"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -11,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_f6nm2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -40,23 +40,4 @@ handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="World" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_glhd3")]
-
-[node name="InputHandler" type="Node" parent="." node_paths=PackedStringArray("sub_viewport_container")]
-script = ExtResource("2_glhd3")
-sub_viewport_container = NodePath("../SubViewportContainer")
-cancel_range = 200.0
-offset_divisor = 2.5
-follower_offset_divisor = 1.0
-stiffness = 15
-scale_divisor = 10000
-
-[node name="StartPos" type="Marker2D" parent="InputHandler"]
-visible = false
-
-[node name="Stayer" type="Sprite2D" parent="InputHandler/StartPos"]
-texture = ExtResource("3_f6nm2")
-
-[node name="Follower" type="Sprite2D" parent="InputHandler/StartPos/Stayer"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_f6nm2")
+[node name="InputHandler" parent="." instance=ExtResource("2_glhd3")]
