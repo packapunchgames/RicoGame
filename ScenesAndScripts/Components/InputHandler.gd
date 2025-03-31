@@ -14,11 +14,14 @@ class_name InputHandler
 
 var distance : float
 
+@export var subviewport_container : SubViewportContainer
 
 func _input(_event: InputEvent) -> void:
 	if Global.player:
 		if !Global.player.hasShot:
-			var mousePos := Global.player.get_global_mouse_position()
+			var player_mouse_pos : Vector2 = Global.player.get_global_mouse_position()
+			var mousePos : Vector2 = player_mouse_pos + get_display_offset(player_mouse_pos)
+			mousePos.x += Global.display_offset.x
 			if Input.is_action_just_pressed("press"):
 				Global.player.hasStarted = true
 				Global.player.initPos = mousePos
@@ -61,3 +64,18 @@ func handle_joystick(mousePos : Vector2) -> void:
 		size = clamp(size, Vector2.ONE * 0.5, Vector2.ONE)
 		stayer.scale = size
 	start_pos.show()
+
+func get_display_offset(global_mouse_pos: Vector2) -> Vector2:
+	var window_size : Vector2 = get_window().size
+	var target_aspect_ratio := 1920.0 / 1080.0 
+	var current_aspect_ratio := window_size.x / window_size.y
+	var scale_factor: float
+	if current_aspect_ratio > target_aspect_ratio:
+		scale_factor = window_size.y / 1080.0
+	else:
+		scale_factor = window_size.x / 1920.0
+	var subviewport_width := 1920.0 * scale_factor
+	var subviewport_height := 1080.0 * scale_factor
+	var offset_x := (window_size.x - subviewport_width) / 2.0
+	var offset_y := (window_size.y - subviewport_height) / 2.0
+	return Vector2(offset_x, offset_y)

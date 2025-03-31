@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://w0im8pffabm5"]
+
+[ext_resource type="Script" uid="uid://c7ycnnvkb4u68" path="res://ScenesAndScripts/Components/level_succeder.gd" id="21_q8ub6"]
+
+[node name="LevelSucceder" type="ResourcePreloader"]
+script = ExtResource("21_q8ub6")

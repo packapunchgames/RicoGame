@@ -4,6 +4,7 @@ var player : Ball = null
 var overlay : Overlay = null
 
 var hints : int = 1
+var display_offset : Vector2 = Vector2.ZERO
 
 signal level_succeded
 
