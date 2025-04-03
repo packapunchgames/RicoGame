@@ -17,10 +17,10 @@ script = ExtResource("1_08vys")
 [node name="Targets" type="Node2D" parent="."]
 
 [node name="MovingTarget" parent="Targets" instance=ExtResource("3_c1dxw")]
-position = Vector2(220, 300)
+position = Vector2(240, 300)
 speed = 0.5
-start_position = Vector2(220, 100)
-end_position = Vector2(220, 300)
+start_position = Vector2(240, 100)
+end_position = Vector2(240, 300)
 
 [node name="Target" parent="Targets" instance=ExtResource("4_08vys")]
 position = Vector2(1640, 880)
@@ -39,6 +39,7 @@ polygon = PackedVector2Array(0, 0, 80, 0, 80, 440, 0, 440)
 speed = 0.75
 start_position = Vector2(100, 80)
 end_position = Vector2(100, 560)
+interval = 0.0
 
 [node name="MovingObstacle2" parent="Obstacles" instance=ExtResource("5_xbnmn")]
 position = Vector2(1840, 560)
@@ -47,6 +48,7 @@ speed = 0.75
 start_position = Vector2(1840, 80)
 end_position = Vector2(1840, 560)
 progress = 1.0
+interval = 0.0
 
 [node name="Ball" parent="." instance=ExtResource("6_avudw")]
 position = Vector2(960, 540)

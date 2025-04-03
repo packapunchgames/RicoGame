@@ -17,6 +17,9 @@ extends Polygon2D
 		progress = clampf(x, 0.0, 1.0)
 		update_position()
 
+@export var interval : float = 0.0
+var time_waited : float = 0.0
+
 enum DIRECTION {FIRST, SECOND}
 @export var dir : DIRECTION = DIRECTION.SECOND
 
@@ -48,11 +51,19 @@ func _process(delta: float) -> void:
 			DIRECTION.FIRST:
 				progress = move_toward(progress, 1.0, speed * delta)
 				if progress == 1.0:
-					dir = DIRECTION.SECOND
+					if time_waited > interval:
+						time_waited = 0.0
+						dir = DIRECTION.SECOND
+					else:
+						time_waited += delta
 			DIRECTION.SECOND:
 				progress = move_toward(progress, 0.0, speed * delta)
 				if progress == 0.0:
-					dir = DIRECTION.FIRST
+					if time_waited > interval:
+						time_waited = 0.0
+						dir = DIRECTION.FIRST
+					else:
+						time_waited += delta
 
 func _draw() -> void:
 	if Engine.is_editor_hint():

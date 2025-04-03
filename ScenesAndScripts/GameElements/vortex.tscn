@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm7jl5ke085f5"]
+
+[ext_resource type="Script" uid="uid://t257sp5arboy" path="res://ScenesAndScripts/GameElements/vortex.gd" id="1_l3dyo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l3dyo"]
+radius = 269.0
+
+[node name="Vortex" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_l3dyo")
+radius = 205
+raw_force = 50
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l3dyo")

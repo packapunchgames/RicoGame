@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c1clsx06p28py" path="res://ScenesAndScripts/GameElements/target.gd" id="1_l7iip"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7iip"]
-radius = 32.0
+radius = 47.1699
 
 [node name="Target" type="CharacterBody2D" groups=["Targets"]]
 collision_layer = 4
@@ -14,7 +14,7 @@ script = ExtResource("1_l7iip")
 shape = SubResource("CircleShape2D_l7iip")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_4o3wq")
 
 [node name="Area2D" type="Area2D" parent="."]

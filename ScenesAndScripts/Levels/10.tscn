@@ -22,7 +22,7 @@ end_position = Vector2(800, 880)
 
 [node name="MovingTarget2" parent="Targets" instance=ExtResource("3_ul3os")]
 position = Vector2(1200, 880)
-speed = 1.25
+speed = 0.5
 start_position = Vector2(1200, 200)
 end_position = Vector2(1200, 880)
 

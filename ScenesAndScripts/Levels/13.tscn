@@ -17,9 +17,9 @@ script = ExtResource("1_aliok")
 [node name="Targets" type="Node2D" parent="."]
 
 [node name="MovingTarget" parent="Targets" instance=ExtResource("3_alep5")]
-position = Vector2(1500, 250)
-speed = 1.5
-start_position = Vector2(1500, 250)
+position = Vector2(1500, 600)
+speed = 0.5
+start_position = Vector2(1500, 600)
 end_position = Vector2(1500, 830)
 progress = 0.0
 
@@ -36,6 +36,7 @@ speed = 2.0
 start_position = Vector2(1040, -200)
 end_position = Vector2(1040, -60)
 progress = 1.0
+interval = 0.1
 
 [node name="Ball" parent="." instance=ExtResource("6_2f7j2")]
 position = Vector2(640, 640)

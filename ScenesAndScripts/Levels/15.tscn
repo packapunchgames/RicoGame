@@ -33,6 +33,7 @@ position = Vector2(700, -200)
 polygon = PackedVector2Array(0, 0, 240, 0, 440, 360, 200, 360)
 start_position = Vector2(700, -200)
 end_position = Vector2(700, -40)
+interval = 0.1
 
 [node name="SolidObstacle" parent="Obstacles" instance=ExtResource("6_yl480")]
 position = Vector2(-240, 0)

@@ -30,6 +30,7 @@ speed = 0.25
 start_position = Vector2(900, -40)
 end_position = Vector2(900, 120)
 progress = 1.0
+interval = 0.5
 
 [node name="MovingObstacle2" parent="Obstacles" instance=ExtResource("4_votyy")]
 position = Vector2(900, 720)
@@ -38,6 +39,7 @@ speed = 0.25
 start_position = Vector2(900, 880)
 end_position = Vector2(900, 720)
 progress = 1.0
+interval = 0.5
 
 [node name="Ball" parent="." instance=ExtResource("5_u3w1g")]
 position = Vector2(160, 540)

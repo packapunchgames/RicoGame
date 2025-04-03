@@ -15,8 +15,6 @@ var did_game_finish : bool = false
 
 
 func _ready() -> void:
-	get_tree().get_root().size_changed.connect(resize)
-	resize()
 	
 	Global.player.restart.connect(restart)
 	initial_player_pos = Global.player.position
@@ -37,6 +35,9 @@ func save_initial_children_data(parent_node : Node2D, data_array : Array) -> voi
 			child_data["end_position"] = child.end_position
 			child_data["progress"] = child.progress
 			child_data["dir"] = child.dir
+		if child is Vortex:
+			child_data["radius"] = child.radius
+			child_data["raw_force"] = child.raw_force
 		data_array.append(child_data)
 
 func reset_and_reinstance_children(parent_node : Node2D, initial_data : Array) -> void:
@@ -55,6 +56,9 @@ func reset_and_reinstance_children(parent_node : Node2D, initial_data : Array) -
 				instance.end_position = data["end_position"]
 				instance.progress = data["progress"]
 				instance.dir = data["dir"]
+			if instance is Vortex:
+				instance.radius = data["radius"]
+				instance.raw_force = data["raw_force"]
 			parent_node.add_child(instance)
 
 func restart() -> void:
@@ -76,22 +80,6 @@ func restart() -> void:
 	await get_tree().create_timer(0.25).timeout
 	Global.player.trail_line.show()
 
-func resize() -> void:
-	#var window_size : Vector2 = get_viewport().get_visible_rect().size
-	#var target_aspect_ratio : float = 16.0 / 9.0
-	#var target_width : float = window_size.y * target_aspect_ratio
-	#var target_height : float = window_size.x / target_aspect_ratio
-	#if window_size.x / window_size.y > target_aspect_ratio:
-		#var pos := Vector2((window_size.x - target_width) / 2, 0)
-		#Global.display_offset = pos
-		#position = pos
-	#else:
-		#var pos := Vector2(0, (window_size.y - target_height) / 2 )
-		#position = pos
-		#Global.display_offset = pos
-	#print(window_size.x - target_width)
-	#print(window_size.y - target_height)
-	print(get_viewport())
 
 func hint() -> void:
 	preview.highlight_trajectory()

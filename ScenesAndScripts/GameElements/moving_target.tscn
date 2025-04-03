@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="2_nopiy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7iip"]
-radius = 32.0
+radius = 48.0
 
 [node name="MovingTarget" type="CharacterBody2D" groups=["Targets"]]
 collision_layer = 4
@@ -15,7 +15,7 @@ progress = 1.0
 shape = SubResource("CircleShape2D_l7iip")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_nopiy")
 
 [node name="Area2D" type="Area2D" parent="."]

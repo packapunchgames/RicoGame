@@ -28,12 +28,14 @@ var last_force_check : int = 0
 var difference : int = 100
 var force : float:
 	set(x):
+		
 		var force_diff : int = abs(round(force - last_force_check))
 		force = clamp(x, 0, topForce)
 		if force_diff >= difference:
-			Settings.vibrate(5, 25)
 			last_force_check = snapped(x, difference)
 			last_force_check = clamp(last_force_check, 0, topForce)
+			var vibrate_factor : int = 10000 / clamp(last_force_check, difference, topForce)
+			Settings.vibrate(5, vibrate_factor)
 
 @onready var trail_line: Line2D = $TrailLine
 
@@ -44,7 +46,7 @@ func _ready() -> void:
 	Global.player = self
 
 func _process(delta : float) -> void:
-	if speed_reserve > 0.0:
+	if speed_reserve > 0.0 and speed < maxSpeed:
 		speed += speed_reserve
 		speed_reserve = 0
 	speed *= deceleration

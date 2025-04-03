@@ -20,7 +20,7 @@ speed = 500
 
 [node name="TestCollision" type="CharacterBody2D" parent="."]
 position = Vector2(1666.67, 0)
-collision_layer = 8
+collision_layer = 2
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestCollision"]
