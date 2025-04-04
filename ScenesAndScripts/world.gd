@@ -35,6 +35,8 @@ func save_initial_children_data(parent_node : Node2D, data_array : Array) -> voi
 			child_data["end_position"] = child.end_position
 			child_data["progress"] = child.progress
 			child_data["dir"] = child.dir
+			if child is Polygon2D:
+				child_data["interval"] = child.interval
 		if child is Vortex:
 			child_data["radius"] = child.radius
 			child_data["raw_force"] = child.raw_force
@@ -50,6 +52,8 @@ func reset_and_reinstance_children(parent_node : Node2D, initial_data : Array) -
 			instance.position = data["initial_position"]
 			if instance is Polygon2D:
 				instance.polygon = data["polygon"]
+				if data.has("interval"):
+					instance.interval = data["interval"]
 			if data.has("speed"):
 				instance.speed = data["speed"]
 				instance.start_position = data["start_position"]

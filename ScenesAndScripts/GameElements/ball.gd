@@ -1,10 +1,12 @@
 extends CharacterBody2D
 class_name Ball
 
-@export var deceleration : float = 0.99
+
 @export var topForce : int = 500
 @export var boost : float = 0.5
 @export var maxSpeed : float = 5.0
+@export var deceleration : float = 0.99
+var can_decelerate : bool = true
 
 var speed_reserve : float = 0.0
 var speed : float = 0:
@@ -49,9 +51,11 @@ func _process(delta : float) -> void:
 	if speed_reserve > 0.0 and speed < maxSpeed:
 		speed += speed_reserve
 		speed_reserve = 0
-	speed *= deceleration
+	if can_decelerate:
+		speed *= deceleration
 	
 	collision  = move_and_collide(velocity * delta * speed)
 	
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
+	

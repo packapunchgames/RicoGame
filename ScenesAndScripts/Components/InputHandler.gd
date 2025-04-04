@@ -1,7 +1,7 @@
 extends Node
 class_name InputHandler
 
-@export var cancel_range : float = 100.0
+
 @export var cancel_zoom : float = 1.5
 @export var offset_divisor : float = 5
 @export var follower_offset_divisor : float = 2
@@ -40,7 +40,7 @@ func _input(_event: InputEvent) -> void:
 				Global.player.hasStarted = false
 				Global.player.last_force_check = 0
 				
-				if distance > cancel_range:
+				if distance > Global.player.difference:
 					Global.player.hasShot = true
 					Global.player.emit_signal("shot")
 					
@@ -57,7 +57,7 @@ func handle_joystick(mousePos : Vector2) -> void:
 	stayer.offset.x = sqrt(distance) * stiffness / offset_divisor
 	follower.offset.x = sqrt(distance) * stiffness / follower_offset_divisor
 	
-	if Global.player.force < cancel_range:
+	if Global.player.force < Global.player.difference:
 		stayer.scale = Vector2.ONE * cancel_zoom
 	else:
 		var size : Vector2 = Vector2(1 - distance / scale_divisor, 1 - distance / scale_divisor)
