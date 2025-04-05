@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://t257sp5arboy" path="res://ScenesAndScripts/GameElements/vortex.gd" id="1_l3dyo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l3dyo"]
-radius = 414.0
+radius = 164.0
 
 [node name="Vortex" type="Area2D"]
 collision_layer = 0
@@ -11,7 +11,8 @@ collision_mask = 10
 script = ExtResource("1_l3dyo")
 raw_force = 1000
 deceleration = 0.99
-weakening = 0.2
+threshold = 30
+weakening = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l3dyo")

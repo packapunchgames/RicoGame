@@ -24,16 +24,25 @@ func _process(delta: float) -> void:
 		var distance : float = global_position.distance_to(body.global_position)
 		var direction : Vector2 = body.global_position.direction_to(global_position)
 		
-		var attraction_force : float
-		if distance < threshold:
-			body.global_position = lerp(body.global_position, global_position, delta * 10)
-		elif distance < radius / 2:
-			attraction_force = raw_force #* weakening
+		var min_force : int
+		var max_force : int
+		if distance > radius/2:
+			min_force = 100
+			max_force = 1000
 		else:
-			attraction_force = raw_force
-		body.velocity += direction * attraction_force * delta
-		body.velocity *= deceleration
+			min_force = 1000
+			max_force = 3000
 		
+		var attraction_force : float
+		var radius_multiplier : float = (radius/2)/distance + 1
+		attraction_force = raw_force * clamp(radius_multiplier, 1, 5)
+		attraction_force = clampf(attraction_force, min_force, max_force)
+		
+		if body.velocity.length() < threshold and distance < threshold / 10:
+			body.velocity = Vector2.ZERO
+		else:
+			body.velocity += direction * attraction_force * delta
+			body.velocity *= deceleration
 	else:
 		if ball:
 			ball.can_decelerate = true
@@ -41,4 +50,4 @@ func _process(delta: float) -> void:
 
 func set_radius() -> void:
 	if collision_shape.shape.radius != radius:
-		collision_shape.shape.radius = radius + 64#half of player's size
+		collision_shape.shape.radius = radius + 64 #half of player's size
