@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://6re7s37iloqa" path="res://ScenesAndScripts/GameElements/moving_target.tscn" id="3_c1dxw"]
 [ext_resource type="PackedScene" uid="uid://cskx3gpeuxh5b" path="res://ScenesAndScripts/GameElements/target.tscn" id="4_08vys"]
 [ext_resource type="PackedScene" uid="uid://o4cduiyx02ln" path="res://ScenesAndScripts/GameElements/moving_obstacle.tscn" id="5_xbnmn"]
-[ext_resource type="PackedScene" uid="uid://8mwywa4awn30" path="res://ScenesAndScripts/GameElements/ball.tscn" id="6_avudw"]
+[ext_resource type="PackedScene" uid="uid://8mwywa4awn30" path="res://ScenesAndScripts/GameElements/player.tscn" id="6_avudw"]
 [ext_resource type="PackedScene" uid="uid://b15nqvra1cslp" path="res://ScenesAndScripts/Components/preview.tscn" id="7_2bh5c"]
 [ext_resource type="PackedScene" uid="uid://utmtkgltfdyi" path="res://ScenesAndScripts/Components/Overlay.tscn" id="8_qos4j"]
 

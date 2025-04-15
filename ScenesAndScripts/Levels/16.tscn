@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ciy2atqwdq2t5" path="res://ScenesAndScripts/GameElements/room.tscn" id="2_yl480"]
 [ext_resource type="PackedScene" uid="uid://cskx3gpeuxh5b" path="res://ScenesAndScripts/GameElements/target.tscn" id="4_atccm"]
 [ext_resource type="PackedScene" uid="uid://o4cduiyx02ln" path="res://ScenesAndScripts/GameElements/moving_obstacle.tscn" id="5_wtp3y"]
-[ext_resource type="PackedScene" uid="uid://8mwywa4awn30" path="res://ScenesAndScripts/GameElements/ball.tscn" id="6_cf7al"]
+[ext_resource type="PackedScene" uid="uid://8mwywa4awn30" path="res://ScenesAndScripts/GameElements/player.tscn" id="6_cf7al"]
 [ext_resource type="PackedScene" uid="uid://b15nqvra1cslp" path="res://ScenesAndScripts/Components/preview.tscn" id="7_1bojx"]
 [ext_resource type="PackedScene" uid="uid://utmtkgltfdyi" path="res://ScenesAndScripts/Components/Overlay.tscn" id="8_r5etw"]
 
@@ -16,7 +16,7 @@ script = ExtResource("1_0dj4t")
 [node name="Targets" type="Node2D" parent="."]
 
 [node name="Target" parent="Targets" instance=ExtResource("4_atccm")]
-position = Vector2(520, 920)
+position = Vector2(480, 920)
 
 [node name="Target2" parent="Targets" instance=ExtResource("4_atccm")]
 position = Vector2(760, 600)
@@ -46,14 +46,12 @@ position = Vector2(350, -120)
 polygon = PackedVector2Array(0, 0, 240, 0, 240, 720, 0, 720)
 start_position = Vector2(350, -120)
 end_position = Vector2(350, 0)
-interval = 0.0
 
 [node name="MovingObstacle2" parent="Obstacles" instance=ExtResource("5_wtp3y")]
 position = Vector2(1350, -120)
 polygon = PackedVector2Array(0, 0, 240, 0, 240, 720, 0, 720)
 start_position = Vector2(1350, -120)
 end_position = Vector2(1350, 0)
-interval = 0.0
 
 [node name="MovingObstacle3" parent="Obstacles" instance=ExtResource("5_wtp3y")]
 position = Vector2(850, 1080)
@@ -62,7 +60,6 @@ speed = 2.0
 start_position = Vector2(850, 1200)
 end_position = Vector2(850, 1080)
 progress = 1.0
-interval = 0.0
 
 [node name="Ball" parent="." instance=ExtResource("6_cf7al")]
 position = Vector2(240, 720)

@@ -2,6 +2,8 @@
 extends Polygon2D
 
 @onready var collision_polygon: CollisionPolygon2D = $StaticBody2D/CollisionPolygon2D
+@onready var body: StaticBody2D = $StaticBody2D
+
 
 @export var speed : float = 1
 @export var start_position : Vector2:
@@ -20,7 +22,7 @@ extends Polygon2D
 @export var interval : float = 0.0
 var time_waited : float = 0.0
 
-enum DIRECTION {FIRST, SECOND}
+enum DIRECTION {FIRST = 1, SECOND = -1}
 @export var dir : DIRECTION = DIRECTION.SECOND
 
 func _ready() -> void:
@@ -37,7 +39,7 @@ func update_position() -> void:
 		position = start_position.lerp(end_position, progress)
 	else:
 		if Global.player:
-			if Global.player.collision:
+			if Global.player.collision and Global.player.collision.get_collider() == body:
 				await get_tree().process_frame
 			else:
 				position = start_position.lerp(end_position, progress)

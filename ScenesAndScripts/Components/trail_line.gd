@@ -1,6 +1,6 @@
 extends Line2D
 
-@export var ball : Ball
+@export var ball : Player
 @export var multiplier : int = 6
 var max_points : int
 

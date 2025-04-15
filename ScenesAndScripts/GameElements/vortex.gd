@@ -10,14 +10,15 @@ class_name Vortex
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
-var ball : Ball
+var ball : Player
+var attraction_force : float
 
 func _process(delta: float) -> void:
 	set_radius()
 	
 	if has_overlapping_bodies():
 		var body : CharacterBody2D = get_overlapping_bodies()[0]
-		if body is Ball:
+		if body is Player:
 			ball = body
 			Global.player.can_decelerate = false
 		
@@ -33,7 +34,7 @@ func _process(delta: float) -> void:
 			min_force = 1000
 			max_force = 3000
 		
-		var attraction_force : float
+		
 		var radius_multiplier : float = (radius/2)/distance + 1
 		attraction_force = raw_force * clamp(radius_multiplier, 1, 5)
 		attraction_force = clampf(attraction_force, min_force, max_force)

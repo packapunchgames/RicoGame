@@ -1,6 +1,5 @@
 extends CharacterBody2D
-class_name Ball
-
+class_name Player
 
 @export var topForce : int = 500
 @export var boost : float = 0.5
@@ -25,6 +24,7 @@ var heading : float
 var hasStarted : bool = false
 var hasShot : bool = false
 var collision : KinematicCollision2D
+var dir : float 
 
 var last_force_check : int = 0
 var difference : int = 100
@@ -40,22 +40,33 @@ var force : float:
 			Settings.vibrate(5, vibrate_factor)
 
 @onready var trail_line: Line2D = $TrailLine
+@onready var sprite: Sprite2D = $Sprite2D
+
 
 signal restart
 signal shot
 
 func _ready() -> void:
 	Global.player = self
+	dir = 0
 
 func _process(delta : float) -> void:
+	handle_speed()
+	
+	rotate_sprite(delta)
+	
+	collision  = move_and_collide(velocity * delta * speed)
+	if collision:
+		velocity = velocity.bounce(collision.get_normal())
+
+func handle_speed() -> void:
 	if speed_reserve > 0.0 and speed < maxSpeed:
 		speed += speed_reserve
 		speed_reserve = 0
 	if can_decelerate:
 		speed *= deceleration
-	
-	collision  = move_and_collide(velocity * delta * speed)
-	
-	if collision:
-		velocity = velocity.bounce(collision.get_normal())
-	
+
+func rotate_sprite(delta : float) -> void:
+	if hasShot:
+		dir = speed * delta * 10
+		sprite.rotation += dir

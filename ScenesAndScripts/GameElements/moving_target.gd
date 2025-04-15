@@ -37,9 +37,9 @@ func _physics_process(delta: float) -> void:
 					dir = DIRECTION.FIRST
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	Settings.vibrate(10, 100)
+	Settings.vibrate(10, 90)
 	Global.hit_stop(0.05)
-	if body is Ball:
+	if body is Player:
 		body.speed += body.boost
 	queue_free()
 

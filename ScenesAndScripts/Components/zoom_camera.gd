@@ -1,6 +1,6 @@
 extends Camera2D
 
-@export var parent : Ball
+@export var parent : Player
 @export var aim_zoom : float
 
 func _ready() -> void:

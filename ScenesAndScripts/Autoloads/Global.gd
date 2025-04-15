@@ -1,6 +1,6 @@
 extends Node
 
-var player : Ball = null
+var player : Player = null
 var overlay : Overlay = null
 
 var hints : int = 1

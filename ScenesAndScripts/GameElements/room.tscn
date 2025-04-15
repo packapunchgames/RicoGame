@@ -4,32 +4,53 @@
 size = Vector2(40, 1080)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b18af"]
-size = Vector2(40.0029, 1840)
+size = Vector2(40, 1840)
 
 [node name="Room" type="Node2D"]
 z_index = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Walls" type="StaticBody2D" parent="."]
 collision_layer = 9
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionLeft" type="CollisionShape2D" parent="Walls"]
 position = Vector2(20, 540)
+rotation = 3.14159
 shape = SubResource("RectangleShape2D_i52uo")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Polygon2D" type="Polygon2D" parent="Walls/CollisionLeft"]
+position = Vector2(0, 0.153809)
+scale = Vector2(1, 1.00028)
+color = Color(0.101868, 0.101868, 0.101868, 1)
+polygon = PackedVector2Array(19.9986, 540, -20.0014, 540, -19.9986, -540, 20.0014, -540)
+
+[node name="CollisionRight" type="CollisionShape2D" parent="Walls"]
 position = Vector2(1900, 540)
 shape = SubResource("RectangleShape2D_i52uo")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(960, 19.9986)
+[node name="Polygon2D" type="Polygon2D" parent="Walls/CollisionRight"]
+position = Vector2(0, 0.153809)
+scale = Vector2(1, 1.00028)
+color = Color(0.101868, 0.101868, 0.101868, 1)
+polygon = PackedVector2Array(19.9986, 540, -20.0014, 540, -19.9986, -540, 20.0014, -540)
+
+[node name="CollisionUp" type="CollisionShape2D" parent="Walls"]
+position = Vector2(960, 20)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_b18af")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Polygon2D" type="Polygon2D" parent="Walls/CollisionUp"]
+color = Color(0.101868, 0.101868, 0.101868, 1)
+polygon = PackedVector2Array(-20.006, 960, 19.994, 960, 20.0061, -960, -19.9939, -960)
+
+[node name="CollisionDown" type="CollisionShape2D" parent="Walls"]
 position = Vector2(960, 1060)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_b18af")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/CollisionDown"]
+color = Color(0.101868, 0.101868, 0.101868, 1)
+polygon = PackedVector2Array(-20.006, 960, 19.994, 960, 20.0061, -960, -19.9939, -960)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false

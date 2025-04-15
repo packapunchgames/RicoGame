@@ -33,6 +33,7 @@ func update_trajectory(single_bounce : bool) -> void:
 		elif single_bounce:
 			max_points += 1
 		
+		
 		current_pos += dir * get_physics_process_delta_time()
 		if test_collision:
 			test_collision.position = current_pos
@@ -49,8 +50,7 @@ func highlight_trajectory() -> void:
 
 func _ready() -> void:
 	update_trajectory(false)
-	if get_parent() is Ball:
+	if get_parent() is Player:
 		get_parent().connect("shot", hide)
 	if !Engine.is_editor_hint():
 		hide()
-		

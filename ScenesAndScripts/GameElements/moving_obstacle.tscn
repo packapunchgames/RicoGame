@@ -17,6 +17,7 @@ shader_parameter/texture_to_scroll = ExtResource("2_w1q6x")
 material = SubResource("ShaderMaterial_0224l")
 texture = ExtResource("2_w1q6x")
 script = ExtResource("3_22vmx")
+dir = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 0

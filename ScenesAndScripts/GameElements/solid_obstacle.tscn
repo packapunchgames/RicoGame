@@ -17,8 +17,17 @@ shader_parameter/texture_to_scroll = ExtResource("2_edc11")
 material = SubResource("ShaderMaterial_0224l")
 texture = ExtResource("2_edc11")
 script = ExtResource("1_fx737")
+outline_width = 100
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+
+[node name="Outline" type="Line2D" parent="."]
+closed = true
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 1
+end_cap_mode = 1

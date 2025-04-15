@@ -13,7 +13,6 @@ var has_used_hint : bool = false
 var enemies_count : int
 var did_game_finish : bool = false
 
-
 func _ready() -> void:
 	
 	Global.player.restart.connect(restart)
@@ -70,7 +69,9 @@ func restart() -> void:
 	Global.player.trail_line.hide()
 	Global.player.position = initial_player_pos
 	Global.player.velocity = Vector2.ZERO
+	Global.player.dir = 0
 	Global.player.trail_line.clear_points()
+	
 	
 	await get_tree().create_timer(0.1).timeout
 	reset_and_reinstance_children(targets, initial_targets_data)

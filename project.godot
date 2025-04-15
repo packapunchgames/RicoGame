@@ -38,6 +38,7 @@ window/stretch/aspect="expand"
 [global_group]
 
 Targets="Group that contains all the targets required to complete the level"
+Vortices=""
 
 [input]
 

@@ -29,6 +29,7 @@ func _input(_event: InputEvent) -> void:
 			if Input.is_action_pressed("press") and Global.player.hasStarted:
 				Global.player.pressVector = mousePos
 				Global.player.heading = Global.player.pressVector.angle_to_point(Global.player.initPos)
+				Global.player.sprite.rotation = Global.player.heading
 				
 				distance = Global.player.pressVector.distance_to(Global.player.initPos)
 				

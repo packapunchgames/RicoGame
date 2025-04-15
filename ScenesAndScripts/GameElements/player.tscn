@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://8mwywa4awn30"]
 
-[ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="1_fr7ir"]
-[ext_resource type="Script" uid="uid://b41bbnfex73u3" path="res://ScenesAndScripts/GameElements/ball.gd" id="1_u80ob"]
-[ext_resource type="Script" uid="uid://0448pcmbuw30" path="res://ScenesAndScripts/Components/preview_vector.gd" id="3_0vprl"]
-[ext_resource type="Script" uid="uid://b6l1qhqewf32a" path="res://ScenesAndScripts/Components/zoom_camera.gd" id="4_1e20t"]
-[ext_resource type="Script" uid="uid://cuv0k428hfvp3" path="res://ScenesAndScripts/Components/trail_line.gd" id="5_6bj8f"]
+[ext_resource type="Script" uid="uid://b41bbnfex73u3" path="res://ScenesAndScripts/GameElements/player.gd" id="1_6dvrn"]
+[ext_resource type="Texture2D" uid="uid://b2hvukayn5f0t" path="res://Art/PNG Files/characters/player png.png" id="2_lld3t"]
+[ext_resource type="Script" uid="uid://0448pcmbuw30" path="res://ScenesAndScripts/Components/preview_vector.gd" id="3_r71dn"]
+[ext_resource type="Script" uid="uid://b6l1qhqewf32a" path="res://ScenesAndScripts/Components/zoom_camera.gd" id="4_ai6u8"]
+[ext_resource type="Script" uid="uid://cuv0k428hfvp3" path="res://ScenesAndScripts/Components/trail_line.gd" id="5_usrgj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pd41g"]
 radius = 65.9697
@@ -18,16 +18,18 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.997573, 1)
 colors = PackedColorArray(1, 1, 1, 0.392157, 1, 1, 1, 1, 1, 1, 1, 1)
 
-[node name="Ball" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-script = ExtResource("1_u80ob")
+script = ExtResource("1_6dvrn")
 boost = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_pd41g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_fr7ir")
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_lld3t")
+flip_h = true
 
 [node name="PreviewVector" type="ProgressBar" parent="." node_paths=PackedStringArray("parent")]
 offset_left = 100.0
@@ -35,7 +37,7 @@ offset_right = 192.0
 offset_bottom = 27.0
 rotation = -6.28319
 pivot_offset = Vector2(-100, 0)
-script = ExtResource("3_0vprl")
+script = ExtResource("3_r71dn")
 parent = NodePath("..")
 metadata/_edit_use_anchors_ = true
 
@@ -44,7 +46,7 @@ limit_left = 0
 limit_top = 0
 limit_right = 1920
 limit_bottom = 1080
-script = ExtResource("4_1e20t")
+script = ExtResource("4_ai6u8")
 parent = NodePath("..")
 aim_zoom = 1.5
 
@@ -58,6 +60,6 @@ texture_mode = 1
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
-script = ExtResource("5_6bj8f")
+script = ExtResource("5_usrgj")
 ball = NodePath("..")
 multiplier = 3

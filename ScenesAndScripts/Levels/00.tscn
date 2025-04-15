@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://clk66xyu6y41d" path="res://ScenesAndScripts/world.gd" id="1_su33q"]
 [ext_resource type="PackedScene" uid="uid://ciy2atqwdq2t5" path="res://ScenesAndScripts/GameElements/room.tscn" id="2_6fhgs"]
 [ext_resource type="PackedScene" uid="uid://cskx3gpeuxh5b" path="res://ScenesAndScripts/GameElements/target.tscn" id="3_ijrf3"]
-[ext_resource type="PackedScene" uid="uid://8mwywa4awn30" path="res://ScenesAndScripts/GameElements/ball.tscn" id="4_aovss"]
+[ext_resource type="PackedScene" uid="uid://8mwywa4awn30" path="res://ScenesAndScripts/GameElements/player.tscn" id="4_aovss"]
 [ext_resource type="PackedScene" uid="uid://cf1mmahnemqfo" path="res://ScenesAndScripts/GameElements/solid_obstacle.tscn" id="4_tkk2c"]
 [ext_resource type="PackedScene" uid="uid://b15nqvra1cslp" path="res://ScenesAndScripts/Components/preview.tscn" id="5_hstr5"]
 [ext_resource type="PackedScene" uid="uid://utmtkgltfdyi" path="res://ScenesAndScripts/Components/Overlay.tscn" id="7_mqf82"]
@@ -32,6 +32,7 @@ position = Vector2(1240, 720)
 [node name="SolidObstacle" parent="Obstacles" instance=ExtResource("4_tkk2c")]
 position = Vector2(240, -160)
 polygon = PackedVector2Array(560, 760, 720, 920, 880, 760, 720, 600)
+outline_width = 1
 
 [node name="Ball" parent="." instance=ExtResource("4_aovss")]
 position = Vector2(640, 720)

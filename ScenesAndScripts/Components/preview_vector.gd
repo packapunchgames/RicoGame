@@ -1,7 +1,7 @@
 extends ProgressBar
 
 @export var offSet : int = 100
-@export var parent : Ball
+@export var parent : Player
 
 func _ready() -> void:
 	position.x = offSet
