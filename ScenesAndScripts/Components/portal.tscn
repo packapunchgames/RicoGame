@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx2xp1qksm3x7"]
+
+[ext_resource type="Script" uid="uid://db73lhbfpwcph" path="res://ScenesAndScripts/Components/portal.gd" id="1_8qyc6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gmgts"]
+radius = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c6fi2"]
+radius = 15.0
+
+[node name="Portal" type="Area2D" node_paths=PackedStringArray("collision_shape", "inner_area_collision")]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_8qyc6")
+collision_shape = NodePath("CollisionShape")
+inner_area_collision = NodePath("InnerArea/CollisionShape2D")
+radius = 125
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gmgts")
+
+[node name="InnerArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InnerArea"]
+shape = SubResource("CircleShape2D_c6fi2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

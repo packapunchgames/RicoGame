@@ -25,8 +25,9 @@ collision_mask = 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 
 [node name="Outline" type="Line2D" parent="."]
+show_behind_parent = true
 closed = true
-width = 5.0
+width = 20.0
 default_color = Color(0, 0, 0, 1)
 joint_mode = 2
 begin_cap_mode = 1

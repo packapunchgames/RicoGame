@@ -51,7 +51,7 @@ press={
 [layer_names]
 
 2d_physics/layer_1="Obstacles/Walls"
-2d_physics/layer_2="Ball"
+2d_physics/layer_2="Player"
 2d_physics/layer_3="Targets"
 2d_physics/layer_4="TestCollision"
 

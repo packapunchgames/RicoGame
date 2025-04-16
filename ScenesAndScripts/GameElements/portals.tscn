@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6cfix7luw02"]
+
+[ext_resource type="Script" uid="uid://c55qs6g2ay5cq" path="res://portals.gd" id="1_yn0jn"]
+[ext_resource type="PackedScene" uid="uid://bx2xp1qksm3x7" path="res://ScenesAndScripts/Components/portal.tscn" id="2_p8m6h"]
+
+[node name="Portals" type="Node2D"]
+script = ExtResource("1_yn0jn")
+
+[node name="Portal" parent="." instance=ExtResource("2_p8m6h")]
+radius = 100
+
+[node name="Portal2" parent="." instance=ExtResource("2_p8m6h")]
+radius = 100
+
+[connection signal="teleport" from="Portal" to="." method="_on_portal_teleport"]
+[connection signal="teleport" from="Portal2" to="." method="_on_portal_2_teleport"]

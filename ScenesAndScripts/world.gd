@@ -39,6 +39,11 @@ func save_initial_children_data(parent_node : Node2D, data_array : Array) -> voi
 		if child is Vortex:
 			child_data["radius"] = child.radius
 			child_data["raw_force"] = child.raw_force
+		if child is Portals:
+			child_data["radius"] = child.radius
+			child_data["inner_area_percent"] = child.inner_area_percent
+			child_data["portal_position"] = child.portal_position
+			child_data["portal_2_position"] = child.portal_2_position
 		data_array.append(child_data)
 
 func reset_and_reinstance_children(parent_node : Node2D, initial_data : Array) -> void:
@@ -62,6 +67,11 @@ func reset_and_reinstance_children(parent_node : Node2D, initial_data : Array) -
 			if instance is Vortex:
 				instance.radius = data["radius"]
 				instance.raw_force = data["raw_force"]
+			if instance is Portals:
+				instance.radius = data["radius"]
+				instance.inner_area_percent = data["inner_area_percent"]
+				instance.portal_position = data["portal_position"]
+				instance.portal_2_position = data["portal_2_position"]
 			parent_node.add_child(instance)
 
 func restart() -> void:
