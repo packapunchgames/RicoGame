@@ -9,6 +9,15 @@ size = Vector2(40, 1840)
 [node name="Room" type="Node2D"]
 z_index = 1
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = -5
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1880.0
+offset_bottom = 1040.0
+color = Color(0.5, 0.5, 0.5, 1)
+
 [node name="Walls" type="StaticBody2D" parent="."]
 collision_layer = 9
 collision_mask = 0
@@ -21,7 +30,7 @@ shape = SubResource("RectangleShape2D_i52uo")
 [node name="Polygon2D" type="Polygon2D" parent="Walls/CollisionLeft"]
 position = Vector2(0, 0.153809)
 scale = Vector2(1, 1.00028)
-color = Color(0.101868, 0.101868, 0.101868, 1)
+color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(19.9986, 540, -20.0014, 540, -19.9986, -540, 20.0014, -540)
 
 [node name="CollisionRight" type="CollisionShape2D" parent="Walls"]
@@ -31,7 +40,7 @@ shape = SubResource("RectangleShape2D_i52uo")
 [node name="Polygon2D" type="Polygon2D" parent="Walls/CollisionRight"]
 position = Vector2(0, 0.153809)
 scale = Vector2(1, 1.00028)
-color = Color(0.101868, 0.101868, 0.101868, 1)
+color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(19.9986, 540, -20.0014, 540, -19.9986, -540, 20.0014, -540)
 
 [node name="CollisionUp" type="CollisionShape2D" parent="Walls"]
@@ -40,8 +49,9 @@ rotation = 1.57079
 shape = SubResource("RectangleShape2D_b18af")
 
 [node name="Polygon2D" type="Polygon2D" parent="Walls/CollisionUp"]
-color = Color(0.101868, 0.101868, 0.101868, 1)
-polygon = PackedVector2Array(-20.006, 960, 19.994, 960, 20.0061, -960, -19.9939, -960)
+position = Vector2(0.000250975, -40)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-20.006, 960, 19.994, 960, 20.0055, -880, -19.9945, -880)
 
 [node name="CollisionDown" type="CollisionShape2D" parent="Walls"]
 position = Vector2(960, 1060)
@@ -49,12 +59,5 @@ rotation = 1.57079
 shape = SubResource("RectangleShape2D_b18af")
 
 [node name="Polygon2D" type="Polygon2D" parent="Walls/CollisionDown"]
-color = Color(0.101868, 0.101868, 0.101868, 1)
-polygon = PackedVector2Array(-20.006, 960, 19.994, 960, 20.0061, -960, -19.9939, -960)
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 1888.0
-offset_bottom = 1048.0
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-20.0057, 920, 19.9943, 920, 20.0061, -960, -19.9939, -960)

@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://8mwywa4awn30"]
+[gd_scene load_steps=13 format=3 uid="uid://8mwywa4awn30"]
 
 [ext_resource type="Script" uid="uid://b41bbnfex73u3" path="res://ScenesAndScripts/GameElements/player.gd" id="1_6dvrn"]
 [ext_resource type="Texture2D" uid="uid://b2hvukayn5f0t" path="res://Art/PNG Files/characters/player png.png" id="2_lld3t"]
 [ext_resource type="Script" uid="uid://0448pcmbuw30" path="res://ScenesAndScripts/Components/preview_vector.gd" id="3_r71dn"]
 [ext_resource type="Script" uid="uid://b6l1qhqewf32a" path="res://ScenesAndScripts/Components/zoom_camera.gd" id="4_ai6u8"]
 [ext_resource type="Script" uid="uid://cuv0k428hfvp3" path="res://ScenesAndScripts/Components/trail_line.gd" id="5_usrgj"]
+[ext_resource type="AudioStream" uid="uid://esm42mb07xgd" path="res://Sound/Sfx/drag.mp3" id="6_lld3t"]
+[ext_resource type="AudioStream" uid="uid://cnyuvvre7niwa" path="res://Sound/Sfx/whoosh.mp3" id="7_r71dn"]
+[ext_resource type="AudioStream" uid="uid://dv054uydrheg8" path="res://Sound/Sfx/cancel (2).wav" id="8_usrgj"]
+[ext_resource type="AudioStream" uid="uid://bmbwopixvq3w" path="res://Sound/Sfx/pop.wav" id="9_usrgj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pd41g"]
 radius = 65.9697
@@ -18,9 +22,13 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.997573, 1)
 colors = PackedColorArray(1, 1, 1, 0.392157, 1, 1, 1, 1, 1, 1, 1, 1)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("drag", "release", "cancel", "tap")]
 collision_layer = 2
 script = ExtResource("1_6dvrn")
+drag = NodePath("Sounds/Drag")
+release = NodePath("Sounds/Release")
+cancel = NodePath("Sounds/Cancel")
+tap = NodePath("Sounds/Tap")
 boost = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -63,3 +71,25 @@ end_cap_mode = 2
 script = ExtResource("5_usrgj")
 ball = NodePath("..")
 multiplier = 3
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Drag" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_lld3t")
+volume_db = -10.0
+pitch_scale = 1.5
+
+[node name="Release" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("7_r71dn")
+volume_db = -5.0
+pitch_scale = 2.0
+
+[node name="Cancel" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_usrgj")
+volume_db = -5.0
+pitch_scale = 0.9
+
+[node name="Tap" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("9_usrgj")
+volume_db = -10.0
+pitch_scale = 0.3

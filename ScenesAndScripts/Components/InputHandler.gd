@@ -7,6 +7,7 @@ class_name InputHandler
 @export var follower_offset_divisor : float = 2
 @export var stiffness : int = 2
 @export var scale_divisor : int = 2500
+@export var hint_sensibility : int = 10
 
 @onready var start_pos: Marker2D = $StartPos
 @onready var stayer: Sprite2D = $StartPos/Stayer
@@ -17,7 +18,7 @@ var distance : float
 @export var subviewport_container : SubViewportContainer
 
 func _input(_event: InputEvent) -> void:
-	if Global.player:
+	if Global.player and !Global.did_game_finish:
 		if !Global.player.hasShot:
 			var player_mouse_pos : Vector2 = Global.player.get_global_mouse_position()
 			var mousePos : Vector2 = player_mouse_pos + get_display_offset(player_mouse_pos)
@@ -29,6 +30,12 @@ func _input(_event: InputEvent) -> void:
 			if Input.is_action_pressed("press") and Global.player.hasStarted:
 				Global.player.pressVector = mousePos
 				Global.player.heading = Global.player.pressVector.angle_to_point(Global.player.initPos)
+				if Global.hint_angle <= 360:
+					var reference_angle : float = rad_to_deg(Global.player.heading)
+					if reference_angle < 0:
+						reference_angle += 360
+					if abs(reference_angle - Global.hint_angle) < hint_sensibility:
+						Global.player.heading = deg_to_rad(Global.hint_angle)
 				Global.player.sprite.rotation = Global.player.heading
 				
 				distance = Global.player.pressVector.distance_to(Global.player.initPos)
@@ -49,6 +56,9 @@ func _input(_event: InputEvent) -> void:
 					Global.player.speed = Global.player.force / 100
 					
 					Global.player.velocity = Vector2(cos(Global.player.heading), sin(Global.player.heading)) * Global.player.force
+					Global.player.release.play()
+				else:
+					Global.player.cancel.play()
 		elif Input.is_action_just_pressed("press"):
 			Global.player.emit_signal("restart")
 

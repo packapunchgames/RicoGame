@@ -1,6 +1,10 @@
 @tool
 extends CharacterBody2D
 
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var hit_sound: AudioStreamPlayer = $HitSound
+
 @export var speed : float = 1
 @export var start_position : Vector2:
 	set(a):
@@ -38,9 +42,13 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	Settings.vibrate(10, 90)
+	hit_sound.play()
 	Global.hit_stop(0.05)
 	if body is Player:
 		body.speed += body.boost
+	animation_player.play("dead")
+	await animation_player.animation_finished
+	create_texture()
 	queue_free()
 
 func _draw() -> void:
@@ -50,3 +58,11 @@ func _draw() -> void:
 		draw_line(local_start, local_end, Color.RED, 2.0)
 		draw_circle(local_start, 50, Color.GREEN)
 		draw_circle(local_end, 50, Color.BLUE)
+
+func create_texture() -> void:
+	var texture : Sprite2D = Sprite2D.new()
+	texture.texture = sprite_2d.texture
+	texture.scale = sprite_2d.scale
+	texture.modulate = modulate
+	texture.global_position = global_position
+	get_parent().add_child(texture)

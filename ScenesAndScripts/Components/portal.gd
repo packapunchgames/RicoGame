@@ -24,6 +24,7 @@ signal teleport
 			inner_area_collision.shape.radius = inner_area_size
 var is_entered : bool = false
 var teleport_clean : bool = true
+var entered_body : PhysicsBody2D
 
 func _process(delta: float) -> void:
 	if teleport_clean:
@@ -32,8 +33,10 @@ func _process(delta: float) -> void:
 				teleport.emit()
 
 func _on_body_entered(body: Node2D) -> void:
+	entered_body = body
 	is_entered = true
 
 func _on_body_exited(body: Node2D) -> void:
+	entered_body = null
 	is_entered = false
 	teleport_clean = true

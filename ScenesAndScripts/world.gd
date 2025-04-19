@@ -11,10 +11,10 @@ var initial_player_pos : Vector2
 var has_used_hint : bool = false
 
 var enemies_count : int
-var did_game_finish : bool = false
 
 func _ready() -> void:
-	
+	Global.did_game_finish = false
+	Global.hint_angle = 1000.0
 	Global.player.restart.connect(restart)
 	initial_player_pos = Global.player.position
 	save_initial_children_data(targets, initial_targets_data)
@@ -36,9 +36,6 @@ func save_initial_children_data(parent_node : Node2D, data_array : Array) -> voi
 			child_data["dir"] = child.dir
 			if child is Polygon2D:
 				child_data["interval"] = child.interval
-		if child is Vortex:
-			child_data["radius"] = child.radius
-			child_data["raw_force"] = child.raw_force
 		if child is Portals:
 			child_data["radius"] = child.radius
 			child_data["inner_area_percent"] = child.inner_area_percent
@@ -64,9 +61,6 @@ func reset_and_reinstance_children(parent_node : Node2D, initial_data : Array) -
 				instance.end_position = data["end_position"]
 				instance.progress = data["progress"]
 				instance.dir = data["dir"]
-			if instance is Vortex:
-				instance.radius = data["radius"]
-				instance.raw_force = data["raw_force"]
 			if instance is Portals:
 				instance.radius = data["radius"]
 				instance.inner_area_percent = data["inner_area_percent"]
@@ -98,17 +92,20 @@ func restart() -> void:
 
 func hint() -> void:
 	preview.highlight_trajectory()
+	Global.hint_angle = preview.angle
 
 func _input(event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_H):
-		if Global.hints > 0:
-			has_used_hint = true
-			Global.hints -= 1
-			hint()
+		if !has_used_hint and !Global.player.hasShot:
+			if Resources.hints > 0:
+				has_used_hint = true
+				Resources.hints -= 1
+				hint()
 
 func _process(delta: float) -> void:
 	enemies_count = get_tree().get_node_count_in_group("Targets")
 	if  enemies_count == 0:
-		if !did_game_finish:
-			did_game_finish = true
+		if !Global.did_game_finish:
+			Global.did_game_finish = true
+			await get_tree().create_timer(0.25).timeout
 			Global.emit_signal("level_succeded")

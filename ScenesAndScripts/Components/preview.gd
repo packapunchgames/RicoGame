@@ -16,10 +16,11 @@ class_name Preview
 		update_trajectory(false)
 @export var min_points : int = 50
 @onready var test_collision: CharacterBody2D = $TestCollision
+var current_pos := Vector2.ZERO
 
 func update_trajectory(single_bounce : bool) -> void:
 	clear_points()
-	var current_pos := Vector2.ZERO
+	current_pos = Vector2.ZERO
 	var dir : Vector2 = Vector2.RIGHT.rotated(deg_to_rad(angle)) * speed
 	for i in max_points:
 		add_point(current_pos)

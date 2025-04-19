@@ -1,6 +1,13 @@
 extends CharacterBody2D
 class_name Player
 
+@export_group("Sounds")
+@export var drag : AudioStreamPlayer
+@export var release : AudioStreamPlayer
+@export var cancel : AudioStreamPlayer
+@export var tap : AudioStreamPlayer
+
+@export_group("")
 @export var topForce : int = 500
 @export var boost : float = 0.5
 @export var maxSpeed : float = 5.0
@@ -17,7 +24,6 @@ var speed : float = 0:
 			speed -= speed - maxSpeed
 		return speed
 
-
 var initPos : Vector2
 var pressVector : Vector2
 var heading : float
@@ -30,7 +36,6 @@ var last_force_check : int = 0
 var difference : int = 100
 var force : float:
 	set(x):
-		
 		var force_diff : int = abs(round(force - last_force_check))
 		force = clamp(x, 0, topForce)
 		if force_diff >= difference:
@@ -38,6 +43,8 @@ var force : float:
 			last_force_check = clamp(last_force_check, 0, topForce)
 			var vibrate_factor : int = 10000 / clamp(last_force_check, difference, topForce)
 			Settings.vibrate(5, vibrate_factor)
+			drag.pitch_scale = 1.5 + last_force_check / 1000
+			drag.play()
 
 @onready var trail_line: Line2D = $TrailLine
 @onready var sprite: Sprite2D = $Sprite2D
@@ -49,6 +56,7 @@ signal shot
 func _ready() -> void:
 	Global.player = self
 	dir = 0
+	Global.player.can_decelerate = true
 
 func _process(delta : float) -> void:
 	handle_speed()
@@ -58,6 +66,7 @@ func _process(delta : float) -> void:
 	collision  = move_and_collide(velocity * delta * speed)
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
+		tap.play()
 
 func handle_speed() -> void:
 	if speed_reserve > 0.0 and speed < maxSpeed:

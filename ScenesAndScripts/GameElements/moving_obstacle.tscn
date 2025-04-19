@@ -1,21 +1,21 @@
 [gd_scene load_steps=5 format=3 uid="uid://o4cduiyx02ln"]
 
 [ext_resource type="Shader" uid="uid://du3qd5nf52x5l" path="res://ScenesAndScripts/Shaders/scrolling_texture.gdshader" id="1_22vmx"]
-[ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="2_w1q6x"]
+[ext_resource type="Texture2D" uid="uid://bn1meioyvrqxg" path="res://Art/PNG Files/Backgrounds/obstaclesPattern.png" id="2_22vmx"]
 [ext_resource type="Script" uid="uid://br4q7itmiuvrk" path="res://ScenesAndScripts/GameElements/moving_obstacle.gd" id="3_22vmx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0224l"]
 shader = ExtResource("1_22vmx")
-shader_parameter/scroll_speed = 0.25
-shader_parameter/angle_degrees = 0.0
+shader_parameter/scroll_speed = 0.1
+shader_parameter/angle_degrees = 315.0
 shader_parameter/repeat_x = 1.0
 shader_parameter/repeat_y = 1.0
 shader_parameter/row_offset = 0.0
-shader_parameter/texture_to_scroll = ExtResource("2_w1q6x")
+shader_parameter/texture_to_scroll = ExtResource("2_22vmx")
 
 [node name="MovingObstacle" type="Polygon2D"]
 material = SubResource("ShaderMaterial_0224l")
-texture = ExtResource("2_w1q6x")
+texture = ExtResource("2_22vmx")
 script = ExtResource("3_22vmx")
 dir = 1
 
