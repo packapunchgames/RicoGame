@@ -1,7 +1,7 @@
 @tool
 extends CharacterBody2D
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hit_sound: AudioStreamPlayer = $HitSound
 
@@ -21,6 +21,14 @@ extends CharacterBody2D
 
 enum DIRECTION {FIRST, SECOND}
 @export var dir : DIRECTION = DIRECTION.SECOND
+
+var preloaded_sprite_frames : Array[SpriteFrames] = [
+	preload("res://Art/PNG Files/characters/Carrot/carrot_frames.tres"),
+]
+
+func _ready() -> void:
+	sprite_2d.sprite_frames = preloaded_sprite_frames.pick_random()
+	rotation_degrees = randi_range(0,360)
 
 func update_position() -> void:
 	position = start_position.lerp(end_position, progress)
@@ -47,7 +55,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.speed += body.boost
 	animation_player.play("dead")
+	var stain : AnimatedSprite2D = create_stain()
 	await animation_player.animation_finished
+	stain.modulate = modulate
 	create_texture()
 	queue_free()
 
@@ -60,9 +70,23 @@ func _draw() -> void:
 		draw_circle(local_end, 50, Color.BLUE)
 
 func create_texture() -> void:
-	var texture : Sprite2D = Sprite2D.new()
-	texture.texture = sprite_2d.texture
+	var texture : AnimatedSprite2D = AnimatedSprite2D.new()
+	texture.sprite_frames = sprite_2d.sprite_frames
+	texture.play("cut")
 	texture.scale = sprite_2d.scale
 	texture.modulate = modulate
+	texture.rotation_degrees = rotation_degrees
 	texture.global_position = global_position
 	get_parent().add_child(texture)
+
+func create_stain() -> AnimatedSprite2D:
+	var texture : AnimatedSprite2D = AnimatedSprite2D.new()
+	texture.sprite_frames = sprite_2d.sprite_frames
+	texture.play("stain")
+	texture.modulate = modulate
+	texture.scale = sprite_2d.scale
+	texture.global_position = global_position
+	texture.rotation_degrees = rotation_degrees
+	texture.z_index = z_index - 1
+	get_parent().add_child(texture)
+	return texture

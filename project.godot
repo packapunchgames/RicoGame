@@ -36,6 +36,21 @@ window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[file_customization]
+
+folder_colors={
+"res://Art/": "yellow",
+"res://Art/PNG Files/characters/": "teal",
+"res://Art/PNG Files/characters/Carrot/": "orange",
+"res://ScenesAndScripts/": "blue",
+"res://ScenesAndScripts/Autoloads/": "green",
+"res://ScenesAndScripts/Components/": "gray",
+"res://ScenesAndScripts/GameElements/": "pink",
+"res://ScenesAndScripts/Levels/": "orange",
+"res://ScenesAndScripts/Shaders/": "gray",
+"res://Sound/": "purple"
+}
+
 [global_group]
 
 Targets="Group that contains all the targets required to complete the level"

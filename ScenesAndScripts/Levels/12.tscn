@@ -18,6 +18,7 @@ script = ExtResource("1_qw7eo")
 
 [node name="MovingTarget" parent="Targets" instance=ExtResource("3_qaqe0")]
 position = Vector2(120, 120)
+rotation = 5.98648
 speed = 0.5
 start_position = Vector2(120, 120)
 end_position = Vector2(420, 120)
@@ -25,6 +26,7 @@ progress = 0.0
 
 [node name="MovingTarget2" parent="Targets" instance=ExtResource("3_qaqe0")]
 position = Vector2(1700, 120)
+rotation = 0.628319
 speed = 0.33
 start_position = Vector2(1700, 120)
 end_position = Vector2(1800, 216.145)

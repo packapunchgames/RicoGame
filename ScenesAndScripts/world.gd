@@ -101,6 +101,9 @@ func _input(event: InputEvent) -> void:
 				has_used_hint = true
 				Resources.hints -= 1
 				hint()
+				print(Global.player.rotation_degrees)
+				print(Global.player.sprite.rotation_degrees)
+				print(Global.player.heading)
 
 func _process(delta: float) -> void:
 	enemies_count = get_tree().get_node_count_in_group("Targets")

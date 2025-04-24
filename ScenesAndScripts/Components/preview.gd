@@ -34,7 +34,6 @@ func update_trajectory(single_bounce : bool) -> void:
 		elif single_bounce:
 			max_points += 1
 		
-		
 		current_pos += dir * get_physics_process_delta_time()
 		if test_collision:
 			test_collision.position = current_pos

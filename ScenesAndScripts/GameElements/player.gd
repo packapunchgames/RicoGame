@@ -12,7 +12,6 @@ class_name Player
 @export var boost : float = 0.5
 @export var maxSpeed : float = 5.0
 @export var deceleration : float = 0.99
-var can_decelerate : bool = true
 
 var speed_reserve : float = 0.0
 var speed : float = 0:
@@ -56,7 +55,8 @@ signal shot
 func _ready() -> void:
 	Global.player = self
 	dir = 0
-	Global.player.can_decelerate = true
+	heading = 0
+	rotation = 0
 
 func _process(delta : float) -> void:
 	handle_speed()
@@ -72,8 +72,7 @@ func handle_speed() -> void:
 	if speed_reserve > 0.0 and speed < maxSpeed:
 		speed += speed_reserve
 		speed_reserve = 0
-	if can_decelerate:
-		speed *= deceleration
+	speed *= deceleration
 
 func rotate_sprite(delta : float) -> void:
 	if hasShot:

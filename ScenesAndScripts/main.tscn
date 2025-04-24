@@ -1,28 +1,18 @@
-[gd_scene load_steps=24 format=3 uid="uid://2efpx57nitbd"]
+[gd_scene load_steps=14 format=3 uid="uid://2efpx57nitbd"]
 
 [ext_resource type="Script" uid="uid://b6bmkeo3twdwa" path="res://ScenesAndScripts/main.gd" id="1_f6nm2"]
 [ext_resource type="PackedScene" uid="uid://c73ajpu4fkp27" path="res://ScenesAndScripts/Components/input_handler.tscn" id="2_glhd3"]
 [ext_resource type="Script" uid="uid://c7ycnnvkb4u68" path="res://ScenesAndScripts/Components/level_succeder.gd" id="3_f6nm2"]
-[ext_resource type="PackedScene" uid="uid://pm7uochd0j1x" path="res://ScenesAndScripts/Levels/00.tscn" id="3_og0d7"]
-[ext_resource type="PackedScene" uid="uid://cqc7gm2rgh2em" path="res://ScenesAndScripts/Levels/01.tscn" id="4_a3gyh"]
-[ext_resource type="PackedScene" uid="uid://br1g6piskcdhk" path="res://ScenesAndScripts/Levels/02.tscn" id="5_73ktn"]
-[ext_resource type="PackedScene" uid="uid://0frufl1mmx4e" path="res://ScenesAndScripts/Levels/03.tscn" id="6_pkcfo"]
-[ext_resource type="PackedScene" uid="uid://5x04xodflfdo" path="res://ScenesAndScripts/Levels/04.tscn" id="7_yqd31"]
-[ext_resource type="PackedScene" uid="uid://34rhxe3r22eq" path="res://ScenesAndScripts/Levels/05.tscn" id="8_gl62k"]
-[ext_resource type="PackedScene" uid="uid://l4olkjwsd2ln" path="res://ScenesAndScripts/Levels/06.tscn" id="9_mfdq8"]
-[ext_resource type="PackedScene" uid="uid://qp1bbto0we3b" path="res://ScenesAndScripts/Levels/07.tscn" id="10_7051g"]
-[ext_resource type="PackedScene" uid="uid://cmpalxer0ps5k" path="res://ScenesAndScripts/Levels/08.tscn" id="11_jpveu"]
-[ext_resource type="PackedScene" uid="uid://b4o73yauyfhdx" path="res://ScenesAndScripts/Levels/09.tscn" id="12_k3edj"]
-[ext_resource type="PackedScene" uid="uid://i5djdm2ciw7c" path="res://ScenesAndScripts/Levels/10.tscn" id="13_if7gy"]
-[ext_resource type="PackedScene" uid="uid://qn8utvba7atr" path="res://ScenesAndScripts/Levels/11.tscn" id="14_l4u8c"]
-[ext_resource type="PackedScene" uid="uid://w23qaon7iu0i" path="res://ScenesAndScripts/Levels/12.tscn" id="15_bt5kp"]
-[ext_resource type="PackedScene" uid="uid://3dsds1hdm1dn" path="res://ScenesAndScripts/Levels/13.tscn" id="16_ope6r"]
-[ext_resource type="PackedScene" uid="uid://bb5pwdwvqn00g" path="res://ScenesAndScripts/Levels/14.tscn" id="17_a3gyh"]
-[ext_resource type="PackedScene" uid="uid://bkni3kvkl4207" path="res://ScenesAndScripts/Levels/15.tscn" id="18_vy032"]
-[ext_resource type="PackedScene" uid="uid://liym1hk3xgyg" path="res://ScenesAndScripts/Levels/16.tscn" id="19_qwrd3"]
+[ext_resource type="PackedScene" uid="uid://i5djdm2ciw7c" path="res://ScenesAndScripts/Levels/10.tscn" id="13_pkcfo"]
+[ext_resource type="PackedScene" uid="uid://qn8utvba7atr" path="res://ScenesAndScripts/Levels/11.tscn" id="14_yqd31"]
+[ext_resource type="PackedScene" uid="uid://w23qaon7iu0i" path="res://ScenesAndScripts/Levels/12.tscn" id="15_gl62k"]
+[ext_resource type="PackedScene" uid="uid://3dsds1hdm1dn" path="res://ScenesAndScripts/Levels/13.tscn" id="16_mfdq8"]
+[ext_resource type="PackedScene" uid="uid://bb5pwdwvqn00g" path="res://ScenesAndScripts/Levels/14.tscn" id="17_7051g"]
+[ext_resource type="PackedScene" uid="uid://bkni3kvkl4207" path="res://ScenesAndScripts/Levels/15.tscn" id="18_jpveu"]
+[ext_resource type="PackedScene" uid="uid://liym1hk3xgyg" path="res://ScenesAndScripts/Levels/16.tscn" id="19_gohnu"]
 [ext_resource type="PackedScene" uid="uid://543478mp6cft" path="res://ScenesAndScripts/Levels/17.tscn" id="20_xarur"]
-[ext_resource type="PackedScene" uid="uid://desso772hwo6d" path="res://ScenesAndScripts/Levels/18.tscn" id="21_1m22k"]
-[ext_resource type="PackedScene" uid="uid://bwc0u4g0ffrba" path="res://ScenesAndScripts/Levels/19.tscn" id="22_wem2e"]
+[ext_resource type="PackedScene" uid="uid://desso772hwo6d" path="res://ScenesAndScripts/Levels/18.tscn" id="21_k3edj"]
+[ext_resource type="PackedScene" uid="uid://bwc0u4g0ffrba" path="res://ScenesAndScripts/Levels/19.tscn" id="22_if7gy"]
 
 [node name="Main" type="Control" node_paths=PackedStringArray("sub_viewport", "level_succeder")]
 layout_mode = 3
@@ -70,7 +60,7 @@ hint_sensibility = 5
 subviewport_container = NodePath("../SubViewportContainer")
 
 [node name="LevelSucceder" type="ResourcePreloader" parent="."]
-resources = [PackedStringArray("00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19"), [ExtResource("3_og0d7"), ExtResource("4_a3gyh"), ExtResource("5_73ktn"), ExtResource("6_pkcfo"), ExtResource("7_yqd31"), ExtResource("8_gl62k"), ExtResource("9_mfdq8"), ExtResource("10_7051g"), ExtResource("11_jpveu"), ExtResource("12_k3edj"), ExtResource("13_if7gy"), ExtResource("14_l4u8c"), ExtResource("15_bt5kp"), ExtResource("16_ope6r"), ExtResource("17_a3gyh"), ExtResource("18_vy032"), ExtResource("19_qwrd3"), ExtResource("20_xarur"), ExtResource("21_1m22k"), ExtResource("22_wem2e")]]
+resources = [PackedStringArray("10", "11", "12", "13", "14", "15", "16", "17", "18", "19"), [ExtResource("13_pkcfo"), ExtResource("14_yqd31"), ExtResource("15_gl62k"), ExtResource("16_mfdq8"), ExtResource("17_7051g"), ExtResource("18_jpveu"), ExtResource("19_gohnu"), ExtResource("20_xarur"), ExtResource("21_k3edj"), ExtResource("22_if7gy")]]
 script = ExtResource("3_f6nm2")
 metadata/_custom_type_script = "uid://c7ycnnvkb4u68"
 

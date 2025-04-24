@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6cfix7luw02"]
 
-[ext_resource type="Script" uid="uid://c55qs6g2ay5cq" path="res://portals.gd" id="1_yn0jn"]
+[ext_resource type="Script" uid="uid://c55qs6g2ay5cq" path="res://ScenesAndScripts/portals.gd" id="1_yn0jn"]
 [ext_resource type="PackedScene" uid="uid://bx2xp1qksm3x7" path="res://ScenesAndScripts/Components/portal.tscn" id="2_p8m6h"]
 
 [node name="Portals" type="Node2D"]
