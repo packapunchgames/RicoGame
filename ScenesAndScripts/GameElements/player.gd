@@ -29,7 +29,7 @@ var heading : float
 var hasStarted : bool = false
 var hasShot : bool = false
 var collision : KinematicCollision2D
-var dir : float 
+var dir : float
 
 var last_force_check : int = 0
 var difference : int = 100
@@ -47,7 +47,6 @@ var force : float:
 
 @onready var trail_line: Line2D = $TrailLine
 @onready var sprite: Sprite2D = $Sprite2D
-
 
 signal restart
 signal shot
@@ -74,7 +73,21 @@ func handle_speed() -> void:
 		speed_reserve = 0
 	speed *= deceleration
 
+func stop() -> void:
+	speed = 0
+	speed_reserve = 0
+	velocity = Vector2.ZERO
+
 func rotate_sprite(delta : float) -> void:
 	if hasShot:
 		dir = speed * delta * 10
 		sprite.rotation += dir
+
+func level_ended() -> void:
+	stop()
+	await get_tree().create_timer(0.25).timeout
+	return
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	stop()
+	await get_tree().create_timer(0.25).timeout

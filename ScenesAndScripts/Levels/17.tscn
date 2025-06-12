@@ -28,14 +28,14 @@ position = Vector2(880, 400)
 
 [node name="MovingTarget" parent="Targets" instance=ExtResource("4_443al")]
 position = Vector2(750, 700)
-rotation = 0.0872665
+rotation = 2.42601
 speed = 0.5
 start_position = Vector2(525, 700)
 end_position = Vector2(750, 700)
 
 [node name="MovingTarget2" parent="Targets" instance=ExtResource("4_443al")]
 position = Vector2(625, 550)
-rotation = 1.79769
+rotation = 4.99164
 speed = 0.5
 start_position = Vector2(625, 550)
 end_position = Vector2(850, 550)

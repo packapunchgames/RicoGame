@@ -19,7 +19,10 @@ var distance : float
 
 func _input(_event: InputEvent) -> void:
 	if Global.player and !Global.did_game_finish:
-		if !Global.player.hasShot:
+		if Global.player.hasShot:
+			if Input.is_action_just_pressed("press"):
+				Global.player.emit_signal("restart")
+		else:
 			var player_mouse_pos : Vector2 = Global.player.get_global_mouse_position()
 			var mousePos : Vector2 = player_mouse_pos + get_display_offset(player_mouse_pos)
 			mousePos.x += Global.display_offset.x
@@ -59,8 +62,6 @@ func _input(_event: InputEvent) -> void:
 					Global.player.release.play()
 				else:
 					Global.player.cancel.play()
-		elif Input.is_action_just_pressed("press"):
-			Global.player.emit_signal("restart")
 
 
 func handle_joystick(mousePos : Vector2) -> void:

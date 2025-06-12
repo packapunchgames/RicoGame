@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://b16bu1vsw1ces"]
+
+[ext_resource type="Script" uid="uid://bxcsk4l78jaew" path="res://ScenesAndScripts/UI/start_screen.gd" id="1_hbygu"]
+[ext_resource type="Script" uid="uid://bapf2pjjq1tnt" path="res://ScenesAndScripts/UI/overlay.gd" id="1_qrnm2"]
+[ext_resource type="PackedScene" uid="uid://2efpx57nitbd" path="res://ScenesAndScripts/main.tscn" id="2_hby4r"]
+[ext_resource type="Theme" uid="uid://cqy5qwkgao8ks" path="res://ScenesAndScripts/Shaders/3rd_text.tres" id="3_hby4r"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hbygu")
+game_scene = ExtResource("2_hby4r")
+
+[node name="ButtonDetector" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Overlay" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qrnm2")
+
+[node name="Version" type="Label" parent="Overlay"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = ExtResource("3_hby4r")
+text = "Version: xxx"
+
+[connection signal="pressed" from="ButtonDetector" to="." method="_on_button_detector_pressed"]

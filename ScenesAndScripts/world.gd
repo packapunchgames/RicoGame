@@ -69,13 +69,13 @@ func reset_and_reinstance_children(parent_node : Node2D, initial_data : Array) -
 			parent_node.add_child(instance)
 
 func restart() -> void:
-	Global.player.speed = 0
+	Global.player.stop()
 	Global.player.trail_line.hide()
 	Global.player.position = initial_player_pos
-	Global.player.velocity = Vector2.ZERO
 	Global.player.dir = 0
+	Global.player.global_rotation_degrees = 0.0
 	Global.player.trail_line.clear_points()
-	
+	Global.player.trail_line.can_spawn = false
 	
 	await get_tree().create_timer(0.1).timeout
 	reset_and_reinstance_children(targets, initial_targets_data)
@@ -86,8 +86,8 @@ func restart() -> void:
 	if has_used_hint:
 		preview.show()
 	
-	await get_tree().create_timer(0.25).timeout
 	Global.player.trail_line.show()
+	Global.player.trail_line.can_spawn = true
 
 
 func hint() -> void:
@@ -101,14 +101,11 @@ func _input(event: InputEvent) -> void:
 				has_used_hint = true
 				Resources.hints -= 1
 				hint()
-				print(Global.player.rotation_degrees)
-				print(Global.player.sprite.rotation_degrees)
-				print(Global.player.heading)
 
 func _process(delta: float) -> void:
 	enemies_count = get_tree().get_node_count_in_group("Targets")
 	if  enemies_count == 0:
 		if !Global.did_game_finish:
+			await Global.player.level_ended()
 			Global.did_game_finish = true
-			await get_tree().create_timer(0.25).timeout
 			Global.emit_signal("level_succeded")

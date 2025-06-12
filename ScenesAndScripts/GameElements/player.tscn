@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://8mwywa4awn30"]
+[gd_scene load_steps=12 format=3 uid="uid://8mwywa4awn30"]
 
 [ext_resource type="Script" uid="uid://b41bbnfex73u3" path="res://ScenesAndScripts/GameElements/player.gd" id="1_6dvrn"]
 [ext_resource type="Texture2D" uid="uid://b2hvukayn5f0t" path="res://Art/PNG Files/characters/player png.png" id="2_lld3t"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://cuv0k428hfvp3" path="res://ScenesAndScripts/Components/trail_line.gd" id="5_usrgj"]
 [ext_resource type="AudioStream" uid="uid://esm42mb07xgd" path="res://Sound/Sfx/drag.mp3" id="6_lld3t"]
 [ext_resource type="AudioStream" uid="uid://cnyuvvre7niwa" path="res://Sound/Sfx/whoosh.mp3" id="7_r71dn"]
-[ext_resource type="AudioStream" uid="uid://dv054uydrheg8" path="res://Sound/Sfx/cancel (2).wav" id="8_usrgj"]
 [ext_resource type="AudioStream" uid="uid://bmbwopixvq3w" path="res://Sound/Sfx/pop.wav" id="9_usrgj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pd41g"]
@@ -32,6 +31,13 @@ tap = NodePath("Sounds/Tap")
 boost = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pd41g")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_pd41g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -78,18 +84,24 @@ multiplier = 3
 stream = ExtResource("6_lld3t")
 volume_db = -10.0
 pitch_scale = 1.5
+mix_target = 1
 
 [node name="Release" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("7_r71dn")
 volume_db = -5.0
 pitch_scale = 2.0
+mix_target = 1
 
 [node name="Cancel" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("8_usrgj")
+stream = ExtResource("7_r71dn")
 volume_db = -5.0
-pitch_scale = 0.9
+pitch_scale = 5.0
+mix_target = 1
 
 [node name="Tap" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("9_usrgj")
-volume_db = -10.0
+volume_db = -15.0
 pitch_scale = 0.3
+mix_target = 1
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

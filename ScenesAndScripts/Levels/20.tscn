@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://kt1wbl1h033h"]
+
+[ext_resource type="Script" uid="uid://clk66xyu6y41d" path="res://ScenesAndScripts/world.gd" id="1_mgcvd"]
+[ext_resource type="PackedScene" uid="uid://ciy2atqwdq2t5" path="res://ScenesAndScripts/GameElements/room.tscn" id="2_kb1mh"]
+[ext_resource type="PackedScene" uid="uid://cskx3gpeuxh5b" path="res://ScenesAndScripts/GameElements/target.tscn" id="3_6n83n"]
+[ext_resource type="PackedScene" uid="uid://dccpftpriwfsd" path="res://ScenesAndScripts/GameElements/danger.tscn" id="4_olpy6"]
+[ext_resource type="PackedScene" uid="uid://8mwywa4awn30" path="res://ScenesAndScripts/GameElements/player.tscn" id="7_4w3vy"]
+[ext_resource type="PackedScene" uid="uid://b15nqvra1cslp" path="res://ScenesAndScripts/Components/preview.tscn" id="8_t85m6"]
+[ext_resource type="PackedScene" uid="uid://utmtkgltfdyi" path="res://ScenesAndScripts/Components/Overlay.tscn" id="9_b33pt"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_mgcvd")
+
+[node name="Room" parent="." instance=ExtResource("2_kb1mh")]
+
+[node name="Targets" type="Node2D" parent="."]
+
+[node name="Target" parent="Targets" instance=ExtResource("3_6n83n")]
+position = Vector2(1600, 200)
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Danger" parent="Obstacles" instance=ExtResource("4_olpy6")]
+position = Vector2(1360, 520)
+
+[node name="Ball" parent="." instance=ExtResource("7_4w3vy")]
+position = Vector2(1100, 540)
+
+[node name="Preview" parent="Ball" instance=ExtResource("8_t85m6")]
+points = PackedVector2Array(0, 0, 8.33333, 0, 16.6667, 0, 25, 0, 33.3333, 0, 41.6667, 0, 50, 0, 58.3333, 0, 66.6667, 0, 75, 0, 83.3334, 0, 91.6667, 0, 100, 0, 108.333, 0, 116.667, 0, 125, 0, 133.333, 0, 141.667, 0, 150, 0, 158.333, 0, 166.667, 0, 175, 0, 183.333, 0, 191.667, 0, 200, 0, 208.333, 0, 216.667, 0, 225, 0, 233.333, 0, 241.667, 0, 250, 0, 258.333, 0, 266.667, 0, 275, 0, 283.333, 0, 291.667, 0, 300, 0, 308.333, 0, 316.667, 0, 325, 0, 333.333, 0, 341.667, 0, 350, 0, 358.333, 0, 366.667, 0, 375, 0, 383.333, 0, 391.667, 0, 400, 0, 408.333, 0, 416.667, 0, 425, 0, 433.333, 0, 441.667, 0, 450, 0, 458.334, 0, 466.667, 0, 475, 0, 483.334, 0, 491.667, 0, 500, 0, 508.334, 0, 516.667, 0, 525, 0, 533.334, 0, 541.667, 0, 550, 0, 558.333, 0, 566.667, 0, 575, 0, 583.333, 0, 591.667, 0, 600, 0, 608.333, 0, 616.667, 0, 625, 0, 633.333, 0, 641.667, 0, 650, 0, 658.333, 0, 666.667, 0, 675, 0, 683.333, 0, 691.667, 0, 700, 0, 708.333, 0, 700, 0, 691.667, 0, 683.333, 0, 675, 0, 666.667, 0, 658.333, 0, 650, 0, 641.667, 0, 633.333, 0, 625, 0, 616.667, 0, 608.333, 0, 600, 0, 591.667, 0, 583.333, 0, 575, 0, 566.667, 0, 558.333, 0, 550, 0, 541.667, 0, 533.334, 0, 525, 0, 516.667, 0, 508.334, 0, 500, 0, 491.667, 0, 483.334, 0, 475, 0, 466.667, 0, 458.334, 0, 450, 0, 441.667, 0, 433.333, 0, 425, 0, 416.667, 0, 408.333, 0, 400, 0, 391.667, 0, 383.333, 0, 375, 0, 366.667, 0, 358.333, 0, 350, 0, 341.667, 0, 333.333, 0, 325, 0, 316.667, 0, 308.333, 0, 300, 0, 291.667, 0, 283.333, 0, 275, 0, 266.667, 0, 258.333, 0, 250, 0, 241.667, 0, 233.333, 0, 225, 0, 216.667, 0, 208.333, 0, 200, 0, 191.667, 0, 183.333, 0, 175, 0, 166.667, 0, 158.333, 0, 150, 0, 141.667, 0, 133.333, 0, 125, 0, 116.667, 0, 108.333, 0, 100, 0, 91.6667, 0, 83.3333, 0, 75, 0, 66.6667, 0, 58.3333, 0, 50, 0, 41.6667, 0, 33.3333, 0, 25, 0, 16.6667, 0, 8.33333, 0, -7.62939e-06, 0, -8.33334, 0, -16.6667, 0, -25, 0, -33.3333, 0, -41.6667, 0, -50, 0, -58.3334, 0, -66.6667, 0, -75, 0, -83.3334, 0, -91.6667, 0, -100, 0, -108.333, 0, -116.667, 0, -125, 0, -133.333, 0, -141.667, 0, -150, 0, -158.333, 0, -166.667, 0, -175, 0, -183.333, 0, -191.667, 0, -200, 0, -208.333, 0, -216.667, 0, -225, 0, -233.333, 0, -241.667, 0)
+antialiased = true
+
+[node name="Overlay" parent="." instance=ExtResource("9_b33pt")]

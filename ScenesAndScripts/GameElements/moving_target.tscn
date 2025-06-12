@@ -229,6 +229,7 @@ _data = {
 
 [node name="MovingTarget" type="CharacterBody2D" groups=["Targets"]]
 process_mode = 1
+rotation = 0.802851
 collision_layer = 4
 script = ExtResource("1_17sxh")
 speed = 0.0
@@ -261,5 +262,6 @@ autoplay = "default"
 stream = ExtResource("3_nopiy")
 volume_db = -5.0
 pitch_scale = 1.75
+mix_target = 1
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

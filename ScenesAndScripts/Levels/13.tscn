@@ -18,7 +18,7 @@ script = ExtResource("1_aliok")
 
 [node name="MovingTarget" parent="Targets" instance=ExtResource("3_alep5")]
 position = Vector2(1500, 600)
-rotation = 3.9968
+rotation = 4.31096
 speed = 1.0
 start_position = Vector2(1500, 600)
 end_position = Vector2(1500, 830)

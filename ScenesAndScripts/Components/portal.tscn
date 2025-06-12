@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://db73lhbfpwcph" path="res://ScenesAndScripts/Components/portal.gd" id="1_8qyc6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmgts"]
-radius = 100.0
+radius = 125.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c6fi2"]
-radius = 15.0
+radius = 18.0
 
 [node name="Portal" type="Area2D" node_paths=PackedStringArray("collision_shape", "inner_area_collision")]
 collision_layer = 0

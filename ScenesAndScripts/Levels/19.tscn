@@ -28,7 +28,7 @@ position = Vector2(960, 880)
 
 [node name="MovingTarget" parent="Targets" instance=ExtResource("4_fnfdb")]
 position = Vector2(600, 680)
-rotation = 6.14356
+rotation = 5.23599
 speed = 1.25
 start_position = Vector2(600, 500)
 end_position = Vector2(600, 680)
