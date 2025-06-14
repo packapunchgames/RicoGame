@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://kt1wbl1h033h"]
+[gd_scene load_steps=9 format=3 uid="uid://kt1wbl1h033h"]
 
 [ext_resource type="Script" uid="uid://clk66xyu6y41d" path="res://ScenesAndScripts/world.gd" id="1_mgcvd"]
 [ext_resource type="PackedScene" uid="uid://ciy2atqwdq2t5" path="res://ScenesAndScripts/GameElements/room.tscn" id="2_kb1mh"]
 [ext_resource type="PackedScene" uid="uid://cskx3gpeuxh5b" path="res://ScenesAndScripts/GameElements/target.tscn" id="3_6n83n"]
 [ext_resource type="PackedScene" uid="uid://dccpftpriwfsd" path="res://ScenesAndScripts/GameElements/danger.tscn" id="4_olpy6"]
+[ext_resource type="PackedScene" uid="uid://6re7s37iloqa" path="res://ScenesAndScripts/GameElements/moving_target.tscn" id="4_whs86"]
 [ext_resource type="PackedScene" uid="uid://8mwywa4awn30" path="res://ScenesAndScripts/GameElements/player.tscn" id="7_4w3vy"]
 [ext_resource type="PackedScene" uid="uid://b15nqvra1cslp" path="res://ScenesAndScripts/Components/preview.tscn" id="8_t85m6"]
 [ext_resource type="PackedScene" uid="uid://utmtkgltfdyi" path="res://ScenesAndScripts/Components/Overlay.tscn" id="9_b33pt"]
@@ -17,6 +18,13 @@ script = ExtResource("1_mgcvd")
 
 [node name="Target" parent="Targets" instance=ExtResource("3_6n83n")]
 position = Vector2(1600, 200)
+
+[node name="MovingTarget" parent="Targets" instance=ExtResource("4_whs86")]
+position = Vector2(1300, 800)
+rotation = 3.9619
+speed = 0.2
+start_position = Vector2(1300, 200)
+end_position = Vector2(1300, 800)
 
 [node name="Obstacles" type="Node2D" parent="."]
 

@@ -36,6 +36,7 @@ shape = SubResource("CircleShape2D_pd41g")
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 16
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_pd41g")
@@ -104,4 +105,5 @@ volume_db = -15.0
 pitch_scale = 0.3
 mix_target = 1
 
+[connection signal="restart" from="." to="." method="_on_restart"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

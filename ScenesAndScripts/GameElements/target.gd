@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var hit_sound: AudioStreamPlayer = $HitSound
+var dead : bool = false
 
 var preloaded_sprite_frames : Array[SpriteFrames] = [
 	preload("res://Art/PNG Files/characters/Carrot/carrot_frames.tres"),
@@ -14,6 +15,7 @@ func _ready() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	dead = true
 	Settings.vibrate(10, 90)
 	hit_sound.play()
 	Global.hit_stop(0.05)

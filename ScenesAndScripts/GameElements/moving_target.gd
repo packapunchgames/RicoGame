@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hit_sound: AudioStreamPlayer = $HitSound
+var dead : bool = false
 
 @export var speed : float = 1
 @export var start_position : Vector2:
@@ -49,6 +50,7 @@ func _physics_process(delta: float) -> void:
 					dir = DIRECTION.FIRST
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	dead = true
 	Settings.vibrate(10, 90)
 	hit_sound.play()
 	Global.hit_stop(0.05)

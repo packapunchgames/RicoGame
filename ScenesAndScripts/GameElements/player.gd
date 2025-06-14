@@ -47,6 +47,8 @@ var force : float:
 
 @onready var trail_line: Line2D = $TrailLine
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var hurtbox: Area2D = $Hurtbox
 
 signal restart
 signal shot
@@ -90,4 +92,16 @@ func level_ended() -> void:
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	stop()
-	await get_tree().create_timer(0.25).timeout
+	collision_shape.set_deferred("disabled", true)
+	hurtbox.set_deferred("monitoring", false)
+
+
+func _on_restart() -> void:
+	collision_shape.set_deferred("disabled", false)
+	hurtbox.set_deferred("monitoring", true)
+	stop()
+	trail_line.hide()
+	dir = 0
+	global_rotation_degrees = 0.0
+	trail_line.clear_points()
+	trail_line.can_spawn = false
