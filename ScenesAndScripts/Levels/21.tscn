@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://c324errlixlep"]
+
+[ext_resource type="Script" uid="uid://clk66xyu6y41d" path="res://ScenesAndScripts/world.gd" id="1_seu6d"]
+[ext_resource type="PackedScene" uid="uid://ciy2atqwdq2t5" path="res://ScenesAndScripts/GameElements/room.tscn" id="2_lble6"]
+[ext_resource type="PackedScene" uid="uid://cskx3gpeuxh5b" path="res://ScenesAndScripts/GameElements/target.tscn" id="3_72rwp"]
+[ext_resource type="PackedScene" uid="uid://cdb3v4dvtu2ic" path="res://ScenesAndScripts/GameElements/moving_danger.tscn" id="4_rcrrn"]
+[ext_resource type="PackedScene" uid="uid://cf1mmahnemqfo" path="res://ScenesAndScripts/GameElements/solid_obstacle.tscn" id="5_462w3"]
+[ext_resource type="PackedScene" uid="uid://8mwywa4awn30" path="res://ScenesAndScripts/GameElements/player.tscn" id="6_5xpos"]
+[ext_resource type="PackedScene" uid="uid://b15nqvra1cslp" path="res://ScenesAndScripts/Components/preview.tscn" id="7_saoof"]
+[ext_resource type="PackedScene" uid="uid://utmtkgltfdyi" path="res://ScenesAndScripts/Components/Overlay.tscn" id="8_7kjcw"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_seu6d")
+
+[node name="Room" parent="." instance=ExtResource("2_lble6")]
+
+[node name="Targets" type="Node2D" parent="."]
+
+[node name="Target" parent="Targets" instance=ExtResource("3_72rwp")]
+position = Vector2(1520, 540)
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="MovingDanger" parent="Obstacles" instance=ExtResource("4_rcrrn")]
+position = Vector2(960, 300)
+start_position = Vector2(960, 300)
+end_position = Vector2(960, 780)
+
+[node name="SolidObstacle" parent="Obstacles" instance=ExtResource("5_462w3")]
+polygon = PackedVector2Array(40, 200, 200, 40, 40, 40)
+
+[node name="SolidObstacle2" parent="Obstacles" instance=ExtResource("5_462w3")]
+position = Vector2(40, 1040)
+polygon = PackedVector2Array(0, 0, 160, 0, 0, -160)
+
+[node name="SolidObstacle3" parent="Obstacles" instance=ExtResource("5_462w3")]
+position = Vector2(1880, 1040)
+polygon = PackedVector2Array(0, -160, -160, 0, 0, 0)
+
+[node name="SolidObstacle4" parent="Obstacles" instance=ExtResource("5_462w3")]
+position = Vector2(1880, 40)
+polygon = PackedVector2Array(-160, 0, 0, 0, 0, 160)
+
+[node name="Ball" parent="." instance=ExtResource("6_5xpos")]
+position = Vector2(400, 540)
+
+[node name="Preview" parent="Ball" instance=ExtResource("7_saoof")]
+points = PackedVector2Array(0, 0, 8.33333, 0, 16.6667, 0, 25, 0, 33.3333, 0, 41.6667, 0, 50, 0, 58.3333, 0, 66.6667, 0, 75, 0, 83.3334, 0, 91.6667, 0, 100, 0, 108.333, 0, 116.667, 0, 125, 0, 133.333, 0, 141.667, 0, 150, 0, 158.333, 0, 166.667, 0, 175, 0, 183.333, 0, 191.667, 0, 200, 0, 208.333, 0, 216.667, 0, 225, 0, 233.333, 0, 241.667, 0, 250, 0, 258.333, 0, 266.667, 0, 275, 0, 283.333, 0, 291.667, 0, 300, 0, 308.333, 0, 316.667, 0, 325, 0, 333.333, 0, 341.667, 0, 350, 0, 358.333, 0, 366.667, 0, 375, 0, 383.333, 0, 391.667, 0, 400, 0, 408.333, 0, 416.667, 0, 425, 0, 433.333, 0, 441.667, 0, 450, 0, 458.334, 0, 466.667, 0, 475, 0, 483.334, 0, 491.667, 0, 500, 0, 508.334, 0, 516.667, 0, 525, 0, 533.334, 0, 541.667, 0, 550, 0, 558.333, 0, 566.667, 0, 575, 0, 583.333, 0, 591.667, 0, 600, 0, 608.333, 0, 616.667, 0, 625, 0, 633.333, 0, 641.667, 0, 650, 0, 658.333, 0, 666.667, 0, 675, 0, 683.333, 0, 691.667, 0, 700, 0, 708.333, 0, 716.666, 0, 725, 0, 733.333, 0, 741.666, 0, 750, 0, 758.333, 0, 766.666, 0, 775, 0, 783.333, 0, 791.666, 0, 800, 0, 808.333, 0, 816.666, 0, 825, 0, 833.333, 0, 841.666, 0, 849.999, 0, 858.333, 0, 866.666, 0, 874.999, 0, 883.333, 0, 891.666, 0, 899.999, 0, 908.333, 0, 916.666, 0, 924.999, 0, 933.333, 0, 941.666, 0, 949.999, 0, 958.333, 0, 966.666, 0, 974.999, 0, 983.332, 0, 991.666, 0, 999.999, 0, 1008.33, 0, 1016.67, 0, 1025, 0, 1033.33, 0)
+antialiased = true
+max_points = 125
+
+[node name="Overlay" parent="." instance=ExtResource("8_7kjcw")]

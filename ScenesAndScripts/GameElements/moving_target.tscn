@@ -229,7 +229,7 @@ _data = {
 
 [node name="MovingTarget" type="CharacterBody2D" groups=["Targets"]]
 process_mode = 1
-rotation = 0.715585
+rotation = 6.28319
 collision_layer = 4
 script = ExtResource("1_17sxh")
 speed = 0.0

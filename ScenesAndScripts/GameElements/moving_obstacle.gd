@@ -68,10 +68,10 @@ func _process(delta: float) -> void:
 					else:
 						time_waited += delta
 
-func _draw() -> void:
-	if Engine.is_editor_hint():
-		var local_start := to_local(start_position)
-		var local_end := to_local(end_position)
-		draw_line(local_start, local_end, Color.RED, 2.0)
-		draw_circle(local_start, 50, Color.GREEN)
-		draw_circle(local_end, 50, Color.BLUE)
+#func _draw() -> void:
+	#if Engine.is_editor_hint():
+		#var local_start := to_local(start_position)
+		#var local_end := to_local(end_position)
+		#draw_line(local_start, local_end, Color.BLACK, 2.0)
+		#draw_circle(local_start, 50, Color.GREEN)
+		#draw_circle(local_end, 50, Color.BLUE)

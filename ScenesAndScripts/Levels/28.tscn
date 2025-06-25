@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://fp6rd5dpiuf"]
+
+[ext_resource type="Script" uid="uid://clk66xyu6y41d" path="res://ScenesAndScripts/world.gd" id="1_2n1nm"]
+[ext_resource type="PackedScene" uid="uid://ciy2atqwdq2t5" path="res://ScenesAndScripts/GameElements/room.tscn" id="2_o0acf"]
+[ext_resource type="PackedScene" uid="uid://cskx3gpeuxh5b" path="res://ScenesAndScripts/GameElements/target.tscn" id="3_2n1nm"]
+[ext_resource type="PackedScene" uid="uid://o4cduiyx02ln" path="res://ScenesAndScripts/GameElements/moving_obstacle.tscn" id="3_ff505"]
+[ext_resource type="PackedScene" uid="uid://cdb3v4dvtu2ic" path="res://ScenesAndScripts/GameElements/moving_danger.tscn" id="4_7knu0"]
+[ext_resource type="PackedScene" uid="uid://cf1mmahnemqfo" path="res://ScenesAndScripts/GameElements/solid_obstacle.tscn" id="6_o0acf"]
+[ext_resource type="PackedScene" uid="uid://8mwywa4awn30" path="res://ScenesAndScripts/GameElements/player.tscn" id="7_8l25b"]
+[ext_resource type="PackedScene" uid="uid://b15nqvra1cslp" path="res://ScenesAndScripts/Components/preview.tscn" id="8_rcth1"]
+[ext_resource type="PackedScene" uid="uid://utmtkgltfdyi" path="res://ScenesAndScripts/Components/Overlay.tscn" id="9_cgj2v"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_2n1nm")
+
+[node name="Room" parent="." instance=ExtResource("2_o0acf")]
+
+[node name="Targets" type="Node2D" parent="."]
+
+[node name="Target" parent="Targets" instance=ExtResource("3_2n1nm")]
+position = Vector2(340, 540)
+
+[node name="Target2" parent="Targets" instance=ExtResource("3_2n1nm")]
+position = Vector2(480, 540)
+
+[node name="Target3" parent="Targets" instance=ExtResource("3_2n1nm")]
+position = Vector2(620, 540)
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="MovingObstacle" parent="Obstacles" instance=ExtResource("3_ff505")]
+position = Vector2(1400, 535)
+polygon = PackedVector2Array(0, 0, -120, -120, 80, -320, 200, -200)
+start_position = Vector2(1400, 535)
+end_position = Vector2(1570, 370)
+interval = 0.25
+
+[node name="MovingObstacle2" parent="Obstacles" instance=ExtResource("3_ff505")]
+position = Vector2(1400, 545)
+polygon = PackedVector2Array(0, 0, -120, 120, 80, 320, 200, 200)
+start_position = Vector2(1400, 545)
+end_position = Vector2(1570, 710)
+interval = 0.25
+
+[node name="MovingDanger" parent="Obstacles" instance=ExtResource("4_7knu0")]
+position = Vector2(1200, 200)
+start_position = Vector2(1200, 200)
+end_position = Vector2(1200, 880)
+
+[node name="SolidObstacle" parent="Obstacles" instance=ExtResource("6_o0acf")]
+polygon = PackedVector2Array(960, 40, 40, 40, 40, 1040, 960, 1040, 640, 720, 480, 840, 220, 540, 480, 240, 640, 360)
+
+[node name="Ball" parent="." instance=ExtResource("7_8l25b")]
+position = Vector2(1660, 540)
+
+[node name="Preview" parent="Ball" instance=ExtResource("8_rcth1")]
+points = PackedVector2Array(0, 0, -8.33333, -7.28523e-07, -16.6667, -1.45705e-06, -25, -2.18557e-06, -33.3333, -2.91409e-06, -41.6667, -3.64262e-06, -50, -4.37114e-06, -58.3333, -5.09966e-06, -66.6667, -5.82818e-06, -75, -6.55671e-06, -83.3334, -7.28523e-06, -91.6667, -8.01375e-06, -100, -8.74228e-06, -108.333, -9.4708e-06, -116.667, -1.01993e-05, -125, -1.09278e-05, -133.333, -1.16564e-05, -141.667, -1.23849e-05, -150, -1.31134e-05, -158.333, -1.38419e-05)
+antialiased = true
+angle = 180.0
+max_points = 20
+
+[node name="Overlay" parent="." instance=ExtResource("9_cgj2v")]

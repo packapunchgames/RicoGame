@@ -83,7 +83,7 @@ func stop() -> void:
 func rotate_sprite(delta : float) -> void:
 	if hasShot:
 		dir = speed * delta * 10
-		sprite.rotation += dir
+		sprite.rotation -= dir
 
 func level_ended() -> void:
 	stop()

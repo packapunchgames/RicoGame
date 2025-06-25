@@ -36,6 +36,14 @@ func update_position() -> void:
 	if Engine.is_editor_hint():
 		queue_redraw()
 
+func _draw() -> void:
+	if Engine.is_editor_hint():
+		var local_start := to_local(start_position)
+		var local_end := to_local(end_position)
+		draw_line(local_start, local_end, Color.RED, 2.0)
+		draw_circle(local_start, 50, Color.GREEN)
+		draw_circle(local_end, 50, Color.BLUE)
+
 func _physics_process(delta: float) -> void:
 	if !Engine.is_editor_hint():
 		update_position()
@@ -63,13 +71,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	create_texture()
 	queue_free()
 
-func _draw() -> void:
-	if Engine.is_editor_hint():
-		var local_start := to_local(start_position)
-		var local_end := to_local(end_position)
-		draw_line(local_start, local_end, Color.RED, 2.0)
-		draw_circle(local_start, 50, Color.GREEN)
-		draw_circle(local_end, 50, Color.BLUE)
 
 func create_texture() -> void:
 	var texture : AnimatedSprite2D = AnimatedSprite2D.new()

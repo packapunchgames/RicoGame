@@ -109,9 +109,3 @@ func _process(delta: float) -> void:
 			await Global.player.level_ended()
 			Global.did_game_finish = true
 			Global.emit_signal("level_succeded")
-	#enemies_count = get_tree().get_node_count_in_group("Targets")
-	#if  enemies_count == 0:
-		#if !Global.did_game_finish:
-			#await Global.player.level_ended()
-			#Global.did_game_finish = true
-			#Global.emit_signal("level_succeded")

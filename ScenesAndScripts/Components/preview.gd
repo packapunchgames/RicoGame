@@ -16,9 +16,20 @@ class_name Preview
 		update_trajectory(false)
 @export var min_points : int = 50
 @onready var test_collision: CharacterBody2D = $TestCollision
+@export var collision_shape: CollisionShape2D 
 var current_pos := Vector2.ZERO
 
 func update_trajectory(single_bounce : bool) -> void:
+	if Engine.is_editor_hint() and collision_shape:
+		width = collision_shape.shape.radius * 2
+		width_curve = null
+		default_color = Color(1,1,1, 0.25)
+	else:
+		width = 10
+		width_curve = load("res://ScenesAndScripts/Shaders/preview_width.tres")
+		default_color = Color(1,1,1)
+	
+	
 	clear_points()
 	current_pos = Vector2.ZERO
 	var dir : Vector2 = Vector2.RIGHT.rotated(deg_to_rad(angle)) * speed
