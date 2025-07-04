@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2hvukayn5f0t"
-path="res://.godot/imported/player png.png-659f1830f3c0e4099e40be6efb961d0c.ctex"
+uid="uid://csdd1anyvni8b"
+path="res://.godot/imported/Zucchini cut.png-e5f111c72d0c2ceddfe324b5ac0a1b2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/PNG Files/characters/player png.png"
-dest_files=["res://.godot/imported/player png.png-659f1830f3c0e4099e40be6efb961d0c.ctex"]
+source_file="res://Art/PNG Files/characters/Zucchini/Zucchini cut.png"
+dest_files=["res://.godot/imported/Zucchini cut.png-e5f111c72d0c2ceddfe324b5ac0a1b2b.ctex"]
 
 [params]
 

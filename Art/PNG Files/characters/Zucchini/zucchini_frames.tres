@@ -1,0 +1,28 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://tu7ne3h7rgiu"]
+
+[ext_resource type="Texture2D" uid="uid://csdd1anyvni8b" path="res://Art/PNG Files/characters/Zucchini/Zucchini cut.png" id="1_5awyh"]
+[ext_resource type="Texture2D" uid="uid://dvcaglufhphr5" path="res://Art/PNG Files/characters/Zucchini/Zucchini.png" id="1_5xihv"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5awyh")
+}],
+"loop": false,
+"name": &"cut",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5xihv")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"stain",
+"speed": 0.0
+}]

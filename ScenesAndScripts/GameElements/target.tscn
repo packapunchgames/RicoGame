@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://cskx3gpeuxh5b"]
 
 [ext_resource type="Script" uid="uid://c1clsx06p28py" path="res://ScenesAndScripts/GameElements/target.gd" id="1_l7iip"]
-[ext_resource type="Shader" uid="uid://2qhnl4aanv0u" path="res://ScenesAndScripts/Shaders/outline.gdshader" id="2_hqpl3"]
-[ext_resource type="SpriteFrames" uid="uid://c8t6c8v5evky1" path="res://Art/PNG Files/characters/Carrot/carrot_frames.tres" id="3_hqpl3"]
+[ext_resource type="Shader" uid="uid://q7b4jvu2qe63" path="res://ScenesAndScripts/GameElements/outline_boundaries.gdshader" id="2_hqpl3"]
+[ext_resource type="SpriteFrames" uid="uid://gxkkdpnc83u1" path="res://Art/PNG Files/characters/Pepper/red_pepper_frames.tres" id="3_3g2sq"]
 [ext_resource type="AudioStream" uid="uid://cfo818bj5ycix" path="res://Sound/Sfx/enemyKilled.mp3" id="3_sfx54"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7iip"]
@@ -12,6 +12,7 @@ radius = 47.1699
 shader = ExtResource("2_hqpl3")
 shader_parameter/line_color = Color(0, 0, 0, 1)
 shader_parameter/line_thickness = 5.0
+shader_parameter/add_margins = true
 
 [sub_resource type="Animation" id="Animation_sfx54"]
 length = 0.001
@@ -239,11 +240,11 @@ shape = SubResource("CircleShape2D_l7iip")
 material = SubResource("ShaderMaterial_3g2sq")
 rotation = 0.0872665
 scale = Vector2(0.75, 0.75)
-sprite_frames = ExtResource("3_hqpl3")
-animation = &"cut"
+sprite_frames = ExtResource("3_3g2sq")
 autoplay = "default"
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 monitorable = false

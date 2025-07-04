@@ -1,16 +1,25 @@
 extends CharacterBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var hit_sound: AudioStreamPlayer = $HitSound
 var dead : bool = false
 
+@onready var food_sprite: AnimatedSprite2D = $Sprite2D
+var preselected_frames : SpriteFrames
+
 var preloaded_sprite_frames : Array[SpriteFrames] = [
 	preload("res://Art/PNG Files/characters/Carrot/carrot_frames.tres"),
+	preload("res://Art/PNG Files/characters/Onion/onion_frames.tres"),
+	preload("res://Art/PNG Files/characters/Pepper/red_pepper_frames.tres"),
+	preload("res://Art/PNG Files/characters/Pepper/green_pepper_frames.tres"),
+	preload("res://Art/PNG Files/characters/Zucchini/zucchini_frames.tres")
 ]
 
 func _ready() -> void:
-	sprite_2d.sprite_frames = preloaded_sprite_frames.pick_random()
+	if preselected_frames:
+		food_sprite.sprite_frames = preselected_frames
+	else:
+		food_sprite.sprite_frames = preloaded_sprite_frames.pick_random()
 	rotation_degrees = randi_range(0,360)
 
 
@@ -30,9 +39,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func create_texture() -> void:
 	var texture : AnimatedSprite2D = AnimatedSprite2D.new()
-	texture.sprite_frames = sprite_2d.sprite_frames
+	texture.sprite_frames = food_sprite.sprite_frames
 	texture.play("cut")
-	texture.scale = sprite_2d.scale
+	texture.scale = food_sprite.scale
 	texture.modulate = modulate
 	texture.rotation_degrees = rotation_degrees
 	texture.global_position = global_position
@@ -40,10 +49,10 @@ func create_texture() -> void:
 
 func create_stain() -> AnimatedSprite2D:
 	var texture : AnimatedSprite2D = AnimatedSprite2D.new()
-	texture.sprite_frames = sprite_2d.sprite_frames
+	texture.sprite_frames = food_sprite.sprite_frames
 	texture.play("stain")
 	texture.modulate = modulate
-	texture.scale = sprite_2d.scale
+	texture.scale = food_sprite.scale
 	texture.global_position = global_position
 	texture.rotation_degrees = rotation_degrees
 	texture.z_index = z_index - 1

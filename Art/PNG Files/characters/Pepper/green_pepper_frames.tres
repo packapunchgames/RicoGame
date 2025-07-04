@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://d4gi4rdqp5eax"]
+
+[ext_resource type="Texture2D" uid="uid://biiehrdpw5ug5" path="res://Art/PNG Files/characters/Pepper/Pepper Green Cut.png" id="1_au6as"]
+[ext_resource type="Texture2D" uid="uid://1tp8hy3bekyd" path="res://Art/PNG Files/characters/Pepper/Pepper Green.png" id="2_kgawy"]
+[ext_resource type="Texture2D" uid="uid://dstgt461lybxt" path="res://Art/PNG Files/characters/Pepper/Pepper Stain.png" id="3_vpyno"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_au6as")
+}],
+"loop": false,
+"name": &"cut",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kgawy")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vpyno")
+}],
+"loop": false,
+"name": &"stain",
+"speed": 0.0
+}]

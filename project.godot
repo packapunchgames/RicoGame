@@ -12,7 +12,7 @@ config_version=5
 
 config/name="RicoGame"
 config/version="0.1"
-run/main_scene="uid://2efpx57nitbd"
+run/main_scene="uid://b16bu1vsw1ces"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -43,6 +43,9 @@ folder_colors={
 "res://Art/": "yellow",
 "res://Art/PNG Files/characters/": "teal",
 "res://Art/PNG Files/characters/Carrot/": "orange",
+"res://Art/PNG Files/characters/Onion/": "yellow",
+"res://Art/PNG Files/characters/Pepper/": "red",
+"res://Art/PNG Files/characters/Player/": "gray",
 "res://ScenesAndScripts/": "blue",
 "res://ScenesAndScripts/Autoloads/": "green",
 "res://ScenesAndScripts/Components/": "gray",

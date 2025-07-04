@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ciy2atqwdq2t5"]
+[gd_scene load_steps=4 format=3 uid="uid://ciy2atqwdq2t5"]
+
+[ext_resource type="Texture2D" uid="uid://b3u4wv5vmmqjl" path="res://Art/PNG Files/Backgrounds/bg.png" id="1_df5fj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i52uo"]
 size = Vector2(40, 1080)
@@ -9,14 +11,13 @@ size = Vector2(40, 1840)
 [node name="Room" type="Node2D"]
 z_index = 1
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
+[node name="ColorRect" type="TextureRect" parent="."]
 z_index = -5
 offset_left = 40.0
 offset_top = 40.0
 offset_right = 1880.0
 offset_bottom = 1040.0
-color = Color(0.5, 0.5, 0.5, 1)
+texture = ExtResource("1_df5fj")
 
 [node name="Walls" type="StaticBody2D" parent="."]
 collision_layer = 9

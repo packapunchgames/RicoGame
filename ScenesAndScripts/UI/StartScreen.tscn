@@ -15,14 +15,6 @@ grow_vertical = 2
 script = ExtResource("1_hbygu")
 game_scene = ExtResource("2_hby4r")
 
-[node name="ButtonDetector" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="Overlay" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -39,4 +31,21 @@ size_flags_vertical = 8
 theme = ExtResource("3_hby4r")
 text = "Version: xxx"
 
-[connection signal="pressed" from="ButtonDetector" to="." method="_on_button_detector_pressed"]
+[node name="MarginContainer" type="MarginContainer" parent="Overlay"]
+layout_mode = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 600
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 200
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="GameStarterButton" type="Button" parent="Overlay/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+size_flags_vertical = 8
+text = "PLAY"
+
+[connection signal="pressed" from="Overlay/MarginContainer/HBoxContainer/GameStarterButton" to="." method="_on_game_starter_button_pressed"]

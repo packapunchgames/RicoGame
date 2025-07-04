@@ -1,3 +1,3 @@
 extends Node
 
-var hints : int = 20
+var hints : int = 50

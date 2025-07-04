@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="64"
+   viewBox="0 0 33.866666 16.933333"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="arrowFill.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="5.9666797"
+     inkscape:cx="60.754057"
+     inkscape:cy="29.497142"
+     inkscape:window-width="1440"
+     inkscape:window-height="830"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer4" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:none">
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:20;stroke-dasharray:none;stroke-dashoffset:111.874;stroke-opacity:1;paint-order:stroke fill markers"
+       d="M 20.267837,6.3908096 3.2402173,4.9080429 5.1471929,8.2702556 3.2402173,12.02157 20.287719,10.482495 19.455781,8.49791 Z"
+       id="path3"
+       sodipodi:nodetypes="ccccccc" />
+    <path
+       id="path2"
+       style="opacity:1;fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:1.04036;stroke-linecap:round;stroke-miterlimit:20;stroke-dasharray:none;stroke-dashoffset:111.874;paint-order:stroke fill markers"
+       inkscape:transform-center-x="-1.2874008"
+       transform="matrix(0.92505194,0,0,0.99877125,0.57261795,5.9867425)"
+       d="m 24.798228,7.3042502 2.157129,-5.0847219 -2.157129,-4.5573092 8.350243,4.8210155 z"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Livello 2">
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-miterlimit:20;stroke-dasharray:none;stroke-dashoffset:111.874;stroke-opacity:1;paint-order:stroke fill markers"
+       d="M 19.858767,6.56427 3.6025545,5.2056602 5.4231379,8.2863438 3.6025545,11.723548 19.877749,10.313345 19.0835,8.494936 Z"
+       id="path1"
+       sodipodi:nodetypes="ccccccc" />
+    <path
+       id="path4"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-miterlimit:20;stroke-dasharray:none;stroke-dashoffset:111.874;paint-order:stroke fill markers"
+       inkscape:transform-center-x="-1.1030311"
+       d="M 23.977485,12.708751 25.687172,8.2331215 23.977485,4.2217261 30.59568,8.4652388 Z"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+</svg>

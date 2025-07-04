@@ -1,11 +1,11 @@
-extends ProgressBar
+extends TextureProgressBar
 
-@export var offSet : int = 100
+@export var offSet : Vector2 = Vector2(100, 46)
 @export var parent : Player
 
 func _ready() -> void:
-	position.x = offSet
-	pivot_offset.x = -offSet
+	position = offSet
+	pivot_offset = -offSet
 	max_value = parent.topForce
 
 func _process(delta: float) -> void:
@@ -13,5 +13,7 @@ func _process(delta: float) -> void:
 		show()
 		value = parent.force
 		rotation_degrees = rad_to_deg(parent.heading)
+		print(value)
+		tint_progress = Color.GREEN.lerp(Color.RED, value / 500)
 	else:
 		hide()

@@ -26,6 +26,8 @@ func save_initial_children_data(parent_node : Node2D, data_array : Array) -> voi
 			"resource_path": child.scene_file_path,
 			"initial_position": child.position
 		}
+		if "preselected_frames" in child:
+			child_data["sprite_frames"] = child.food_sprite.sprite_frames.resource_path
 		if child is Polygon2D:
 			child_data["polygon"] = child.polygon
 		if child.has_method("update_position"):
@@ -51,6 +53,8 @@ func reset_and_reinstance_children(parent_node : Node2D, initial_data : Array) -
 		if resource is PackedScene:
 			var instance : Node2D = resource.instantiate()
 			instance.position = data["initial_position"]
+			if "preselected_frames" in instance:
+				instance.preselected_frames = load(data["sprite_frames"])
 			if instance is Polygon2D:
 				instance.polygon = data["polygon"]
 				if data.has("interval"):

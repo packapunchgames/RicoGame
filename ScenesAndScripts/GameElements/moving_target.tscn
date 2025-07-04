@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://6re7s37iloqa"]
 
 [ext_resource type="Script" uid="uid://dpv34ro5ngm2r" path="res://ScenesAndScripts/GameElements/moving_target.gd" id="1_17sxh"]
-[ext_resource type="Shader" uid="uid://2qhnl4aanv0u" path="res://ScenesAndScripts/Shaders/outline.gdshader" id="2_fq08a"]
-[ext_resource type="SpriteFrames" uid="uid://c8t6c8v5evky1" path="res://Art/PNG Files/characters/Carrot/carrot_frames.tres" id="2_nopiy"]
+[ext_resource type="Shader" uid="uid://q7b4jvu2qe63" path="res://ScenesAndScripts/GameElements/outline_boundaries.gdshader" id="2_fq08a"]
+[ext_resource type="SpriteFrames" uid="uid://tu7ne3h7rgiu" path="res://Art/PNG Files/characters/Zucchini/zucchini_frames.tres" id="3_fq08a"]
 [ext_resource type="AudioStream" uid="uid://cfo818bj5ycix" path="res://Sound/Sfx/enemyKilled.mp3" id="3_nopiy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7iip"]
@@ -12,6 +12,7 @@ radius = 48.0
 shader = ExtResource("2_fq08a")
 shader_parameter/line_color = Color(0, 0, 0, 1)
 shader_parameter/line_thickness = 5.0
+shader_parameter/add_margins = true
 
 [sub_resource type="Animation" id="Animation_sfx54"]
 length = 0.001
@@ -229,7 +230,7 @@ _data = {
 
 [node name="MovingTarget" type="CharacterBody2D" groups=["Targets"]]
 process_mode = 1
-rotation = 6.28319
+rotation = 1.62316
 collision_layer = 4
 script = ExtResource("1_17sxh")
 speed = 0.0
@@ -242,7 +243,7 @@ shape = SubResource("CircleShape2D_l7iip")
 material = SubResource("ShaderMaterial_ps30n")
 rotation = 0.0872665
 scale = Vector2(0.75, 0.75)
-sprite_frames = ExtResource("2_nopiy")
+sprite_frames = ExtResource("3_fq08a")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

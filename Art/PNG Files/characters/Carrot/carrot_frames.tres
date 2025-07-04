@@ -10,9 +10,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_kyk4g")
 }],
-"loop": true,
+"loop": false,
 "name": &"cut",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -26,7 +26,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_71dla")
 }],
-"loop": true,
+"loop": false,
 "name": &"stain",
-"speed": 5.0
+"speed": 0.0
 }]
