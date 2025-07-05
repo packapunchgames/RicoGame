@@ -8,14 +8,15 @@ var initial_player_pos : Vector2
 @onready var obstacles : Node2D = $Obstacles
 
 @onready var preview: Preview = $Ball/Preview
-var has_used_hint : bool = false
 
 var enemies : Array
 
 func _ready() -> void:
+	Global.has_used_hint = false
 	Global.did_game_finish = false
 	Global.hint_angle = 1000.0
 	Global.player.restart.connect(restart)
+	Resources.hint_used.connect(hint)
 	initial_player_pos = Global.player.position
 	save_initial_children_data(targets, initial_targets_data)
 	save_initial_children_data(obstacles, initial_obstacles_data)
@@ -81,7 +82,7 @@ func restart() -> void:
 	
 	Global.player.set_deferred("hasShot", false)
 	
-	if has_used_hint:
+	if Global.has_used_hint:
 		preview.show()
 	
 	Global.player.trail_line.show()
@@ -92,13 +93,7 @@ func hint() -> void:
 	preview.highlight_trajectory()
 	Global.hint_angle = preview.angle
 
-func _input(event: InputEvent) -> void:
-	if Input.is_key_pressed(KEY_H):
-		if !has_used_hint and !Global.player.hasShot:
-			if Resources.hints > 0:
-				has_used_hint = true
-				Resources.hints -= 1
-				hint()
+
 
 func _process(delta: float) -> void:
 	enemies = get_tree().get_nodes_in_group("Targets")

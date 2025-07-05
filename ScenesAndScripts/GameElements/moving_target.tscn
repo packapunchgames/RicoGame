@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dpv34ro5ngm2r" path="res://ScenesAndScripts/GameElements/moving_target.gd" id="1_17sxh"]
 [ext_resource type="Shader" uid="uid://q7b4jvu2qe63" path="res://ScenesAndScripts/GameElements/outline_boundaries.gdshader" id="2_fq08a"]
-[ext_resource type="SpriteFrames" uid="uid://tu7ne3h7rgiu" path="res://Art/PNG Files/characters/Zucchini/zucchini_frames.tres" id="3_fq08a"]
+[ext_resource type="SpriteFrames" uid="uid://c8t6c8v5evky1" path="res://Art/PNG Files/characters/Carrot/carrot_frames.tres" id="3_fq08a"]
 [ext_resource type="AudioStream" uid="uid://cfo818bj5ycix" path="res://Sound/Sfx/enemyKilled.mp3" id="3_nopiy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7iip"]
@@ -230,7 +230,7 @@ _data = {
 
 [node name="MovingTarget" type="CharacterBody2D" groups=["Targets"]]
 process_mode = 1
-rotation = 1.62316
+rotation = 1.06465
 collision_layer = 4
 script = ExtResource("1_17sxh")
 speed = 0.0

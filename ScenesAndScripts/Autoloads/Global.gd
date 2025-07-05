@@ -4,7 +4,9 @@ var player : Player = null
 var overlay : Overlay = null
 var did_game_finish : bool = false
 var display_offset : Vector2 = Vector2.ZERO
-var hint_angle : float = 1000.0
+var hint_angle : float = 0.0
+var has_used_hint : bool = false
+var lives : int = 3
 
 signal level_succeded
 

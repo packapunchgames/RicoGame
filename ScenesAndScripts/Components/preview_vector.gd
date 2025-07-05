@@ -13,7 +13,6 @@ func _process(delta: float) -> void:
 		show()
 		value = parent.force
 		rotation_degrees = rad_to_deg(parent.heading)
-		print(value)
-		tint_progress = Color.GREEN.lerp(Color.RED, value / 500)
+		tint_progress = Color.GREEN.lerp(Color.RED, value / max_value)
 	else:
 		hide()
