@@ -7,7 +7,7 @@ func _process(delta: float) -> void:
 
 
 func _on_pause_pressed() -> void:
-	print("paused")
+	get_tree().paused = !get_tree().paused
 
 
 func _on_hints_button_pressed() -> void:

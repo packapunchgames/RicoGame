@@ -17,7 +17,8 @@ var distance : float
 
 @export var subviewport_container : SubViewportContainer
 
-func _input(_event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
+	print("inout")
 	if Global.player and !Global.did_game_finish:
 		if Global.player.hasShot:
 			if Input.is_action_just_pressed("press"):

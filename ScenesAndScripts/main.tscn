@@ -32,7 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://bkni3kvkl4207" path="res://ScenesAndScripts/Levels/15.tscn" id="18_2kyk8"]
 [ext_resource type="PackedScene" uid="uid://liym1hk3xgyg" path="res://ScenesAndScripts/Levels/16.tscn" id="19_hgkmy"]
 [ext_resource type="PackedScene" uid="uid://543478mp6cft" path="res://ScenesAndScripts/Levels/17.tscn" id="20_3khes"]
-[ext_resource type="PackedScene" uid="uid://desso772hwo6d" path="res://ScenesAndScripts/Levels/18.tscn" id="21_72k30"]
+[ext_resource type="PackedScene" uid="uid://dw3hsupi5se3j" path="res://ScenesAndScripts/Levels/18.tscn" id="21_72k30"]
 [ext_resource type="PackedScene" uid="uid://bwc0u4g0ffrba" path="res://ScenesAndScripts/Levels/19.tscn" id="22_ui070"]
 [ext_resource type="AudioStream" uid="uid://cgmde4o07hv4j" path="res://Sound/Music/mainMusic.mp3" id="34_l4u8c"]
 [ext_resource type="Script" uid="uid://y2qs8bpugg8p" path="res://ScenesAndScripts/main_music.gd" id="36_ope6r"]
@@ -44,6 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_f6nm2")
 sub_viewport = NodePath("SubViewportContainer/SubViewport")
 level_succeder = NodePath("LevelSucceder")
@@ -55,6 +56,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -70,6 +72,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
@@ -92,8 +95,11 @@ metadata/_custom_type_script = "uid://c7ycnnvkb4u68"
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("34_l4u8c")
-pitch_scale = 0.85
+volume_db = -5.0
+pitch_scale = 0.9
 autoplay = true
+bus = &"Music"
 script = ExtResource("36_ope6r")
+max_pitch = 1.2
 
 [connection signal="level_changed" from="LevelSucceder" to="." method="_on_level_succeder_level_changed"]

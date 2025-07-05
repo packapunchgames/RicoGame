@@ -92,25 +92,25 @@ multiplier = 3
 stream = ExtResource("6_lld3t")
 volume_db = -10.0
 pitch_scale = 1.5
-mix_target = 1
+bus = &"SFX"
 
 [node name="Release" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("7_r71dn")
 volume_db = -5.0
 pitch_scale = 2.0
-mix_target = 1
+bus = &"SFX"
 
 [node name="Cancel" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("7_r71dn")
 volume_db = -5.0
 pitch_scale = 5.0
-mix_target = 1
+bus = &"SFX"
 
 [node name="Tap" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("9_usrgj")
 volume_db = -15.0
 pitch_scale = 0.3
-mix_target = 1
+bus = &"SFX"
 
 [connection signal="restart" from="." to="." method="_on_restart"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

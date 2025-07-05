@@ -11,4 +11,3 @@ func scale_pitch() -> void:
 	if !(pitch_scale + pitch_increment) > max_pitch:
 		var tween : Tween = create_tween()
 		tween.tween_property(self, "pitch_scale", pitch_scale + pitch_increment, fade_time)
-		print(pitch_scale)
