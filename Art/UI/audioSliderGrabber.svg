@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="86"
+   height="64"
+   viewBox="0 0 22.754166 16.933333"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="audioSliderGrabber.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="6.0432432"
+     inkscape:cx="22.669947"
+     inkscape:cy="9.1010735"
+     inkscape:window-width="1440"
+     inkscape:window-height="830"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="false" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:2.64583;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:20;stroke-dasharray:none;stroke-dashoffset:111.874;stroke-opacity:1;paint-order:stroke fill markers"
+       d="M 11.539577,12.136937 11.458495,4.3725133"
+       id="path7"
+       sodipodi:nodetypes="cc" />
+    <path
+       id="path4"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:20;stroke-dashoffset:111.874;stroke-opacity:1;paint-order:stroke fill markers"
+       d="M 12.79866,12.069322 A 3.4753326,6.0578934 79.221981 0 1 7.1770708,16.497622 3.4753326,6.0578934 79.221981 0 1 0.84683116,13.994026 3.4753326,6.0578934 79.221981 0 1 6.4684187,9.5657256 3.4753326,6.0578934 79.221981 0 1 12.79866,12.069322 Z" />
+    <path
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:2.64583;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:20;stroke-dasharray:none;stroke-dashoffset:111.874;stroke-opacity:1;paint-order:stroke fill markers"
+       d="M 11.458495,12.212212 9.5582438,10.527104 9.4771621,2.7626805 c 1.0741159,0.8726723 2.0146809,1.5036365 3.2153609,2.0058334 0.204971,0.085732 0.05535,1.9768431 1.073032,1.1752484 C 14.484559,5.3774244 10.792163,3.9892972 13.9302,5.321609"
+       id="path5"
+       sodipodi:nodetypes="cccssc" />
+    <g
+       id="g3"
+       transform="matrix(0.92927405,0,0,0.92960936,-0.12207958,1.2384165)"
+       style="stroke-width:1.07591">
+      <path
+         id="path1"
+         style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:20;stroke-dashoffset:111.874;stroke-opacity:1;paint-order:stroke fill markers"
+         d="M 12.434645,11.888987 A 2.8493588,4.9603148 79.192837 0 1 7.8318102,15.519843 2.8493588,4.9603148 79.192837 0 1 2.6487468,13.467092 2.8493588,4.9603148 79.192837 0 1 7.2515812,9.8362356 2.8493588,4.9603148 79.192837 0 1 12.434645,11.888987 Z" />
+      <path
+         style="fill:#ffffff;fill-opacity:0;stroke:#ffffff;stroke-width:2.84669;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:20;stroke-dasharray:none;stroke-dashoffset:111.874;stroke-opacity:1;paint-order:stroke fill markers"
+         d="m 11.127088,12.137305 0.09994,-8.7789126 c 1.280294,0.8691718 2.165593,0.8852488 3.319375,1.4601353"
+         id="path3"
+         sodipodi:nodetypes="ccc" />
+    </g>
+    <path
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:20;stroke-dasharray:none;stroke-dashoffset:111.874;stroke-opacity:1;paint-order:stroke fill markers"
+       d="M 8.9616093,10.294859 V 0.93389064 l 0.691648,0.56979806"
+       id="path6" />
+  </g>
+</svg>

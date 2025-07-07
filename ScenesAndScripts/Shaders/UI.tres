@@ -1,0 +1,53 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dytgpe77rddim"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3ejix"]
+load_path = "res://.godot/imported/sliderGrabber.svg-032589079133e597b98a60607ab44e4b.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5wso"]
+bg_color = Color(1, 0.716667, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2o80w"]
+bg_color = Color(1, 0.716667, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c767r"]
+bg_color = Color(0.9, 0.9, 0.9, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[resource]
+HSlider/icons/grabber = SubResource("CompressedTexture2D_3ejix")
+HSlider/icons/grabber_highlight = SubResource("CompressedTexture2D_3ejix")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_h5wso")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_2o80w")
+HSlider/styles/slider = SubResource("StyleBoxFlat_c767r")

@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b41bbnfex73u3" path="res://ScenesAndScripts/GameElements/player.gd" id="1_6dvrn"]
 [ext_resource type="Texture2D" uid="uid://b2hvukayn5f0t" path="res://Art/PNG Files/characters/Player/Player.png" id="2_lld3t"]
-[ext_resource type="Texture2D" uid="uid://d1dxqlv1fgj5v" path="res://Art/PNG Files/arrow.svg" id="3_q65ba"]
+[ext_resource type="Texture2D" uid="uid://d1dxqlv1fgj5v" path="res://Art/UI/arrow.svg" id="3_q65ba"]
 [ext_resource type="Script" uid="uid://0448pcmbuw30" path="res://ScenesAndScripts/Components/preview_vector.gd" id="3_r71dn"]
 [ext_resource type="Script" uid="uid://b6l1qhqewf32a" path="res://ScenesAndScripts/Components/zoom_camera.gd" id="4_ai6u8"]
-[ext_resource type="Texture2D" uid="uid://fnmuii5lrb5e" path="res://Art/PNG Files/arrowFill.svg" id="4_nsli7"]
+[ext_resource type="Texture2D" uid="uid://fnmuii5lrb5e" path="res://Art/UI/arrowFill.svg" id="4_nsli7"]
 [ext_resource type="Script" uid="uid://cuv0k428hfvp3" path="res://ScenesAndScripts/Components/trail_line.gd" id="5_usrgj"]
 [ext_resource type="AudioStream" uid="uid://esm42mb07xgd" path="res://Sound/Sfx/drag.mp3" id="6_lld3t"]
 [ext_resource type="AudioStream" uid="uid://cnyuvvre7niwa" path="res://Sound/Sfx/whoosh.mp3" id="7_r71dn"]

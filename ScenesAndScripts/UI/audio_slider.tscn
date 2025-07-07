@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://xwb1dek3i81j"]
+
+[ext_resource type="Script" uid="uid://ccfj0a8ho2gpr" path="res://ScenesAndScripts/UI/audio_slider.gd" id="1_h2eek"]
+[ext_resource type="Theme" uid="uid://dytgpe77rddim" path="res://ScenesAndScripts/Shaders/UI.tres" id="1_wq3hw"]
+
+[node name="AudioSlider" type="HSlider"]
+custom_minimum_size = Vector2(300, 64)
+anchors_preset = -1
+anchor_right = 0.00416667
+anchor_bottom = 0.0148148
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wq3hw")
+theme_override_constants/grabber_offset = 0
+max_value = 1.0
+step = 0.2
+value = 0.5
+script = ExtResource("1_h2eek")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]

@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://fqf40pe11p5k"]
+
+[ext_resource type="FontFile" uid="uid://slppmbo73asw" path="res://Art/Fonts/Humaroid.otf" id="1_iryks"]
+
+[sub_resource type="FontVariation" id="FontVariation_mnvo6"]
+base_font = ExtResource("1_iryks")
+
+[resource]
+Label/constants/outline_size = 16
+Label/font_sizes/font_size = 64
+Label/fonts/font = SubResource("FontVariation_mnvo6")

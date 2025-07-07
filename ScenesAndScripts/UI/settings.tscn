@@ -1,0 +1,345 @@
+[gd_scene load_steps=14 format=3 uid="uid://hiwonrsdpxid"]
+
+[ext_resource type="Script" uid="uid://bfmnmoxup138u" path="res://ScenesAndScripts/UI/settings.gd" id="1_j8flx"]
+[ext_resource type="Shader" uid="uid://du3qd5nf52x5l" path="res://ScenesAndScripts/Shaders/scrolling_texture.gdshader" id="1_pji2r"]
+[ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="2_jke3d"]
+[ext_resource type="Texture2D" uid="uid://bn1meioyvrqxg" path="res://Art/PNG Files/Backgrounds/obstaclesPattern.png" id="3_p4lql"]
+[ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="4_p4lql"]
+[ext_resource type="Theme" uid="uid://fqf40pe11p5k" path="res://ScenesAndScripts/Shaders/2nd_text.tres" id="5_xgql1"]
+[ext_resource type="PackedScene" uid="uid://xwb1dek3i81j" path="res://ScenesAndScripts/UI/audio_slider.tscn" id="6_xgql1"]
+[ext_resource type="Theme" uid="uid://dytgpe77rddim" path="res://ScenesAndScripts/Shaders/UI.tres" id="7_8fcom"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xgql1"]
+shader = ExtResource("1_pji2r")
+shader_parameter/scroll_speed = 0.022
+shader_parameter/angle_degrees = 45.0
+shader_parameter/repeat_x = 8.0
+shader_parameter/repeat_y = 4.4
+shader_parameter/row_offset = 0.0
+shader_parameter/texture_to_scroll = ExtResource("2_jke3d")
+
+[sub_resource type="Animation" id="Animation_pji2r"]
+resource_name = "show"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [3.14159, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jke3d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_p4lql"]
+resource_name = "hide"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [0.0, -3.14159]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.1, 0.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xgql1"]
+_data = {
+&"RESET": SubResource("Animation_jke3d"),
+&"hide": SubResource("Animation_p4lql"),
+&"show": SubResource("Animation_pji2r")
+}
+
+[node name="Settings" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+script = ExtResource("1_j8flx")
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_xgql1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_p4lql")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_p4lql")
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer/Title"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1.5
+offset_top = -4.0
+offset_right = 1.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="System" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/System"]
+layout_mode = 2
+theme = ExtResource("5_xgql1")
+text = "- SYSTEM -"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/System"]
+layout_mode = 2
+columns = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 50
+
+[node name="MasterVolume" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_xgql1")
+text = "Master Volume"
+
+[node name="Music" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_xgql1")
+text = "Music"
+
+[node name="SoundEffects" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_xgql1")
+text = "Sound Effects "
+
+[node name="Vibration" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_xgql1")
+text = "Vibration"
+
+[node name="GyroscopeEffects" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_xgql1")
+text = "Gyroscope Effects"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 50
+
+[node name="Master" parent="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer2" instance=ExtResource("6_xgql1")]
+layout_mode = 2
+value = 0.6
+bus_name = "Master"
+
+[node name="Music" parent="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer2" instance=ExtResource("6_xgql1")]
+layout_mode = 2
+value = 0.6
+bus_name = "Music"
+
+[node name="SFX" parent="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer2" instance=ExtResource("6_xgql1")]
+layout_mode = 2
+value = 0.6
+bus_name = "SFX"
+
+[node name="Vibration" type="HSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("7_8fcom")
+max_value = 1.0
+step = 0.2
+value = 0.6
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+toggle_mode = true
+
+[node name="Game" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Game"]
+layout_mode = 2
+theme = ExtResource("5_xgql1")
+text = "- GAME -"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Game"]
+layout_mode = 2
+columns = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 75
+
+[node name="Sensitivity" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_xgql1")
+text = "Sensitivity                "
+
+[node name="Timer" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_xgql1")
+text = "Timer"
+
+[node name="HitStop" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_xgql1")
+text = "Hit Stop"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Sensitivity" type="HSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("7_8fcom")
+min_value = -2.5
+max_value = -0.5
+step = 0.4
+value = -0.5
+
+[node name="BackButton" type="TextureButton" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("2_jke3d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xgql1")
+}
+
+[connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer2/Vibration" to="." method="_on_vibration_value_changed"]
+[connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer2/Sensitivity" to="." method="_on_sensitivity_value_changed"]
+[connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
