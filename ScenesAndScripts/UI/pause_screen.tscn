@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=3 uid="uid://u7myoi6hxpco"]
+
+[ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="1_bu7qe"]
+[ext_resource type="Script" uid="uid://f2p2a7lij70" path="res://ScenesAndScripts/UI/pause_screen.gd" id="1_x86a2"]
+[ext_resource type="Theme" uid="uid://dytgpe77rddim" path="res://ScenesAndScripts/Shaders/UI.tres" id="2_x86a2"]
+[ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="3_bram4"]
+[ext_resource type="PackedScene" uid="uid://hiwonrsdpxid" path="res://ScenesAndScripts/UI/settings.tscn" id="5_bram4"]
+
+[node name="PauseScreen" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x86a2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.196078)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Container" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="CuttingBoard" type="TextureRect" parent="MarginContainer/Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0523599
+pivot_offset = Vector2(860, 440)
+texture = ExtResource("1_bu7qe")
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Container/CuttingBoard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 100
+
+[node name="MainMenu" type="VBoxContainer" parent="MarginContainer/Container/CuttingBoard/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_x86a2")
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/Container/CuttingBoard/MarginContainer/MainMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_bram4")
+text = "PAUSE"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/Container/CuttingBoard/MarginContainer/MainMenu/Title"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Continue" type="Button" parent="MarginContainer/Container/CuttingBoard/MarginContainer/MainMenu"]
+layout_mode = 2
+text = "CONTINUE"
+
+[node name="Settings" type="Button" parent="MarginContainer/Container/CuttingBoard/MarginContainer/MainMenu"]
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="Restart" type="Button" parent="MarginContainer/Container/CuttingBoard/MarginContainer/MainMenu"]
+layout_mode = 2
+text = "RESTART"
+
+[node name="Home" type="Button" parent="MarginContainer/Container/CuttingBoard/MarginContainer/MainMenu"]
+layout_mode = 2
+text = "HOME"
+
+[node name="Overlays" type="Control" parent="MarginContainer/Container/CuttingBoard/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Settings" parent="MarginContainer/Container/CuttingBoard/MarginContainer/Overlays" instance=ExtResource("5_bram4")]
+layout_mode = 1
+
+[connection signal="pressed" from="MarginContainer/Container/CuttingBoard/MarginContainer/MainMenu/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="MarginContainer/Container/CuttingBoard/MarginContainer/MainMenu/Settings" to="." method="_on_settings_pressed"]
+[connection signal="back" from="MarginContainer/Container/CuttingBoard/MarginContainer/Overlays/Settings" to="." method="_on_settings_back"]

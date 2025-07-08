@@ -18,7 +18,7 @@ script = ExtResource("1_iljcp")
 
 [node name="MovingTarget" parent="Targets" instance=ExtResource("3_iljcp")]
 position = Vector2(1600, 643.08)
-rotation = 2.75762
+rotation = 4.86947
 speed = 0.25
 start_position = Vector2(1204.31, 881.18)
 end_position = Vector2(1600, 643.08)
@@ -30,7 +30,7 @@ position = Vector2(1830, 90)
 speed = 1.5
 start_position = Vector2(1830, 90)
 end_position = Vector2(90, 990)
-interval = 0.15
+interval = 0.5
 
 [node name="SolidObstacle" parent="Obstacles" instance=ExtResource("5_6byy4")]
 polygon = PackedVector2Array(40, 40, 40, 120, 320, 40)

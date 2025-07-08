@@ -1,9 +1,11 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://fqf40pe11p5k"]
 
-[ext_resource type="FontFile" uid="uid://slppmbo73asw" path="res://Art/Fonts/Humaroid.otf" id="1_iryks"]
+[ext_resource type="FontFile" uid="uid://b8tx02xl8i31w" path="res://Art/Fonts/Montserrat-Bold.ttf" id="1_iryks"]
 
 [sub_resource type="FontVariation" id="FontVariation_mnvo6"]
 base_font = ExtResource("1_iryks")
+variation_embolden = 0.4
+variation_transform = Transform2D(1, 0.05, 0.05, 1, 0, 0)
 
 [resource]
 Label/constants/outline_size = 16

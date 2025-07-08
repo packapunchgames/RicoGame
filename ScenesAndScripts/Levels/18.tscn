@@ -34,7 +34,7 @@ position = Vector2(1800, 720)
 
 [node name="MovingTarget" parent="Targets" instance=ExtResource("4_ri0kp")]
 position = Vector2(200, 830)
-rotation = 2.35619
+rotation = 4.06662
 speed = 1.25
 start_position = Vector2(200, 250)
 end_position = Vector2(200, 830)

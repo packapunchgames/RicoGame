@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dw0chd72mr2e6" path="res://ScenesAndScripts/UI/ui.gd" id="1_bts8l"]
 [ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="1_xslc6"]
 [ext_resource type="Theme" uid="uid://cqy5qwkgao8ks" path="res://ScenesAndScripts/Shaders/3rd_text.tres" id="3_fr2ux"]
-[ext_resource type="PackedScene" uid="uid://hiwonrsdpxid" path="res://ScenesAndScripts/UI/settings.tscn" id="4_45nxl"]
+[ext_resource type="PackedScene" uid="uid://u7myoi6hxpco" path="res://ScenesAndScripts/UI/pause_screen.tscn" id="4_45nxl"]
 
 [node name="UI" type="Control"]
 process_mode = 3
@@ -70,7 +70,7 @@ texture_normal = ExtResource("1_xslc6")
 
 [node name="Overlays" type="Node" parent="."]
 
-[node name="Settings" parent="Overlays" instance=ExtResource("4_45nxl")]
+[node name="PauseScreen" parent="Overlays" instance=ExtResource("4_45nxl")]
 
 [connection signal="pressed" from="MarginContainer/Pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HintsButton" to="." method="_on_hints_button_pressed"]

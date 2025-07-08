@@ -37,7 +37,7 @@ func save_initial_children_data(parent_node : Node2D, data_array : Array) -> voi
 			child_data["end_position"] = child.end_position
 			child_data["progress"] = child.progress
 			child_data["dir"] = child.dir
-			if child is Polygon2D:
+			if "interval" in child:
 				child_data["interval"] = child.interval
 		if child is Portals:
 			child_data["radius"] = child.radius

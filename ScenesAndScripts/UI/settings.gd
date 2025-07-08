@@ -8,6 +8,8 @@ extends Control
 @onready var vibration: HSlider = $MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer2/Vibration
 @onready var sensitivity: HSlider = $MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer2/Sensitivity
 
+signal back
+
 func _ready() -> void:
 	update_settings()
 
@@ -29,6 +31,6 @@ func _on_vibration_value_changed(value: float) -> void:
 func _on_sensitivity_value_changed(value: float) -> void:
 	Settings.sensitivity = -value
 
-
 func _on_back_button_pressed() -> void:
 	animation_player.play("hide")
+	back.emit()

@@ -1,15 +1,16 @@
 extends Control
 
 @onready var number_display: Label = $MarginContainer/VBoxContainer/LivesDisplay/NumberDisplay
-@onready var settings: Control = $Overlays/Settings
+@onready var pause_screen: Control = $Overlays/PauseScreen
+
 
 func _process(delta: float) -> void:
 	number_display.text = str(Global.lives)
 
 
 func _on_pause_pressed() -> void:
-	get_tree().paused = !get_tree().paused
-	settings.show_self()
+	get_tree().paused = true
+	pause_screen.show()
 
 
 func _on_hints_button_pressed() -> void:
