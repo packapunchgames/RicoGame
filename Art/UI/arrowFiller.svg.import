@@ -2,22 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fnmuii5lrb5e"
-path="res://.godot/imported/arrowFill.svg-ab90eefa1b27ca86d0b35b68c053e63b.ctex"
+uid="uid://mrj3jbg0ml24"
+path="res://.godot/imported/arrowFiller.svg-9c6f6f16d7f9c024786751bf4056138d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/arrowFill.svg"
-dest_files=["res://.godot/imported/arrowFill.svg-ab90eefa1b27ca86d0b35b68c053e63b.ctex"]
+source_file="res://Art/UI/arrowFiller.svg"
+dest_files=["res://.godot/imported/arrowFiller.svg-9c6f6f16d7f9c024786751bf4056138d.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
-compress/lossy_quality=0.0
+compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -32,6 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.25
+svg/scale=2.0
 editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

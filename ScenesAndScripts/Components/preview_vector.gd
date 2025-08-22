@@ -10,9 +10,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if parent.hasStarted:
-		show()
 		value = parent.force
 		rotation_degrees = rad_to_deg(parent.heading)
 		tint_progress = Color.GREEN.lerp(Color.RED, value / max_value)
+		show()
 	else:
 		hide()
