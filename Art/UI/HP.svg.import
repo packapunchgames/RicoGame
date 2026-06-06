@@ -2,22 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxpi3nsc07o2t"
-path.s3tc="res://.godot/imported/sliderGrabber.svg-0f6f58359d30e7de4cd566b29122aa60.s3tc.ctex"
-path.etc2="res://.godot/imported/sliderGrabber.svg-0f6f58359d30e7de4cd566b29122aa60.etc2.ctex"
+uid="uid://bxxrpm6suhly6"
+path="res://.godot/imported/HP.svg-f81b3bc8aeb2a0f10bb9f2eab51eef38.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/sliderGrabber.svg"
-dest_files=["res://.godot/imported/sliderGrabber.svg-0f6f58359d30e7de4cd566b29122aa60.s3tc.ctex", "res://.godot/imported/sliderGrabber.svg-0f6f58359d30e7de4cd566b29122aa60.etc2.ctex"]
+source_file="res://Art/UI/HP.svg"
+dest_files=["res://.godot/imported/HP.svg-f81b3bc8aeb2a0f10bb9f2eab51eef38.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -40,6 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=0.75
+svg/scale=1.0
 editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

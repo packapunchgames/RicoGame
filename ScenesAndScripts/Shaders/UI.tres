@@ -1,22 +1,53 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dytgpe77rddim"]
+[gd_resource type="Theme" format=3 uid="uid://dytgpe77rddim"]
 
 [ext_resource type="FontFile" uid="uid://b8tx02xl8i31w" path="res://Art/Fonts/Montserrat-Bold.ttf" id="1_h5wso"]
 
 [sub_resource type="FontVariation" id="FontVariation_2o80w"]
 base_font = ExtResource("1_h5wso")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcglj"]
+content_margin_top = 10.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0.55, 0.46749997, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 15
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_top = 10.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgwqt"]
 content_margin_top = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.25, 0.25, 0.25, 1)
-border_width_bottom = 10
+content_margin_bottom = 20.0
+bg_color = Color(0, 0.4, 0.33999997, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 15
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_color = Color(1, 1, 1, 0.270588)
-shadow_size = 15
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_top = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtr50"]
+content_margin_top = 40.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0.4, 0.33999997, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3ejix"]
 load_path = "res://.godot/imported/sliderGrabber.svg-032589079133e597b98a60607ab44e4b.ctex"
@@ -68,7 +99,9 @@ Button/colors/font_color = Color(1, 1, 1, 1)
 Button/constants/outline_size = 20
 Button/font_sizes/font_size = 64
 Button/fonts/font = SubResource("FontVariation_2o80w")
+Button/styles/hover = SubResource("StyleBoxFlat_lcglj")
 Button/styles/normal = SubResource("StyleBoxFlat_mgwqt")
+Button/styles/pressed = SubResource("StyleBoxFlat_dtr50")
 HSlider/icons/grabber = SubResource("CompressedTexture2D_3ejix")
 HSlider/icons/grabber_highlight = SubResource("CompressedTexture2D_3ejix")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_h5wso")

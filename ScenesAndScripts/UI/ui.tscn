@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://fmspsby8266i"]
+[gd_scene format=3 uid="uid://fmspsby8266i"]
 
 [ext_resource type="Script" uid="uid://dw0chd72mr2e6" path="res://ScenesAndScripts/UI/ui.gd" id="1_bts8l"]
 [ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="1_xslc6"]
 [ext_resource type="Theme" uid="uid://cqy5qwkgao8ks" path="res://ScenesAndScripts/Shaders/3rd_text.tres" id="3_fr2ux"]
+[ext_resource type="Texture2D" uid="uid://bxxrpm6suhly6" path="res://Art/UI/HP.svg" id="3_h4w3w"]
 [ext_resource type="PackedScene" uid="uid://u7myoi6hxpco" path="res://ScenesAndScripts/UI/pause_screen.tscn" id="4_45nxl"]
+[ext_resource type="Texture2D" uid="uid://bsurj6o00t3ts" path="res://Art/UI/hint.svg" id="5_7j0dg"]
 
-[node name="UI" type="Control"]
+[node name="UI" type="Control" unique_id=1772056420]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -16,7 +18,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_bts8l")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=219333590]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,25 +31,25 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 75
 theme_override_constants/margin_bottom = 25
 
-[node name="Pause" type="TextureButton" parent="MarginContainer"]
+[node name="Pause" type="TextureButton" parent="MarginContainer" unique_id=2020888595]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 texture_normal = ExtResource("1_xslc6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1274086644]
 process_mode = 1
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
 
-[node name="LivesDisplay" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+[node name="LivesDisplay" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=712380167]
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("1_xslc6")
+texture = ExtResource("3_h4w3w")
 
-[node name="NumberDisplay" type="Label" parent="MarginContainer/VBoxContainer/LivesDisplay"]
+[node name="NumberDisplay" type="Label" parent="MarginContainer/VBoxContainer/LivesDisplay" unique_id=942422682]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -64,13 +66,13 @@ theme = ExtResource("3_fr2ux")
 text = "1"
 horizontal_alignment = 1
 
-[node name="HintsButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+[node name="HintsButton" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=1043072434]
 layout_mode = 2
-texture_normal = ExtResource("1_xslc6")
+texture_normal = ExtResource("5_7j0dg")
 
-[node name="Overlays" type="Node" parent="."]
+[node name="Overlays" type="Node" parent="." unique_id=1585715840]
 
-[node name="PauseScreen" parent="Overlays" instance=ExtResource("4_45nxl")]
+[node name="PauseScreen" parent="Overlays" unique_id=1403986234 instance=ExtResource("4_45nxl")]
 
 [connection signal="pressed" from="MarginContainer/Pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HintsButton" to="." method="_on_hints_button_pressed"]

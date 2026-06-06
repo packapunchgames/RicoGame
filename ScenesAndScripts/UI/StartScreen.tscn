@@ -1,11 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://b16bu1vsw1ces"]
+[gd_scene format=3 uid="uid://b16bu1vsw1ces"]
 
 [ext_resource type="Script" uid="uid://bxcsk4l78jaew" path="res://ScenesAndScripts/UI/start_screen.gd" id="1_hbygu"]
 [ext_resource type="Script" uid="uid://bapf2pjjq1tnt" path="res://ScenesAndScripts/UI/overlay.gd" id="1_qrnm2"]
 [ext_resource type="PackedScene" uid="uid://2efpx57nitbd" path="res://ScenesAndScripts/main.tscn" id="2_hby4r"]
 [ext_resource type="Theme" uid="uid://cqy5qwkgao8ks" path="res://ScenesAndScripts/Shaders/3rd_text.tres" id="3_hby4r"]
+[ext_resource type="Shader" uid="uid://du3qd5nf52x5l" path="res://ScenesAndScripts/Shaders/scrolling_texture.gdshader" id="3_lsinn"]
+[ext_resource type="Texture2D" uid="uid://xp8yg08jvj82" path="res://Art/UI/pois.png" id="4_g23m1"]
+[ext_resource type="Texture2D" uid="uid://dv2dwcbk1ncyp" path="res://Art/PNG Files/Backgrounds/obstaclesPattern.svg" id="4_lvw1k"]
+[ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="5_um528"]
 
-[node name="StartScreen" type="Control"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g23m1"]
+shader = ExtResource("3_lsinn")
+shader_parameter/scroll_speed = 0.0400000019
+shader_parameter/angle_degrees = 45.0000021375
+shader_parameter/repeat_x = 14.0000006175
+shader_parameter/repeat_y = 10.0000004275
+shader_parameter/row_offset = 10.0
+shader_parameter/texture_to_scroll = ExtResource("4_g23m1")
+
+[node name="StartScreen" type="Control" unique_id=707114289]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +28,13 @@ grow_vertical = 2
 script = ExtResource("1_hbygu")
 game_scene = ExtResource("2_hby4r")
 
-[node name="Overlay" type="MarginContainer" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=670784731]
+material = SubResource("ShaderMaterial_g23m1")
+position = Vector2(958.99994, 540)
+scale = Vector2(14.999999, 8.4375)
+texture = ExtResource("4_lvw1k")
+
+[node name="Overlay" type="MarginContainer" parent="." unique_id=1109083323]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,28 +43,34 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qrnm2")
 
-[node name="Version" type="Label" parent="Overlay"]
+[node name="Version" type="Label" parent="Overlay" unique_id=757297877]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme = ExtResource("3_hby4r")
 text = "Version: xxx"
 
-[node name="MarginContainer" type="MarginContainer" parent="Overlay"]
+[node name="MarginContainer" type="MarginContainer" parent="Overlay" unique_id=828425816]
 layout_mode = 2
 theme_override_constants/margin_left = 400
 theme_override_constants/margin_top = 600
 theme_override_constants/margin_right = 400
 theme_override_constants/margin_bottom = 200
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/MarginContainer" unique_id=227424654]
 layout_mode = 2
 alignment = 1
 
-[node name="GameStarterButton" type="Button" parent="Overlay/MarginContainer/HBoxContainer"]
+[node name="GameStarterButton" type="Button" parent="Overlay/MarginContainer/HBoxContainer" unique_id=1485529891]
 custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
 size_flags_vertical = 8
 text = "PLAY"
+
+[node name="Label" type="Label" parent="Overlay" unique_id=1108128545]
+layout_mode = 2
+theme = ExtResource("5_um528")
+text = "SAUTÉD"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Overlay/MarginContainer/HBoxContainer/GameStarterButton" to="." method="_on_game_starter_button_pressed"]

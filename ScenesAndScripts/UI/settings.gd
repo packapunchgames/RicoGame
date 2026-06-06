@@ -32,5 +32,6 @@ func _on_sensitivity_value_changed(value: float) -> void:
 	Settings.sensitivity = -value
 
 func _on_back_button_pressed() -> void:
-	animation_player.play("hide")
+	animation_player.play_backwards("show")
+	await animation_player.animation_finished
 	back.emit()
