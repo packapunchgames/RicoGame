@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="2_jke3d"]
 [ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="4_p4lql"]
 [ext_resource type="Theme" uid="uid://fqf40pe11p5k" path="res://ScenesAndScripts/Shaders/2nd_text.tres" id="5_xgql1"]
+[ext_resource type="Texture2D" uid="uid://djhdhc23jlo4u" path="res://Art/UI/CheckButtonNormal.png" id="6_8fcom"]
 [ext_resource type="PackedScene" uid="uid://xwb1dek3i81j" path="res://ScenesAndScripts/UI/audio_slider.tscn" id="6_xgql1"]
 [ext_resource type="Theme" uid="uid://dytgpe77rddim" path="res://ScenesAndScripts/Shaders/UI.tres" id="7_8fcom"]
 
@@ -117,6 +118,7 @@ theme_override_constants/margin_bottom = 50
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=1833310485]
 layout_mode = 2
+scroll_vertical = 131
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
@@ -253,6 +255,7 @@ text = "Hit Stop"
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer" unique_id=1326483393]
 layout_mode = 2
 size_flags_horizontal = 6
+theme_override_constants/separation = 26
 
 [node name="Sensitivity" type="HSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer2" unique_id=256407016]
 custom_minimum_size = Vector2(300, 0)
@@ -262,6 +265,16 @@ min_value = -2.5
 max_value = -0.5
 step = 0.4
 value = -0.5
+
+[node name="Button" type="TextureButton" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer2" unique_id=1138948315]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("6_8fcom")
+
+[node name="Button2" type="TextureButton" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer2" unique_id=31146476]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("6_8fcom")
 
 [node name="BackButton" type="TextureButton" parent="MarginContainer" unique_id=629752467]
 layout_mode = 2

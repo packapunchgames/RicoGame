@@ -105,4 +105,7 @@ func _on_restart() -> void:
 	global_rotation_degrees = 0.0
 	trail_line.clear_points()
 	trail_line.can_spawn = false
-	Global.lives -= 1
+	if Global.lives > 1:
+		Global.lives -= 1
+	elif Global.lives == 1:
+		print("Game Over")

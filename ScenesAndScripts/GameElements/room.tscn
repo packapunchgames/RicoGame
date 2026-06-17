@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ciy2atqwdq2t5"]
+[gd_scene format=3 uid="uid://ciy2atqwdq2t5"]
 
-[ext_resource type="Texture2D" uid="uid://b3u4wv5vmmqjl" path="res://Art/PNG Files/Backgrounds/bg.png" id="1_df5fj"]
+[ext_resource type="Script" uid="uid://cry4lrw6dxawp" path="res://ScenesAndScripts/GameElements/room.gd" id="1_kqxed"]
+[ext_resource type="Texture2D" uid="uid://dtwdmh8yaypa1" path="res://Art/PNG Files/Backgrounds/bg3.jpg" id="2_kqxed"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i52uo"]
 size = Vector2(40, 1080)
@@ -8,57 +9,58 @@ size = Vector2(40, 1080)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b18af"]
 size = Vector2(40, 1840)
 
-[node name="Room" type="Node2D"]
+[node name="Room" type="Node2D" unique_id=378910917]
 z_index = 1
+script = ExtResource("1_kqxed")
 
-[node name="ColorRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1453413903]
 z_index = -5
 offset_left = 40.0
 offset_top = 40.0
 offset_right = 1880.0
 offset_bottom = 1040.0
-texture = ExtResource("1_df5fj")
+texture = ExtResource("2_kqxed")
 
-[node name="Walls" type="StaticBody2D" parent="."]
+[node name="Walls" type="StaticBody2D" parent="." unique_id=149080615]
 collision_layer = 9
 collision_mask = 0
 
-[node name="CollisionLeft" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionLeft" type="CollisionShape2D" parent="Walls" unique_id=1375988932]
 position = Vector2(20, 540)
 rotation = 3.14159
 shape = SubResource("RectangleShape2D_i52uo")
 
-[node name="Polygon2D" type="Polygon2D" parent="Walls/CollisionLeft"]
+[node name="Polygon2D" type="Polygon2D" parent="Walls/CollisionLeft" unique_id=2026618195]
 position = Vector2(0, 0.153809)
 scale = Vector2(1, 1.00028)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(19.9986, 540, -20.0014, 540, -19.9986, -540, 20.0014, -540)
 
-[node name="CollisionRight" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionRight" type="CollisionShape2D" parent="Walls" unique_id=1720809939]
 position = Vector2(1900, 540)
 shape = SubResource("RectangleShape2D_i52uo")
 
-[node name="Polygon2D" type="Polygon2D" parent="Walls/CollisionRight"]
+[node name="Polygon2D" type="Polygon2D" parent="Walls/CollisionRight" unique_id=1071319025]
 position = Vector2(0, 0.153809)
 scale = Vector2(1, 1.00028)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(19.9986, 540, -20.0014, 540, -19.9986, -540, 20.0014, -540)
 
-[node name="CollisionUp" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionUp" type="CollisionShape2D" parent="Walls" unique_id=1716777913]
 position = Vector2(960, 20)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_b18af")
 
-[node name="Polygon2D" type="Polygon2D" parent="Walls/CollisionUp"]
+[node name="Polygon2D" type="Polygon2D" parent="Walls/CollisionUp" unique_id=2022161520]
 position = Vector2(0.000250975, -40)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-20.006, 960, 19.994, 960, 20.0055, -880, -19.9945, -880)
 
-[node name="CollisionDown" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionDown" type="CollisionShape2D" parent="Walls" unique_id=1036040939]
 position = Vector2(960, 1060)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_b18af")
 
-[node name="Polygon2D" type="Polygon2D" parent="Walls/CollisionDown"]
+[node name="Polygon2D" type="Polygon2D" parent="Walls/CollisionDown" unique_id=1879308930]
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-20.0057, 920, 19.9943, 920, 20.0061, -960, -19.9939, -960)

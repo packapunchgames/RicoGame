@@ -70,7 +70,7 @@ text = "PLAY"
 [node name="Label" type="Label" parent="Overlay" unique_id=1108128545]
 layout_mode = 2
 theme = ExtResource("5_um528")
-text = "SAUTÉD"
+text = "SAUTÉ"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="Overlay/MarginContainer/HBoxContainer/GameStarterButton" to="." method="_on_game_starter_button_pressed"]

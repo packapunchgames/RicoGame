@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cskx3gpeuxh5b"]
+[gd_scene format=3 uid="uid://cskx3gpeuxh5b"]
 
 [ext_resource type="Script" uid="uid://c1clsx06p28py" path="res://ScenesAndScripts/GameElements/target.gd" id="1_l7iip"]
 [ext_resource type="Shader" uid="uid://q7b4jvu2qe63" path="res://ScenesAndScripts/GameElements/outline_boundaries.gdshader" id="2_hqpl3"]
@@ -228,37 +228,35 @@ _data = {
 &"default": SubResource("Animation_8hwk5")
 }
 
-[node name="Target" type="CharacterBody2D" groups=["Targets"]]
+[node name="Target" type="CharacterBody2D" unique_id=1953668219 groups=["Targets"]]
 process_mode = 1
 collision_layer = 4
 script = ExtResource("1_l7iip")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=206454061]
 shape = SubResource("CircleShape2D_l7iip")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1431749410]
 material = SubResource("ShaderMaterial_3g2sq")
 rotation = 0.0872665
 scale = Vector2(0.75, 0.75)
 sprite_frames = ExtResource("3_3g2sq")
 autoplay = "default"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=869065842]
 visible = false
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=262225708]
 shape = SubResource("CircleShape2D_l7iip")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_hqpl3")
-}
-autoplay = "default"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=382066618]
+libraries/ = SubResource("AnimationLibrary_hqpl3")
+autoplay = &"default"
 
-[node name="HitSound" type="AudioStreamPlayer" parent="."]
+[node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=1797671035]
 stream = ExtResource("3_sfx54")
 volume_db = -5.0
 pitch_scale = 1.75

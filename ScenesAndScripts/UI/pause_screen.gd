@@ -8,10 +8,12 @@ extends Control
 
 func on_pause_pressed() -> void:
 	animation_player.play("show")
+	Global.game_paused.emit()
 
 func _on_continue_pressed() -> void:
 	get_tree().paused = false
 	animation_player.play_backwards("show")
+	Global.game_resumed.emit()
 
 func _on_settings_pressed() -> void:
 	animation_player.play_backwards("main_menu")

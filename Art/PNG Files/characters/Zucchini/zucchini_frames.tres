@@ -1,7 +1,8 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://tu7ne3h7rgiu"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://tu7ne3h7rgiu"]
 
 [ext_resource type="Texture2D" uid="uid://csdd1anyvni8b" path="res://Art/PNG Files/characters/Zucchini/Zucchini cut.png" id="1_5awyh"]
 [ext_resource type="Texture2D" uid="uid://dvcaglufhphr5" path="res://Art/PNG Files/characters/Zucchini/Zucchini.png" id="1_5xihv"]
+[ext_resource type="Texture2D" uid="uid://dv7tk86h0xua5" path="res://Art/PNG Files/characters/Zucchini/Zucchini Stain.png" id="3_7d6x5"]
 
 [resource]
 animations = [{
@@ -21,7 +22,10 @@ animations = [{
 "name": &"default",
 "speed": 0.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7d6x5")
+}],
 "loop": false,
 "name": &"stain",
 "speed": 0.0

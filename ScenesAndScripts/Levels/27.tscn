@@ -48,7 +48,7 @@ position = Vector2(1040, 280)
 polygon = PackedVector2Array(0, 0, 320, 0, 320, 120, 0, 120)
 
 [node name="Danger" parent="Obstacles" unique_id=1692903753 instance=ExtResource("5_yi7l5")]
-position = Vector2(960, 560)
+position = Vector2(960, 520)
 
 [node name="Danger2" parent="Obstacles" unique_id=1149198618 instance=ExtResource("5_yi7l5")]
 position = Vector2(560, 560)
