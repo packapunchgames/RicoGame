@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dccpftpriwfsd"]
 
 [ext_resource type="Shader" uid="uid://q7b4jvu2qe63" path="res://ScenesAndScripts/GameElements/outline_boundaries.gdshader" id="1_h250j"]
-[ext_resource type="Texture2D" uid="uid://511dkvijstd5" path="res://Art/PNG Files/characters/Saw.png" id="1_re6h8"]
+[ext_resource type="Texture2D" uid="uid://511dkvijstd5" path="res://Art/PNG Files/characters/Saw/Saw.png" id="1_re6h8"]
 [ext_resource type="AudioStream" uid="uid://xh7xkss4i6r5" path="res://Sound/Sfx/saw.mp3" id="3_f73ua"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4dj6q"]
@@ -94,5 +94,5 @@ autoplay = &"idle"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1663209922]
 stream = ExtResource("3_f73ua")
-volume_db = -30.0
+volume_db = -25.0
 bus = &"SFX"

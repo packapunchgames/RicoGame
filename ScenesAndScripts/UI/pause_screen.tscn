@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="3_bram4"]
 [ext_resource type="PackedScene" uid="uid://hiwonrsdpxid" path="res://ScenesAndScripts/UI/settings.tscn" id="5_bram4"]
 [ext_resource type="PackedScene" uid="uid://bymvjeb3pbg4w" path="res://ScenesAndScripts/UI/restart_screen.tscn" id="6_btkfp"]
+[ext_resource type="PackedScene" uid="uid://cnsprwc0jr3d5" path="res://ScenesAndScripts/UI/return_to_home_screen.tscn" id="7_nvrrf"]
 
 [sub_resource type="Animation" id="Animation_btkfp"]
 length = 0.001
@@ -256,11 +257,16 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[node name="ReturnToHomeScreen" parent="MarginContainer/Container/CuttingBoard/MarginContainer/Overlays" unique_id=15660407 instance=ExtResource("7_nvrrf")]
+layout_mode = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=352229401]
 libraries/ = SubResource("AnimationLibrary_nvrrf")
 
 [connection signal="pressed" from="MarginContainer/Container/CuttingBoard/MarginContainer/MainMenu/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="MarginContainer/Container/CuttingBoard/MarginContainer/MainMenu/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/Container/CuttingBoard/MarginContainer/MainMenu/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="MarginContainer/Container/CuttingBoard/MarginContainer/MainMenu/Home" to="." method="_on_home_pressed"]
 [connection signal="back" from="MarginContainer/Container/CuttingBoard/MarginContainer/Overlays/Settings" to="." method="_on_back"]
 [connection signal="back" from="MarginContainer/Container/CuttingBoard/MarginContainer/Overlays/RestartScreen" to="." method="_on_back"]
+[connection signal="back" from="MarginContainer/Container/CuttingBoard/MarginContainer/Overlays/ReturnToHomeScreen" to="." method="_on_back"]

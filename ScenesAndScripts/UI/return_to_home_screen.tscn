@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://bymvjeb3pbg4w"]
+[gd_scene format=3 uid="uid://cnsprwc0jr3d5"]
 
-[ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="1_br0lp"]
-[ext_resource type="Script" uid="uid://b4q5kux51qak2" path="res://ScenesAndScripts/UI/submenu.gd" id="1_jlquk"]
-[ext_resource type="Theme" uid="uid://fqf40pe11p5k" path="res://ScenesAndScripts/Shaders/2nd_text.tres" id="2_jlquk"]
-[ext_resource type="Theme" uid="uid://dytgpe77rddim" path="res://ScenesAndScripts/Shaders/UI.tres" id="3_rl016"]
+[ext_resource type="Script" uid="uid://b4q5kux51qak2" path="res://ScenesAndScripts/UI/submenu.gd" id="1_a44i2"]
+[ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="1_x2dqc"]
+[ext_resource type="Theme" uid="uid://fqf40pe11p5k" path="res://ScenesAndScripts/Shaders/2nd_text.tres" id="2_a44i2"]
+[ext_resource type="Theme" uid="uid://dytgpe77rddim" path="res://ScenesAndScripts/Shaders/UI.tres" id="3_vpof5"]
 
 [sub_resource type="Animation" id="Animation_rl016"]
 length = 0.001
@@ -21,7 +21,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -29,7 +29,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_s6f7p"]
@@ -66,14 +66,15 @@ _data = {
 &"show": SubResource("Animation_s6f7p")
 }
 
-[node name="RestartScreen" type="Control" unique_id=469227458]
+[node name="ReturnToHomeScreen" type="Control" unique_id=469227458]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_jlquk")
+script = ExtResource("1_a44i2")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1680762417]
 layout_mode = 1
@@ -95,8 +96,8 @@ alignment = 1
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=91515046]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("1_br0lp")
-text = "RESTART?"
+theme = ExtResource("1_x2dqc")
+text = "RETURN TO HOME?"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Title" unique_id=2034331970]
@@ -111,13 +112,13 @@ grow_vertical = 0
 
 [node name="Description" type="Label" parent="MarginContainer/VBoxContainer" unique_id=535187362]
 layout_mode = 2
-theme = ExtResource("2_jlquk")
+theme = ExtResource("2_a44i2")
 text = "This will lose any unsaved progress."
 horizontal_alignment = 1
 
 [node name="Options" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=654184084]
 layout_mode = 2
-theme = ExtResource("3_rl016")
+theme = ExtResource("3_vpof5")
 theme_override_constants/separation = 200
 alignment = 1
 
@@ -135,4 +136,3 @@ text = "YES"
 libraries/ = SubResource("AnimationLibrary_th6od")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options/No" to="." method="_on_no_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options/Yes" to="." method="_on_yes_pressed"]

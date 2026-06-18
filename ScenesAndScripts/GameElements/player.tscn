@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://8mwywa4awn30"]
+[gd_scene format=3 uid="uid://8mwywa4awn30"]
 
 [ext_resource type="Script" uid="uid://b41bbnfex73u3" path="res://ScenesAndScripts/GameElements/player.gd" id="1_6dvrn"]
 [ext_resource type="Texture2D" uid="uid://b2hvukayn5f0t" path="res://Art/PNG Files/characters/Player/Player.png" id="2_lld3t"]
@@ -26,7 +26,7 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.997573, 1)
 colors = PackedColorArray(1, 1, 1, 0.392157, 1, 1, 1, 1, 1, 1, 1, 1)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("drag", "release", "cancel", "tap")]
+[node name="Player" type="CharacterBody2D" unique_id=1820063481 node_paths=PackedStringArray("drag", "release", "cancel", "tap")]
 collision_layer = 2
 script = ExtResource("1_6dvrn")
 drag = NodePath("Sounds/Drag")
@@ -35,28 +35,28 @@ cancel = NodePath("Sounds/Cancel")
 tap = NodePath("Sounds/Tap")
 boost = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=666569843]
 shape = SubResource("CircleShape2D_pd41g")
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=254343604]
 collision_layer = 0
 collision_mask = 16
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=578146788]
 shape = SubResource("CircleShape2D_pd41g")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox" unique_id=687368476]
 position = Vector2(-18.6691, 37.3709)
 rotation = -0.388484
 shape = SubResource("RectangleShape2D_q65ba")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1886359223]
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("2_lld3t")
 flip_h = true
 
-[node name="PreviewVector" type="TextureProgressBar" parent="." node_paths=PackedStringArray("parent")]
+[node name="PreviewVector" type="TextureProgressBar" parent="." unique_id=1154908111 node_paths=PackedStringArray("parent")]
 modulate = Color(1, 1, 1, 0.588235)
 anchors_preset = 4
 anchor_top = 0.5
@@ -72,7 +72,7 @@ script = ExtResource("3_r71dn")
 offSet = Vector2(75, -70)
 parent = NodePath("..")
 
-[node name="ZoomCamera" type="Camera2D" parent="." node_paths=PackedStringArray("parent")]
+[node name="ZoomCamera" type="Camera2D" parent="." unique_id=2078888818 node_paths=PackedStringArray("parent")]
 limit_left = 0
 limit_top = 0
 limit_right = 1920
@@ -81,7 +81,7 @@ script = ExtResource("4_ai6u8")
 parent = NodePath("..")
 aim_zoom = 1.5
 
-[node name="TrailLine" type="Line2D" parent="." node_paths=PackedStringArray("ball")]
+[node name="TrailLine" type="Line2D" parent="." unique_id=1876431177 node_paths=PackedStringArray("ball")]
 top_level = true
 z_index = -1
 width_curve = SubResource("Curve_6bj8f")
@@ -95,27 +95,27 @@ script = ExtResource("5_usrgj")
 ball = NodePath("..")
 multiplier = 3
 
-[node name="Sounds" type="Node" parent="."]
+[node name="Sounds" type="Node" parent="." unique_id=266689929]
 
-[node name="Drag" type="AudioStreamPlayer" parent="Sounds"]
+[node name="Drag" type="AudioStreamPlayer" parent="Sounds" unique_id=623708855]
 stream = ExtResource("6_lld3t")
 volume_db = -10.0
 pitch_scale = 1.5
 bus = &"SFX"
 
-[node name="Release" type="AudioStreamPlayer" parent="Sounds"]
+[node name="Release" type="AudioStreamPlayer" parent="Sounds" unique_id=1018185894]
 stream = ExtResource("7_r71dn")
 volume_db = -5.0
 pitch_scale = 2.0
 bus = &"SFX"
 
-[node name="Cancel" type="AudioStreamPlayer" parent="Sounds"]
+[node name="Cancel" type="AudioStreamPlayer" parent="Sounds" unique_id=1027892386]
 stream = ExtResource("7_r71dn")
 volume_db = -5.0
 pitch_scale = 5.0
 bus = &"SFX"
 
-[node name="Tap" type="AudioStreamPlayer" parent="Sounds"]
+[node name="Tap" type="AudioStreamPlayer" parent="Sounds" unique_id=1757786251]
 stream = ExtResource("9_usrgj")
 volume_db = -15.0
 pitch_scale = 0.3

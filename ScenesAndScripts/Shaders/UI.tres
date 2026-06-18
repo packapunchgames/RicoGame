@@ -14,10 +14,10 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 15
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+corner_radius_top_left = 75
+corner_radius_top_right = 75
+corner_radius_bottom_right = 75
+corner_radius_bottom_left = 75
 expand_margin_top = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgwqt"]
@@ -29,10 +29,10 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 15
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+corner_radius_top_left = 75
+corner_radius_top_right = 75
+corner_radius_bottom_right = 75
+corner_radius_bottom_left = 75
 expand_margin_top = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtr50"]
@@ -44,10 +44,10 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+corner_radius_top_left = 75
+corner_radius_top_right = 75
+corner_radius_bottom_right = 75
+corner_radius_bottom_left = 75
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3ejix"]
 load_path = "res://.godot/imported/sliderGrabber.svg-032589079133e597b98a60607ab44e4b.ctex"
