@@ -49,6 +49,7 @@ var force : float:
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var hurtbox: Area2D = $Hurtbox
+@onready var squash: AudioStreamPlayer = $Sounds/Squash
 
 var player_texture : Texture2D = preload("res://Art/PNG Files/characters/Player/Player.png")
 var blood_texture : Texture2D = preload("res://Art/PNG Files/characters/Onion/Onion Stain.png")
@@ -56,7 +57,6 @@ var player_scale : Vector2 = Vector2(0.12, 0.12)
 var blood_scale : Vector2 = Vector2.ONE
 var player_modulate : Color = Color.WHITE
 var blood_modulate : Color = Color.RED
-
 
 signal restart
 signal shot
@@ -105,6 +105,7 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 	sprite.texture = blood_texture
 	modulate = blood_modulate
 	sprite.scale = blood_scale
+	squash.play()
 
 
 func _on_restart() -> void:

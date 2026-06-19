@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bymvjeb3pbg4w"]
 
 [ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="1_br0lp"]
-[ext_resource type="Script" uid="uid://b4q5kux51qak2" path="res://ScenesAndScripts/UI/submenu.gd" id="1_jlquk"]
+[ext_resource type="Script" uid="uid://b4q5kux51qak2" path="res://ScenesAndScripts/UI/restart_screen.gd" id="1_jlquk"]
 [ext_resource type="Theme" uid="uid://fqf40pe11p5k" path="res://ScenesAndScripts/Shaders/2nd_text.tres" id="2_jlquk"]
 [ext_resource type="Theme" uid="uid://dytgpe77rddim" path="res://ScenesAndScripts/Shaders/UI.tres" id="3_rl016"]
 

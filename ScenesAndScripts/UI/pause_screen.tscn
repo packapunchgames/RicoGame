@@ -25,7 +25,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/path = NodePath("Blur:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -129,7 +129,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ColorRect:modulate")
+tracks/2/path = NodePath("Blur:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -157,7 +157,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x86a2")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=677024553]
+[node name="Blur" type="ColorRect" parent="." unique_id=677024553]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -168,6 +168,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.196078)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1214667174]
+custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -180,7 +181,10 @@ theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
 [node name="Container" type="Control" parent="MarginContainer" unique_id=248544896]
+custom_minimum_size = Vector2(1720, 880)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="CuttingBoard" type="TextureRect" parent="MarginContainer/Container" unique_id=905194362]
 layout_mode = 1
