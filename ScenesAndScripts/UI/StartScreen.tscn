@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="5_um528"]
 [ext_resource type="Texture2D" uid="uid://8hag0460jdvw" path="res://Art/UI/startScreenBackground.svg" id="6_g23m1"]
 [ext_resource type="Theme" uid="uid://dytgpe77rddim" path="res://ScenesAndScripts/Shaders/UI.tres" id="6_lsinn"]
+[ext_resource type="Script" uid="uid://c0mcq6bajdwx3" path="res://addons/GodotPlayGameServices/scripts/sign_in/sign_in_client.gd" id="8_lvw1k"]
 
 [node name="StartScreen" type="Control" unique_id=707114289]
 layout_mode = 3
@@ -59,4 +60,9 @@ theme = ExtResource("5_um528")
 text = "SAUTÉ"
 horizontal_alignment = 1
 
+[node name="PlayGamesSignInClient" type="Node" parent="." unique_id=1475228521]
+script = ExtResource("8_lvw1k")
+metadata/_custom_type_script = "uid://c0mcq6bajdwx3"
+
 [connection signal="pressed" from="Overlay/MarginContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="user_authenticated" from="PlayGamesSignInClient" to="." method="_on_play_games_sign_in_client_user_authenticated"]
