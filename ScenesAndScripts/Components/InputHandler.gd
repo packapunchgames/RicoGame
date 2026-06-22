@@ -4,7 +4,7 @@ class_name InputHandler
 
 @export var cancel_zoom : float = 1.5
 @export var offset_divisor : float = 5
-@export var follower_offset_divisor : float = 2
+@export var follower_offset_multiplier : float = 2
 @export var stiffness : int = 2
 @export var scale_divisor : int = 2500
 @export var hint_sensibility : int = 10
@@ -15,7 +15,6 @@ class_name InputHandler
 
 var distance : float
 
-@export var subviewport_container : SubViewportContainer
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Global.player and !Global.did_game_finish:
@@ -67,7 +66,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 func handle_joystick(mousePos : Vector2) -> void:
 	stayer.look_at(mousePos)
 	stayer.offset.x = sqrt(distance) * stiffness / offset_divisor
-	follower.offset.x = sqrt(distance) * stiffness / follower_offset_divisor
+	follower.offset.x = sqrt(distance) * stiffness * follower_offset_multiplier
 	
 	if Global.player.force < Global.player.difference:
 		stayer.scale = Vector2.ONE * cancel_zoom

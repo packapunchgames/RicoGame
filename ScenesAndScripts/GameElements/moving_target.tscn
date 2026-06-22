@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cfo818bj5ycix" path="res://Sound/Sfx/enemyKilled.mp3" id="3_nopiy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7iip"]
-radius = 70.0
+radius = 65.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ps30n"]
 shader = ExtResource("2_fq08a")
@@ -230,7 +230,7 @@ _data = {
 
 [node name="MovingTarget" type="CharacterBody2D" unique_id=169433879 groups=["Targets"]]
 process_mode = 1
-rotation = 4.118977
+rotation = 3.9618974
 collision_layer = 4
 script = ExtResource("1_17sxh")
 speed = 0.0

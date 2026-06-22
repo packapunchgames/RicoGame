@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://qn8utvba7atr"]
+[gd_scene format=3 uid="uid://qn8utvba7atr"]
 
 [ext_resource type="Script" uid="uid://clk66xyu6y41d" path="res://ScenesAndScripts/world.gd" id="1_votyy"]
 [ext_resource type="PackedScene" uid="uid://ciy2atqwdq2t5" path="res://ScenesAndScripts/GameElements/room.tscn" id="2_pl8mk"]
@@ -8,24 +8,24 @@
 [ext_resource type="PackedScene" uid="uid://b15nqvra1cslp" path="res://ScenesAndScripts/Components/preview.tscn" id="6_u3den"]
 [ext_resource type="PackedScene" uid="uid://utmtkgltfdyi" path="res://ScenesAndScripts/Components/Overlay.tscn" id="7_yrdog"]
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" unique_id=1257560378]
 script = ExtResource("1_votyy")
 
-[node name="Room" parent="." instance=ExtResource("2_pl8mk")]
+[node name="Room" parent="." unique_id=61677214 instance=ExtResource("2_pl8mk")]
 
-[node name="Targets" type="Node2D" parent="."]
+[node name="Targets" type="Node2D" parent="." unique_id=1315427499]
 
-[node name="MovingTarget" parent="Targets" instance=ExtResource("3_dekw4")]
-position = Vector2(1400, 200)
-rotation = 3.52557
+[node name="MovingTarget" parent="Targets" unique_id=1082265497 instance=ExtResource("3_dekw4")]
+position = Vector2(1300, 200)
+rotation = 3.4382987
 speed = 1.0
-start_position = Vector2(1400, 200)
-end_position = Vector2(1400, 880)
+start_position = Vector2(1300, 200)
+end_position = Vector2(1300, 880)
 progress = 0.0
 
-[node name="Obstacles" type="Node2D" parent="."]
+[node name="Obstacles" type="Node2D" parent="." unique_id=1447387633]
 
-[node name="MovingObstacle" parent="Obstacles" instance=ExtResource("4_votyy")]
+[node name="MovingObstacle" parent="Obstacles" unique_id=2530509 instance=ExtResource("4_votyy")]
 position = Vector2(900, 120)
 polygon = PackedVector2Array(0, -160, 160, -160, 160, 400, 0, 400)
 speed = 0.25
@@ -34,7 +34,7 @@ end_position = Vector2(900, 120)
 progress = 1.0
 interval = 0.5
 
-[node name="MovingObstacle2" parent="Obstacles" instance=ExtResource("4_votyy")]
+[node name="MovingObstacle2" parent="Obstacles" unique_id=2092861506 instance=ExtResource("4_votyy")]
 position = Vector2(900, 720)
 polygon = PackedVector2Array(0, -160, 160, -160, 160, 400, 0, 400)
 speed = 0.25
@@ -43,12 +43,12 @@ end_position = Vector2(900, 720)
 progress = 1.0
 interval = 0.5
 
-[node name="Ball" parent="." instance=ExtResource("5_u3w1g")]
+[node name="Ball" parent="." unique_id=1645220748 instance=ExtResource("5_u3w1g")]
 position = Vector2(160, 540)
 
-[node name="Preview" parent="Ball" instance=ExtResource("6_u3den")]
-points = PackedVector2Array(0, 0, -8.33333, 0, -16.6667, 0, -25, 0, -33.3333, 0, -41.6667, 0, -50, 0, -41.6667, 0, -33.3333, 0, -25, 0, -16.6667, 0, -8.33333, 0, 0, 0, 8.33333, 0, 16.6667, 0, 25, 0, 33.3333, 0, 41.6667, 0, 50, 0, 58.3333, 0, 66.6667, 0, 75, 0, 83.3334, 0, 91.6667, 0, 100, 0, 108.333, 0, 116.667, 0, 125, 0, 133.333, 0, 141.667, 0, 150, 0, 158.333, 0, 166.667, 0, 175, 0, 183.333, 0, 191.667, 0, 200, 0, 208.333, 0, 216.667, 0, 225, 0, 233.333, 0, 241.667, 0, 250, 0, 258.333, 0, 266.667, 0, 275, 0, 283.333, 0, 291.667, 0, 300, 0, 308.333, 0)
+[node name="Preview" parent="Ball" unique_id=917408605 instance=ExtResource("6_u3den")]
+points = PackedVector2Array(0, 0, -8.333334, 0, -16.666668, 0, -25.000002, 0, -33.333336, 0, -41.66667, 0, -50.000008, 0, -41.66667, 0, -33.333336, 0, -25.000002, 0, -16.666668, 0, -8.333334, 0, 0, 0, 8.333334, 0, 16.666668, 0, 25.000002, 0, 33.333336, 0, 41.66667, 0, 50.000008, 0, 58.333344, 0, 66.66668, 0, 75.000015, 0, 83.33335, 0, 91.66669, 0, 100.00002, 0, 108.33336, 0, 116.666695, 0, 125.00003, 0, 133.33336, 0, 141.66669, 0, 150.00002, 0, 158.33334, 0, 166.66667, 0, 175, 0, 183.33333, 0, 191.66666, 0, 199.99998, 0, 208.33331, 0, 216.66664, 0, 224.99997, 0, 233.3333, 0, 241.66663, 0, 249.99995, 0, 258.33328, 0, 266.66663, 0, 274.99997, 0, 283.3333, 0, 291.66666, 0, 300, 0, 308.33334, 0)
 antialiased = true
 max_points = 50
 
-[node name="Overlay" parent="." instance=ExtResource("7_yrdog")]
+[node name="Overlay" parent="." unique_id=1805866400 instance=ExtResource("7_yrdog")]
