@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://i5djdm2ciw7c"]
+[gd_scene format=3 uid="uid://i5djdm2ciw7c"]
 
 [ext_resource type="Script" uid="uid://clk66xyu6y41d" path="res://ScenesAndScripts/world.gd" id="1_h22v5"]
 [ext_resource type="PackedScene" uid="uid://ciy2atqwdq2t5" path="res://ScenesAndScripts/GameElements/room.tscn" id="2_a7qgr"]
@@ -8,38 +8,38 @@
 [ext_resource type="PackedScene" uid="uid://b15nqvra1cslp" path="res://ScenesAndScripts/Components/preview.tscn" id="6_mik8n"]
 [ext_resource type="PackedScene" uid="uid://utmtkgltfdyi" path="res://ScenesAndScripts/Components/Overlay.tscn" id="7_qdmxd"]
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" unique_id=803868476]
 script = ExtResource("1_h22v5")
 
-[node name="Room" parent="." instance=ExtResource("2_a7qgr")]
+[node name="Room" parent="." unique_id=1742177270 instance=ExtResource("2_a7qgr")]
 
-[node name="Targets" type="Node2D" parent="."]
+[node name="Targets" type="Node2D" parent="." unique_id=197475436]
 
-[node name="MovingTarget" parent="Targets" instance=ExtResource("3_ul3os")]
-position = Vector2(800, 880)
-rotation = 5.37561
+[node name="MovingTarget" parent="Targets" unique_id=108285262 instance=ExtResource("3_ul3os")]
+position = Vector2(800, 800)
+rotation = 2.9496064
 speed = 0.75
-start_position = Vector2(800, 200)
-end_position = Vector2(800, 880)
+start_position = Vector2(800, 400)
+end_position = Vector2(800, 800)
 
-[node name="MovingTarget2" parent="Targets" instance=ExtResource("3_ul3os")]
-position = Vector2(1200, 880)
-rotation = 0.541052
+[node name="MovingTarget2" parent="Targets" unique_id=1582184971 instance=ExtResource("3_ul3os")]
+position = Vector2(1200, 700)
+rotation = 3.7524579
 speed = 0.25
-start_position = Vector2(1200, 200)
-end_position = Vector2(1200, 880)
+start_position = Vector2(1200, 500)
+end_position = Vector2(1200, 700)
 
-[node name="Target" parent="Targets" instance=ExtResource("4_h22v5")]
+[node name="Target" parent="Targets" unique_id=312694934 instance=ExtResource("4_h22v5")]
 position = Vector2(1560, 600)
 
-[node name="Obstacles" type="Node2D" parent="."]
+[node name="Obstacles" type="Node2D" parent="." unique_id=1263637217]
 
-[node name="Ball" parent="." instance=ExtResource("5_f2r7q")]
+[node name="Ball" parent="." unique_id=1582198291 instance=ExtResource("5_f2r7q")]
 position = Vector2(160, 600)
 
-[node name="Preview" parent="Ball" instance=ExtResource("6_mik8n")]
-points = PackedVector2Array(0, 0, -8.33333, 0, -16.6667, 0, -25, 0, -33.3333, 0, -41.6667, 0, -50, 0, -41.6667, 0, -33.3333, 0, -25, 0, -16.6667, 0, -8.33333, 0, 0, 0, 8.33333, 0, 16.6667, 0, 25, 0, 33.3333, 0, 41.6667, 0, 50, 0, 58.3333, 0, 66.6667, 0, 75, 0, 83.3334, 0, 91.6667, 0, 100, 0, 108.333, 0, 116.667, 0, 125, 0, 133.333, 0, 141.667, 0, 150, 0, 158.333, 0, 166.667, 0, 175, 0, 183.333, 0, 191.667, 0, 200, 0, 208.333, 0, 216.667, 0, 225, 0, 233.333, 0, 241.667, 0, 250, 0, 258.333, 0, 266.667, 0, 275, 0, 283.333, 0, 291.667, 0, 300, 0, 308.333, 0)
+[node name="Preview" parent="Ball" unique_id=956824852 instance=ExtResource("6_mik8n")]
+points = PackedVector2Array(0, 0, -8.333334, 0, -16.666668, 0, -25.000002, 0, -33.333336, 0, -41.66667, 0, -50.000008, 0, -41.66667, 0, -33.333336, 0, -25.000002, 0, -16.666668, 0, -8.333334, 0, 0, 0, 8.333334, 0, 16.666668, 0, 25.000002, 0, 33.333336, 0, 41.66667, 0, 50.000008, 0, 58.333344, 0, 66.66668, 0, 75.000015, 0, 83.33335, 0, 91.66669, 0, 100.00002, 0, 108.33336, 0, 116.666695, 0, 125.00003, 0, 133.33336, 0, 141.66669, 0, 150.00002, 0, 158.33334, 0, 166.66667, 0, 175, 0, 183.33333, 0, 191.66666, 0, 199.99998, 0, 208.33331, 0, 216.66664, 0, 224.99997, 0, 233.3333, 0, 241.66663, 0, 249.99995, 0, 258.33328, 0, 266.66663, 0, 274.99997, 0, 283.3333, 0, 291.66666, 0, 300, 0, 308.33334, 0)
 antialiased = true
 max_points = 50
 
-[node name="Overlay" parent="." instance=ExtResource("7_qdmxd")]
+[node name="Overlay" parent="." unique_id=1770004810 instance=ExtResource("7_qdmxd")]

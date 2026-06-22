@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cfo818bj5ycix" path="res://Sound/Sfx/enemyKilled.mp3" id="3_sfx54"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7iip"]
-radius = 47.1699
+radius = 70.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3g2sq"]
 shader = ExtResource("2_hqpl3")

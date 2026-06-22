@@ -1,12 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://6re7s37iloqa"]
+[gd_scene format=3 uid="uid://6re7s37iloqa"]
 
 [ext_resource type="Script" uid="uid://dpv34ro5ngm2r" path="res://ScenesAndScripts/GameElements/moving_target.gd" id="1_17sxh"]
 [ext_resource type="Shader" uid="uid://q7b4jvu2qe63" path="res://ScenesAndScripts/GameElements/outline_boundaries.gdshader" id="2_fq08a"]
-[ext_resource type="SpriteFrames" uid="uid://c8t6c8v5evky1" path="res://Art/PNG Files/characters/Carrot/carrot_frames.tres" id="3_fq08a"]
+[ext_resource type="SpriteFrames" uid="uid://kikqtd3lj2sa" path="res://Art/PNG Files/characters/Onion/onion_frames.tres" id="3_fq08a"]
 [ext_resource type="AudioStream" uid="uid://cfo818bj5ycix" path="res://Sound/Sfx/enemyKilled.mp3" id="3_nopiy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7iip"]
-radius = 48.0
+radius = 70.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ps30n"]
 shader = ExtResource("2_fq08a")
@@ -228,38 +228,36 @@ _data = {
 &"default": SubResource("Animation_8hwk5")
 }
 
-[node name="MovingTarget" type="CharacterBody2D" groups=["Targets"]]
+[node name="MovingTarget" type="CharacterBody2D" unique_id=169433879 groups=["Targets"]]
 process_mode = 1
-rotation = 1.06465
+rotation = 4.118977
 collision_layer = 4
 script = ExtResource("1_17sxh")
 speed = 0.0
 progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=207797168]
 shape = SubResource("CircleShape2D_l7iip")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1966780532]
 material = SubResource("ShaderMaterial_ps30n")
 rotation = 0.0872665
 scale = Vector2(0.75, 0.75)
 sprite_frames = ExtResource("3_fq08a")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=514922140]
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=83744222]
 shape = SubResource("CircleShape2D_l7iip")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_hqpl3")
-}
-autoplay = "default"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1736230128]
+libraries/ = SubResource("AnimationLibrary_hqpl3")
+autoplay = &"default"
 
-[node name="HitSound" type="AudioStreamPlayer" parent="."]
+[node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=1823986730]
 stream = ExtResource("3_nopiy")
 volume_db = -5.0
 pitch_scale = 1.75

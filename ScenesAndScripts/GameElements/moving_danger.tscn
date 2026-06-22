@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://xh7xkss4i6r5" path="res://Sound/Sfx/saw.mp3" id="4_xvkxq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4dj6q"]
-radius = 45.0
+radius = 35.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6rcvi"]
 shader = ExtResource("2_8mv8e")
