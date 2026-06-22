@@ -68,7 +68,7 @@ func handle_joystick(mousePos : Vector2) -> void:
 	stayer.offset.x = sqrt(distance) * stiffness / offset_divisor
 	follower.offset.x = sqrt(distance) * stiffness * follower_offset_multiplier
 	
-	if Global.player.force < Global.player.difference:
+	if distance < Global.player.difference:
 		stayer.scale = Vector2.ONE * cancel_zoom
 	else:
 		var size : Vector2 = Vector2(1 - distance / scale_divisor, 1 - distance / scale_divisor)
