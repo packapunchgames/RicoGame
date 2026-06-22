@@ -12,12 +12,8 @@ var current_level : PackedScene:
 
 func _enter_tree() -> void:
 	levels = get_resource_list()
-	match Settings.shuffle:
-		Settings.shuffleModes.OFF:
-			current_level = get_resource(levels[index])
+	current_level = get_resource(levels[index])
 
 func get_next_level() -> void:
 	index += 1
-	match Settings.shuffle:
-		Settings.shuffleModes.OFF:
-			current_level = get_resource(levels[index])
+	current_level = get_resource(levels[index])
