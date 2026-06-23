@@ -6,11 +6,15 @@ var did_game_finish : bool = false
 var display_offset : Vector2 = Vector2.ZERO
 var hint_angle : float = 0.0
 var has_used_hint : bool = false
-var lives : int = 3
+var lives : int = 3:
+	set(x):
+		lives = x
+		lives_changed.emit()
 
 signal level_succeded
 signal game_paused
 signal game_resumed
+signal lives_changed
 
 func hit_stop(duration : float) -> void:
 	if Settings.hit_stop == true:

@@ -5,6 +5,7 @@
 
 [node name="InputHandler" type="Node" unique_id=1177331876]
 script = ExtResource("1_a75ss")
+cancel_zoom = 2.25
 offset_divisor = 2.5
 follower_offset_multiplier = 0.67
 stiffness = 100

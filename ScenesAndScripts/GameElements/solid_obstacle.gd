@@ -17,3 +17,5 @@ func update_collision_shape() -> void:
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		update_collision_shape()
+	else:
+		set_process(false)

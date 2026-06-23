@@ -235,19 +235,27 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Continue" type="Button" parent="MarginContainer/Container/CuttingBoard/MarginContainer/MainMenu" unique_id=135617374]
+custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "CONTINUE"
 
 [node name="Settings" type="Button" parent="MarginContainer/Container/CuttingBoard/MarginContainer/MainMenu" unique_id=1214086082]
+custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "SETTINGS"
 
 [node name="Restart" type="Button" parent="MarginContainer/Container/CuttingBoard/MarginContainer/MainMenu" unique_id=2242672]
+custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "RESTART"
 
 [node name="Home" type="Button" parent="MarginContainer/Container/CuttingBoard/MarginContainer/MainMenu" unique_id=822424316]
+custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "HOME"
 
 [node name="Overlays" type="Control" parent="MarginContainer/Container/CuttingBoard/MarginContainer" unique_id=1405605502]

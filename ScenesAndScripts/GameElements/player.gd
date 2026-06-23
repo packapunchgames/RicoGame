@@ -32,7 +32,7 @@ var collision : KinematicCollision2D
 var dir : float
 
 var last_force_check : int = 0
-var difference : int = 100
+var difference : int = 100 #snap unit of measurement, 1 difference = first snap
 var force : float:
 	set(x):
 		var force_diff : int = abs(round(force - last_force_check))
@@ -49,14 +49,8 @@ var force : float:
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var hurtbox: Area2D = $Hurtbox
-@onready var squash: AudioStreamPlayer = $Sounds/Squash
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-var player_texture : Texture2D = preload("res://Art/PNG Files/characters/Player/Player.png")
-var blood_texture : Texture2D = preload("res://Art/PNG Files/characters/Onion/Onion Stain.png")
-var player_scale : Vector2 = Vector2(0.12, 0.12)
-var blood_scale : Vector2 = Vector2.ONE
-var player_modulate : Color = Color.WHITE
-var blood_modulate : Color = Color.RED
 
 signal restart
 signal shot
@@ -87,6 +81,7 @@ func stop() -> void:
 	speed = 0
 	speed_reserve = 0
 	velocity = Vector2.ZERO
+	animation_player.play("RESET")
 
 func rotate_sprite(delta : float) -> void:
 	if hasShot:
@@ -102,10 +97,7 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 	stop()
 	collision_shape.set_deferred("disabled", true)
 	hurtbox.set_deferred("monitoring", false)
-	sprite.texture = blood_texture
-	modulate = blood_modulate
-	sprite.scale = blood_scale
-	squash.play()
+	animation_player.play("dead")
 
 
 func _on_restart() -> void:
@@ -113,9 +105,6 @@ func _on_restart() -> void:
 	hurtbox.set_deferred("monitoring", true)
 	stop()
 	trail_line.hide()
-	sprite.texture = player_texture
-	sprite.scale = player_scale
-	modulate = player_modulate
 	dir = 0
 	sprite.rotation = 0
 	global_rotation_degrees = 0.0

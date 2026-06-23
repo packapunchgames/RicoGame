@@ -241,6 +241,7 @@ material = SubResource("ShaderMaterial_3g2sq")
 rotation = 0.0872665
 scale = Vector2(0.75, 0.75)
 sprite_frames = ExtResource("3_3g2sq")
+animation = &"cut"
 autoplay = "default"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=869065842]

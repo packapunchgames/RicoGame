@@ -98,13 +98,14 @@ func hint() -> void:
 func _process(delta: float) -> void:
 	enemies = get_tree().get_nodes_in_group("Targets")
 	var are_enemies_dead : String = ""
-	for enemy : Node2D in enemies:
-		if enemy.dead:
-			are_enemies_dead += "0"
-		else:
-			are_enemies_dead += "1"
-	if !are_enemies_dead.contains("1"):
-		if !Global.did_game_finish:
-			await Global.player.level_ended()
-			Global.did_game_finish = true
-			Global.emit_signal("level_succeded")
+	if !Global.did_game_finish:
+		for enemy : Node2D in enemies:
+			if enemy.dead:
+				are_enemies_dead += "0"
+			else:
+				are_enemies_dead += "1"
+		if !are_enemies_dead.contains("1"):
+			if !Global.did_game_finish:
+				await Global.player.level_ended()
+				Global.did_game_finish = true
+				Global.emit_signal("level_succeded")
