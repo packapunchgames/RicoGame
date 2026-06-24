@@ -4,6 +4,7 @@ extends Control
 @onready var pause_screen: Control = $Overlays/PauseScreen
 @onready var hints_number_display: Label = $MarginContainer/VBoxContainer/HintsButton/NumberDisplay
 
+
 func _ready() -> void:
 	Global.lives_changed.connect(update_lives)
 	Resources.hint_used.connect(update_hints)

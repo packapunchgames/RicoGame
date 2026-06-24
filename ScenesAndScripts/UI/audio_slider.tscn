@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://xwb1dek3i81j"]
+[gd_scene format=3 uid="uid://xwb1dek3i81j"]
 
 [ext_resource type="Script" uid="uid://ccfj0a8ho2gpr" path="res://ScenesAndScripts/UI/audio_slider.gd" id="1_h2eek"]
 [ext_resource type="Theme" uid="uid://dytgpe77rddim" path="res://ScenesAndScripts/Shaders/UI.tres" id="1_wq3hw"]
 
-[node name="AudioSlider" type="HSlider"]
+[node name="AudioSlider" type="HSlider" unique_id=383077237]
 custom_minimum_size = Vector2(300, 64)
 anchors_preset = -1
 anchor_right = 0.00416667

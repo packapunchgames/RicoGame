@@ -4,6 +4,7 @@ extends HSlider
 
 var bus_index : int
 
+
 func _ready() -> void:
 	bus_index = AudioServer.get_bus_index(bus_name)
 

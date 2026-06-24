@@ -8,6 +8,9 @@ extends Control
 @onready var vibration: HSlider = $MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer2/Vibration
 @onready var sensitivity: HSlider = $MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer2/Sensitivity
 
+var has_updated_settings : bool = false
+@onready var click: AudioStreamPlayer = $Sounds/Click
+
 signal back
 
 func _ready() -> void:
@@ -23,6 +26,8 @@ func update_settings() -> void:
 	sfx.value = Settings.sfx
 	vibration.value = Settings.vibration
 	sensitivity.value = -Settings.sensitivity
+	
+	has_updated_settings = true
 
 
 func _on_vibration_value_changed(value: float) -> void:
@@ -35,3 +40,7 @@ func _on_back_button_pressed() -> void:
 	animation_player.play_backwards("show")
 	await animation_player.animation_finished
 	back.emit()
+
+func slider_value_changed(value: float) -> void:
+	if has_updated_settings:
+		click.play()

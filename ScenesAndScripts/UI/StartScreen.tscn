@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://8hag0460jdvw" path="res://Art/UI/startScreenBackground.svg" id="6_g23m1"]
 [ext_resource type="Theme" uid="uid://dytgpe77rddim" path="res://ScenesAndScripts/Shaders/UI.tres" id="6_lsinn"]
 [ext_resource type="Script" uid="uid://c0mcq6bajdwx3" path="res://addons/GodotPlayGameServices/scripts/sign_in/sign_in_client.gd" id="8_lvw1k"]
+[ext_resource type="AudioStream" uid="uid://d3tnq3llih5je" path="res://Sound/Sfx/UIClickPositive.mp3" id="8_qepqg"]
+[ext_resource type="AudioStream" uid="uid://c6s42jgt6cwwn" path="res://Sound/Sfx/UIClickNegative.mp3" id="9_six06"]
 
 [node name="StartScreen" type="Control" unique_id=707114289]
 layout_mode = 3
@@ -19,6 +21,15 @@ grow_vertical = 2
 script = ExtResource("1_hbygu")
 game_scene = ExtResource("2_hby4r")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=551308741]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_g23m1")
+
 [node name="Overlay" type="MarginContainer" parent="." unique_id=1109083323]
 layout_mode = 1
 anchors_preset = 15
@@ -26,11 +37,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
 script = ExtResource("1_qrnm2")
-
-[node name="TextureRect" type="TextureRect" parent="Overlay" unique_id=551308741]
-layout_mode = 2
-texture = ExtResource("6_g23m1")
 
 [node name="Version" type="Label" parent="Overlay" unique_id=757297877]
 layout_mode = 2
@@ -60,9 +71,20 @@ theme = ExtResource("5_um528")
 text = "SAUTÉ"
 horizontal_alignment = 1
 
+[node name="Sounds" type="Node" parent="." unique_id=1786831266]
+
+[node name="ClickPositive" type="AudioStreamPlayer" parent="Sounds" unique_id=2039670279]
+stream = ExtResource("8_qepqg")
+bus = &"SFX"
+
+[node name="ClickNegative" type="AudioStreamPlayer" parent="Sounds" unique_id=541340383]
+stream = ExtResource("9_six06")
+bus = &"SFX"
+
 [node name="PlayGamesSignInClient" type="Node" parent="." unique_id=1475228521]
 script = ExtResource("8_lvw1k")
 metadata/_custom_type_script = "uid://c0mcq6bajdwx3"
 
+[connection signal="button_down" from="Overlay/MarginContainer/StartButton" to="." method="button_hold_vibrate"]
 [connection signal="pressed" from="Overlay/MarginContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="user_authenticated" from="PlayGamesSignInClient" to="." method="_on_play_games_sign_in_client_user_authenticated"]
