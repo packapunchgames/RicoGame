@@ -8,7 +8,10 @@
 [ext_resource type="Theme" uid="uid://dytgpe77rddim" path="res://ScenesAndScripts/Shaders/UI.tres" id="7_8fcom"]
 [ext_resource type="Texture2D" uid="uid://c6l86q3qhfpmu" path="res://Art/UI/back.svg" id="7_j8flx"]
 [ext_resource type="Texture2D" uid="uid://cbqfulrfmkcjw" path="res://Art/UI/CheckButtonPressed.png" id="7_mjyti"]
+[ext_resource type="PackedScene" uid="uid://b30uc51bqm7we" path="res://ScenesAndScripts/UI/check_button.tscn" id="8_llbcy"]
 [ext_resource type="AudioStream" uid="uid://esm42mb07xgd" path="res://Sound/Sfx/drag.mp3" id="9_mjyti"]
+[ext_resource type="AudioStream" uid="uid://d3tnq3llih5je" path="res://Sound/Sfx/UIClickPositive.mp3" id="11_krmt6"]
+[ext_resource type="AudioStream" uid="uid://c6s42jgt6cwwn" path="res://Sound/Sfx/UIClickNegative.mp3" id="12_4f8hr"]
 
 [sub_resource type="Animation" id="Animation_jke3d"]
 length = 0.001
@@ -120,7 +123,7 @@ theme_override_constants/margin_bottom = 50
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=1833310485]
 layout_mode = 2
-scroll_vertical = 100
+scroll_vertical = 97
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
@@ -249,15 +252,10 @@ layout_mode = 2
 theme = ExtResource("5_xgql1")
 text = "Sensitivity                "
 
-[node name="Timer" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer" unique_id=1599955411]
+[node name="VisualEffects" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer" unique_id=35635474]
 layout_mode = 2
 theme = ExtResource("5_xgql1")
-text = "Timer"
-
-[node name="HitStop" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer" unique_id=35635474]
-layout_mode = 2
-theme = ExtResource("5_xgql1")
-text = "Hit Stop"
+text = "Visual Effects"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer" unique_id=1326483393]
 layout_mode = 2
@@ -273,23 +271,8 @@ max_value = -0.5
 step = 0.4
 value = -0.5
 
-[node name="Button" type="TextureButton" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer2" unique_id=1138948315]
-custom_minimum_size = Vector2(150, 128)
+[node name="VisualEffects" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer2" unique_id=1186009119 instance=ExtResource("8_llbcy")]
 layout_mode = 2
-size_flags_horizontal = 8
-texture_normal = ExtResource("6_8fcom")
-texture_pressed = ExtResource("7_mjyti")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="Button2" type="TextureButton" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer2" unique_id=31146476]
-custom_minimum_size = Vector2(150, 128)
-layout_mode = 2
-size_flags_horizontal = 8
-texture_normal = ExtResource("6_8fcom")
-texture_pressed = ExtResource("7_mjyti")
-ignore_texture_size = true
-stretch_mode = 5
 
 [node name="BackButton" type="TextureButton" parent="MarginContainer" unique_id=629752467]
 custom_minimum_size = Vector2(128, 128)
@@ -307,6 +290,14 @@ stream = ExtResource("9_mjyti")
 pitch_scale = 0.75
 bus = &"SFX"
 
+[node name="ClickPositive" type="AudioStreamPlayer" parent="Sounds" unique_id=289336448]
+stream = ExtResource("11_krmt6")
+bus = &"SFX"
+
+[node name="ClickNegative" type="AudioStreamPlayer" parent="Sounds" unique_id=388274033]
+stream = ExtResource("12_4f8hr")
+bus = &"SFX"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=195917658]
 libraries/ = SubResource("AnimationLibrary_xgql1")
 
@@ -317,4 +308,5 @@ libraries/ = SubResource("AnimationLibrary_xgql1")
 [connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer2/Vibration" to="." method="slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer2/Sensitivity" to="." method="_on_sensitivity_value_changed"]
 [connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer2/Sensitivity" to="." method="slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer2/VisualEffects" to="." method="_on_visual_effects_pressed"]
 [connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

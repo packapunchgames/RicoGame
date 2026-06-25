@@ -179,7 +179,7 @@ limit_right = 1920
 limit_bottom = 1080
 script = ExtResource("4_ai6u8")
 parent = NodePath("..")
-aim_zoom = 1.5
+aim_zoom = 1.2
 
 [node name="TrailLine" type="Line2D" parent="." unique_id=1876431177 node_paths=PackedStringArray("ball")]
 top_level = true

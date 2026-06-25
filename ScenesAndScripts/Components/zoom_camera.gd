@@ -23,7 +23,7 @@ func update_camera_limits() -> void:
 	limit_bottom = world_position.y + 1080.0
 
 func _process(delta: float) -> void:
-	if parent.hasStarted:
+	if parent.hasStarted and Settings.visual_effects == true:
 		var increase : float = parent.force / (aim_zoom * 10000)
 		zoom.x = lerpf(zoom.x, 1 + increase, delta * 5)
 		zoom.y = lerpf(zoom.y, 1 + increase, delta * 5)

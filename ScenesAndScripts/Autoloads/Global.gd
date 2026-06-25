@@ -17,7 +17,7 @@ signal game_resumed
 signal lives_changed
 
 func hit_stop(duration : float) -> void:
-	if Settings.hit_stop == true:
+	if Settings.visual_effects == true:
 		var initial_speed := player.speed
 		var final_speed := initial_speed
 		for i in duration * 100:

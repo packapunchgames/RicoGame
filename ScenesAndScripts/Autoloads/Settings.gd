@@ -6,7 +6,7 @@ var sfx : float = 1.0
 var vibration : float = 0.5
 var sensitivity : float = 1
 
-var hit_stop : bool = true
+var visual_effects : bool = true
 
 enum shuffleModes {OFF, ON, TRUESHUFFLE}
 var shuffle : shuffleModes = shuffleModes.OFF

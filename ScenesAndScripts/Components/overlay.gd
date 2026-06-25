@@ -11,7 +11,7 @@ func _ready() -> void:
 	Global.overlay = self
 
 func _process(delta: float) -> void:
-	if Global.player.hasStarted:
+	if Global.player.hasStarted and Settings.visual_effects == true:
 		vignette.material.set_shader_parameter("vignette_intensity", Global.player.force / (vignette_intensity * 1000))
 	else:
 		vignette.material.set_shader_parameter("vignette_intensity", 0)
