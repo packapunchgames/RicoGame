@@ -45,7 +45,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 				Global.player.force = distance / Settings.sensitivity
 				
 				handle_joystick(mousePos)
-			elif Input.is_action_just_released("press") and Global.player.hasStarted:
+			elif Input.is_action_just_released("press") and Global.player.hasStarted and !Global.did_game_finish:
 				start_pos.hide()
 				Global.player.hasStarted = false
 				Global.player.last_force_check = 0

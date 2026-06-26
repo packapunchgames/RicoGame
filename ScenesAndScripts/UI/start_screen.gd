@@ -1,5 +1,6 @@
 extends Control
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var play_games_sign_in_client: PlayGamesSignInClient = $PlayGamesSignInClient
 @onready var click_positive: AudioStreamPlayer = $Sounds/ClickPositive
 @onready var click_negative: AudioStreamPlayer = $Sounds/ClickNegative
@@ -18,7 +19,9 @@ func _on_play_games_sign_in_client_user_authenticated(is_authenticated: bool) ->
 
 
 func _on_start_button_pressed() -> void:
-	#click_positive.play()
+	animation_player.play("play_game")
+	click_positive.play()
+	await animation_player.animation_finished
 	get_tree().change_scene_to_packed(game_scene)
 
 func button_hold_vibrate() -> void:

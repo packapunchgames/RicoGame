@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://b16bu1vsw1ces"]
 
+[ext_resource type="Shader" uid="uid://duhoy3tjfx378" path="res://ScenesAndScripts/Shaders/transitionshader.gdshader" id="1_5dee2"]
 [ext_resource type="Script" uid="uid://bxcsk4l78jaew" path="res://ScenesAndScripts/UI/start_screen.gd" id="1_hbygu"]
 [ext_resource type="Script" uid="uid://bapf2pjjq1tnt" path="res://ScenesAndScripts/UI/overlay.gd" id="1_qrnm2"]
 [ext_resource type="PackedScene" uid="uid://2efpx57nitbd" path="res://ScenesAndScripts/main.tscn" id="2_hby4r"]
+[ext_resource type="Texture2D" uid="uid://u5rtivaa0ota" path="res://Art/UI/WhiteCircle.png" id="2_w7o22"]
 [ext_resource type="Theme" uid="uid://cqy5qwkgao8ks" path="res://ScenesAndScripts/Shaders/3rd_text.tres" id="3_hby4r"]
 [ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="5_um528"]
 [ext_resource type="Texture2D" uid="uid://8hag0460jdvw" path="res://Art/UI/startScreenBackground.svg" id="6_g23m1"]
@@ -11,7 +13,98 @@
 [ext_resource type="AudioStream" uid="uid://d3tnq3llih5je" path="res://Sound/Sfx/UIClickPositive.mp3" id="8_qepqg"]
 [ext_resource type="AudioStream" uid="uid://c6s42jgt6cwwn" path="res://Sound/Sfx/UIClickNegative.mp3" id="9_six06"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k22kf"]
+shader = ExtResource("1_5dee2")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 2
+shader_parameter/position = Vector2(0.5, 0.5)
+shader_parameter/invert = true
+shader_parameter/grid_size = Vector2(0.5, 7)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/global_x_mirror = false
+shader_parameter/global_y_mirror = false
+shader_parameter/local_x_mirror = false
+shader_parameter/local_y_mirror = false
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/cumulative_stagger_flip = false
+shader_parameter/cumulative_stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/mask_texture = ExtResource("2_w7o22")
+shader_parameter/use_mask_size = true
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 3
+shader_parameter/shape_feather = 0.10000000475
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = -0.45
+shader_parameter/progress_bias = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_wa25j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.45]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_ttk2p"]
+resource_name = "play_game"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [0.0, 2.75]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a0unc"]
+_data = {
+&"RESET": SubResource("Animation_wa25j"),
+&"play_game": SubResource("Animation_ttk2p")
+}
+
 [node name="StartScreen" type="Control" unique_id=707114289]
+material = SubResource("ShaderMaterial_k22kf")
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,6 +163,20 @@ layout_mode = 2
 theme = ExtResource("5_um528")
 text = "SAUTÉ"
 horizontal_alignment = 1
+
+[node name="Transition" type="ColorRect" parent="." unique_id=2037207652]
+material = SubResource("ShaderMaterial_k22kf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1306238097]
+libraries/ = SubResource("AnimationLibrary_a0unc")
 
 [node name="Sounds" type="Node" parent="." unique_id=1786831266]
 

@@ -34,7 +34,111 @@
 [ext_resource type="PackedScene" uid="uid://dw3hsupi5se3j" path="res://ScenesAndScripts/Levels/18.tscn" id="21_72k30"]
 [ext_resource type="PackedScene" uid="uid://bwc0u4g0ffrba" path="res://ScenesAndScripts/Levels/19.tscn" id="22_ui070"]
 [ext_resource type="AudioStream" uid="uid://cgmde4o07hv4j" path="res://Sound/Music/mainMusic.mp3" id="34_l4u8c"]
+[ext_resource type="Shader" uid="uid://duhoy3tjfx378" path="res://ScenesAndScripts/Shaders/transitionshader.gdshader" id="34_ygyrs"]
+[ext_resource type="Texture2D" uid="uid://u5rtivaa0ota" path="res://Art/UI/WhiteCircle.png" id="35_vy032"]
 [ext_resource type="Script" uid="uid://y2qs8bpugg8p" path="res://ScenesAndScripts/main_music.gd" id="36_ope6r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qwrd3"]
+shader = ExtResource("34_ygyrs")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 2
+shader_parameter/position = Vector2(0.5, 0.5)
+shader_parameter/invert = false
+shader_parameter/grid_size = Vector2(0.5, 7)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/global_x_mirror = false
+shader_parameter/global_y_mirror = false
+shader_parameter/local_x_mirror = false
+shader_parameter/local_y_mirror = false
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/cumulative_stagger_flip = false
+shader_parameter/cumulative_stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/mask_texture = ExtResource("35_vy032")
+shader_parameter/use_mask_size = true
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 3
+shader_parameter/shape_feather = 0.10000000475
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.0
+shader_parameter/progress_bias = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_xarur"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_1m22k"]
+resource_name = "intro_transition"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35),
+"transitions": PackedFloat32Array(1, 1, -2),
+"update": 0,
+"values": [0.0, 0.0, 2.75]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MainMusic:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.35),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.35),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wem2e"]
+_data = {
+&"RESET": SubResource("Animation_xarur"),
+&"intro_transition": SubResource("Animation_1m22k")
+}
 
 [node name="Main" type="Control" unique_id=975727640 node_paths=PackedStringArray("sub_viewport")]
 layout_mode = 3
@@ -78,21 +182,32 @@ handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="InputHandler" parent="." unique_id=1484688398 node_paths=PackedStringArray("subviewport_container") instance=ExtResource("2_glhd3")]
+[node name="InputHandler" parent="." unique_id=1484688398 instance=ExtResource("2_glhd3")]
 offset_divisor = 5.0
-follower_offset_divisor = 2.0
 hint_sensibility = 5
-subviewport_container = NodePath("../SubViewportContainer")
 
 [node name="UI" parent="." unique_id=630080607 instance=ExtResource("2_bt5kp")]
 layout_mode = 1
+
+[node name="Transition" type="ColorRect" parent="." unique_id=1404754981]
+material = SubResource("ShaderMaterial_qwrd3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition" unique_id=435378119]
+libraries/ = SubResource("AnimationLibrary_wem2e")
+autoplay = &"intro_transition"
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="." unique_id=1677290511]
 process_mode = 3
 stream = ExtResource("34_l4u8c")
 volume_db = -5.0
 pitch_scale = 0.9
-autoplay = true
 bus = &"Music"
 script = ExtResource("36_ope6r")
 max_pitch = 1.2

@@ -91,7 +91,6 @@ func rotate_sprite(delta : float) -> void:
 func level_ended() -> void:
 	stop()
 	await get_tree().create_timer(0.25).timeout
-	return
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	stop()

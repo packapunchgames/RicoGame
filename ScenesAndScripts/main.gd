@@ -16,3 +16,8 @@ func play_next_level() -> void:
 	var new_level : PackedScene = levels[level_index]
 	sub_viewport.add_child(new_level.instantiate())
 	level_index += 1
+	#remove multiple levels
+	if world > 1:
+		for level in world:
+			if level != 0:
+				sub_viewport.get_child(level).queue_free()

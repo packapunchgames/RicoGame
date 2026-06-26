@@ -220,7 +220,7 @@ bus = &"SFX"
 
 [node name="Tap" type="AudioStreamPlayer" parent="Sounds" unique_id=1757786251]
 stream = ExtResource("9_usrgj")
-volume_db = -15.0
+volume_db = -10.0
 pitch_scale = 0.3
 bus = &"SFX"
 

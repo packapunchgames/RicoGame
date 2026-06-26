@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://djhdhc23jlo4u" path="res://Art/UI/CheckButtonNormal.png" id="1_wbwva"]
 [ext_resource type="Texture2D" uid="uid://cbqfulrfmkcjw" path="res://Art/UI/CheckButtonPressed.png" id="2_jicjn"]
 [ext_resource type="Script" uid="uid://bcc5a6ualeaw1" path="res://ScenesAndScripts/UI/check_button.gd" id="3_jicjn"]
+[ext_resource type="AudioStream" uid="uid://d3tnq3llih5je" path="res://Sound/Sfx/UIClickPositive.mp3" id="4_pkep0"]
+[ext_resource type="AudioStream" uid="uid://c6s42jgt6cwwn" path="res://Sound/Sfx/UIClickNegative.mp3" id="5_alcpp"]
 
 [node name="CheckButton" type="TextureButton" unique_id=1186009119]
 custom_minimum_size = Vector2(150, 128)
@@ -14,5 +16,13 @@ stretch_mode = 5
 script = ExtResource("3_jicjn")
 texture_off = ExtResource("1_wbwva")
 texture_on = ExtResource("2_jicjn")
+
+[node name="ClickPositive" type="AudioStreamPlayer" parent="." unique_id=1650306993]
+stream = ExtResource("4_pkep0")
+bus = &"SFX"
+
+[node name="ClickNegative" type="AudioStreamPlayer" parent="." unique_id=408957845]
+stream = ExtResource("5_alcpp")
+bus = &"SFX"
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
