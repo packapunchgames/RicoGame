@@ -12,7 +12,8 @@ enum shuffleModes {OFF, ON, TRUESHUFFLE}
 var shuffle : shuffleModes = shuffleModes.OFF
 
 func vibrate(duration : int, percent : int) -> void:
-	Input.vibrate_handheld(duration, (vibration * percent) / 100)
+	if vibration > 0.0:
+		Input.vibrate_handheld(duration, (vibration * percent) / 100)
 
 func _ready() -> void:
 	AudioServer.set_bus_volume_db(

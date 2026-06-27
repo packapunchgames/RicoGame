@@ -3,7 +3,7 @@
 [ext_resource type="Shader" uid="uid://duhoy3tjfx378" path="res://ScenesAndScripts/Shaders/transitionshader.gdshader" id="1_5dee2"]
 [ext_resource type="Script" uid="uid://bxcsk4l78jaew" path="res://ScenesAndScripts/UI/start_screen.gd" id="1_hbygu"]
 [ext_resource type="Script" uid="uid://bapf2pjjq1tnt" path="res://ScenesAndScripts/UI/overlay.gd" id="1_qrnm2"]
-[ext_resource type="PackedScene" uid="uid://2efpx57nitbd" path="res://ScenesAndScripts/main.tscn" id="2_hby4r"]
+[ext_resource type="PackedScene" uid="uid://2efpx57nitbd" path="res://ScenesAndScripts/Components/main.tscn" id="2_hby4r"]
 [ext_resource type="Texture2D" uid="uid://u5rtivaa0ota" path="res://Art/UI/WhiteCircle.png" id="2_w7o22"]
 [ext_resource type="Theme" uid="uid://cqy5qwkgao8ks" path="res://ScenesAndScripts/Shaders/3rd_text.tres" id="3_hby4r"]
 [ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="5_um528"]
@@ -17,10 +17,10 @@
 shader = ExtResource("1_5dee2")
 shader_parameter/use_sprite_alpha = true
 shader_parameter/use_transition_texture = false
-shader_parameter/transition_type = 2
+shader_parameter/transition_type = 0
 shader_parameter/position = Vector2(0.5, 0.5)
-shader_parameter/invert = true
-shader_parameter/grid_size = Vector2(0.5, 7)
+shader_parameter/invert = false
+shader_parameter/grid_size = Vector2(0, 0)
 shader_parameter/rotation_angle = 0.0
 shader_parameter/global_x_mirror = false
 shader_parameter/global_y_mirror = false
@@ -31,7 +31,7 @@ shader_parameter/cumulative_stagger_flip = false
 shader_parameter/cumulative_stagger = Vector2(0, 0)
 shader_parameter/stagger_frequency = Vector2i(2, 2)
 shader_parameter/flip_frequency = Vector2i(1, 1)
-shader_parameter/basic_feather = 0.0
+shader_parameter/basic_feather = 1.0
 shader_parameter/mask_texture = ExtResource("2_w7o22")
 shader_parameter/use_mask_size = true
 shader_parameter/mask_size = Vector2(100, 100)
@@ -68,6 +68,106 @@ tracks/1/keys = {
 "update": 1,
 "values": [2]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Transition:material:shader_parameter/transition_type")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Transition:material:shader_parameter/invert")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Transition:material:shader_parameter/grid_size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5dee2"]
+resource_name = "enter_scene"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition:material:shader_parameter/transition_type")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition:material:shader_parameter/progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [0.0, 2.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Transition:material:shader_parameter/invert")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Transition:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 2]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Transition:material:shader_parameter/grid_size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_ttk2p"]
 resource_name = "play_game"
@@ -96,10 +196,59 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Transition:material:shader_parameter/transition_type")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Transition:material:shader_parameter/position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Transition:material:shader_parameter/grid_size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 7)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Transition:material:shader_parameter/invert")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a0unc"]
 _data = {
 &"RESET": SubResource("Animation_wa25j"),
+&"enter_scene": SubResource("Animation_5dee2"),
 &"play_game": SubResource("Animation_ttk2p")
 }
 
@@ -177,6 +326,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1306238097]
 libraries/ = SubResource("AnimationLibrary_a0unc")
+autoplay = &"enter_scene"
 
 [node name="Sounds" type="Node" parent="." unique_id=1786831266]
 

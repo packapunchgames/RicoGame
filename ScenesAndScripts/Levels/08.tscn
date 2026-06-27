@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmpalxer0ps5k"]
 
-[ext_resource type="Script" uid="uid://clk66xyu6y41d" path="res://ScenesAndScripts/world.gd" id="1_5c56t"]
+[ext_resource type="Script" uid="uid://clk66xyu6y41d" path="res://ScenesAndScripts/Components/world.gd" id="1_5c56t"]
 [ext_resource type="PackedScene" uid="uid://ciy2atqwdq2t5" path="res://ScenesAndScripts/GameElements/room.tscn" id="2_qbe6w"]
 [ext_resource type="PackedScene" uid="uid://cskx3gpeuxh5b" path="res://ScenesAndScripts/GameElements/target.tscn" id="3_ben2d"]
 [ext_resource type="PackedScene" uid="uid://cf1mmahnemqfo" path="res://ScenesAndScripts/GameElements/solid_obstacle.tscn" id="4_smjou"]

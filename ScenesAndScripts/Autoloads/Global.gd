@@ -11,10 +11,14 @@ var lives : int = 3:
 		lives = x
 		lives_changed.emit()
 
+var did_game_restart : bool = false #changes the transition
+
 signal level_succeded
 signal game_paused
 signal game_resumed
 signal lives_changed
+signal restart
+signal return_to_home
 
 func hit_stop(duration : float) -> void:
 	if Settings.visual_effects == true:

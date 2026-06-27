@@ -27,3 +27,4 @@ func resume() -> void:
 	stream_paused = false
 	var tween : Tween = create_tween()
 	tween.tween_property(self, "pitch_scale", current_pitch, fade_time / 2)
+	print(current_pitch)

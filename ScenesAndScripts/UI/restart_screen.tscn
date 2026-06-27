@@ -134,5 +134,7 @@ text = "YES"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=892440424]
 libraries/ = SubResource("AnimationLibrary_th6od")
 
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Options/No" to="." method="button_hold_vibrate"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options/No" to="." method="_on_no_pressed"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Options/Yes" to="." method="button_hold_vibrate"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options/Yes" to="." method="_on_yes_pressed"]

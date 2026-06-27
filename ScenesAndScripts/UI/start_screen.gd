@@ -13,6 +13,7 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	play_games_sign_in_client.is_authenticated()
 	play_games_sign_in_client.sign_in()
+	get_tree().paused = false
 
 func _on_play_games_sign_in_client_user_authenticated(is_authenticated: bool) -> void:
 	print("Hi from Godot! User is authenticated? %s" % is_authenticated)

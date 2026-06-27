@@ -47,6 +47,7 @@ func _on_back_button_pressed() -> void:
 func slider_value_changed(value: float) -> void:
 	if has_updated_settings:
 		click.play()
+		Settings.vibrate(5, 50)
 
 func _on_visual_effects_pressed() -> void:
 	Settings.visual_effects = visual_effects.state

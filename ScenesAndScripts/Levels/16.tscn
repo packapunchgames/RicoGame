@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://liym1hk3xgyg"]
+[gd_scene format=3 uid="uid://liym1hk3xgyg"]
 
-[ext_resource type="Script" uid="uid://clk66xyu6y41d" path="res://ScenesAndScripts/world.gd" id="1_0dj4t"]
+[ext_resource type="Script" uid="uid://clk66xyu6y41d" path="res://ScenesAndScripts/Components/world.gd" id="1_0dj4t"]
 [ext_resource type="PackedScene" uid="uid://ciy2atqwdq2t5" path="res://ScenesAndScripts/GameElements/room.tscn" id="2_yl480"]
 [ext_resource type="PackedScene" uid="uid://cskx3gpeuxh5b" path="res://ScenesAndScripts/GameElements/target.tscn" id="4_atccm"]
 [ext_resource type="PackedScene" uid="uid://o4cduiyx02ln" path="res://ScenesAndScripts/GameElements/moving_obstacle.tscn" id="5_wtp3y"]

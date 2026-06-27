@@ -15,6 +15,7 @@ func _on_pressed() -> void:
 		click_positive.play()
 	else:
 		click_negative.play()
+	Settings.vibrate(5, 50)
 
 func update_texture() -> void:
 	match state:

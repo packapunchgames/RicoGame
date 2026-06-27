@@ -48,7 +48,7 @@ func initialize() -> PlayGamesPluginError:
 			)
 			return PlayGamesPluginError.OK
 		else:
-			printerr("GodotPlayGameServices not found. Google Play Games Services will not work.")
+			print("GodotPlayGameServices not found. Google Play Games Services will not work.")
 	
 	return PlayGamesPluginError.PLUGIN_NOT_FOUND
 

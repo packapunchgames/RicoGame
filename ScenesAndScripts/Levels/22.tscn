@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cir1nnnjvacf8"]
+[gd_scene format=3 uid="uid://cir1nnnjvacf8"]
 
-[ext_resource type="Script" uid="uid://clk66xyu6y41d" path="res://ScenesAndScripts/world.gd" id="1_iljcp"]
+[ext_resource type="Script" uid="uid://clk66xyu6y41d" path="res://ScenesAndScripts/Components/world.gd" id="1_iljcp"]
 [ext_resource type="PackedScene" uid="uid://ciy2atqwdq2t5" path="res://ScenesAndScripts/GameElements/room.tscn" id="2_gsap5"]
 [ext_resource type="PackedScene" uid="uid://6re7s37iloqa" path="res://ScenesAndScripts/GameElements/moving_target.tscn" id="3_iljcp"]
 [ext_resource type="PackedScene" uid="uid://cdb3v4dvtu2ic" path="res://ScenesAndScripts/GameElements/moving_danger.tscn" id="4_lho8s"]
