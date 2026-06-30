@@ -62,7 +62,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_3gkbo"]
-resource_name = "intro"
+resource_name = "transition"
 length = 0.2
 step = 0.1
 tracks/0/type = "value"
@@ -72,10 +72,10 @@ tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.0001, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true, true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -113,25 +113,11 @@ tracks/3/keys = {
 "update": 0,
 "values": [3.141592653589793, 6.2831855]
 }
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"start_ticking"
-}]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2yaeb"]
 _data = {
 &"RESET": SubResource("Animation_0vedw"),
-&"intro": SubResource("Animation_3gkbo")
+&"transition": SubResource("Animation_3gkbo")
 }
 
 [node name="ReviveScreen" type="Control" unique_id=243757755]
@@ -143,7 +129,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0vedw")
-timer = 5.0
 
 [node name="Blur" type="ColorRect" parent="." unique_id=1467539821]
 layout_mode = 1
@@ -153,6 +138,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.196078)
+
+[node name="Timer" type="Timer" parent="." unique_id=377736818]
+wait_time = 5.0
+one_shot = true
 
 [node name="TimerProgressBar" type="TextureProgressBar" parent="." unique_id=136155571]
 layout_mode = 1
@@ -235,3 +224,5 @@ bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1150239254]
 libraries/ = SubResource("AnimationLibrary_2yaeb")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -45,6 +45,8 @@ func initialize() -> PlayGamesPluginError:
 			
 			android_plugin.imageStored.connect(func(file_path: String):
 				image_stored.emit(file_path)
+				print(file_path)
+				print("image done")
 			)
 			return PlayGamesPluginError.OK
 		else:

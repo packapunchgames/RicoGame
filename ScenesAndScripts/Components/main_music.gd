@@ -11,6 +11,7 @@ func _ready() -> void:
 	Global.game_paused.connect(slow_down)
 	Global.game_resumed.connect(resume)
 	Global.show_revive_screen.connect(slow_down)
+	Global.game_over.connect(slow_down)
 
 func scale_pitch() -> void:
 	if !(pitch_scale + pitch_increment) > max_pitch:

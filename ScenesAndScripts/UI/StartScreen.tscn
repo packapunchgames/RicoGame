@@ -12,6 +12,9 @@
 [ext_resource type="Script" uid="uid://c0mcq6bajdwx3" path="res://addons/GodotPlayGameServices/scripts/sign_in/sign_in_client.gd" id="8_lvw1k"]
 [ext_resource type="AudioStream" uid="uid://d3tnq3llih5je" path="res://Sound/Sfx/UIClickPositive.mp3" id="8_qepqg"]
 [ext_resource type="AudioStream" uid="uid://c6s42jgt6cwwn" path="res://Sound/Sfx/UIClickNegative.mp3" id="9_six06"]
+[ext_resource type="Texture2D" uid="uid://yo6lsaavwyxm" path="res://Art/UI/menu.svg" id="9_w7o22"]
+[ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="10_wa25j"]
+[ext_resource type="Script" uid="uid://cypbmrau0mvgu" path="res://addons/GodotPlayGameServices/scripts/players/players_client.gd" id="11_k22kf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k22kf"]
 shader = ExtResource("1_5dee2")
@@ -279,7 +282,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
+theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
@@ -294,18 +297,40 @@ text = "Version: xxx"
 
 [node name="MarginContainer" type="MarginContainer" parent="Overlay" unique_id=828425816]
 layout_mode = 2
-theme_override_constants/margin_left = 400
-theme_override_constants/margin_top = 800
-theme_override_constants/margin_right = 400
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="StartButton" type="Button" parent="Overlay/MarginContainer" unique_id=925899415]
 custom_minimum_size = Vector2(400, 125)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 8
 theme = ExtResource("6_lsinn")
 text = "PLAY"
+
+[node name="Menu" type="TextureButton" parent="Overlay/MarginContainer" unique_id=432869429]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("9_w7o22")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="GooglePlayAccount" type="TextureRect" parent="Overlay/MarginContainer" unique_id=629239696]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("10_wa25j")
+stretch_mode = 4
+
+[node name="PlayGamesPlayersClient" type="Node" parent="Overlay/MarginContainer/GooglePlayAccount" unique_id=436896128]
+script = ExtResource("11_k22kf")
+metadata/_custom_type_script = "uid://cypbmrau0mvgu"
 
 [node name="Title" type="Label" parent="Overlay" unique_id=1108128545]
 layout_mode = 2

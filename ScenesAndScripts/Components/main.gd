@@ -11,6 +11,7 @@ func _ready() -> void:
 	Global.connect("level_succeded", play_next_level)
 	Global.connect("restart", restart)
 	Global.connect("return_to_home", return_to_home)
+	Global.connect("game_over", game_over)
 	play_next_level()
 	if Global.did_game_restart:
 		animation_player.play("intro_transition_restart")
@@ -34,12 +35,21 @@ func play_next_level() -> void:
 				sub_viewport.get_child(level).queue_free()
 
 func restart() -> void:
-	animation_player.play("restart_transition")
+	animation_player.play("close_transition")
 	await animation_player.animation_finished
 	get_tree().reload_current_scene()
 
 func return_to_home() -> void:
 	var start_screen : PackedScene = load("res://ScenesAndScripts/UI/StartScreen.tscn")
-	animation_player.play("restart_transition")
+	animation_player.play("close_transition")
 	await animation_player.animation_finished
 	get_tree().change_scene_to_packed(start_screen)
+
+func game_over() -> void:
+	get_tree().paused = true
+	await get_tree().create_timer(1).timeout
+	var result_screen : PackedScene = load("res://ScenesAndScripts/UI/result_screen.tscn")
+	animation_player.play("close_transition")
+	await animation_player.animation_finished
+	get_tree().paused = false
+	get_tree().change_scene_to_packed(result_screen)
