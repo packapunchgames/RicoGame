@@ -112,4 +112,7 @@ func _on_restart() -> void:
 	if Global.lives > 1:
 		Global.lives -= 1
 	elif Global.lives == 1:
-		print("Game Over")
+		if Global.did_try_second_chance:
+			Global.game_over.emit()
+		else:
+			Global.show_revive_screen.emit()

@@ -17,6 +17,7 @@ func _ready() -> void:
 		get_tree().paused = false
 	else:
 		animation_player.play("intro_transition")
+	Global.lives = Resources.max_lives
 
 
 func play_next_level() -> void:

@@ -6,6 +6,93 @@
 [ext_resource type="Texture2D" uid="uid://bxxrpm6suhly6" path="res://Art/UI/HP.svg" id="3_h4w3w"]
 [ext_resource type="PackedScene" uid="uid://u7myoi6hxpco" path="res://ScenesAndScripts/UI/pause_screen.tscn" id="4_45nxl"]
 [ext_resource type="Texture2D" uid="uid://bsurj6o00t3ts" path="res://Art/UI/hint.svg" id="5_7j0dg"]
+[ext_resource type="Texture2D" uid="uid://cqfn6xe5f6wpu" path="res://Art/UI/adIcon.svg" id="6_hmk42"]
+[ext_resource type="Theme" uid="uid://fqf40pe11p5k" path="res://ScenesAndScripts/Shaders/2nd_text.tres" id="7_s8tti"]
+[ext_resource type="PackedScene" uid="uid://b872imwnvl48e" path="res://ScenesAndScripts/UI/revive_screen.tscn" id="9_cltkk"]
+
+[sub_resource type="Animation" id="Animation_cltkk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:custom_minimum_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 64)]
+}
+
+[sub_resource type="Animation" id="Animation_wf7t4"]
+resource_name = "ad_fail"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:custom_minimum_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Vector2(0, 64), Vector2(0, 200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rdr1u"]
+_data = {
+&"RESET": SubResource("Animation_cltkk"),
+&"ad_fail": SubResource("Animation_wf7t4")
+}
 
 [node name="UI" type="Control" unique_id=1772056420]
 process_mode = 3
@@ -91,9 +178,37 @@ text = "x50"
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="AdIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/HintsButton" unique_id=298461826]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("6_hmk42")
+expand_mode = 1
+
+[node name="AdFailed" type="Label" parent="MarginContainer" unique_id=546931942]
+visible = false
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme = ExtResource("7_s8tti")
+theme_override_colors/font_color = Color(0.69, 0.0068999934, 0.0068999934, 1)
+text = "Request failed. Check your Internet connection."
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/AdFailed" unique_id=906791410]
+libraries/ = SubResource("AnimationLibrary_rdr1u")
+
 [node name="Overlays" type="Node" parent="." unique_id=1585715840]
 
 [node name="PauseScreen" parent="Overlays" unique_id=1403986234 instance=ExtResource("4_45nxl")]
+
+[node name="ReviveScreen" parent="Overlays" unique_id=243757755 instance=ExtResource("9_cltkk")]
 
 [connection signal="pressed" from="MarginContainer/Pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HintsButton" to="." method="_on_hints_button_pressed"]

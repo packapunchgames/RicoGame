@@ -1,0 +1,237 @@
+[gd_scene format=3 uid="uid://b872imwnvl48e"]
+
+[ext_resource type="Script" uid="uid://clyd4q7aqcxgs" path="res://ScenesAndScripts/UI/revive_screen.gd" id="1_0vedw"]
+[ext_resource type="Texture2D" uid="uid://ceeus2nrwkc3u" path="res://Art/UI/HP_Under.svg" id="1_8ce4r"]
+[ext_resource type="Texture2D" uid="uid://lhmoj38f0lab" path="res://Art/UI/HP_Over.svg" id="2_8ftg6"]
+[ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="3_s4y3q"]
+[ext_resource type="Texture2D" uid="uid://yele2y8yktnm" path="res://Art/UI/Ad.svg" id="4_8ce4r"]
+[ext_resource type="AudioStream" uid="uid://ckpd2ojtrn35l" path="res://Sound/Sfx/mixkit-ticking-timer-1056.wav" id="4_h0pu1"]
+[ext_resource type="Texture2D" uid="uid://d2y1a1o30386i" path="res://Art/UI/AdPressed.svg" id="5_0vedw"]
+[ext_resource type="Texture2D" uid="uid://dlw0bgk2xhkv3" path="res://Art/UI/AdDisabled.svg" id="6_3gkbo"]
+[ext_resource type="Texture2D" uid="uid://cqfn6xe5f6wpu" path="res://Art/UI/adIcon.svg" id="7_2yaeb"]
+
+[sub_resource type="Animation" id="Animation_0vedw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blur:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TimerProgressBar:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TimerProgressBar:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3gkbo"]
+resource_name = "intro"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blur:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TimerProgressBar:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TimerProgressBar:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [3.141592653589793, 6.2831855]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_ticking"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2yaeb"]
+_data = {
+&"RESET": SubResource("Animation_0vedw"),
+&"intro": SubResource("Animation_3gkbo")
+}
+
+[node name="ReviveScreen" type="Control" unique_id=243757755]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0vedw")
+timer = 5.0
+
+[node name="Blur" type="ColorRect" parent="." unique_id=1467539821]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.196078)
+
+[node name="TimerProgressBar" type="TextureProgressBar" parent="." unique_id=136155571]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -448.0
+offset_top = -448.0
+offset_right = 448.0
+offset_bottom = 448.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+step = 0.1
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("1_8ce4r")
+texture_progress = ExtResource("2_8ftg6")
+
+[node name="MarginContainer" type="MarginContainer" parent="TimerProgressBar" unique_id=606012344]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 358
+
+[node name="Title" type="Label" parent="TimerProgressBar/MarginContainer" unique_id=1736569520]
+custom_minimum_size = Vector2(700, 700)
+layout_mode = 2
+theme = ExtResource("3_s4y3q")
+text = "SECOND CHANCE?"
+horizontal_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="TimerProgressBar" unique_id=130434062]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 217
+
+[node name="AdButton" type="TextureButton" parent="TimerProgressBar/MarginContainer2" unique_id=982754533]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("4_8ce4r")
+texture_pressed = ExtResource("5_0vedw")
+texture_disabled = ExtResource("6_3gkbo")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="AdIcon" type="TextureRect" parent="TimerProgressBar/MarginContainer2/AdButton" unique_id=1418434230]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("7_2yaeb")
+stretch_mode = 4
+
+[node name="Sounds" type="Node" parent="." unique_id=570209390]
+
+[node name="Ticking" type="AudioStreamPlayer" parent="Sounds" unique_id=2076297627]
+stream = ExtResource("4_h0pu1")
+pitch_scale = 0.9
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1150239254]
+libraries/ = SubResource("AnimationLibrary_2yaeb")

@@ -3,6 +3,8 @@ extends Control
 @onready var lives_number_display: Label = $MarginContainer/VBoxContainer/LivesDisplay/NumberDisplay
 @onready var pause_screen: Control = $Overlays/PauseScreen
 @onready var hints_number_display: Label = $MarginContainer/VBoxContainer/HintsButton/NumberDisplay
+@onready var ad_icon: TextureRect = $MarginContainer/VBoxContainer/HintsButton/AdIcon
+@onready var animation_player: AnimationPlayer = $MarginContainer/AdFailed/AnimationPlayer
 
 
 func _ready() -> void:
@@ -18,7 +20,13 @@ func update_lives() -> void:
 		lives_number_display.hide()
 
 func update_hints() -> void:
-	hints_number_display.text = "x" + str(Resources.hints)
+	if Resources.hints > 0:
+		ad_icon.hide()
+		hints_number_display.show()
+		hints_number_display.text = "x" + str(Resources.hints)
+	else:
+		ad_icon.show()
+		hints_number_display.hide()
 
 
 func _on_pause_pressed() -> void:
@@ -32,3 +40,5 @@ func _on_hints_button_pressed() -> void:
 			Global.has_used_hint = true
 			Resources.hints -= 1
 			Resources.hint_used.emit()
+		else:
+			animation_player.play("ad_fail")

@@ -10,6 +10,7 @@ func _ready() -> void:
 	Global.level_succeded.connect(scale_pitch)
 	Global.game_paused.connect(slow_down)
 	Global.game_resumed.connect(resume)
+	Global.show_revive_screen.connect(slow_down)
 
 func scale_pitch() -> void:
 	if !(pitch_scale + pitch_increment) > max_pitch:
@@ -27,4 +28,3 @@ func resume() -> void:
 	stream_paused = false
 	var tween : Tween = create_tween()
 	tween.tween_property(self, "pitch_scale", current_pitch, fade_time / 2)
-	print(current_pitch)
