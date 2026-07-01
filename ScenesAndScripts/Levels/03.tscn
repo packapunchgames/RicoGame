@@ -37,7 +37,7 @@ position = Vector2(560, 920)
 
 [node name="SolidObstacle" parent="Obstacles" unique_id=1054549973 instance=ExtResource("4_f0w6x")]
 position = Vector2(240, -240)
-polygon = PackedVector2Array(520, 280, 720, 480, 920, 280)
+polygon = PackedVector2Array(560, 280, 720, 440, 880, 280)
 outline_width = 1
 
 [node name="SolidObstacle2" parent="Obstacles" unique_id=1210790474 instance=ExtResource("4_f0w6x")]
@@ -52,7 +52,7 @@ outline_width = 1
 
 [node name="SolidObstacle4" parent="Obstacles" unique_id=71434275 instance=ExtResource("4_f0w6x")]
 position = Vector2(640, 80)
-polygon = PackedVector2Array(80, 960, 320, 720, 560, 960)
+polygon = PackedVector2Array(120, 960, 320, 760, 520, 960)
 outline_width = 1
 
 [node name="SolidObstacle5" parent="Obstacles" unique_id=1707733747 instance=ExtResource("4_f0w6x")]

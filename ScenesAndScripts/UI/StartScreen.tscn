@@ -326,6 +326,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("10_wa25j")
+expand_mode = 1
 stretch_mode = 4
 
 [node name="PlayGamesPlayersClient" type="Node" parent="Overlay/MarginContainer/GooglePlayAccount" unique_id=436896128]

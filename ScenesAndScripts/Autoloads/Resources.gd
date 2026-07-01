@@ -1,6 +1,6 @@
 extends Node
 
-var hints : int = 3
-var max_lives : int = 3
+var hints : int = 30
+var max_lives : int = 100
 
 signal hint_used

@@ -30,7 +30,7 @@ outline_width = 1
 
 [node name="SolidObstacle2" parent="Obstacles" unique_id=150873504 instance=ExtResource("4_2kvdw")]
 position = Vector2(240, -240)
-polygon = PackedVector2Array(1120, 1280, 840, 760, 1080, 760, 1360, 1280)
+polygon = PackedVector2Array(1120, 1280, 840, 760, 1040, 760, 1320, 1280)
 outline_width = 1
 
 [node name="Ball" parent="." unique_id=2056922427 instance=ExtResource("5_1p1q1")]

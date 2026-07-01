@@ -16,37 +16,37 @@ script = ExtResource("1_jhi6f")
 [node name="Targets" type="Node2D" parent="." unique_id=366688120]
 
 [node name="Target" parent="Targets" unique_id=1309084014 instance=ExtResource("3_03us8")]
-position = Vector2(1560, 920)
+position = Vector2(1560, 880)
 
 [node name="Target2" parent="Targets" unique_id=1963335682 instance=ExtResource("3_03us8")]
-position = Vector2(1400, 920)
+position = Vector2(1400, 880)
 
 [node name="Target3" parent="Targets" unique_id=1466944375 instance=ExtResource("3_03us8")]
-position = Vector2(1240, 920)
+position = Vector2(1240, 880)
 
 [node name="Target4" parent="Targets" unique_id=1630945242 instance=ExtResource("3_03us8")]
-position = Vector2(1080, 920)
+position = Vector2(1080, 880)
 
 [node name="Target5" parent="Targets" unique_id=1818050892 instance=ExtResource("3_03us8")]
-position = Vector2(920, 920)
+position = Vector2(920, 880)
 
 [node name="Target6" parent="Targets" unique_id=109612388 instance=ExtResource("3_03us8")]
-position = Vector2(760, 920)
+position = Vector2(760, 880)
 
 [node name="Target7" parent="Targets" unique_id=2046893757 instance=ExtResource("3_03us8")]
-position = Vector2(600, 920)
+position = Vector2(600, 880)
 
 [node name="Target8" parent="Targets" unique_id=1328117938 instance=ExtResource("3_03us8")]
-position = Vector2(440, 920)
+position = Vector2(440, 880)
 
 [node name="Target9" parent="Targets" unique_id=557707713 instance=ExtResource("3_03us8")]
-position = Vector2(280, 920)
+position = Vector2(280, 880)
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=1540570639]
 position = Vector2(0, -1)
 
 [node name="SolidObstacle" parent="Obstacles" unique_id=1663942399 instance=ExtResource("4_prvki")]
-position = Vector2(-280, 481)
+position = Vector2(-280, 441)
 polygon = PackedVector2Array(640, 240, 680, 320, 1800, 320, 1840, 240)
 outline_width = 1
 
