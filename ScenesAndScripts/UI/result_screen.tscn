@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://b1cacfvjwm1le"]
 
+[ext_resource type="Script" uid="uid://cjqhqergx5g8u" path="res://ScenesAndScripts/UI/result_screen.gd" id="1_5v5r7"]
+[ext_resource type="PackedScene" uid="uid://2efpx57nitbd" path="res://ScenesAndScripts/Components/main.tscn" id="2_ive0k"]
+[ext_resource type="PackedScene" uid="uid://b16bu1vsw1ces" path="res://ScenesAndScripts/UI/StartScreen.tscn" id="3_rekfv"]
+
 [node name="ResultScreen" type="Control" unique_id=804590909]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +11,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5v5r7")
+main_scene = ExtResource("2_ive0k")
+home_scene = ExtResource("3_rekfv")
 
 [node name="Label" type="Label" parent="." unique_id=1093974650]
 layout_mode = 1
@@ -22,3 +29,43 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "YOU LOST NIGGA"
+
+[node name="PlayAgain" type="Button" parent="." unique_id=373153571]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -31.0
+offset_right = 50.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "PLAY AGAIN NIGGA"
+
+[node name="ReturnToHome" type="Button" parent="." unique_id=154964258]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -141.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "GO HOME NIGGA"
+
+[node name="Button3" type="Button" parent="." unique_id=914682464]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 141.0
+grow_vertical = 0
+text = "CHANGE SETTINGS NIGGA"
+
+[connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="ReturnToHome" to="." method="_on_return_to_home_pressed"]

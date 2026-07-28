@@ -143,6 +143,16 @@ color = Color(0, 0, 0, 0.49019608)
 wait_time = 5.0
 one_shot = true
 
+[node name="ClickDetector" type="TextureButton" parent="." unique_id=1941491853]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="TimerProgressBar" type="TextureProgressBar" parent="." unique_id=136155571]
 layout_mode = 1
 anchors_preset = 8
@@ -157,6 +167,7 @@ offset_bottom = 448.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
 step = 0.1
 fill_mode = 4
 nine_patch_stretch = true
@@ -170,6 +181,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_top = 358
 
 [node name="Title" type="Label" parent="TimerProgressBar/MarginContainer" unique_id=1736569520]
@@ -226,3 +238,5 @@ bus = &"SFX"
 libraries/ = SubResource("AnimationLibrary_2yaeb")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="ClickDetector" to="." method="_on_click_detector_pressed"]
+[connection signal="pressed" from="TimerProgressBar/MarginContainer2/AdButton" to="." method="_on_ad_button_pressed"]

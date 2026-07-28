@@ -5,6 +5,8 @@ extends Polygon2D
 @onready var collision_polygon: CollisionPolygon2D = $StaticBody2D/CollisionPolygon2D
 @onready var outline: Line2D = $Outline
 
+var custom_time : float = 0.0
+
 func _ready() -> void:
 	update_collision_shape()
 
@@ -17,5 +19,6 @@ func update_collision_shape() -> void:
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		update_collision_shape()
-	else:
-		set_process(false)
+	elif Settings.visual_effects:
+		custom_time += delta
+		material.set_shader_parameter("time", custom_time)

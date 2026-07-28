@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://o4cduiyx02ln"]
+[gd_scene format=3 uid="uid://o4cduiyx02ln"]
 
 [ext_resource type="Shader" uid="uid://du3qd5nf52x5l" path="res://ScenesAndScripts/Shaders/scrolling_texture.gdshader" id="1_22vmx"]
 [ext_resource type="Texture2D" uid="uid://bn1meioyvrqxg" path="res://Art/PNG Files/Backgrounds/obstaclesPattern.png" id="2_22vmx"]
@@ -13,18 +13,19 @@ shader_parameter/repeat_y = 1.0
 shader_parameter/row_offset = 0.0
 shader_parameter/texture_to_scroll = ExtResource("2_22vmx")
 
-[node name="MovingObstacle" type="Polygon2D"]
+[node name="MovingObstacle" type="Polygon2D" unique_id=1588108137]
+process_mode = 1
 material = SubResource("ShaderMaterial_0224l")
 texture = ExtResource("2_22vmx")
 script = ExtResource("3_22vmx")
 dir = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=20473599]
 collision_mask = 0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=314653702]
 
-[node name="Outline" type="Line2D" parent="."]
+[node name="Outline" type="Line2D" parent="." unique_id=1001255748]
 show_behind_parent = true
 closed = true
 width = 20.0

@@ -25,6 +25,8 @@ var time_waited : float = 0.0
 enum DIRECTION {FIRST = 1, SECOND = -1}
 @export var dir : DIRECTION = DIRECTION.SECOND
 
+var custom_time : float = 0.0
+
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		update_collision_shape()
@@ -50,6 +52,9 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		update_collision_shape()
 	else:
+		if Settings.visual_effects:
+			custom_time += delta
+			material.set_shader_parameter("time", custom_time)
 		match dir:
 			DIRECTION.FIRST:
 				progress = move_toward(progress, 1.0, speed * delta)

@@ -15,6 +15,7 @@ func _ready() -> void:
 
 func update_lives() -> void:
 	if Global.lives > 1:
+		lives_number_display.show()
 		lives_number_display.text = str(Global.lives)
 	elif Global.lives == 1:
 		lives_number_display.hide()

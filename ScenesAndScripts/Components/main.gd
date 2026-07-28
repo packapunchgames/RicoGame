@@ -12,6 +12,7 @@ func _ready() -> void:
 	Global.connect("restart", restart)
 	Global.connect("return_to_home", return_to_home)
 	Global.connect("game_over", game_over)
+	Global.did_try_second_chance = false
 	play_next_level()
 	if Global.did_game_restart:
 		animation_player.play("intro_transition_restart")

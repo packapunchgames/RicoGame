@@ -7,12 +7,14 @@ uniform float repeat_y : hint_range(1, 20) = 12;
 uniform float row_offset : hint_range(-10, 10) = 0;
 uniform sampler2D texture_to_scroll;
 
+uniform float time = 0.0;
+
 void fragment() {
  float angle_rad = radians(angle_degrees);
 
  vec2 direction = vec2(cos(angle_rad), sin(angle_rad));
 
- vec2 offset_uv = UV - (TIME * scroll_speed * direction);
+ vec2 offset_uv = UV - (time * scroll_speed * direction);
 
  float offset = fract(floor(offset_uv.y * repeat_y) * 0.5) > 0.0 ? (row_offset * 0.324) : 0.0;
 

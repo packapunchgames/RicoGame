@@ -11,6 +11,7 @@ var initial_player_pos : Vector2
 
 var enemies : Array
 
+
 func _ready() -> void:
 	Global.has_used_hint = false
 	Global.did_game_finish = false

@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="1_x2dqc"]
 [ext_resource type="Theme" uid="uid://fqf40pe11p5k" path="res://ScenesAndScripts/Shaders/2nd_text.tres" id="2_a44i2"]
 [ext_resource type="Theme" uid="uid://dytgpe77rddim" path="res://ScenesAndScripts/Shaders/UI.tres" id="3_vpof5"]
+[ext_resource type="AudioStream" uid="uid://d3tnq3llih5je" path="res://Sound/Sfx/UIClickPositive.mp3" id="5_vpof5"]
 
 [sub_resource type="Animation" id="Animation_rl016"]
 length = 0.001
@@ -134,6 +135,10 @@ text = "YES"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=892440424]
 libraries/ = SubResource("AnimationLibrary_th6od")
+
+[node name="UIClickPositive" type="AudioStreamPlayer" parent="." unique_id=1389267969]
+stream = ExtResource("5_vpof5")
+bus = &"SFX"
 
 [connection signal="button_down" from="MarginContainer/VBoxContainer/Options/No" to="." method="button_hold_vibrate"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options/No" to="." method="_on_no_pressed"]

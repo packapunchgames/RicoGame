@@ -119,7 +119,7 @@ theme_override_constants/margin_right = 75
 theme_override_constants/margin_bottom = 25
 
 [node name="Pause" type="TextureButton" parent="MarginContainer" unique_id=2020888595]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
