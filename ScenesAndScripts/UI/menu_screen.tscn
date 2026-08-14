@@ -1,0 +1,287 @@
+[gd_scene format=3 uid="uid://caoeyhp5lweoi"]
+
+[ext_resource type="Script" uid="uid://eon00c7ptcjp" path="res://ScenesAndScripts/UI/menu_screen.gd" id="1_sadl1"]
+[ext_resource type="Texture2D" uid="uid://c6l86q3qhfpmu" path="res://Art/UI/back.svg" id="1_wcn2x"]
+[ext_resource type="Theme" uid="uid://dytgpe77rddim" path="res://ScenesAndScripts/Shaders/UI.tres" id="2_s4s1t"]
+[ext_resource type="Shader" uid="uid://jo5bmdnhmgxs" path="res://ScenesAndScripts/Shaders/forever_scrolling_texture.gdshader" id="2_x7goh"]
+[ext_resource type="AudioStream" uid="uid://d3tnq3llih5je" path="res://Sound/Sfx/UIClickPositive.mp3" id="3_8ildh"]
+[ext_resource type="Theme" uid="uid://cqy5qwkgao8ks" path="res://ScenesAndScripts/Shaders/3rd_text.tres" id="4_7ianh"]
+[ext_resource type="PackedScene" uid="uid://hiwonrsdpxid" path="res://ScenesAndScripts/UI/settings.tscn" id="4_7w328"]
+[ext_resource type="AudioStream" uid="uid://c6s42jgt6cwwn" path="res://Sound/Sfx/UIClickNegative.mp3" id="4_sadl1"]
+[ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="5_0m4bj"]
+[ext_resource type="Script" uid="uid://g0vcrisyemhk" path="res://addons/GodotPlayGameServices/scripts/leaderboards/leaderboards_client.gd" id="6_vbfv4"]
+[ext_resource type="Script" uid="uid://8m2r1ue6db64" path="res://ScenesAndScripts/UI/google_play_account.gd" id="6_x7goh"]
+[ext_resource type="Script" uid="uid://cypbmrau0mvgu" path="res://addons/GodotPlayGameServices/scripts/players/players_client.gd" id="7_vbfv4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yps8v"]
+shader = ExtResource("2_x7goh")
+shader_parameter/scroll_speed = 0.0400000019
+shader_parameter/angle_degrees = 45.0
+shader_parameter/repeat_x = 20.0
+shader_parameter/repeat_y = 12.0
+shader_parameter/row_offset = 0.0
+shader_parameter/texture_to_scroll = ExtResource("5_0m4bj")
+
+[sub_resource type="Animation" id="Animation_7w328"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o16hd"]
+resource_name = "main_menu"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.001, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7ianh"]
+resource_name = "transition"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.001, 0.099999994),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o16hd"]
+_data = {
+&"RESET": SubResource("Animation_7w328"),
+&"main_menu": SubResource("Animation_o16hd"),
+&"transition": SubResource("Animation_7ianh")
+}
+
+[node name="MenuScreen" type="Control" unique_id=1373137006]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sadl1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1432672413]
+material = SubResource("ShaderMaterial_yps8v")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.49, 0.1421, 0.40882328, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=13105590]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="BackButton" type="TextureButton" parent="MarginContainer" unique_id=2066515350]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("1_wcn2x")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=469963229]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_s4s1t")
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer" unique_id=667139800]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="Leaderboard" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1209680090]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+text = "LEADERBOARD"
+
+[node name="PlayGamesLeaderboardsClient" type="Node" parent="MarginContainer/VBoxContainer/Leaderboard" unique_id=249301387]
+script = ExtResource("6_vbfv4")
+metadata/_custom_type_script = "uid://g0vcrisyemhk"
+
+[node name="Tutorial" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2072395028]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+text = "TUTORIAL"
+
+[node name="Credits" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2053648788]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+text = "CREDITS"
+
+[node name="Version" type="Label" parent="MarginContainer" unique_id=1825202710]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = ExtResource("4_7ianh")
+text = "Version: xxx"
+
+[node name="GooglePlayAccount" type="TextureRect" parent="MarginContainer" unique_id=2015395005]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = ExtResource("5_0m4bj")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("6_x7goh")
+
+[node name="PlayGamesPlayersClient" type="Node" parent="MarginContainer/GooglePlayAccount" unique_id=1784498674]
+script = ExtResource("7_vbfv4")
+metadata/_custom_type_script = "uid://cypbmrau0mvgu"
+
+[node name="Overlays" type="Control" parent="." unique_id=208529786]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Settings" parent="Overlays" unique_id=1887184854 instance=ExtResource("4_7w328")]
+layout_mode = 1
+
+[node name="Audio" type="Node" parent="." unique_id=1726787182]
+
+[node name="ClickPositive" type="AudioStreamPlayer" parent="Audio" unique_id=819906169]
+stream = ExtResource("3_8ildh")
+bus = &"SFX"
+
+[node name="ClickNegative" type="AudioStreamPlayer" parent="Audio" unique_id=1269344584]
+stream = ExtResource("4_sadl1")
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1884035897]
+libraries/ = SubResource("AnimationLibrary_o16hd")
+
+[connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Settings" to="." method="button_hold_vibrate"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Leaderboard" to="." method="_on_leaderboard_pressed"]
+[connection signal="back" from="Overlays/Settings" to="." method="_on_back"]

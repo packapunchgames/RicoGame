@@ -2,19 +2,18 @@
 
 [ext_resource type="Shader" uid="uid://duhoy3tjfx378" path="res://ScenesAndScripts/Shaders/transitionshader.gdshader" id="1_5dee2"]
 [ext_resource type="Script" uid="uid://bxcsk4l78jaew" path="res://ScenesAndScripts/UI/start_screen.gd" id="1_hbygu"]
-[ext_resource type="Script" uid="uid://bapf2pjjq1tnt" path="res://ScenesAndScripts/UI/overlay.gd" id="1_qrnm2"]
 [ext_resource type="PackedScene" uid="uid://2efpx57nitbd" path="res://ScenesAndScripts/Components/main.tscn" id="2_hby4r"]
 [ext_resource type="Texture2D" uid="uid://u5rtivaa0ota" path="res://Art/UI/WhiteCircle.png" id="2_w7o22"]
-[ext_resource type="Theme" uid="uid://cqy5qwkgao8ks" path="res://ScenesAndScripts/Shaders/3rd_text.tres" id="3_hby4r"]
 [ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="5_um528"]
 [ext_resource type="Texture2D" uid="uid://8hag0460jdvw" path="res://Art/UI/startScreenBackground.svg" id="6_g23m1"]
 [ext_resource type="Theme" uid="uid://dytgpe77rddim" path="res://ScenesAndScripts/Shaders/UI.tres" id="6_lsinn"]
 [ext_resource type="Script" uid="uid://c0mcq6bajdwx3" path="res://addons/GodotPlayGameServices/scripts/sign_in/sign_in_client.gd" id="8_lvw1k"]
 [ext_resource type="AudioStream" uid="uid://d3tnq3llih5je" path="res://Sound/Sfx/UIClickPositive.mp3" id="8_qepqg"]
+[ext_resource type="Texture2D" uid="uid://b71iccn138m38" path="res://Art/UI/shopIcon.svg" id="8_w7o22"]
 [ext_resource type="AudioStream" uid="uid://c6s42jgt6cwwn" path="res://Sound/Sfx/UIClickNegative.mp3" id="9_six06"]
 [ext_resource type="Texture2D" uid="uid://yo6lsaavwyxm" path="res://Art/UI/menu.svg" id="9_w7o22"]
-[ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="10_wa25j"]
-[ext_resource type="Script" uid="uid://cypbmrau0mvgu" path="res://addons/GodotPlayGameServices/scripts/players/players_client.gd" id="11_k22kf"]
+[ext_resource type="AudioStream" uid="uid://cmegiouvttocx" path="res://Sound/Music/StartScreenMusic.mp3" id="13_k22kf"]
+[ext_resource type="PackedScene" uid="uid://caoeyhp5lweoi" path="res://ScenesAndScripts/UI/menu_screen.tscn" id="13_ttk2p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k22kf"]
 shader = ExtResource("1_5dee2")
@@ -286,14 +285,6 @@ theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
-script = ExtResource("1_qrnm2")
-
-[node name="Version" type="Label" parent="Overlay" unique_id=757297877]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-theme = ExtResource("3_hby4r")
-text = "Version: xxx"
 
 [node name="MarginContainer" type="MarginContainer" parent="Overlay" unique_id=828425816]
 layout_mode = 2
@@ -319,19 +310,13 @@ texture_normal = ExtResource("9_w7o22")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="GooglePlayAccount" type="TextureRect" parent="Overlay/MarginContainer" unique_id=629239696]
-clip_contents = true
-custom_minimum_size = Vector2(128, 128)
+[node name="TextureButton" type="TextureButton" parent="Overlay/MarginContainer" unique_id=840701801]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource("10_wa25j")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="PlayGamesPlayersClient" type="Node" parent="Overlay/MarginContainer/GooglePlayAccount" unique_id=436896128]
-script = ExtResource("11_k22kf")
-metadata/_custom_type_script = "uid://cypbmrau0mvgu"
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource("8_w7o22")
+stretch_mode = 5
 
 [node name="Title" type="Label" parent="Overlay" unique_id=1108128545]
 layout_mode = 2
@@ -354,6 +339,18 @@ color = Color(0, 0, 0, 1)
 libraries/ = SubResource("AnimationLibrary_a0unc")
 autoplay = &"enter_scene"
 
+[node name="Overlays" type="Control" parent="." unique_id=1376451572]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MenuScreen" parent="Overlays" unique_id=1373137006 instance=ExtResource("13_ttk2p")]
+layout_mode = 1
+
 [node name="Sounds" type="Node" parent="." unique_id=1786831266]
 
 [node name="ClickPositive" type="AudioStreamPlayer" parent="Sounds" unique_id=2039670279]
@@ -364,10 +361,19 @@ bus = &"SFX"
 stream = ExtResource("9_six06")
 bus = &"SFX"
 
+[node name="MainMusic" type="AudioStreamPlayer" parent="Sounds" unique_id=944008701]
+stream = ExtResource("13_k22kf")
+volume_db = -5.0
+pitch_scale = 1.05
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
 [node name="PlayGamesSignInClient" type="Node" parent="." unique_id=1475228521]
 script = ExtResource("8_lvw1k")
 metadata/_custom_type_script = "uid://c0mcq6bajdwx3"
 
 [connection signal="button_down" from="Overlay/MarginContainer/StartButton" to="." method="button_hold_vibrate"]
 [connection signal="pressed" from="Overlay/MarginContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Overlay/MarginContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="user_authenticated" from="PlayGamesSignInClient" to="." method="_on_play_games_sign_in_client_user_authenticated"]
