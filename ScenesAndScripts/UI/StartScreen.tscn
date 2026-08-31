@@ -4,14 +4,18 @@
 [ext_resource type="Script" uid="uid://bxcsk4l78jaew" path="res://ScenesAndScripts/UI/start_screen.gd" id="1_hbygu"]
 [ext_resource type="PackedScene" uid="uid://2efpx57nitbd" path="res://ScenesAndScripts/Components/main.tscn" id="2_hby4r"]
 [ext_resource type="Texture2D" uid="uid://u5rtivaa0ota" path="res://Art/UI/WhiteCircle.png" id="2_w7o22"]
+[ext_resource type="Texture2D" uid="uid://wr5kqelly70a" path="res://Art/PNG Files/Backgrounds/MainScreen/BG.png" id="5_57l1i"]
 [ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="5_um528"]
-[ext_resource type="Texture2D" uid="uid://8hag0460jdvw" path="res://Art/UI/startScreenBackground.svg" id="6_g23m1"]
+[ext_resource type="Script" uid="uid://olchdv66thnd" path="res://ScenesAndScripts/Components/Gyro.gd" id="6_f1yrd"]
 [ext_resource type="Theme" uid="uid://dytgpe77rddim" path="res://ScenesAndScripts/Shaders/UI.tres" id="6_lsinn"]
+[ext_resource type="Texture2D" uid="uid://ba55vx6evs38c" path="res://Art/PNG Files/Backgrounds/MainScreen/Chef.png" id="7_pltth"]
 [ext_resource type="Script" uid="uid://c0mcq6bajdwx3" path="res://addons/GodotPlayGameServices/scripts/sign_in/sign_in_client.gd" id="8_lvw1k"]
 [ext_resource type="AudioStream" uid="uid://d3tnq3llih5je" path="res://Sound/Sfx/UIClickPositive.mp3" id="8_qepqg"]
 [ext_resource type="Texture2D" uid="uid://b71iccn138m38" path="res://Art/UI/shopIcon.svg" id="8_w7o22"]
+[ext_resource type="Texture2D" uid="uid://b6fwgaucpdlro" path="res://Art/PNG Files/Backgrounds/MainScreen/Veggies.png" id="8_w8olo"]
 [ext_resource type="AudioStream" uid="uid://c6s42jgt6cwwn" path="res://Sound/Sfx/UIClickNegative.mp3" id="9_six06"]
 [ext_resource type="Texture2D" uid="uid://yo6lsaavwyxm" path="res://Art/UI/menu.svg" id="9_w7o22"]
+[ext_resource type="PackedScene" uid="uid://de0oto0dx67" path="res://ScenesAndScripts/UI/shop_screen.tscn" id="11_wa25j"]
 [ext_resource type="AudioStream" uid="uid://cmegiouvttocx" path="res://Sound/Music/StartScreenMusic.mp3" id="13_k22kf"]
 [ext_resource type="PackedScene" uid="uid://caoeyhp5lweoi" path="res://ScenesAndScripts/UI/menu_screen.tscn" id="13_ttk2p"]
 
@@ -255,6 +259,7 @@ _data = {
 }
 
 [node name="StartScreen" type="Control" unique_id=707114289]
+process_mode = 3
 material = SubResource("ShaderMaterial_k22kf")
 layout_mode = 3
 anchors_preset = 15
@@ -265,14 +270,93 @@ grow_vertical = 2
 script = ExtResource("1_hbygu")
 game_scene = ExtResource("2_hby4r")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=551308741]
+[node name="Background" type="ColorRect" parent="." unique_id=598802490]
+custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_g23m1")
+pivot_offset_ratio = Vector2(0.5, 0.5)
+color = Color(0, 0, 0, 1)
+
+[node name="BackLayer" type="TextureRect" parent="." unique_id=718440165]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -690.0
+offset_right = 960.0
+offset_bottom = 390.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.35, 1.35)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("5_57l1i")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Gyro" type="Node" parent="BackLayer" unique_id=1769723636 node_paths=PackedStringArray("actor")]
+script = ExtResource("6_f1yrd")
+actor = NodePath("..")
+force = -35
+metadata/_custom_type_script = "uid://olchdv66thnd"
+
+[node name="Chef" type="TextureRect" parent="." unique_id=1495640673]
+custom_minimum_size = Vector2(700, 700)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -855.0
+offset_right = 350.0
+offset_bottom = -155.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("7_pltth")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Gyro" type="Node" parent="Chef" unique_id=180400113 node_paths=PackedStringArray("actor")]
+script = ExtResource("6_f1yrd")
+actor = NodePath("..")
+force = -40
+metadata/_custom_type_script = "uid://olchdv66thnd"
+
+[node name="Veggies" type="TextureRect" parent="." unique_id=1174268922]
+custom_minimum_size = Vector2(1920, 905)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -1030.0
+offset_right = 960.0
+offset_bottom = -124.999756
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.35, 1.35)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("8_w8olo")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Gyro" type="Node" parent="Veggies" unique_id=1744722297 node_paths=PackedStringArray("actor")]
+process_mode = 3
+script = ExtResource("6_f1yrd")
+actor = NodePath("..")
+force = 50
+metadata/_custom_type_script = "uid://olchdv66thnd"
 
 [node name="Overlay" type="MarginContainer" parent="." unique_id=1109083323]
 layout_mode = 1
@@ -289,9 +373,9 @@ theme_override_constants/margin_bottom = 25
 [node name="MarginContainer" type="MarginContainer" parent="Overlay" unique_id=828425816]
 layout_mode = 2
 theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_bottom = 0
 
 [node name="StartButton" type="Button" parent="Overlay/MarginContainer" unique_id=925899415]
 custom_minimum_size = Vector2(400, 125)
@@ -318,8 +402,10 @@ size_flags_vertical = 8
 texture_normal = ExtResource("8_w7o22")
 stretch_mode = 5
 
-[node name="Title" type="Label" parent="Overlay" unique_id=1108128545]
+[node name="Title" type="Label" parent="Overlay/MarginContainer" unique_id=1108128545]
+visible = false
 layout_mode = 2
+size_flags_vertical = 0
 theme = ExtResource("5_um528")
 text = "SAUTÉ"
 horizontal_alignment = 1
@@ -335,10 +421,6 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1306238097]
-libraries/ = SubResource("AnimationLibrary_a0unc")
-autoplay = &"enter_scene"
-
 [node name="Overlays" type="Control" parent="." unique_id=1376451572]
 layout_mode = 1
 anchors_preset = 15
@@ -349,6 +431,9 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="MenuScreen" parent="Overlays" unique_id=1373137006 instance=ExtResource("13_ttk2p")]
+layout_mode = 1
+
+[node name="ShopScreen" parent="Overlays" unique_id=1417730694 instance=ExtResource("11_wa25j")]
 layout_mode = 1
 
 [node name="Sounds" type="Node" parent="." unique_id=1786831266]
@@ -368,6 +453,10 @@ pitch_scale = 1.05
 autoplay = true
 bus = &"Music"
 parameters/looping = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1306238097]
+libraries/ = SubResource("AnimationLibrary_a0unc")
+autoplay = &"enter_scene"
 
 [node name="PlayGamesSignInClient" type="Node" parent="." unique_id=1475228521]
 script = ExtResource("8_lvw1k")
