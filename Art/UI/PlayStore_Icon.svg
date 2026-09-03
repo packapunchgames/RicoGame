@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100"
+   height="100"
+   viewBox="0 0 26.458333 26.458333"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="PlayStore_Icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="4.8167456"
+     inkscape:cx="51.383241"
+     inkscape:cy="57.09249"
+     inkscape:window-width="1440"
+     inkscape:window-height="830"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g3"
+       transform="matrix(1.023396,0,0,1.0106951,-0.30953111,-0.14149841)"
+       style="stroke-width:0.98326">
+      <path
+         style="fill:#f7ffa0;fill-opacity:0;stroke:#ffffff;stroke-width:1.47488;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
+         d="M 6.210588,5.4586004 V 20.999725 l 14.03732,-7.624327 z"
+         id="path1" />
+      <path
+         style="fill:#f7ffa0;fill-opacity:0;stroke:#ffffff;stroke-width:1.47488;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none"
+         d="m 9.283071,18.993396 5.009817,-8.677258"
+         id="path2" />
+      <path
+         style="fill:#f7ffa0;fill-opacity:0;stroke:#ffffff;stroke-width:1.47488;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none"
+         d="m 9.283071,7.3641991 5.009817,8.6772579"
+         id="path3" />
+    </g>
+  </g>
+</svg>

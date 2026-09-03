@@ -14,7 +14,7 @@ extends Control
 func on_pause_pressed() -> void:
 	animation_player.play("show")
 	click_positive.play()
-	Settings.vibrate(5, 20)
+	Settings.vibrate(5, 60)
 	Global.game_paused.emit()
 	
 
@@ -22,7 +22,7 @@ func _on_continue_pressed() -> void:
 	get_tree().paused = false
 	click_negative.play()
 	animation_player.play_backwards("show")
-	Settings.vibrate(5, 20)
+	Settings.vibrate(5, 60)
 	Global.game_resumed.emit()
 	
 
@@ -30,24 +30,24 @@ func _on_settings_pressed() -> void:
 	animation_player.play_backwards("main_menu")
 	click_positive.play()
 	settings.show_self()
-	Settings.vibrate(5, 20)
+	Settings.vibrate(5, 60)
 
 func _on_restart_pressed() -> void:
 	animation_player.play_backwards("main_menu")
 	click_positive.play()
 	restart_screen.show_self()
-	Settings.vibrate(5, 20)
+	Settings.vibrate(5, 60)
 
 func _on_home_pressed() -> void:
 	animation_player.play_backwards("main_menu")
 	click_positive.play()
 	return_to_home_screen.show_self()
-	Settings.vibrate(5, 20)
+	Settings.vibrate(5, 60)
 
 func _on_back() -> void:
 	click_negative.play()
 	animation_player.play("main_menu")
-	Settings.vibrate(5, 20)
+	Settings.vibrate(5, 60)
 
 func button_hold_vibrate() -> void:
 	Settings.vibrate(5, 40)

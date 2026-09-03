@@ -26,6 +26,7 @@ var speed : float = 0:
 var initPos : Vector2
 var pressVector : Vector2
 var heading : float
+var hasStartedLevel : bool = true
 var hasStarted : bool = false
 var hasShot : bool = false
 var collision : KinematicCollision2D
@@ -56,10 +57,10 @@ signal restart
 signal shot
 
 func _ready() -> void:
-	Global.player = self
 	dir = 0
 	heading = 0
 	rotation = 0
+	Global.player = self
 
 func _process(delta : float) -> void:
 	handle_speed()
@@ -103,6 +104,7 @@ func _on_restart() -> void:
 	collision_shape.set_deferred("disabled", false)
 	hurtbox.set_deferred("monitoring", true)
 	stop()
+	hasStartedLevel = false
 	trail_line.hide()
 	dir = 0
 	sprite.rotation = 0

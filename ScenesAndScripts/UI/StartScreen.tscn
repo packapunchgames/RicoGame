@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://2efpx57nitbd" path="res://ScenesAndScripts/Components/main.tscn" id="2_hby4r"]
 [ext_resource type="Texture2D" uid="uid://u5rtivaa0ota" path="res://Art/UI/WhiteCircle.png" id="2_w7o22"]
 [ext_resource type="Texture2D" uid="uid://wr5kqelly70a" path="res://Art/PNG Files/Backgrounds/MainScreen/BG.png" id="5_57l1i"]
-[ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="5_um528"]
 [ext_resource type="Script" uid="uid://olchdv66thnd" path="res://ScenesAndScripts/Components/Gyro.gd" id="6_f1yrd"]
 [ext_resource type="Theme" uid="uid://dytgpe77rddim" path="res://ScenesAndScripts/Shaders/UI.tres" id="6_lsinn"]
+[ext_resource type="FontFile" uid="uid://b8tx02xl8i31w" path="res://Art/Fonts/Montserrat-Bold.ttf" id="7_f1yrd"]
 [ext_resource type="Texture2D" uid="uid://ba55vx6evs38c" path="res://Art/PNG Files/Backgrounds/MainScreen/Chef.png" id="7_pltth"]
 [ext_resource type="Script" uid="uid://c0mcq6bajdwx3" path="res://addons/GodotPlayGameServices/scripts/sign_in/sign_in_client.gd" id="8_lvw1k"]
 [ext_resource type="AudioStream" uid="uid://d3tnq3llih5je" path="res://Sound/Sfx/UIClickPositive.mp3" id="8_qepqg"]
@@ -47,6 +47,13 @@ shader_parameter/sectors = 1
 shader_parameter/clock_feather = 0.0
 shader_parameter/progress = -0.45
 shader_parameter/progress_bias = Vector2(0, 0)
+
+[sub_resource type="Theme" id="Theme_ti2th"]
+Label/colors/font_color = Color(1, 1, 1, 0.19607843)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.27450982)
+Label/constants/shadow_offset_y = 32
+Label/font_sizes/font_size = 350
+Label/fonts/font = ExtResource("7_f1yrd")
 
 [sub_resource type="Animation" id="Animation_wa25j"]
 length = 0.001
@@ -304,7 +311,23 @@ stretch_mode = 6
 [node name="Gyro" type="Node" parent="BackLayer" unique_id=1769723636 node_paths=PackedStringArray("actor")]
 script = ExtResource("6_f1yrd")
 actor = NodePath("..")
-force = -35
+force = -55
+metadata/_custom_type_script = "uid://olchdv66thnd"
+
+[node name="Title" type="Label" parent="." unique_id=1413909360]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 427.0
+grow_horizontal = 2
+theme = SubResource("Theme_ti2th")
+text = "SAUTÉ"
+horizontal_alignment = 1
+
+[node name="Gyro" type="Node" parent="Title" unique_id=1784818920 node_paths=PackedStringArray("actor")]
+script = ExtResource("6_f1yrd")
+actor = NodePath("..")
+force = 25
 metadata/_custom_type_script = "uid://olchdv66thnd"
 
 [node name="Chef" type="TextureRect" parent="." unique_id=1495640673]
@@ -328,7 +351,7 @@ stretch_mode = 5
 [node name="Gyro" type="Node" parent="Chef" unique_id=180400113 node_paths=PackedStringArray("actor")]
 script = ExtResource("6_f1yrd")
 actor = NodePath("..")
-force = -40
+force = -60
 metadata/_custom_type_script = "uid://olchdv66thnd"
 
 [node name="Veggies" type="TextureRect" parent="." unique_id=1174268922]
@@ -375,7 +398,7 @@ layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 0
+theme_override_constants/margin_bottom = 25
 
 [node name="StartButton" type="Button" parent="Overlay/MarginContainer" unique_id=925899415]
 custom_minimum_size = Vector2(400, 125)
@@ -394,21 +417,13 @@ texture_normal = ExtResource("9_w7o22")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="TextureButton" type="TextureButton" parent="Overlay/MarginContainer" unique_id=840701801]
+[node name="Shop" type="TextureButton" parent="Overlay/MarginContainer" unique_id=840701801]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 texture_normal = ExtResource("8_w7o22")
 stretch_mode = 5
-
-[node name="Title" type="Label" parent="Overlay/MarginContainer" unique_id=1108128545]
-visible = false
-layout_mode = 2
-size_flags_vertical = 0
-theme = ExtResource("5_um528")
-text = "SAUTÉ"
-horizontal_alignment = 1
 
 [node name="Transition" type="ColorRect" parent="." unique_id=2037207652]
 material = SubResource("ShaderMaterial_k22kf")
@@ -465,4 +480,5 @@ metadata/_custom_type_script = "uid://c0mcq6bajdwx3"
 [connection signal="button_down" from="Overlay/MarginContainer/StartButton" to="." method="button_hold_vibrate"]
 [connection signal="pressed" from="Overlay/MarginContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Overlay/MarginContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Overlay/MarginContainer/Shop" to="." method="_on_shop_pressed"]
 [connection signal="user_authenticated" from="PlayGamesSignInClient" to="." method="_on_play_games_sign_in_client_user_authenticated"]

@@ -4,9 +4,10 @@ var master_volume : float = 1.0
 var music : float = 1.0
 var sfx : float = 1.0
 var vibration : float = 0.5
-var sensitivity : float = 1
 
+var sensitivity : float = 1
 var visual_effects : bool = true
+var show_timer : bool = false
 
 enum shuffleModes {OFF, ON, TRUESHUFFLE}
 var shuffle : shuffleModes = shuffleModes.OFF

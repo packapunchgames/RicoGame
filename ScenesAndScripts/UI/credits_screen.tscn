@@ -1,0 +1,329 @@
+[gd_scene format=3 uid="uid://cfm3rcse1k1b2"]
+
+[ext_resource type="Texture2D" uid="uid://c6l86q3qhfpmu" path="res://Art/UI/back.svg" id="1_2g4xq"]
+[ext_resource type="Script" uid="uid://ds0oexe16u0r2" path="res://ScenesAndScripts/UI/credits_screen.gd" id="1_ssy5o"]
+[ext_resource type="Theme" uid="uid://fqf40pe11p5k" path="res://ScenesAndScripts/Shaders/2nd_text.tres" id="2_ssy5o"]
+[ext_resource type="Theme" uid="uid://cqy5qwkgao8ks" path="res://ScenesAndScripts/Shaders/3rd_text.tres" id="3_8wqxr"]
+[ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="4_8wqxr"]
+[ext_resource type="FontFile" uid="uid://c8j51pwxqiq6i" path="res://Art/Fonts/SpaceMono-Regular.ttf" id="4_ltuh0"]
+[ext_resource type="Texture2D" uid="uid://8pputg2jt3x5" path="res://Art/UI/PackAPunch.svg" id="5_62c2o"]
+[ext_resource type="Texture2D" uid="uid://et8o257ahbkg" path="res://Art/UI/LinkIcon.svg" id="6_ltuh0"]
+[ext_resource type="Texture2D" uid="uid://dhradn7x8ofrs" path="res://Art/UI/Yt_Icon.svg" id="7_rcbal"]
+[ext_resource type="Texture2D" uid="uid://cvincq7jvreym" path="res://Art/UI/PlayStore_Icon.svg" id="8_hfjcu"]
+
+[sub_resource type="FontVariation" id="FontVariation_y13x8"]
+base_font = ExtResource("4_ltuh0")
+variation_embolden = 1.0
+
+[sub_resource type="Theme" id="Theme_rcbal"]
+Label/constants/outline_size = 12
+Label/font_sizes/font_size = 30
+Label/fonts/font = SubResource("FontVariation_y13x8")
+LinkButton/colors/font_color = Color(0.616, 0.814, 0.88, 1)
+LinkButton/colors/font_hover_color = Color(0.528, 0.792, 0.88, 1)
+LinkButton/colors/font_pressed_color = Color(0.528, 0.792, 0.88, 1)
+LinkButton/constants/outline_size = 12
+LinkButton/constants/underline_spacing = 5
+LinkButton/font_sizes/font_size = 50
+LinkButton/fonts/font = SubResource("FontVariation_y13x8")
+
+[sub_resource type="Animation" id="Animation_8wqxr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_okax8"]
+resource_name = "transition"
+length = 0.1
+step = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.001, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qr3kq"]
+_data = {
+&"RESET": SubResource("Animation_8wqxr"),
+&"transition": SubResource("Animation_okax8")
+}
+
+[node name="CreditsScreen" type="Control" unique_id=653993577]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ssy5o")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=711030611]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=769192612]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 200
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/MarginContainer" unique_id=1617640039]
+clip_contents = false
+layout_mode = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/ScrollContainer" unique_id=1142400454]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = -135
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1064978730]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer" unique_id=832103964]
+custom_minimum_size = Vector2(735, 0)
+layout_mode = 2
+theme = ExtResource("2_ssy5o")
+text = "EDOARDO ALBANESE \"DIGITALE\""
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer" unique_id=739791982]
+layout_mode = 2
+theme = ExtResource("3_8wqxr")
+text = "Programmer
+Vector Artist
+Game Designer
+Project Manager"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1658161649]
+layout_mode = 2
+alignment = 2
+
+[node name="Description" type="Label" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer2" unique_id=1675261498]
+layout_mode = 2
+theme = ExtResource("3_8wqxr")
+text = "Level Design helper
+Illustation artist"
+
+[node name="Title" type="Label" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer2" unique_id=1728066362]
+custom_minimum_size = Vector2(580, 0)
+layout_mode = 2
+theme = ExtResource("2_ssy5o")
+text = "DANIELE MAISTO"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer" unique_id=543508587]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer3" unique_id=1984204995]
+custom_minimum_size = Vector2(510.42, 0)
+layout_mode = 2
+theme = ExtResource("2_ssy5o")
+text = "Music"
+
+[node name="Description" type="LinkButton" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer3" unique_id=285721864]
+layout_mode = 2
+theme = ExtResource("3_8wqxr")
+text = "Zapsplat"
+uri = "https://www.zapsplat.com"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1206430916]
+layout_mode = 2
+alignment = 2
+
+[node name="Description" type="LinkButton" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer4" unique_id=1035233621]
+layout_mode = 2
+theme = ExtResource("3_8wqxr")
+text = "Mixkit
+"
+uri = "https://www.mikxit.co"
+
+[node name="Description2" type="LinkButton" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer4" unique_id=159784269]
+layout_mode = 2
+theme = ExtResource("3_8wqxr")
+text = "Pixabay"
+uri = "https://www.pixabay.com"
+
+[node name="Title" type="Label" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer4" unique_id=170004235]
+custom_minimum_size = Vector2(476.175, 0)
+layout_mode = 2
+theme = ExtResource("2_ssy5o")
+text = "Sound Effects"
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1469775719]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer5" unique_id=170721943]
+custom_minimum_size = Vector2(735, 0)
+layout_mode = 2
+theme = ExtResource("2_ssy5o")
+text = "Software"
+
+[node name="Description" type="LinkButton" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer5" unique_id=1219351298]
+layout_mode = 2
+theme = ExtResource("3_8wqxr")
+text = "Godot"
+uri = "https://www.godotengine.org"
+
+[node name="Description2" type="LinkButton" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer5" unique_id=701796542]
+layout_mode = 2
+theme = ExtResource("3_8wqxr")
+text = "Krita"
+uri = "https://www.krita.org"
+
+[node name="Description3" type="LinkButton" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer5" unique_id=1303788675]
+layout_mode = 2
+theme = ExtResource("3_8wqxr")
+text = "Inkscape"
+uri = "https://www.inkscape.org"
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer" unique_id=888271108]
+layout_mode = 2
+alignment = 2
+
+[node name="Description4" type="Label" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer6" unique_id=2700817]
+custom_minimum_size = Vector2(735, 0)
+layout_mode = 2
+theme = SubResource("Theme_rcbal")
+text = "Space Mono"
+
+[node name="Description3" type="Label" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer6" unique_id=220616081]
+custom_minimum_size = Vector2(735, 0)
+layout_mode = 2
+theme = ExtResource("3_8wqxr")
+text = "Dosis"
+
+[node name="Description2" type="Label" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer6" unique_id=358706612]
+custom_minimum_size = Vector2(735, 0)
+layout_mode = 2
+theme = ExtResource("2_ssy5o")
+text = "Montserrat"
+
+[node name="Description" type="Label" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer6" unique_id=1571016910]
+custom_minimum_size = Vector2(735, 0)
+layout_mode = 2
+theme = ExtResource("4_8wqxr")
+text = "LAPSUS PRO"
+
+[node name="Title" type="Label" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer6" unique_id=698389261]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme = ExtResource("2_ssy5o")
+text = "Fonts"
+
+[node name="VBoxContainer7" type="VBoxContainer" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1316287297]
+layout_mode = 2
+theme_override_constants/separation = -90
+alignment = 1
+
+[node name="Logo" type="TextureRect" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer7" unique_id=874935029]
+layout_mode = 2
+texture = ExtResource("5_62c2o")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer7" unique_id=655119642]
+layout_mode = 2
+alignment = 1
+
+[node name="Element" type="LinkButton" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer7/HBoxContainer" unique_id=214949562]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+uri = "https://www.packapunchgames.github.io"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer7/HBoxContainer/Element" unique_id=1245167890]
+custom_maximum_size = Vector2(75, 75)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ltuh0")
+expand_mode = 1
+
+[node name="Element2" type="LinkButton" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer7/HBoxContainer" unique_id=2002919772]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+uri = "https://youtube.com/@pack_a_punch.?si=_JDMDpwmMLkBcj_F"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer7/HBoxContainer/Element2" unique_id=1572568209]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_rcbal")
+
+[node name="Element3" type="LinkButton" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer7/HBoxContainer" unique_id=737507679]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+uri = "https://play.google.com/store/apps/dev?id=7406998208224395206&hl=en_US"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer7/HBoxContainer/Element3" unique_id=1739256914]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_hfjcu")
+
+[node name="BackButton" type="TextureButton" parent="MarginContainer" unique_id=1638769769]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("1_2g4xq")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=270669982]
+libraries/ = SubResource("AnimationLibrary_qr3kq")
+
+[connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

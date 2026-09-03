@@ -17,7 +17,7 @@ func _on_yes_pressed() -> void:
 	ui_click_positive.play()
 	Global.did_game_restart = false
 	Global.return_to_home.emit()
-	Settings.vibrate(5, 20)
+	Settings.vibrate(5, 60)
 
 func button_hold_vibrate() -> void:
 	Settings.vibrate(5, 40)

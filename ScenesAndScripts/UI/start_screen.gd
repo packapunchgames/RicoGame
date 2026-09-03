@@ -8,6 +8,7 @@ extends Control
 @export var game_scene : PackedScene
 
 @onready var menu_screen: Control = $Overlays/MenuScreen
+@onready var shop_screen: Control = $Overlays/ShopScreen
 
 func _enter_tree() -> void:
 	GodotPlayGameServices.initialize()
@@ -26,7 +27,7 @@ func _on_play_games_sign_in_client_user_authenticated(is_authenticated: bool) ->
 func _on_start_button_pressed() -> void:
 	animation_player.play("play_game")
 	click_positive.play()
-	Settings.vibrate(5, 20)
+	Settings.vibrate(5, 60)
 	await animation_player.animation_finished
 	get_tree().change_scene_to_packed(game_scene)
 
@@ -36,4 +37,9 @@ func button_hold_vibrate() -> void:
 func _on_menu_pressed() -> void:
 	click_positive.play()
 	menu_screen.show_self()
-	Settings.vibrate(5, 20)
+	Settings.vibrate(5, 60)
+
+func _on_shop_pressed() -> void:
+	click_positive.play()
+	shop_screen.show_self()
+	Settings.vibrate(5, 60)

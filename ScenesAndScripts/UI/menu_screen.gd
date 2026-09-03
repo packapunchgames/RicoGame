@@ -4,6 +4,7 @@ extends Control
 @onready var version: Label = $MarginContainer/Version
 
 @onready var settings: Control = $Overlays/Settings
+@onready var credits_screen: Control = $Overlays/CreditsScreen
 
 @onready var click_positive: AudioStreamPlayer = $Audio/ClickPositive
 @onready var click_negative: AudioStreamPlayer = $Audio/ClickNegative
@@ -25,12 +26,12 @@ func show_self() -> void:
 func _on_back_button_pressed() -> void:
 	click_negative.play()
 	animation_player.play_backwards("transition")
-	Settings.vibrate(5, 20)
+	Settings.vibrate(5, 60)
 
 func _on_back() -> void:
 	click_negative.play()
 	animation_player.play("main_menu")
-	Settings.vibrate(5, 20)
+	Settings.vibrate(5, 60)
 
 func button_hold_vibrate() -> void:
 	Settings.vibrate(5, 40)
@@ -39,9 +40,13 @@ func _on_settings_pressed() -> void:
 	click_positive.play()
 	animation_player.play_backwards("main_menu")
 	settings.show_self()
-	Settings.vibrate(5, 20)
+	Settings.vibrate(5, 60)
 
-
+func _on_credits_pressed() -> void:
+	click_positive.play()
+	animation_player.play_backwards("main_menu")
+	credits_screen.show_self()
+	Settings.vibrate(5, 60)
 
 
 func _on_all_leaderboards_loaded(leaderboards: Array[PlayGamesLeaderboard]) -> void:

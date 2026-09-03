@@ -6,6 +6,20 @@
 [sub_resource type="FontVariation" id="FontVariation_2o80w"]
 base_font = ExtResource("1_h5wso")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpmc8"]
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.216, 0.27, 0.2619, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 75
+corner_radius_top_right = 75
+corner_radius_bottom_right = 75
+corner_radius_bottom_left = 75
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcglj"]
 content_margin_top = 10.0
 content_margin_bottom = 20.0
@@ -37,9 +51,9 @@ corner_radius_bottom_left = 75
 expand_margin_top = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtr50"]
-content_margin_top = 40.0
+content_margin_top = 30.0
 content_margin_bottom = 20.0
-bg_color = Color(0, 0.4, 0.33999997, 1)
+bg_color = Color(0, 0.55, 0.46749997, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -92,11 +106,28 @@ corner_radius_bottom_left = 40
 expand_margin_top = 20.0
 expand_margin_bottom = 20.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mevb3"]
+content_margin_top = 40.0
+content_margin_bottom = 20.0
+bg_color = Color(0.4, 0.36, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 75
+corner_radius_top_right = 75
+corner_radius_bottom_right = 75
+corner_radius_bottom_left = 75
+expand_margin_left = 20.0
+expand_margin_right = 20.0
+
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/constants/outline_size = 25
 Button/font_sizes/font_size = 64
 Button/fonts/font = SubResource("FontVariation_2o80w")
+Button/styles/disabled = SubResource("StyleBoxFlat_hpmc8")
 Button/styles/hover = SubResource("StyleBoxFlat_lcglj")
 Button/styles/normal = SubResource("StyleBoxFlat_mgwqt")
 Button/styles/pressed = SubResource("StyleBoxFlat_dtr50")
@@ -105,3 +136,4 @@ HSlider/icons/grabber_highlight = ExtResource("2_2o80w")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_h5wso")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_2o80w")
 HSlider/styles/slider = SubResource("StyleBoxFlat_c767r")
+Panel/styles/panel = SubResource("StyleBoxFlat_mevb3")

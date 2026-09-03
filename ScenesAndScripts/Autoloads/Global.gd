@@ -13,6 +13,10 @@ var lives : int = 3:
 
 var did_game_restart : bool = false #changes the transition
 var did_try_second_chance : bool = false
+var is_canceling : bool = false
+var potential_kills : int = 0
+var money_gained : int = 0
+var kill_coefficient : int = 7
 
 signal level_succeded
 signal game_paused

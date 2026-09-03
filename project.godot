@@ -14,11 +14,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="RicoGame"
-config/version="0.1"
+config/name="Sauté"
+config/version="0.3"
 run/main_scene="uid://b16bu1vsw1ces"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+config/icon="uid://ba55vx6evs38c"
 
 [audio]
 
@@ -46,6 +48,7 @@ window/size/viewport_height=1080
 window/frame_pacing/android/enable_frame_pacing=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/handheld/orientation=4
 
 [editor_plugins]
 

@@ -236,7 +236,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../MainMusic:playing")
+tracks/1/path = NodePath("../Audio/MainMusic:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -336,7 +336,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../MainMusic:playing")
+tracks/1/path = NodePath("../Audio/MainMusic:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -481,7 +481,9 @@ color = Color(0, 0, 0, 1)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Transition" unique_id=435378119]
 libraries/ = SubResource("AnimationLibrary_wem2e")
 
-[node name="MainMusic" type="AudioStreamPlayer" parent="." unique_id=1677290511]
+[node name="Audio" type="Node" parent="." unique_id=1257437780]
+
+[node name="MainMusic" type="AudioStreamPlayer" parent="Audio" unique_id=1677290511]
 stream = ExtResource("34_l4u8c")
 volume_db = -5.0
 pitch_scale = 0.9

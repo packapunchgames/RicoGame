@@ -21,6 +21,8 @@ func _ready() -> void:
 	initial_player_pos = Global.player.position
 	save_initial_children_data(targets, initial_targets_data)
 	save_initial_children_data(obstacles, initial_obstacles_data)
+	Global.money_gained += Global.potential_kills * Global.kill_coefficient
+	Global.potential_kills = get_tree().get_node_count_in_group("Targets")
 
 func save_initial_children_data(parent_node : Node2D, data_array : Array) -> void:
 	for child: Node in parent_node.get_children():
@@ -76,11 +78,9 @@ func reset_and_reinstance_children(parent_node : Node2D, initial_data : Array) -
 
 func restart() -> void:
 	Global.player.position = initial_player_pos
-	
 	await get_tree().create_timer(0.1).timeout
 	reset_and_reinstance_children(targets, initial_targets_data)
 	reset_and_reinstance_children(obstacles, initial_obstacles_data)
-	
 	Global.player.set_deferred("hasShot", false)
 	
 	if Global.has_used_hint:

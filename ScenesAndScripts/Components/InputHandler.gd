@@ -26,7 +26,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			var player_mouse_pos : Vector2 = Global.player.get_global_mouse_position()
 			var mousePos : Vector2 = player_mouse_pos + get_display_offset(player_mouse_pos)
 			mousePos.x += Global.display_offset.x
-			if Input.is_action_just_pressed("press"):
+			if Input.is_action_just_pressed("press") and Global.player.hasStartedLevel:
 				Global.player.hasStarted = true
 				Global.player.initPos = mousePos
 				start_pos.position = Global.player.initPos
@@ -46,22 +46,25 @@ func _unhandled_input(_event: InputEvent) -> void:
 				Global.player.force = distance / Settings.sensitivity
 				
 				handle_joystick(mousePos)
-			elif Input.is_action_just_released("press") and Global.player.hasStarted and !Global.did_game_finish:
-				start_pos.hide()
-				Global.player.hasStarted = false
-				Global.player.last_force_check = 0
-				
-				if distance > Global.player.difference:
-					Global.player.hasShot = true
-					Global.player.emit_signal("shot")
+			elif Input.is_action_just_released("press"):
+				if !Global.player.hasStartedLevel:
+					Global.player.hasStartedLevel = true
+				elif Global.player.hasStarted and !Global.did_game_finish:
+					start_pos.hide()
+					Global.player.hasStarted = false
+					Global.player.last_force_check = 0
 					
-					Global.hit_stop(0.25)
-					Global.player.speed = Global.player.force / 100
-					
-					Global.player.velocity = Vector2(cos(Global.player.heading), sin(Global.player.heading)) * Global.player.force
-					Global.player.release.play()
-				else:
-					Global.player.cancel.play()
+					if Global.is_canceling:
+						Global.player.cancel.play()
+					else:
+						Global.player.hasShot = true
+						Global.player.emit_signal("shot")
+						
+						Global.hit_stop(0.25)
+						Global.player.speed = Global.player.force / 100
+						
+						Global.player.velocity = Vector2(cos(Global.player.heading), sin(Global.player.heading)) * Global.player.force
+						Global.player.release.play()
 
 
 func handle_joystick(mousePos : Vector2) -> void:
@@ -71,10 +74,12 @@ func handle_joystick(mousePos : Vector2) -> void:
 	
 	if distance < Global.player.difference:
 		stayer.scale = Vector2.ONE * cancel_zoom
+		Global.is_canceling = true
 	else:
 		var size : Vector2 = Vector2(1 - distance / scale_divisor, 1 - distance / scale_divisor)
 		size = clamp(size, Vector2.ONE * 0.5, Vector2.ONE)
 		stayer.scale = size
+		Global.is_canceling = false
 	start_pos.show()
 
 func get_display_offset(global_mouse_pos: Vector2) -> Vector2:

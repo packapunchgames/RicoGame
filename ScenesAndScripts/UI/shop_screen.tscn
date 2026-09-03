@@ -3,15 +3,61 @@
 [ext_resource type="Shader" uid="uid://jo5bmdnhmgxs" path="res://ScenesAndScripts/Shaders/forever_scrolling_texture.gdshader" id="1_b015i"]
 [ext_resource type="Script" uid="uid://d1jecb7bn7ac4" path="res://ScenesAndScripts/UI/shop_screen.gd" id="1_joeor"]
 [ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="2_joeor"]
+[ext_resource type="Texture2D" uid="uid://cfh11un2bw4u8" path="res://Art/UI/scrollingBg.svg" id="3_rrwh8"]
+[ext_resource type="Texture2D" uid="uid://c6l86q3qhfpmu" path="res://Art/UI/back.svg" id="5_mwaiy"]
+[ext_resource type="Theme" uid="uid://dytgpe77rddim" path="res://ScenesAndScripts/Shaders/UI.tres" id="6_k5djo"]
+[ext_resource type="Texture2D" uid="uid://dyxqiiww0fy3x" path="res://Art/UI/Chickpea.svg" id="7_885o5"]
+[ext_resource type="Theme" uid="uid://cqy5qwkgao8ks" path="res://ScenesAndScripts/Shaders/3rd_text.tres" id="7_dcixm"]
+[ext_resource type="Texture2D" uid="uid://bxxrpm6suhly6" path="res://Art/UI/HP.svg" id="8_885o5"]
+[ext_resource type="Theme" uid="uid://fqf40pe11p5k" path="res://ScenesAndScripts/Shaders/2nd_text.tres" id="9_tvj5a"]
+[ext_resource type="AudioStream" uid="uid://bmbwopixvq3w" path="res://Sound/Sfx/pop.wav" id="10_dcixm"]
+[ext_resource type="AudioStream" uid="uid://c6s42jgt6cwwn" path="res://Sound/Sfx/UIClickNegative.mp3" id="11_885o5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4uq5y"]
 shader = ExtResource("1_b015i")
 shader_parameter/scroll_speed = 0.08
 shader_parameter/angle_degrees = 45.0
-shader_parameter/repeat_x = 20.0
+shader_parameter/repeat_x = 22.0000009975
 shader_parameter/repeat_y = 12.0
 shader_parameter/row_offset = 0.0
-shader_parameter/texture_to_scroll = ExtResource("2_joeor")
+shader_parameter/texture_to_scroll = ExtResource("3_rrwh8")
+
+[sub_resource type="Animation" id="Animation_mwaiy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.9, 0.9)]
+}
+
+[sub_resource type="Animation" id="Animation_k5djo"]
+resource_name = "heart_beating"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dcixm"]
+_data = {
+&"RESET": SubResource("Animation_mwaiy"),
+&"heart_beating": SubResource("Animation_k5djo")
+}
 
 [sub_resource type="Animation" id="Animation_joeor"]
 length = 0.001
@@ -39,10 +85,35 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/MarginContainer/VBoxContainer/LivesIcon:offset_transform_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.9, 0.9)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_rrwh8"]
 resource_name = "transition"
 length = 0.1
+step = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -67,6 +138,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.09900001, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7f2lv"]
 _data = {
@@ -84,6 +167,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_joeor")
 
+[node name="Layer" type="ColorRect" parent="." unique_id=387405798]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="Background" type="TextureRect" parent="." unique_id=247932632]
 material = SubResource("ShaderMaterial_4uq5y")
 layout_mode = 1
@@ -94,22 +186,127 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_joeor")
 
-[node name="IncreaseLives" type="Button" parent="." unique_id=1017427192]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=681366206]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "BUY NIGGA BUY"
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=656668286]
+layout_mode = 2
+theme = ExtResource("6_k5djo")
+theme_override_constants/margin_left = 350
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 350
+theme_override_constants/margin_bottom = 150
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/MarginContainer" unique_id=1542298104]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Panel" type="Panel" parent="MarginContainer/MarginContainer/PanelContainer" unique_id=1177196402]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/PanelContainer" unique_id=2043301721]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="MoneyDisplay" type="Label" parent="MarginContainer/MarginContainer/PanelContainer/HBoxContainer" unique_id=1546818566]
+layout_mode = 2
+theme = ExtResource("7_dcixm")
+text = "100"
+horizontal_alignment = 1
+
+[node name="MoneyIcon" type="TextureRect" parent="MarginContainer/MarginContainer/PanelContainer/HBoxContainer" unique_id=1706426145]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+texture = ExtResource("7_885o5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer" unique_id=1657456496]
+layout_mode = 2
+alignment = 1
+
+[node name="LivesIcon" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=590914889]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.9, 0.9)
+texture = ExtResource("8_885o5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LivesDisplay" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/LivesIcon" unique_id=44738091]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -163.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("7_dcixm")
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/font_size = 128
+text = "1"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/MarginContainer/VBoxContainer/LivesIcon" unique_id=1980685671]
+libraries/ = SubResource("AnimationLibrary_dcixm")
+autoplay = &"heart_beating"
+
+[node name="PriceDisplay" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1377412073]
+layout_mode = 2
+theme = ExtResource("9_tvj5a")
+text = "PRICE: 1000"
+horizontal_alignment = 1
+
+[node name="IncreaseLives" type="Button" parent="MarginContainer/MarginContainer" unique_id=1017427192]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+disabled = true
+text = "BUY"
+
+[node name="BackButton" type="TextureButton" parent="MarginContainer" unique_id=489498076]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("5_mwaiy")
+stretch_mode = 5
+
+[node name="Audio" type="Node" parent="." unique_id=444609093]
+
+[node name="ClickPositive" type="AudioStreamPlayer" parent="Audio" unique_id=1423002523]
+stream = ExtResource("10_dcixm")
+pitch_scale = 1.67
+bus = &"SFX"
+
+[node name="ClickNegative" type="AudioStreamPlayer" parent="Audio" unique_id=1714521567]
+stream = ExtResource("11_885o5")
+bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=191665206]
 libraries/ = SubResource("AnimationLibrary_7f2lv")
 
-[connection signal="pressed" from="IncreaseLives" to="." method="_on_increase_lives_pressed"]
+[connection signal="button_down" from="MarginContainer/MarginContainer/IncreaseLives" to="." method="_on_increase_lives_button_down"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/IncreaseLives" to="." method="_on_increase_lives_pressed"]
+[connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bsurj6o00t3ts" path="res://Art/UI/hint.svg" id="5_7j0dg"]
 [ext_resource type="Texture2D" uid="uid://cqfn6xe5f6wpu" path="res://Art/UI/adIcon.svg" id="6_hmk42"]
 [ext_resource type="Theme" uid="uid://fqf40pe11p5k" path="res://ScenesAndScripts/Shaders/2nd_text.tres" id="7_s8tti"]
+[ext_resource type="FontFile" uid="uid://c8j51pwxqiq6i" path="res://Art/Fonts/SpaceMono-Regular.ttf" id="8_slj6k"]
+[ext_resource type="Script" uid="uid://bive4suaggl7a" path="res://ScenesAndScripts/UI/timer.gd" id="8_wf7t4"]
 [ext_resource type="PackedScene" uid="uid://b872imwnvl48e" path="res://ScenesAndScripts/UI/revive_screen.tscn" id="9_cltkk"]
 
 [sub_resource type="Animation" id="Animation_cltkk"]
@@ -94,6 +96,22 @@ _data = {
 &"ad_fail": SubResource("Animation_wf7t4")
 }
 
+[sub_resource type="FontVariation" id="FontVariation_y13x8"]
+base_font = ExtResource("8_slj6k")
+variation_embolden = 1.0
+
+[sub_resource type="Theme" id="Theme_uc8js"]
+Label/constants/outline_size = 12
+Label/font_sizes/font_size = 30
+Label/fonts/font = SubResource("FontVariation_y13x8")
+LinkButton/colors/font_color = Color(0.616, 0.814, 0.88, 1)
+LinkButton/colors/font_hover_color = Color(0.528, 0.792, 0.88, 1)
+LinkButton/colors/font_pressed_color = Color(0.528, 0.792, 0.88, 1)
+LinkButton/constants/outline_size = 12
+LinkButton/constants/underline_spacing = 5
+LinkButton/font_sizes/font_size = 50
+LinkButton/fonts/font = SubResource("FontVariation_y13x8")
+
 [node name="UI" type="Control" unique_id=1772056420]
 process_mode = 3
 layout_mode = 3
@@ -119,12 +137,13 @@ theme_override_constants/margin_right = 75
 theme_override_constants/margin_bottom = 25
 
 [node name="Pause" type="TextureButton" parent="MarginContainer" unique_id=2020888595]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 8
+size_flags_vertical = 0
 texture_normal = ExtResource("2_7j0dg")
 ignore_texture_size = true
-stretch_mode = 4
+stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1274086644]
 process_mode = 1
@@ -202,6 +221,16 @@ horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/AdFailed" unique_id=906791410]
 libraries/ = SubResource("AnimationLibrary_rdr1u")
+
+[node name="Timer" type="Label" parent="MarginContainer" unique_id=1190058024]
+process_mode = 1
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = SubResource("Theme_uc8js")
+text = "00:01:25"
+horizontal_alignment = 1
+script = ExtResource("8_wf7t4")
 
 [node name="Overlays" type="Node" parent="." unique_id=1585715840]
 

@@ -9,7 +9,7 @@ func _ready() -> void:
 	max_value = parent.topForce
 
 func _process(delta: float) -> void:
-	if parent.hasStarted:
+	if parent.hasStarted and !Global.is_canceling:
 		value = parent.force
 		rotation_degrees = rad_to_deg(parent.heading)
 		tint_progress = Color.GREEN.lerp(Color.RED, value / max_value)

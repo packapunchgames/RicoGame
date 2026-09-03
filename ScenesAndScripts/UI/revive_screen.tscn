@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://d2y1a1o30386i" path="res://Art/UI/AdPressed.svg" id="5_0vedw"]
 [ext_resource type="Texture2D" uid="uid://dlw0bgk2xhkv3" path="res://Art/UI/AdDisabled.svg" id="6_3gkbo"]
 [ext_resource type="Texture2D" uid="uid://cqfn6xe5f6wpu" path="res://Art/UI/adIcon.svg" id="7_2yaeb"]
+[ext_resource type="AudioStream" uid="uid://cnyuvvre7niwa" path="res://Sound/Sfx/whoosh.mp3" id="10_3gkbo"]
+[ext_resource type="AudioStream" uid="uid://bmbwopixvq3w" path="res://Sound/Sfx/pop.wav" id="11_2yaeb"]
 
 [sub_resource type="Animation" id="Animation_0vedw"]
 length = 0.001
@@ -232,6 +234,18 @@ stretch_mode = 4
 [node name="Ticking" type="AudioStreamPlayer" parent="Sounds" unique_id=2076297627]
 stream = ExtResource("4_h0pu1")
 pitch_scale = 0.9
+bus = &"SFX"
+
+[node name="Whoosh" type="AudioStreamPlayer" parent="Sounds" unique_id=1843996984]
+stream = ExtResource("10_3gkbo")
+volume_db = -5.0
+pitch_scale = 2.5
+bus = &"SFX"
+
+[node name="Tap" type="AudioStreamPlayer" parent="Sounds" unique_id=182076741]
+stream = ExtResource("11_2yaeb")
+volume_db = 5.0
+pitch_scale = 0.5
 bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1150239254]
