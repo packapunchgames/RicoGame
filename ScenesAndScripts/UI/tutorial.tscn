@@ -1,0 +1,387 @@
+[gd_scene format=3 uid="uid://cr0rhs7wbg6ts"]
+
+[ext_resource type="Shader" uid="uid://jo5bmdnhmgxs" path="res://ScenesAndScripts/Shaders/forever_scrolling_texture.gdshader" id="1_rwcvg"]
+[ext_resource type="Script" uid="uid://ck7p8ybc2nses" path="res://ScenesAndScripts/UI/tutorial.gd" id="1_v6x6g"]
+[ext_resource type="Texture2D" uid="uid://cfh11un2bw4u8" path="res://Art/UI/scrollingBg.svg" id="2_padwr"]
+[ext_resource type="PackedScene" uid="uid://2efpx57nitbd" path="res://ScenesAndScripts/Components/main.tscn" id="2_sb0ya"]
+[ext_resource type="Texture2D" uid="uid://bhm68hkleo6d7" path="res://Art/PNG Files/Tutorial/Charging.png" id="3_uu8a3"]
+[ext_resource type="FontFile" uid="uid://b8tx02xl8i31w" path="res://Art/Fonts/Montserrat-Bold.ttf" id="3_v6x6g"]
+[ext_resource type="Texture2D" uid="uid://bxpi3nsc07o2t" path="res://Art/UI/sliderGrabber.svg" id="4_1acdw"]
+[ext_resource type="Texture2D" uid="uid://dagq7xvjgs67o" path="res://Art/PNG Files/Tutorial/Canceling.png" id="4_1r3ha"]
+[ext_resource type="Texture2D" uid="uid://guh38isgn55r" path="res://Art/PNG Files/Tutorial/Objective.png" id="5_4ybms"]
+[ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="5_ik37l"]
+[ext_resource type="Texture2D" uid="uid://bfti0pi51m8pn" path="res://Art/UI/Arrow.png" id="6_1acdw"]
+[ext_resource type="Shader" uid="uid://dnmxp76t0vdwb" path="res://ScenesAndScripts/Shaders/edges.gdshader" id="6_padwr"]
+[ext_resource type="Theme" uid="uid://fqf40pe11p5k" path="res://ScenesAndScripts/Shaders/2nd_text.tres" id="7_uu8a3"]
+[ext_resource type="Texture2D" uid="uid://cyyakaxqsro24" path="res://Art/PNG Files/Tutorial/Aiming.png" id="7_v6x6g"]
+[ext_resource type="Texture2D" uid="uid://ckbrt5y8rv3sp" path="res://Art/UI/ArrowPressed.png" id="11_1r3ha"]
+[ext_resource type="AudioStream" uid="uid://d3tnq3llih5je" path="res://Sound/Sfx/UIClickPositive.mp3" id="15_44qnh"]
+[ext_resource type="AudioStream" uid="uid://c6s42jgt6cwwn" path="res://Sound/Sfx/UIClickNegative.mp3" id="16_sb0ya"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1r3ha"]
+shader = ExtResource("1_rwcvg")
+shader_parameter/scroll_speed = 0.0400000019
+shader_parameter/angle_degrees = 45.0000021375
+shader_parameter/repeat_x = 22.0000009975
+shader_parameter/repeat_y = 12.0
+shader_parameter/row_offset = 0.0
+shader_parameter/texture_to_scroll = ExtResource("2_padwr")
+
+[sub_resource type="FontVariation" id="FontVariation_2o80w"]
+base_font = ExtResource("3_v6x6g")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpmc8"]
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.216, 0.27, 0.2619, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 75
+corner_radius_top_right = 75
+corner_radius_bottom_right = 75
+corner_radius_bottom_left = 75
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcglj"]
+content_margin_top = 10.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0.55, 0.46749997, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 15
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 75
+corner_radius_top_right = 75
+corner_radius_bottom_right = 75
+corner_radius_bottom_left = 75
+expand_margin_top = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgwqt"]
+content_margin_top = 10.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0.4, 0.33999997, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 15
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 75
+corner_radius_top_right = 75
+corner_radius_bottom_right = 75
+corner_radius_bottom_left = 75
+expand_margin_top = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtr50"]
+content_margin_top = 30.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0.55, 0.46749997, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 75
+corner_radius_top_right = 75
+corner_radius_bottom_right = 75
+corner_radius_bottom_left = 75
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5wso"]
+bg_color = Color(1, 0.716667, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2o80w"]
+bg_color = Color(1, 0.716667, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c767r"]
+bg_color = Color(0.9, 0.9, 0.9, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mevb3"]
+content_margin_top = 40.0
+content_margin_bottom = 20.0
+bg_color = Color(0.4, 0.36, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 75
+corner_radius_top_right = 75
+corner_radius_bottom_right = 75
+corner_radius_bottom_left = 75
+expand_margin_left = 40.0
+expand_margin_top = 40.0
+expand_margin_right = 40.0
+expand_margin_bottom = 40.0
+
+[sub_resource type="Theme" id="Theme_4ybms"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/constants/outline_size = 25
+Button/font_sizes/font_size = 64
+Button/fonts/font = SubResource("FontVariation_2o80w")
+Button/styles/disabled = SubResource("StyleBoxFlat_hpmc8")
+Button/styles/hover = SubResource("StyleBoxFlat_lcglj")
+Button/styles/normal = SubResource("StyleBoxFlat_mgwqt")
+Button/styles/pressed = SubResource("StyleBoxFlat_dtr50")
+HSlider/icons/grabber = ExtResource("4_1acdw")
+HSlider/icons/grabber_highlight = ExtResource("4_1acdw")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_h5wso")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_2o80w")
+HSlider/styles/slider = SubResource("StyleBoxFlat_c767r")
+Panel/styles/panel = SubResource("StyleBoxFlat_mevb3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ltuh0"]
+shader = ExtResource("6_padwr")
+shader_parameter/corner_radius = 0.050000002375
+shader_parameter/edge_smoothness = 0.0010000000475
+
+[sub_resource type="Animation" id="Animation_sb0ya"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2314u"]
+resource_name = "transition"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.099, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"update_data"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7txyf"]
+_data = {
+&"RESET": SubResource("Animation_sb0ya"),
+&"transition": SubResource("Animation_2314u")
+}
+
+[node name="Tutorial" type="Control" unique_id=633270893]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v6x6g")
+main_scene = ExtResource("2_sb0ya")
+imgs = Array[Texture2D]([ExtResource("7_v6x6g"), ExtResource("3_uu8a3"), ExtResource("4_1r3ha"), ExtResource("5_4ybms")])
+titleArray = Array[String](["Aiming", "Charging", "Cancel", "Objective"])
+descriptionsArray = Array[String](["To aim, drag your finger across the screen, the arrow will tell you the direction you're following!", "The longer you aim, the stronger your shot will be!", "To cancel, shorten the shot until the joystick enlarges", "Catch all the food in one go!"])
+
+[node name="Layer" type="ColorRect" parent="." unique_id=629402422]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Background" type="ColorRect" parent="." unique_id=20238567]
+material = SubResource("ShaderMaterial_1r3ha")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.49, 0.1421, 0.40882328, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=30858808]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 100
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1604501845]
+layout_mode = 2
+theme = SubResource("Theme_4ybms")
+
+[node name="Panel" type="Panel" parent="MarginContainer/PanelContainer" unique_id=1534543244]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer" unique_id=1722344844]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftArrow" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer" unique_id=377205906]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Left" type="TextureButton" parent="MarginContainer/PanelContainer/HBoxContainer/LeftArrow" unique_id=73901157]
+custom_minimum_size = Vector2(150, 800)
+layout_mode = 2
+texture_normal = ExtResource("6_1acdw")
+texture_pressed = ExtResource("11_1r3ha")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer" unique_id=184945912]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Title" type="Label" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=1242583140]
+layout_mode = 2
+theme = ExtResource("5_ik37l")
+text = "AIMING"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=1474287556]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("5_ik37l")
+
+[node name="Image" type="TextureRect" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=505970841]
+material = SubResource("ShaderMaterial_ltuh0")
+custom_minimum_size = Vector2(1200, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_v6x6g")
+expand_mode = 1
+
+[node name="Description" type="Label" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=1723503478]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_uu8a3")
+text = "To aim, drag your finger across the screen, the arrow will tell you the direction you're following!"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="Go" type="Button" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=2092613770]
+layout_mode = 2
+text = "GO!"
+
+[node name="RightArrow" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer" unique_id=1500667856]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Right" type="TextureButton" parent="MarginContainer/PanelContainer/HBoxContainer/RightArrow" unique_id=2085360820]
+custom_minimum_size = Vector2(150, 800)
+layout_mode = 2
+texture_normal = ExtResource("6_1acdw")
+texture_pressed = ExtResource("11_1r3ha")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Audio" type="Node" parent="." unique_id=746916448]
+
+[node name="ClickPositive" type="AudioStreamPlayer" parent="Audio" unique_id=1209040119]
+stream = ExtResource("15_44qnh")
+bus = &"SFX"
+
+[node name="ClickNegative" type="AudioStreamPlayer" parent="Audio" unique_id=768894180]
+stream = ExtResource("16_sb0ya")
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=28687893]
+libraries/ = SubResource("AnimationLibrary_7txyf")
+autoplay = &"transition"
+
+[connection signal="button_down" from="MarginContainer/PanelContainer/HBoxContainer/LeftArrow/Left" to="." method="button_hold_vibrate"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/HBoxContainer/LeftArrow/Left" to="." method="_on_left_pressed"]
+[connection signal="button_down" from="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/Go" to="." method="button_hold_vibrate"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/Go" to="." method="_on_go_pressed"]
+[connection signal="button_down" from="MarginContainer/PanelContainer/HBoxContainer/RightArrow/Right" to="." method="button_hold_vibrate"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/HBoxContainer/RightArrow/Right" to="." method="_on_right_pressed"]

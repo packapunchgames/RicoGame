@@ -63,4 +63,6 @@ func _on_ad_button_pressed() -> void:
 	get_tree().paused = false
 	Global.game_resumed.emit()
 	Global.player.hasStartedLevel = true
-	
+
+func button_hold_vibrate() -> void:
+	Settings.vibrate(5, 40)

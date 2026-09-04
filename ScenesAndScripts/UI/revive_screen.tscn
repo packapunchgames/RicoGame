@@ -253,4 +253,5 @@ libraries/ = SubResource("AnimationLibrary_2yaeb")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="ClickDetector" to="." method="_on_click_detector_pressed"]
+[connection signal="button_down" from="TimerProgressBar/MarginContainer2/AdButton" to="." method="button_hold_vibrate"]
 [connection signal="pressed" from="TimerProgressBar/MarginContainer2/AdButton" to="." method="_on_ad_button_pressed"]

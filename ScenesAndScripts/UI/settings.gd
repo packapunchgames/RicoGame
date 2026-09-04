@@ -55,3 +55,8 @@ func _on_visual_effects_pressed() -> void:
 
 func _on_timer_pressed() -> void:
 	Settings.show_timer = timer.state
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		if visible:
+			_on_back_button_pressed()

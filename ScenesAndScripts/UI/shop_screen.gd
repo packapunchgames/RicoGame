@@ -54,3 +54,8 @@ func _on_back_button_pressed() -> void:
 
 func _on_increase_lives_button_down() -> void:
 	Settings.vibrate(5, 40)
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		if visible:
+			_on_back_button_pressed()

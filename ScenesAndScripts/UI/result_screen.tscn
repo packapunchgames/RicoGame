@@ -1,8 +1,6 @@
 [gd_scene format=4 uid="uid://b1cacfvjwm1le"]
 
 [ext_resource type="Script" uid="uid://cjqhqergx5g8u" path="res://ScenesAndScripts/UI/result_screen.gd" id="1_5v5r7"]
-[ext_resource type="PackedScene" uid="uid://2efpx57nitbd" path="res://ScenesAndScripts/Components/main.tscn" id="2_ive0k"]
-[ext_resource type="PackedScene" uid="uid://b16bu1vsw1ces" path="res://ScenesAndScripts/UI/StartScreen.tscn" id="3_rekfv"]
 [ext_resource type="Shader" uid="uid://jo5bmdnhmgxs" path="res://ScenesAndScripts/Shaders/forever_scrolling_texture.gdshader" id="4_uncui"]
 [ext_resource type="Texture2D" uid="uid://cfh11un2bw4u8" path="res://Art/UI/scrollingBg.svg" id="5_aei3e"]
 [ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="6_y8pf3"]
@@ -15,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://bhx0brkl68olk" path="res://Art/UI/HomePressed.png" id="13_3uje5"]
 [ext_resource type="Theme" uid="uid://fqf40pe11p5k" path="res://ScenesAndScripts/Shaders/2nd_text.tres" id="14_6ompx"]
 [ext_resource type="Texture2D" uid="uid://dyxqiiww0fy3x" path="res://Art/UI/Chickpea.svg" id="15_s1sef"]
+[ext_resource type="PackedScene" uid="uid://hiwonrsdpxid" path="res://ScenesAndScripts/UI/settings.tscn" id="16_aei3e"]
+[ext_resource type="AudioStream" uid="uid://d3tnq3llih5je" path="res://Sound/Sfx/UIClickPositive.mp3" id="17_53cc7"]
+[ext_resource type="AudioStream" uid="uid://c6s42jgt6cwwn" path="res://Sound/Sfx/UIClickNegative.mp3" id="18_mtb7x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_een6x"]
 shader = ExtResource("4_uncui")
@@ -70,6 +71,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [4]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_aei3e"]
 resource_name = "fade"
@@ -82,7 +95,7 @@ tracks/0/path = NodePath("Background:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2499, 0.25),
+"times": PackedFloat32Array(0, 0.1699, 0.17),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, false, true]
@@ -112,10 +125,27 @@ tracks/2/keys = {
 "values": [4, 4, 0]
 }
 
+[sub_resource type="Animation" id="Animation_y8pf3"]
+resource_name = "main_menu_fade"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y8pf3"]
 _data = {
 &"RESET": SubResource("Animation_uncui"),
-&"fade": SubResource("Animation_aei3e")
+&"fade": SubResource("Animation_aei3e"),
+&"main_menu_fade": SubResource("Animation_y8pf3")
 }
 
 [node name="ResultScreen" type="Control" unique_id=804590909]
@@ -126,8 +156,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5v5r7")
-main_scene = ExtResource("2_ive0k")
-home_scene = ExtResource("3_rekfv")
 
 [node name="Layer" type="ColorRect" parent="." unique_id=1925146688]
 layout_mode = 1
@@ -237,17 +265,46 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.91764706, 0.6392157, 0.07058824, 1)
 text = "chickpeas"
 
+[node name="Overlay" type="MarginContainer" parent="." unique_id=1283133109]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 150
+
+[node name="Settings" parent="Overlay" unique_id=1887184854 instance=ExtResource("16_aei3e")]
+layout_mode = 2
+
 [node name="Audio" type="Node" parent="." unique_id=1457376840]
+
+[node name="ClickPositive" type="AudioStreamPlayer" parent="Audio" unique_id=2130453529]
+stream = ExtResource("17_53cc7")
+bus = &"SFX"
+
+[node name="ClickNegative" type="AudioStreamPlayer" parent="Audio" unique_id=859368250]
+stream = ExtResource("18_mtb7x")
+bus = &"SFX"
 
 [node name="Ticking" type="AudioStreamPlayer" parent="Audio" unique_id=266247197]
 stream = SubResource("AudioStreamWAV_uncui")
-pitch_scale = 1.5
+volume_db = -3.0
 bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1081675695]
 libraries/ = SubResource("AnimationLibrary_y8pf3")
 autoplay = &"fade"
 
+[connection signal="button_down" from="MarginContainer/VBoxContainer/PlayAgain" to="." method="button_hold_vibrate"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/ChangeSettings" to="." method="button_hold_vibrate"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/ChangeSettings" to="." method="_on_change_settings_pressed"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/ReturnToHome" to="." method="button_hold_vibrate"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/ReturnToHome" to="." method="_on_return_to_home_pressed"]
+[connection signal="back" from="Overlay/Settings" to="." method="_on_settings_back"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

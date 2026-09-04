@@ -170,7 +170,11 @@ horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/System" unique_id=198718679]
 layout_mode = 2
-columns = 2
+columns = 3
+
+[node name="Space" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer" unique_id=512259695]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer" unique_id=1320398949]
 layout_mode = 2
@@ -245,7 +249,11 @@ horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Game" unique_id=2142683964]
 layout_mode = 2
-columns = 2
+columns = 3
+
+[node name="Space" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer" unique_id=56676554]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer" unique_id=2058194795]
 layout_mode = 2
@@ -317,10 +325,10 @@ libraries/ = SubResource("AnimationLibrary_xgql1")
 [connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer2/Master" to="." method="slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer2/Music" to="." method="slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer2/SFX" to="." method="slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer2/Vibration" to="." method="slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer2/Vibration" to="." method="_on_vibration_value_changed"]
-[connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer2/Sensitivity" to="." method="slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/System/GridContainer/VBoxContainer2/Vibration" to="." method="slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer2/Sensitivity" to="." method="_on_sensitivity_value_changed"]
+[connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer2/Sensitivity" to="." method="slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer2/VisualEffects" to="." method="_on_visual_effects_pressed"]
 [connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/Game/GridContainer/VBoxContainer2/Timer" to="." method="_on_timer_pressed"]
 [connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

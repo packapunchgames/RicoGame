@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://g0vcrisyemhk" path="res://addons/GodotPlayGameServices/scripts/leaderboards/leaderboards_client.gd" id="6_vbfv4"]
 [ext_resource type="Script" uid="uid://8m2r1ue6db64" path="res://ScenesAndScripts/UI/google_play_account.gd" id="6_x7goh"]
 [ext_resource type="Script" uid="uid://cypbmrau0mvgu" path="res://addons/GodotPlayGameServices/scripts/players/players_client.gd" id="7_vbfv4"]
+[ext_resource type="Shader" uid="uid://pq2h1i71437x" path="res://ScenesAndScripts/Shaders/circle.gdshader" id="9_ygenn"]
 [ext_resource type="PackedScene" uid="uid://cfm3rcse1k1b2" path="res://ScenesAndScripts/UI/credits_screen.tscn" id="12_yps8v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yps8v"]
@@ -23,6 +24,9 @@ shader_parameter/repeat_x = 22.0000009975
 shader_parameter/repeat_y = 12.0
 shader_parameter/row_offset = 0.0
 shader_parameter/texture_to_scroll = ExtResource("3_l08pg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4uq5y"]
+shader = ExtResource("9_ygenn")
 
 [sub_resource type="Animation" id="Animation_7w328"]
 length = 0.001
@@ -247,6 +251,7 @@ alignment = 1
 [node name="Settings" type="Button" parent="MarginContainer/VBoxContainer" unique_id=667139800]
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
+size_flags_vertical = 4
 text = "SETTINGS"
 
 [node name="Leaderboard" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1209680090]
@@ -268,6 +273,14 @@ custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 text = "CREDITS"
 
+[node name="Record" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1895918190]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = ExtResource("4_7ianh")
+text = "Your Best Time: xx::yy:zz"
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="Version" type="Label" parent="MarginContainer" unique_id=1825202710]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -276,7 +289,8 @@ theme = ExtResource("4_7ianh")
 text = "Version: xxx"
 
 [node name="GooglePlayAccount" type="TextureRect" parent="MarginContainer" unique_id=2015395005]
-custom_minimum_size = Vector2(128, 128)
+material = SubResource("ShaderMaterial_4uq5y")
+custom_minimum_size = Vector2(150, 150)
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 8

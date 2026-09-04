@@ -1,0 +1,245 @@
+[gd_scene format=3 uid="uid://cv2tfyb5i87wy"]
+
+[ext_resource type="Shader" uid="uid://jo5bmdnhmgxs" path="res://ScenesAndScripts/Shaders/forever_scrolling_texture.gdshader" id="1_jt0uk"]
+[ext_resource type="Script" uid="uid://b3fxydvgwd5h6" path="res://ScenesAndScripts/UI/victory_screen.gd" id="1_tvcan"]
+[ext_resource type="Texture2D" uid="uid://cfh11un2bw4u8" path="res://Art/UI/scrollingBg.svg" id="2_1hk5v"]
+[ext_resource type="Texture2D" uid="uid://cqrhc2gl0xm4w" path="res://icon.svg" id="3_sc7j4"]
+[ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="4_cd1jv"]
+[ext_resource type="Theme" uid="uid://cqy5qwkgao8ks" path="res://ScenesAndScripts/Shaders/3rd_text.tres" id="5_tvcan"]
+[ext_resource type="Theme" uid="uid://fqf40pe11p5k" path="res://ScenesAndScripts/Shaders/2nd_text.tres" id="6_6ns5q"]
+[ext_resource type="Texture2D" uid="uid://dgxxsjqyvrepp" path="res://Art/UI/HomeNormal.png" id="7_cd1jv"]
+[ext_resource type="Texture2D" uid="uid://bhx0brkl68olk" path="res://Art/UI/HomePressed.png" id="8_tvcan"]
+[ext_resource type="AudioStream" uid="uid://n6ll4mugdnr4" path="res://Sound/Music/victoryMusic.mp3" id="9_6ns5q"]
+[ext_resource type="AudioStream" uid="uid://d3tnq3llih5je" path="res://Sound/Sfx/UIClickPositive.mp3" id="11_6ns5q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vkin4"]
+shader = ExtResource("1_jt0uk")
+shader_parameter/scroll_speed = 0.08
+shader_parameter/angle_degrees = 45.0
+shader_parameter/repeat_x = 22.0000009975
+shader_parameter/repeat_y = 12.0
+shader_parameter/row_offset = 0.0
+shader_parameter/texture_to_scroll = ExtResource("2_1hk5v")
+
+[sub_resource type="Animation" id="Animation_tvcan"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.25, 1.25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6ns5q"]
+resource_name = "best_time"
+loop_mode = 1
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9666667, 1, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vkin4"]
+_data = {
+&"RESET": SubResource("Animation_tvcan"),
+&"best_time": SubResource("Animation_6ns5q")
+}
+
+[sub_resource type="Animation" id="Animation_vkin4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2ygh7"]
+resource_name = "fade"
+length = 0.25
+step = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.245, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m1j2u"]
+_data = {
+&"RESET": SubResource("Animation_vkin4"),
+&"fade": SubResource("Animation_2ygh7")
+}
+
+[node name="VictoryScreen" type="Control" unique_id=437483924]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tvcan")
+
+[node name="Layer" type="ColorRect" parent="." unique_id=2054633215]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Background" type="TextureRect" parent="." unique_id=955596178]
+material = SubResource("ShaderMaterial_vkin4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_sc7j4")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1863628040]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 150
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1955661502]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2085860170]
+layout_mode = 2
+theme = ExtResource("4_cd1jv")
+theme_override_font_sizes/font_size = 100
+text = "YOU FINISHED ALL THE LEVELS!"
+horizontal_alignment = 1
+
+[node name="TimeDisplay" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1461380849]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.25, 1.25)
+theme = ExtResource("5_tvcan")
+text = "Time: xx:yy:zz"
+horizontal_alignment = 1
+
+[node name="TimeAnimation" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/TimeDisplay" unique_id=983903467]
+libraries/ = SubResource("AnimationLibrary_vkin4")
+
+[node name="Info" type="Label" parent="MarginContainer" unique_id=490949682]
+custom_minimum_size = Vector2(1800, 0)
+layout_mode = 2
+theme = ExtResource("6_6ns5q")
+theme_override_colors/font_color = Color(0.91764706, 0.6392157, 0.07058824, 1)
+text = "Your highscore is/You've just unlocked endless mode! Challenge your best time all over the world in the leaderboard in the home screen!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ReturnToHome" type="TextureButton" parent="MarginContainer" unique_id=1454381252]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("7_cd1jv")
+texture_pressed = ExtResource("8_tvcan")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Audio" type="Node" parent="." unique_id=1072591652]
+
+[node name="VictoryMusic" type="AudioStreamPlayer" parent="Audio" unique_id=528241705]
+stream = ExtResource("9_6ns5q")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="ClickPositive" type="AudioStreamPlayer" parent="Audio" unique_id=1044294518]
+stream = ExtResource("11_6ns5q")
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=678067493]
+libraries/ = SubResource("AnimationLibrary_m1j2u")
+autoplay = &"fade"
+
+[connection signal="button_down" from="MarginContainer/ReturnToHome" to="." method="_on_return_to_home_button_down"]
+[connection signal="pressed" from="MarginContainer/ReturnToHome" to="." method="_on_return_to_home_pressed"]

@@ -82,7 +82,6 @@ func stop() -> void:
 	speed = 0
 	speed_reserve = 0
 	velocity = Vector2.ZERO
-	animation_player.play("RESET")
 
 func rotate_sprite(delta : float) -> void:
 	if hasShot:

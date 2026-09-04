@@ -21,3 +21,8 @@ func _on_yes_pressed() -> void:
 
 func button_hold_vibrate() -> void:
 	Settings.vibrate(5, 40)
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		if visible:
+			_on_no_pressed()

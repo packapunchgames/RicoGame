@@ -13,3 +13,8 @@ func _on_back_button_pressed() -> void:
 	animation_player.play_backwards("transition")
 	await animation_player.animation_finished
 	back.emit()
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		if visible:
+			_on_back_button_pressed()

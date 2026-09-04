@@ -17,3 +17,5 @@ func _process(delta: float) -> void:
 	else:
 		time_passed = "%02d:%02d:%02d:%02d" % [ hours, mins, secs, ms]
 	text = time_passed
+	
+	Global.time = time

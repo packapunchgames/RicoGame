@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dccpftpriwfsd"]
 
+[ext_resource type="Script" uid="uid://okjykk4d8qdo" path="res://ScenesAndScripts/GameElements/danger.gd" id="1_fui31"]
 [ext_resource type="Shader" uid="uid://q7b4jvu2qe63" path="res://ScenesAndScripts/GameElements/outline_boundaries.gdshader" id="1_h250j"]
 [ext_resource type="Texture2D" uid="uid://511dkvijstd5" path="res://Art/PNG Files/characters/Saw/Saw.png" id="1_re6h8"]
 [ext_resource type="AudioStream" uid="uid://xh7xkss4i6r5" path="res://Sound/Sfx/saw.mp3" id="3_f73ua"]
@@ -30,7 +31,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/path = NodePath("Sound:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -60,7 +61,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/path = NodePath("Sound:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -79,6 +80,7 @@ _data = {
 [node name="Danger" type="CharacterBody2D" unique_id=1392740193]
 collision_layer = 16
 collision_mask = 3
+script = ExtResource("1_fui31")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2068569426]
 shape = SubResource("CircleShape2D_4dj6q")
@@ -92,7 +94,7 @@ texture = ExtResource("1_re6h8")
 libraries/ = SubResource("AnimationLibrary_l0e38")
 autoplay = &"idle"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1663209922]
+[node name="Sound" type="AudioStreamPlayer" parent="." unique_id=1663209922]
 stream = ExtResource("3_f73ua")
 volume_db = -25.0
 bus = &"SFX"

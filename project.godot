@@ -17,10 +17,11 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Sauté"
 config/version="0.3"
 run/main_scene="uid://b16bu1vsw1ces"
+config/quit_on_go_back=false
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
-config/icon="uid://ba55vx6evs38c"
+config/icon="uid://dortd0s0361wh"
 
 [audio]
 
@@ -46,6 +47,7 @@ gdscript/warnings/narrowing_conversion=0
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/frame_pacing/android/enable_frame_pacing=false
+window/frame_pacing/android/swappy_mode=0
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=4

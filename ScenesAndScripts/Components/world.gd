@@ -82,6 +82,7 @@ func restart() -> void:
 	reset_and_reinstance_children(targets, initial_targets_data)
 	reset_and_reinstance_children(obstacles, initial_obstacles_data)
 	Global.player.set_deferred("hasShot", false)
+	Global.player.animation_player.play("RESET")
 	
 	if Global.has_used_hint:
 		preview.show()

@@ -179,6 +179,12 @@ theme = ExtResource("3_8wqxr")
 text = "Zapsplat"
 uri = "https://www.zapsplat.com"
 
+[node name="Description2" type="LinkButton" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer3" unique_id=1594718145]
+layout_mode = 2
+theme = ExtResource("3_8wqxr")
+text = "Pixabay"
+uri = "https://www.pixabay.com"
+
 [node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1206430916]
 layout_mode = 2
 alignment = 2
