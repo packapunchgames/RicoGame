@@ -21,11 +21,13 @@ func _ready() -> void:
 		victory_music.playing = true
 		info.text = "You've just unlocked endless mode! Challenge your best time against others, you can find the leaderboard in the home screen!"
 		Resources.best_time = time
+		SaveLoad.data.best_time = Resources.best_time
 	else:
 		if Resources.best_time > time:
 			victory_music.playing = true
 			info.text = "New best time!"
 			Resources.best_time = time
+			SaveLoad.data.best_time = Resources.best_time
 			time_animation.play("best_time")
 		else:
 			var best_time := Resources.best_time
@@ -46,4 +48,5 @@ func _on_return_to_home_pressed() -> void:
 	click_positive.play()
 	Settings.vibrate(5, 60)
 	await animation_player.animation_finished
+	SaveLoad.save_data()
 	get_tree().change_scene_to_packed(home_screen)

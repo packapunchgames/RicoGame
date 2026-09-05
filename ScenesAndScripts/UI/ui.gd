@@ -40,6 +40,7 @@ func _on_hints_button_pressed() -> void:
 		if Resources.hints > 0:
 			Global.has_used_hint = true
 			Resources.hints -= 1
+			SaveLoad.data.hints = Resources.hints
 			Resources.hint_used.emit()
 		else:
 			animation_player.play("ad_fail")

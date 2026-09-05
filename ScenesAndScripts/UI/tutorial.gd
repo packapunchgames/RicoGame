@@ -49,7 +49,9 @@ func _on_go_pressed() -> void:
 	animation_player.play_backwards("transition")
 	click_positive.play()
 	Settings.vibrate(5,60)
+	SaveLoad.data.is_first_run = false
 	await animation_player.animation_finished
+	SaveLoad.save_data()
 	get_tree().change_scene_to_packed(main_scene)
 
 func button_hold_vibrate() -> void:

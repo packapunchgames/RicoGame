@@ -66,6 +66,7 @@ func game_over() -> void:
 	animation_player.play("close_transition")
 	await animation_player.animation_finished
 	get_tree().paused = false
+	SaveLoad.save_data()
 	get_tree().change_scene_to_packed(result_screen)
 
 

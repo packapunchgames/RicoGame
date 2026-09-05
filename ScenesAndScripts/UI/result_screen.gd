@@ -21,6 +21,7 @@ func _on_play_again_pressed() -> void:
 	Settings.vibrate(5, 60)
 	main_scene = load("res://ScenesAndScripts/Components/main.tscn")
 	await animation_player.animation_finished
+	SaveLoad.save_data()
 	get_tree().change_scene_to_packed(main_scene)
 
 func _on_return_to_home_pressed() -> void:
@@ -29,6 +30,7 @@ func _on_return_to_home_pressed() -> void:
 	Settings.vibrate(5, 60)
 	home_scene = load("res://ScenesAndScripts/UI/StartScreen.tscn")
 	await animation_player.animation_finished
+	SaveLoad.save_data()
 	get_tree().change_scene_to_packed(home_scene)
 
 
@@ -36,6 +38,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade":
 		if Global.money_gained > 0:
 			Resources.money += Global.money_gained
+			SaveLoad.data.money = Resources.money
 			ticking.play()
 			max_pitch = clampf(Global.money_gained / 10.0, 2.0, 6.0)
 			var tween : Tween = create_tween()

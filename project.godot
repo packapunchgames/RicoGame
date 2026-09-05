@@ -29,11 +29,12 @@ buses/default_bus_layout="res://Sound/default_bus_layout.tres"
 
 [autoload]
 
-Global="*res://ScenesAndScripts/Autoloads/Global.gd"
+SaveLoad="*uid://ds4230ph56l5h"
+ConfigFileHandler="*uid://bq2grlrbqvcs7"
+GodotPlayGameServices="*uid://b0hwvl06qcrkp"
 Settings="*res://ScenesAndScripts/Autoloads/Settings.gd"
 Resources="*res://ScenesAndScripts/Autoloads/Resources.gd"
-GodotPlayGameServices="*uid://b0hwvl06qcrkp"
-ConfigFileHandler="*uid://bq2grlrbqvcs7"
+Global="*res://ScenesAndScripts/Autoloads/Global.gd"
 
 [debug]
 

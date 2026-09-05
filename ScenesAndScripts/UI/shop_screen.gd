@@ -30,6 +30,9 @@ func _on_increase_lives_pressed() -> void:
 	
 	Resources.max_lives += 1
 	Resources.money -= price
+	SaveLoad.data.max_lives = Resources.max_lives
+	SaveLoad.data.money = Resources.money
+	SaveLoad.save_data()
 	update_data()
 	
 	click_positive.play()
