@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Sauté"
 config/version="0.3"
-run/main_scene="uid://b16bu1vsw1ces"
+run/main_scene="uid://dmaysxui46d4e"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -33,6 +33,7 @@ Global="*res://ScenesAndScripts/Autoloads/Global.gd"
 Settings="*res://ScenesAndScripts/Autoloads/Settings.gd"
 Resources="*res://ScenesAndScripts/Autoloads/Resources.gd"
 GodotPlayGameServices="*uid://b0hwvl06qcrkp"
+ConfigFileHandler="*uid://bq2grlrbqvcs7"
 
 [debug]
 

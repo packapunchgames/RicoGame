@@ -15,7 +15,10 @@ func _on_value_changed(new_value: float) -> void:
 	match bus_name:
 		"Master":
 			Settings.master_volume = new_value
+			ConfigFileHandler.save_system_setting("master_volume", new_value)
 		"Music":
 			Settings.music = new_value
+			ConfigFileHandler.save_system_setting("music", new_value)
 		"SFX":
 			Settings.sfx = new_value
+			ConfigFileHandler.save_system_setting("sfx", new_value)

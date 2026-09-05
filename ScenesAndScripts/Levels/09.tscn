@@ -108,7 +108,7 @@ polygon = PackedVector2Array(-200, 280, -200, 480, -80, 280)
 
 [node name="SolidObstacle2" parent="Obstacles" unique_id=1706191298 instance=ExtResource("4_f0w6x")]
 position = Vector2(240, -240)
-polygon = PackedVector2Array(-200, 640, -160, 680, -160, 720, -200, 760)
+polygon = PackedVector2Array(-200, 640, -160, 664, -160, 728, -200, 760)
 
 [node name="Ball" parent="." unique_id=1528748320 instance=ExtResource("5_ohvqb")]
 position = Vector2(120, 600)

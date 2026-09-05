@@ -36,9 +36,11 @@ func update_settings() -> void:
 
 func _on_vibration_value_changed(value: float) -> void:
 	Settings.vibration = value
+	ConfigFileHandler.save_system_setting("vibration", value)
 
 func _on_sensitivity_value_changed(value: float) -> void:
 	Settings.sensitivity = -value
+	ConfigFileHandler.save_game_setting("sensitivity", -value)
 
 func _on_back_button_pressed() -> void:
 	animation_player.play_backwards("show")
@@ -52,9 +54,11 @@ func slider_value_changed(value: float) -> void:
 
 func _on_visual_effects_pressed() -> void:
 	Settings.visual_effects = visual_effects.state
+	ConfigFileHandler.save_game_setting("vfx", visual_effects.state)
 
 func _on_timer_pressed() -> void:
 	Settings.show_timer = timer.state
+	ConfigFileHandler.save_game_setting("timer", timer.state)
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
