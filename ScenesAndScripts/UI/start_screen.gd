@@ -6,6 +6,7 @@ extends Control
 @onready var click_negative: AudioStreamPlayer = $Sounds/ClickNegative
 
 @export var game_scene : PackedScene
+@export var tutorial_scene : PackedScene
 
 @onready var menu_screen: Control = $Overlays/MenuScreen
 @onready var shop_screen: Control = $Overlays/ShopScreen
@@ -43,3 +44,9 @@ func _on_shop_pressed() -> void:
 	click_positive.play()
 	shop_screen.show_self()
 	Settings.vibrate(5, 60)
+
+
+func _on_menu_screen_go_tutorial() -> void:
+	animation_player.play("play_game")
+	await animation_player.animation_finished
+	get_tree().change_scene_to_packed(tutorial_scene)

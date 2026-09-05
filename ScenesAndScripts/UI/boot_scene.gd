@@ -3,7 +3,6 @@ extends ColorRect
 var loaded_scene : PackedScene
 
 func _ready() -> void:
-	print(SaveLoad.data)
 	if SaveLoad.data.is_first_run:
 		loaded_scene = load("res://ScenesAndScripts/UI/tutorial.tscn")
 	else:

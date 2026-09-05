@@ -8,6 +8,7 @@ uniform float row_offset : hint_range(-10, 10) = 0;
 uniform sampler2D texture_to_scroll;
 
 uniform float time = 0.0;
+uniform vec4 tint_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 
 void fragment() {
  float angle_rad = radians(angle_degrees);
@@ -27,4 +28,5 @@ void fragment() {
  vec2 snappedUV = round(scaled_uv / texelSize) * texelSize;
 
  COLOR = texture(texture_to_scroll, snappedUV);
+ COLOR *= tint_color;
 }

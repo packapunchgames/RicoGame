@@ -12,6 +12,8 @@ shader_parameter/repeat_x = 1.0
 shader_parameter/repeat_y = 1.0
 shader_parameter/row_offset = 0.0
 shader_parameter/texture_to_scroll = ExtResource("2_22vmx")
+shader_parameter/time = 0.0
+shader_parameter/tint_color = Color(1, 1, 1, 1)
 
 [node name="MovingObstacle" type="Polygon2D" unique_id=1588108137]
 process_mode = 1

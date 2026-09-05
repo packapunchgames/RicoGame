@@ -338,6 +338,7 @@ libraries/ = SubResource("AnimationLibrary_o16hd")
 [connection signal="button_down" from="MarginContainer/VBoxContainer/Leaderboard" to="." method="button_hold_vibrate"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Leaderboard" to="." method="_on_leaderboard_pressed"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/Tutorial" to="." method="button_hold_vibrate"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/Credits" to="." method="button_hold_vibrate"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="back" from="Overlays/Settings" to="." method="_on_back"]

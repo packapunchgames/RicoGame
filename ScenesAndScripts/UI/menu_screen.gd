@@ -15,6 +15,8 @@ extends Control
 
 var _leaderboards_cache: Array[PlayGamesLeaderboard] = []
 
+signal go_tutorial
+
 func _ready() -> void:
 	version.text = "Version " + ProjectSettings.get("application/config/version") + " <3"
 	
@@ -59,6 +61,11 @@ func _on_credits_pressed() -> void:
 	animation_player.play_backwards("main_menu")
 	credits_screen.show_self()
 	Settings.vibrate(5, 60)
+
+func _on_tutorial_pressed() -> void:
+	click_positive.play()
+	Settings.vibrate(5, 60)
+	go_tutorial.emit()
 
 
 func _on_all_leaderboards_loaded(leaderboards: Array[PlayGamesLeaderboard]) -> void:

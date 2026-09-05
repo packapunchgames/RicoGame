@@ -255,7 +255,7 @@ script = ExtResource("1_v6x6g")
 main_scene = ExtResource("2_sb0ya")
 imgs = Array[Texture2D]([ExtResource("7_v6x6g"), ExtResource("3_uu8a3"), ExtResource("4_1r3ha"), ExtResource("5_4ybms")])
 titleArray = Array[String](["Aiming", "Charging", "Cancel", "Objective"])
-descriptionsArray = Array[String](["To aim, drag your finger across the screen, the arrow will tell you the direction you're following!", "The longer you aim, the stronger your shot will be!", "To cancel, shorten the shot until the joystick enlarges", "Catch all the food in one go!"])
+descriptionsArray = Array[String](["To aim, drag your finger across the screen, the arrow will tell you where you're going to go", "The further you pull, the stronger your shot will be!", "To cancel, bring your finger to the center of the joystick", "Catch all the food in one go!"])
 
 [node name="Layer" type="ColorRect" parent="." unique_id=629402422]
 layout_mode = 1

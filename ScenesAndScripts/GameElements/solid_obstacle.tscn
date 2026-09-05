@@ -6,15 +6,18 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0224l"]
 shader = ExtResource("1_bn378")
-shader_parameter/scroll_speed = 0.1
+shader_parameter/scroll_speed = 0.10000000475
 shader_parameter/angle_degrees = 315.0
 shader_parameter/repeat_x = 1.0
 shader_parameter/repeat_y = 1.0
 shader_parameter/row_offset = 0.0
 shader_parameter/texture_to_scroll = ExtResource("2_bn378")
+shader_parameter/time = 0.0
+shader_parameter/tint_color = Color(0.8166666, 0, 1, 1)
 
 [node name="SolidObstacle" type="Polygon2D" unique_id=1271209548]
 process_mode = 1
+modulate = Color(1, 0, 0, 1)
 material = SubResource("ShaderMaterial_0224l")
 texture = ExtResource("2_bn378")
 script = ExtResource("1_fx737")
