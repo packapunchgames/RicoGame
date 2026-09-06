@@ -9,8 +9,10 @@
 [ext_resource type="Theme" uid="uid://fqf40pe11p5k" path="res://ScenesAndScripts/Shaders/2nd_text.tres" id="6_6ns5q"]
 [ext_resource type="Texture2D" uid="uid://dgxxsjqyvrepp" path="res://Art/UI/HomeNormal.png" id="7_cd1jv"]
 [ext_resource type="Texture2D" uid="uid://bhx0brkl68olk" path="res://Art/UI/HomePressed.png" id="8_tvcan"]
+[ext_resource type="Texture2D" uid="uid://dyxqiiww0fy3x" path="res://Art/UI/Chickpea.svg" id="8_vkin4"]
 [ext_resource type="AudioStream" uid="uid://n6ll4mugdnr4" path="res://Sound/Music/victoryMusic.mp3" id="9_6ns5q"]
 [ext_resource type="AudioStream" uid="uid://d3tnq3llih5je" path="res://Sound/Sfx/UIClickPositive.mp3" id="11_6ns5q"]
+[ext_resource type="AudioStream" uid="uid://bym3onj1o6gjs" path="res://Sound/Music/background_music.mp3" id="13_2ygh7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vkin4"]
 shader = ExtResource("1_jt0uk")
@@ -207,11 +209,39 @@ horizontal_alignment = 1
 [node name="TimeAnimation" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/TimeDisplay" unique_id=983903467]
 libraries/ = SubResource("AnimationLibrary_vkin4")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=972096608]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("6_6ns5q")
+alignment = 1
+
+[node name="MoneyCollected" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=750892242]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_tvcan")
+text = "You collected x0"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=980880294]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_vkin4")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ExclamationMark" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2085885089]
+layout_mode = 2
+theme = ExtResource("5_tvcan")
+theme_override_colors/font_color = Color(0.91764706, 0.6392157, 0.07058824, 1)
+text = "chickpeas"
+
 [node name="Info" type="Label" parent="MarginContainer" unique_id=490949682]
 custom_minimum_size = Vector2(1800, 0)
 layout_mode = 2
 theme = ExtResource("6_6ns5q")
-theme_override_colors/font_color = Color(0.91764706, 0.6392157, 0.07058824, 1)
+theme_override_colors/font_color = Color(1, 0.9666667, 0, 1)
 text = "Your highscore is/You've just unlocked endless mode! Challenge your best time all over the world in the leaderboard in the home screen!"
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -236,6 +266,13 @@ bus = &"Music"
 [node name="ClickPositive" type="AudioStreamPlayer" parent="Audio" unique_id=1044294518]
 stream = ExtResource("11_6ns5q")
 bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="Audio" unique_id=744458133]
+stream = ExtResource("13_2ygh7")
+volume_db = -20.0
+pitch_scale = 5.0
+bus = &"Music"
+parameters/looping = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=678067493]
 libraries/ = SubResource("AnimationLibrary_m1j2u")

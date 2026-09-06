@@ -12,12 +12,13 @@
 [ext_resource type="Theme" uid="uid://dkssc37mlgurm" path="res://ScenesAndScripts/Shaders/1st_text.tres" id="5_ik37l"]
 [ext_resource type="Texture2D" uid="uid://bfti0pi51m8pn" path="res://Art/UI/Arrow.png" id="6_1acdw"]
 [ext_resource type="Shader" uid="uid://dnmxp76t0vdwb" path="res://ScenesAndScripts/Shaders/edges.gdshader" id="6_padwr"]
-[ext_resource type="Texture2D" uid="uid://b47tiflpfvroh" path="res://Art/UI/godot.svg" id="7_2314u"]
+[ext_resource type="Texture2D" uid="uid://cmx08lve6iu7j" path="res://Art/PNG Files/Tutorial/Shop.png" id="7_7txyf"]
 [ext_resource type="Theme" uid="uid://fqf40pe11p5k" path="res://ScenesAndScripts/Shaders/2nd_text.tres" id="7_uu8a3"]
 [ext_resource type="Texture2D" uid="uid://cyyakaxqsro24" path="res://Art/PNG Files/Tutorial/Aiming.png" id="7_v6x6g"]
 [ext_resource type="Texture2D" uid="uid://ckbrt5y8rv3sp" path="res://Art/UI/ArrowPressed.png" id="11_1r3ha"]
 [ext_resource type="AudioStream" uid="uid://d3tnq3llih5je" path="res://Sound/Sfx/UIClickPositive.mp3" id="15_44qnh"]
 [ext_resource type="AudioStream" uid="uid://c6s42jgt6cwwn" path="res://Sound/Sfx/UIClickNegative.mp3" id="16_sb0ya"]
+[ext_resource type="AudioStream" uid="uid://bym3onj1o6gjs" path="res://Sound/Music/background_music.mp3" id="19_7txyf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1r3ha"]
 shader = ExtResource("1_rwcvg")
@@ -254,7 +255,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v6x6g")
 main_scene = ExtResource("2_sb0ya")
-imgs = Array[Texture2D]([ExtResource("7_v6x6g"), ExtResource("3_uu8a3"), ExtResource("4_1r3ha"), ExtResource("5_4ybms"), ExtResource("7_2314u")])
+imgs = Array[Texture2D]([ExtResource("7_v6x6g"), ExtResource("3_uu8a3"), ExtResource("4_1r3ha"), ExtResource("5_4ybms"), ExtResource("7_7txyf")])
 titleArray = Array[String](["Aiming", "Charging", "Cancel", "Objective", "Shop"])
 descriptionsArray = Array[String](["To aim, drag your finger across the screen, the arrow will tell you where you're going to go", "The further you pull, the stronger your shot will be!", "To cancel, bring your finger to the center of the joystick", "Catch all the food in one go!", "Earn chickpeas by playing, and use them to buy more lives at the shop in the home screen!"])
 
@@ -375,6 +376,14 @@ bus = &"SFX"
 [node name="ClickNegative" type="AudioStreamPlayer" parent="Audio" unique_id=768894180]
 stream = ExtResource("16_sb0ya")
 bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="Audio" unique_id=1158140405]
+stream = ExtResource("19_7txyf")
+volume_db = -20.0
+pitch_scale = 5.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=28687893]
 libraries/ = SubResource("AnimationLibrary_7txyf")

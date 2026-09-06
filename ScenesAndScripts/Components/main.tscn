@@ -33,6 +33,8 @@
 [ext_resource type="PackedScene" uid="uid://543478mp6cft" path="res://ScenesAndScripts/Levels/17.tscn" id="20_3khes"]
 [ext_resource type="PackedScene" uid="uid://dw3hsupi5se3j" path="res://ScenesAndScripts/Levels/18.tscn" id="21_72k30"]
 [ext_resource type="PackedScene" uid="uid://bwc0u4g0ffrba" path="res://ScenesAndScripts/Levels/19.tscn" id="22_ui070"]
+[ext_resource type="PackedScene" uid="uid://b1cacfvjwm1le" path="res://ScenesAndScripts/UI/result_screen.tscn" id="32_8wd62"]
+[ext_resource type="PackedScene" uid="uid://cv2tfyb5i87wy" path="res://ScenesAndScripts/UI/victory_screen.tscn" id="33_sv5br"]
 [ext_resource type="AudioStream" uid="uid://cgmde4o07hv4j" path="res://Sound/Music/mainMusic.mp3" id="34_l4u8c"]
 [ext_resource type="Shader" uid="uid://duhoy3tjfx378" path="res://ScenesAndScripts/Shaders/transitionshader.gdshader" id="34_ygyrs"]
 [ext_resource type="Texture2D" uid="uid://u5rtivaa0ota" path="res://Art/UI/WhiteCircle.png" id="35_vy032"]
@@ -503,6 +505,8 @@ mouse_filter = 2
 script = ExtResource("1_f6nm2")
 sub_viewport = NodePath("SubViewportContainer/SubViewport")
 levels = Array[PackedScene]([ExtResource("3_if7gy"), ExtResource("4_l4u8c"), ExtResource("5_bt5kp"), ExtResource("6_ope6r"), ExtResource("7_ygyrs"), ExtResource("8_vy032"), ExtResource("9_qwrd3"), ExtResource("10_xarur"), ExtResource("11_1m22k"), ExtResource("12_wem2e"), ExtResource("13_0ydpw"), ExtResource("14_cvio7"), ExtResource("15_yk0sy"), ExtResource("16_8tlad"), ExtResource("17_8a0o1"), ExtResource("18_2kyk8"), ExtResource("19_hgkmy"), ExtResource("20_3khes"), ExtResource("21_72k30"), ExtResource("22_ui070"), ExtResource("3_jx7lm"), ExtResource("4_sfw68"), ExtResource("5_o4wwj"), ExtResource("6_3rpab"), ExtResource("7_ov0y5"), ExtResource("8_w1pf6"), ExtResource("9_qpg0a"), ExtResource("10_b20td"), ExtResource("11_sldy7"), ExtResource("12_4tk3y")])
+result_screen = ExtResource("32_8wd62")
+victory_screen = ExtResource("33_sv5br")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1336974864]
 process_mode = 1

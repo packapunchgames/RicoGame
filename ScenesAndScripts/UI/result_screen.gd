@@ -15,11 +15,14 @@ var home_scene : PackedScene
 var max_pitch : float
 var min_pitch : float = 0.75
 
+func _ready() -> void:
+	main_scene = load("res://ScenesAndScripts/Components/main.tscn")
+	home_scene = load("res://ScenesAndScripts/UI/StartScreen.tscn")
+
 func _on_play_again_pressed() -> void:
 	animation_player.play_backwards("fade")
 	click_positive.play()
 	Settings.vibrate(5, 60)
-	main_scene = load("res://ScenesAndScripts/Components/main.tscn")
 	await animation_player.animation_finished
 	SaveLoad.save_data()
 	get_tree().change_scene_to_packed(main_scene)
@@ -28,7 +31,6 @@ func _on_return_to_home_pressed() -> void:
 	animation_player.play_backwards("fade")
 	click_positive.play()
 	Settings.vibrate(5, 60)
-	home_scene = load("res://ScenesAndScripts/UI/StartScreen.tscn")
 	await animation_player.animation_finished
 	SaveLoad.save_data()
 	get_tree().change_scene_to_packed(home_scene)

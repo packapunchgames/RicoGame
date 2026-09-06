@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ey504w60ehq2"
-path="res://.godot/imported/Edo Game Icon BW.png-90bc1f48c5b63f1953ef5bf9f4f20e0c.ctex"
+uid="uid://c8hyfay5bjqhw"
+path="res://.godot/imported/IconFG.svg-0d0ecc10ffdc8356cd219136158f12a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/PNG Files/Backgrounds/Edo Game Icon BW.png"
-dest_files=["res://.godot/imported/Edo Game Icon BW.png-90bc1f48c5b63f1953ef5bf9f4f20e0c.ctex"]
+source_file="res://Art/PNG Files/Icon/IconFG.svg"
+dest_files=["res://.godot/imported/IconFG.svg-0d0ecc10ffdc8356cd219136158f12a9.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dyxqiiww0fy3x" path="res://Art/UI/Chickpea.svg" id="15_s1sef"]
 [ext_resource type="PackedScene" uid="uid://hiwonrsdpxid" path="res://ScenesAndScripts/UI/settings.tscn" id="16_aei3e"]
 [ext_resource type="AudioStream" uid="uid://d3tnq3llih5je" path="res://Sound/Sfx/UIClickPositive.mp3" id="17_53cc7"]
+[ext_resource type="AudioStream" uid="uid://bym3onj1o6gjs" path="res://Sound/Music/background_music.mp3" id="17_y8pf3"]
 [ext_resource type="AudioStream" uid="uid://c6s42jgt6cwwn" path="res://Sound/Sfx/UIClickNegative.mp3" id="18_mtb7x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_een6x"]
@@ -295,6 +296,14 @@ bus = &"SFX"
 stream = SubResource("AudioStreamWAV_uncui")
 volume_db = -3.0
 bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="Audio" unique_id=903012000]
+stream = ExtResource("17_y8pf3")
+volume_db = -20.0
+pitch_scale = 7.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1081675695]
 libraries/ = SubResource("AnimationLibrary_y8pf3")

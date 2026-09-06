@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dortd0s0361wh"
-path="res://.godot/imported/Edo Game Icon.png-2da0494842adf1b64c71db54dafa9236.ctex"
+uid="uid://dv1701e4d7ttu"
+path="res://.godot/imported/IconBG.png-d2505a6d8718d7e7a7026a920cddf9b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/PNG Files/Backgrounds/Edo Game Icon.png"
-dest_files=["res://.godot/imported/Edo Game Icon.png-2da0494842adf1b64c71db54dafa9236.ctex"]
+source_file="res://Art/PNG Files/Icon/IconBG.png"
+dest_files=["res://.godot/imported/IconBG.png-d2505a6d8718d7e7a7026a920cddf9b8.ctex"]
 
 [params]
 

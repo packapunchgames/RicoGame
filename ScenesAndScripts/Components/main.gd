@@ -3,8 +3,8 @@ extends Control
 @export var sub_viewport: SubViewport
 @export var levels : Array[PackedScene]
 
-var result_screen : PackedScene = preload("res://ScenesAndScripts/UI/result_screen.tscn")
-var victory_screen : PackedScene
+@export var result_screen : PackedScene
+@export var victory_screen : PackedScene
 
 var level_index : int = 0
 
@@ -46,7 +46,6 @@ func play_next_level() -> void:
 			get_tree().paused = true
 			await get_tree().create_timer(1).timeout
 			animation_player.play("slow_transition")
-			victory_screen =  load("res://ScenesAndScripts/UI/victory_screen.tscn")
 
 func restart() -> void:
 	animation_player.play("close_transition")
