@@ -26,10 +26,13 @@ func _unhandled_input(_event: InputEvent) -> void:
 			var player_mouse_pos : Vector2 = Global.player.get_global_mouse_position()
 			var mousePos : Vector2 = player_mouse_pos + get_display_offset(player_mouse_pos)
 			mousePos.x += Global.display_offset.x
-			if Input.is_action_just_pressed("press") and Global.player.hasStartedLevel:
-				Global.player.hasStarted = true
-				Global.player.initPos = mousePos
-				start_pos.position = Global.player.initPos
+			if Input.is_action_just_pressed("press"):
+				if Global.player.hasStartedLevel:
+					Global.player.hasStarted = true
+					Global.player.initPos = mousePos
+					start_pos.position = Global.player.initPos
+				else:
+					Global.player.hasStartedLevel = true
 			if Input.is_action_pressed("press") and Global.player.hasStarted:
 				Global.player.pressVector = mousePos
 				Global.player.heading = Global.player.pressVector.angle_to_point(Global.player.initPos)

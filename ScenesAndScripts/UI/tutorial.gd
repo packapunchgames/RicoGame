@@ -20,7 +20,7 @@ var index : int = 0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func update_data() -> void:
-	if index == 3:
+	if index == 4:
 		right.hide()
 		go.show()
 	else:

@@ -31,6 +31,8 @@ func update_settings() -> void:
 	
 	visual_effects.state = Settings.visual_effects
 	visual_effects.update_texture()
+	timer.state = Settings.show_timer
+	timer.update_texture()
 	
 	has_updated_settings = true
 
