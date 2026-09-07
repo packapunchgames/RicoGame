@@ -11,7 +11,6 @@ func _ready() -> void:
 
 func _on_current_player_loaded(current_player : PlayGamesPlayer) -> void:
 	SaveLoad.data.player_id = current_player.player_id
-	SaveLoad.load_cloud_data()
 	if current_player:
 		play_games_player = current_player
 		_set_up_display()

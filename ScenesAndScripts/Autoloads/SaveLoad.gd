@@ -41,6 +41,7 @@ func save_data() -> void:
 	file.close()
 
 func load_data() -> void:
+	print("loading cloud data")
 	if FileAccess.file_exists(SAVE_FILE_PATH):
 		var file := FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
 		var json_string := file.get_as_text()

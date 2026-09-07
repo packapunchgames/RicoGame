@@ -12,6 +12,7 @@ extends Control
 
 func _ready() -> void:
 	get_tree().paused = false
+	SaveLoad.load_cloud_data()
 	
 	MobileAds.initialize()
 
