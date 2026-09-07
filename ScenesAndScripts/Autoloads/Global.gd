@@ -19,6 +19,8 @@ var money_gained : int = 0
 var kill_coefficient : int = 3
 var time : float 
 
+var is_authenticated : bool = false
+
 signal level_succeded
 signal game_paused
 signal game_resumed

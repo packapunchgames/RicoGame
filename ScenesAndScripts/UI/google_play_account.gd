@@ -10,12 +10,13 @@ func _ready() -> void:
 	play_games_players_client.load_current_player(true)
 
 func _on_current_player_loaded(current_player : PlayGamesPlayer) -> void:
+	SaveLoad.data.player_id = current_player.player_id
+	SaveLoad.load_cloud_data()
 	if current_player:
-		print("giocatore caricato")
 		play_games_player = current_player
 		_set_up_display()
 	else:
-		print("caricamento fallito")
+		hide()
 
 func _set_up_display() -> void:
 	GodotPlayGameServices.image_stored.connect(func(file_path: String) -> void:
@@ -29,4 +30,3 @@ func _display_avatar() -> void:
 		self,
 		play_games_player.hi_res_image_uri
 	)
-	print("image applied")

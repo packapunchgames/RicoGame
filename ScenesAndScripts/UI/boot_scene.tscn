@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c6gk3v22tyw01" path="res://ScenesAndScripts/UI/boot_scene.gd" id="1_8jwpy"]
 [ext_resource type="Texture2D" uid="uid://8pputg2jt3x5" path="res://Art/UI/PackAPunch.svg" id="2_2rcvt"]
 [ext_resource type="Texture2D" uid="uid://b47tiflpfvroh" path="res://Art/UI/godot.svg" id="3_7h4ij"]
+[ext_resource type="Script" uid="uid://c0mcq6bajdwx3" path="res://addons/GodotPlayGameServices/scripts/sign_in/sign_in_client.gd" id="4_7h4ij"]
 
 [sub_resource type="Animation" id="Animation_2rcvt"]
 length = 0.001
@@ -20,7 +21,8 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_7h4ij"]
-resource_name = "boot_up"
+resource_name = "fade"
+length = 0.5
 step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -29,16 +31,16 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.9, 1),
-"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k1uep"]
 _data = {
 &"RESET": SubResource("Animation_2rcvt"),
-&"boot_up": SubResource("Animation_7h4ij")
+&"fade": SubResource("Animation_7h4ij")
 }
 
 [node name="BootScene" type="ColorRect" unique_id=575362807]
@@ -77,6 +79,11 @@ texture = ExtResource("3_7h4ij")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1414158172]
 libraries/ = SubResource("AnimationLibrary_k1uep")
-autoplay = &"boot_up"
+autoplay = &"fade"
+
+[node name="PlayGamesSignInClient" type="Node" parent="." unique_id=464652648]
+script = ExtResource("4_7h4ij")
+metadata/_custom_type_script = "uid://c0mcq6bajdwx3"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="user_authenticated" from="PlayGamesSignInClient" to="." method="_on_play_games_sign_in_client_user_authenticated"]

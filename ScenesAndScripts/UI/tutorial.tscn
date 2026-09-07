@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://d3tnq3llih5je" path="res://Sound/Sfx/UIClickPositive.mp3" id="15_44qnh"]
 [ext_resource type="AudioStream" uid="uid://c6s42jgt6cwwn" path="res://Sound/Sfx/UIClickNegative.mp3" id="16_sb0ya"]
 [ext_resource type="AudioStream" uid="uid://bym3onj1o6gjs" path="res://Sound/Music/background_music.mp3" id="19_7txyf"]
+[ext_resource type="Script" uid="uid://c0mcq6bajdwx3" path="res://addons/GodotPlayGameServices/scripts/sign_in/sign_in_client.gd" id="20_c20ih"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1r3ha"]
 shader = ExtResource("1_rwcvg")
@@ -389,9 +390,14 @@ parameters/looping = true
 libraries/ = SubResource("AnimationLibrary_7txyf")
 autoplay = &"transition"
 
+[node name="PlayGamesSignInClient" type="Node" parent="." unique_id=756178365]
+script = ExtResource("20_c20ih")
+metadata/_custom_type_script = "uid://c0mcq6bajdwx3"
+
 [connection signal="button_down" from="MarginContainer/PanelContainer/HBoxContainer/LeftArrow/Left" to="." method="button_hold_vibrate"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/HBoxContainer/LeftArrow/Left" to="." method="_on_left_pressed"]
 [connection signal="button_down" from="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/Go" to="." method="button_hold_vibrate"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/Go" to="." method="_on_go_pressed"]
 [connection signal="button_down" from="MarginContainer/PanelContainer/HBoxContainer/RightArrow/Right" to="." method="button_hold_vibrate"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/HBoxContainer/RightArrow/Right" to="." method="_on_right_pressed"]
+[connection signal="user_authenticated" from="PlayGamesSignInClient" to="." method="_on_play_games_sign_in_client_user_authenticated"]

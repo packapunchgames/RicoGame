@@ -85,3 +85,8 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		if visible and margin_container.visible:
 			_on_back_button_pressed()
+
+
+func _on_play_games_leaderboards_client_all_leaderboards_loaded(leaderboards: Array[PlayGamesLeaderboard]) -> void:
+	if Resources.best_time > 0:
+		play_games_leaderboards_client.submit_score("CgkI4YXT4KkHEAIQAw", Resources.best_time * 1000)

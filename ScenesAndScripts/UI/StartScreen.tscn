@@ -10,7 +10,6 @@
 [ext_resource type="Theme" uid="uid://dytgpe77rddim" path="res://ScenesAndScripts/Shaders/UI.tres" id="6_lsinn"]
 [ext_resource type="FontFile" uid="uid://b8tx02xl8i31w" path="res://Art/Fonts/Montserrat-Bold.ttf" id="7_f1yrd"]
 [ext_resource type="Texture2D" uid="uid://ba55vx6evs38c" path="res://Art/PNG Files/Backgrounds/MainScreen/Chef.png" id="7_pltth"]
-[ext_resource type="Script" uid="uid://c0mcq6bajdwx3" path="res://addons/GodotPlayGameServices/scripts/sign_in/sign_in_client.gd" id="8_lvw1k"]
 [ext_resource type="AudioStream" uid="uid://d3tnq3llih5je" path="res://Sound/Sfx/UIClickPositive.mp3" id="8_qepqg"]
 [ext_resource type="Texture2D" uid="uid://b71iccn138m38" path="res://Art/UI/shopIcon.svg" id="8_w7o22"]
 [ext_resource type="Texture2D" uid="uid://b6fwgaucpdlro" path="res://Art/PNG Files/Backgrounds/MainScreen/Veggies.png" id="8_w8olo"]
@@ -486,13 +485,8 @@ parameters/looping = true
 libraries/ = SubResource("AnimationLibrary_a0unc")
 autoplay = &"enter_scene"
 
-[node name="PlayGamesSignInClient" type="Node" parent="." unique_id=1475228521]
-script = ExtResource("8_lvw1k")
-metadata/_custom_type_script = "uid://c0mcq6bajdwx3"
-
 [connection signal="button_down" from="Overlay/MarginContainer/StartButton" to="." method="button_hold_vibrate"]
 [connection signal="pressed" from="Overlay/MarginContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Overlay/MarginContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Overlay/MarginContainer/Shop" to="." method="_on_shop_pressed"]
 [connection signal="go_tutorial" from="Overlays/MenuScreen" to="." method="_on_menu_screen_go_tutorial"]
-[connection signal="user_authenticated" from="PlayGamesSignInClient" to="." method="_on_play_games_sign_in_client_user_authenticated"]

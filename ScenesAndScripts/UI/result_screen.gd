@@ -25,6 +25,7 @@ func _on_play_again_pressed() -> void:
 	Settings.vibrate(5, 60)
 	await animation_player.animation_finished
 	SaveLoad.save_data()
+	SaveLoad.save_cloud_data()
 	get_tree().change_scene_to_packed(main_scene)
 
 func _on_return_to_home_pressed() -> void:
@@ -33,6 +34,7 @@ func _on_return_to_home_pressed() -> void:
 	Settings.vibrate(5, 60)
 	await animation_player.animation_finished
 	SaveLoad.save_data()
+	SaveLoad.save_cloud_data()
 	get_tree().change_scene_to_packed(home_scene)
 
 

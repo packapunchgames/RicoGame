@@ -87,6 +87,7 @@ func save_game(
 	if GodotPlayGameServices.android_plugin:
 		GodotPlayGameServices.android_plugin.saveGame(file_name, description, save_data, played_time_millis, progress_value)
 
+
 ## Loads game data from the Google Cloud.[br]
 ## [br]
 ## This method emits the [signal game_loaded] signal.[br]

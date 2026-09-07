@@ -19,6 +19,10 @@ var index : int = 0
 @onready var click_negative: AudioStreamPlayer = $Audio/ClickNegative
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@onready var play_games_sign_in_client: PlayGamesSignInClient = $PlayGamesSignInClient
+
+var sign_in_retries := 3
+
 func update_data() -> void:
 	if index == 4:
 		right.hide()
@@ -62,3 +66,15 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		if index > 0:
 			_on_left_pressed()
+
+func _ready() -> void:
+	play_games_sign_in_client.is_authenticated()
+
+
+func _on_play_games_sign_in_client_user_authenticated(is_authenticated: bool) -> void:
+	Global.is_authenticated = is_authenticated
+	if !is_authenticated and sign_in_retries > 0:
+		play_games_sign_in_client.sign_in()
+		sign_in_retries -= 1
+	else:
+		SaveLoad.load_cloud_data()
