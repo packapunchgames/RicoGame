@@ -53,9 +53,9 @@ func restart() -> void:
 	get_tree().reload_current_scene()
 
 func return_to_home() -> void:
-	var start_screen : PackedScene = load("res://ScenesAndScripts/UI/StartScreen.tscn")
 	animation_player.play("close_transition")
 	await animation_player.animation_finished
+	var start_screen : PackedScene = load("res://ScenesAndScripts/UI/StartScreen.tscn")
 	get_tree().change_scene_to_packed(start_screen)
 
 func game_over() -> void:

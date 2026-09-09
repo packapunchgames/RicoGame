@@ -320,8 +320,10 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("5_57l1i")
 expand_mode = 1
 stretch_mode = 6
+metadata/_edit_use_anchors_ = true
 
 [node name="Gyro" type="Node" parent="BackLayer" unique_id=1769723636 node_paths=PackedStringArray("actor")]
+process_mode = 3
 script = ExtResource("6_f1yrd")
 actor = NodePath("..")
 force = -55
@@ -360,8 +362,10 @@ grow_vertical = 0
 texture = ExtResource("7_pltth")
 expand_mode = 1
 stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
 [node name="Gyro" type="Node" parent="Chef" unique_id=180400113 node_paths=PackedStringArray("actor")]
+process_mode = 3
 script = ExtResource("6_f1yrd")
 actor = NodePath("..")
 force = -60
@@ -386,6 +390,7 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("8_w8olo")
 expand_mode = 1
 stretch_mode = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="Gyro" type="Node" parent="Veggies" unique_id=1744722297 node_paths=PackedStringArray("actor")]
 process_mode = 3

@@ -9,8 +9,14 @@ var start_pos : Vector2
 var _current_offset : Variant = Vector2.ZERO
 
 func _ready() -> void:
+	update_position()
+	get_tree().root.size_changed.connect(update_position)
+
+func update_position() -> void:
 	await get_tree().process_frame
-	start_pos = actor.position
+	if actor:
+		start_pos = actor.position
+
 
 func _process(delta: float) -> void:
 	var accel := Input.get_accelerometer()

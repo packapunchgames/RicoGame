@@ -22,7 +22,7 @@ func _ready() -> void:
 func _on_play_again_pressed() -> void:
 	animation_player.play_backwards("fade")
 	click_positive.play()
-	Settings.vibrate(5, 60)
+	Settings.vibrate(5, 80)
 	await animation_player.animation_finished
 	SaveLoad.save_data()
 	SaveLoad.save_cloud_data()
@@ -31,7 +31,7 @@ func _on_play_again_pressed() -> void:
 func _on_return_to_home_pressed() -> void:
 	animation_player.play_backwards("fade")
 	click_positive.play()
-	Settings.vibrate(5, 60)
+	Settings.vibrate(5, 80)
 	await animation_player.animation_finished
 	SaveLoad.save_data()
 	SaveLoad.save_cloud_data()
@@ -71,11 +71,11 @@ func button_hold_vibrate() -> void:
 func _on_change_settings_pressed() -> void:
 	animation_player.play("main_menu_fade")
 	click_positive.play()
-	Settings.vibrate(5, 60)
+	Settings.vibrate(5, 80)
 	settings.show_self()
 
 
 func _on_settings_back() -> void:
 	click_negative.play()
-	Settings.vibrate(5, 60)
+	Settings.vibrate(5, 80)
 	animation_player.play_backwards("main_menu_fade")

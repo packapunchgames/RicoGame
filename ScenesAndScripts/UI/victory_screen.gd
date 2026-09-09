@@ -57,7 +57,7 @@ func _on_return_to_home_button_down() -> void:
 func _on_return_to_home_pressed() -> void:
 	animation_player.play_backwards("fade")
 	click_positive.play()
-	Settings.vibrate(5, 60)
+	Settings.vibrate(5, 80)
 	await animation_player.animation_finished
 	SaveLoad.save_data()
 	SaveLoad.save_cloud_data()

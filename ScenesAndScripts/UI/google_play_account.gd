@@ -7,15 +7,18 @@ var play_games_player: PlayGamesPlayer
 
 func _ready() -> void:
 	play_games_players_client.current_player_loaded.connect(_on_current_player_loaded)
+	load_player()
+
+func load_player() -> void:
+	modulate = Color(0,0,0,0)
 	play_games_players_client.load_current_player(true)
 
 func _on_current_player_loaded(current_player : PlayGamesPlayer) -> void:
 	SaveLoad.data.player_id = current_player.player_id
 	if current_player:
 		play_games_player = current_player
+		modulate = Color.WHITE
 		_set_up_display()
-	else:
-		hide()
 
 func _set_up_display() -> void:
 	GodotPlayGameServices.image_stored.connect(func(file_path: String) -> void:

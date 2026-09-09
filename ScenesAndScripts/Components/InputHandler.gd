@@ -20,6 +20,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 	if Global.player and !Global.did_game_finish:
 		if Global.player.hasShot:
 			if Input.is_action_just_pressed("press"):
+				Global.player.animation_player.play("RESET")
 				Global.player.emit_signal("restart")
 				Global.player.hasShot = false
 		else:

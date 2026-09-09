@@ -18,3 +18,4 @@ mono_crash.*.json
 android/
 
 /Exports
+/Art/PNG Files/StoreImages

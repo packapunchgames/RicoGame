@@ -13,14 +13,13 @@ extends Control
 func _ready() -> void:
 	get_tree().paused = false
 	SaveLoad.load_cloud_data()
-	
-	MobileAds.initialize()
 
 
 func _on_start_button_pressed() -> void:
 	animation_player.play("play_game")
 	click_positive.play()
-	Settings.vibrate(5, 60)
+	Settings.vibrate(5, 80)
+	shop_screen.destroy()
 	await animation_player.animation_finished
 	get_tree().change_scene_to_packed(game_scene)
 
@@ -30,12 +29,12 @@ func button_hold_vibrate() -> void:
 func _on_menu_pressed() -> void:
 	click_positive.play()
 	menu_screen.show_self()
-	Settings.vibrate(5, 60)
+	Settings.vibrate(5, 80)
 
 func _on_shop_pressed() -> void:
 	click_positive.play()
 	shop_screen.show_self()
-	Settings.vibrate(5, 60)
+	Settings.vibrate(5, 80)
 
 
 func _on_menu_screen_go_tutorial() -> void:

@@ -40,19 +40,19 @@ func update_data() -> void:
 func _on_left_pressed() -> void:
 	index -= 1
 	click_negative.play()
-	Settings.vibrate(5,60)
+	Settings.vibrate(5,80)
 	update_data()
 
 func _on_right_pressed() -> void:
 	index += 1
 	click_positive.play()
-	Settings.vibrate(5,60)
+	Settings.vibrate(5,80)
 	update_data()
 
 func _on_go_pressed() -> void:
 	animation_player.play_backwards("transition")
 	click_positive.play()
-	Settings.vibrate(5,60)
+	Settings.vibrate(5,80)
 	SaveLoad.data.is_first_run = false
 	await animation_player.animation_finished
 	SaveLoad.save_data()

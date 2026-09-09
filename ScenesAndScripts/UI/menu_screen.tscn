@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://8m2r1ue6db64" path="res://ScenesAndScripts/UI/google_play_account.gd" id="6_x7goh"]
 [ext_resource type="Script" uid="uid://cypbmrau0mvgu" path="res://addons/GodotPlayGameServices/scripts/players/players_client.gd" id="7_vbfv4"]
 [ext_resource type="Shader" uid="uid://pq2h1i71437x" path="res://ScenesAndScripts/Shaders/circle.gdshader" id="9_ygenn"]
+[ext_resource type="Script" uid="uid://c0mcq6bajdwx3" path="res://addons/GodotPlayGameServices/scripts/sign_in/sign_in_client.gd" id="12_ygenn"]
 [ext_resource type="PackedScene" uid="uid://cfm3rcse1k1b2" path="res://ScenesAndScripts/UI/credits_screen.tscn" id="12_yps8v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yps8v"]
@@ -304,6 +305,18 @@ script = ExtResource("6_x7goh")
 script = ExtResource("7_vbfv4")
 metadata/_custom_type_script = "uid://cypbmrau0mvgu"
 
+[node name="SignIn" type="Button" parent="MarginContainer" unique_id=1990874064]
+custom_minimum_size = Vector2(300, 125)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("2_s4s1t")
+text = "Sign in"
+
+[node name="PlayGamesSignInClient" type="Node" parent="MarginContainer/SignIn" unique_id=1231393853]
+script = ExtResource("12_ygenn")
+metadata/_custom_type_script = "uid://c0mcq6bajdwx3"
+
 [node name="Overlays" type="Control" parent="." unique_id=208529786]
 layout_mode = 1
 anchors_preset = 15
@@ -342,5 +355,8 @@ libraries/ = SubResource("AnimationLibrary_o16hd")
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/Credits" to="." method="button_hold_vibrate"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="button_down" from="MarginContainer/SignIn" to="." method="button_hold_vibrate"]
+[connection signal="pressed" from="MarginContainer/SignIn" to="." method="_on_sign_in_pressed"]
+[connection signal="user_authenticated" from="MarginContainer/SignIn/PlayGamesSignInClient" to="." method="_on_play_games_sign_in_client_user_authenticated"]
 [connection signal="back" from="Overlays/Settings" to="." method="_on_back"]
 [connection signal="back" from="Overlays/CreditsScreen" to="." method="_on_back"]

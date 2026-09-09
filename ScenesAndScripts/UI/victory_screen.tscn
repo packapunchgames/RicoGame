@@ -269,8 +269,8 @@ bus = &"SFX"
 
 [node name="Music" type="AudioStreamPlayer" parent="Audio" unique_id=744458133]
 stream = ExtResource("13_2ygh7")
-volume_db = -20.0
-pitch_scale = 5.0
+volume_db = -10.0
+pitch_scale = 1.5
 bus = &"Music"
 parameters/looping = true
 

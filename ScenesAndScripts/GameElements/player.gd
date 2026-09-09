@@ -94,6 +94,7 @@ func level_ended() -> void:
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	stop()
+	Settings.vibrate(15, 90)
 	collision_shape.set_deferred("disabled", true)
 	hurtbox.set_deferred("monitoring", false)
 	animation_player.play("dead")
@@ -113,6 +114,7 @@ func _on_restart() -> void:
 	if Global.lives > 1:
 		Global.lives -= 1
 	elif Global.lives == 1:
+		animation_player.play("RESET")
 		if Global.did_try_second_chance:
 			Global.game_over.emit()
 		else:

@@ -9,7 +9,7 @@ func show_self() -> void:
 
 
 func _on_back_button_pressed() -> void:
-	Settings.vibrate(5, 60)
+	Settings.vibrate(5, 80)
 	animation_player.play_backwards("transition")
 	await animation_player.animation_finished
 	back.emit()
